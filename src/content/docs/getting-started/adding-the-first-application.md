@@ -1,0 +1,26 @@
+---
+title: "Adding the First Application"
+slug: "adding-the-first-application"
+excerpt: ""
+hidden: false
+createdAt: "Mon Jul 25 2022 08:58:43 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Tue Dec 12 2023 13:23:43 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 5
+---
+In this step, we'll add our first web application to Patchstack. 
+
+To do that, navigate to **Dashboard** and click on the **+ Add application** button as shown below.
+
+![](https://files.readme.io/e4c967e-Patchstack_-_add_first_application.png)
+
+A dialogue will open asking you for your domain URL. 
+
+1. Enter the domain name to the input. You can switch between http/https by clicking on the arrows
+2. Click **Continue to connect plugin**
+
+![](https://files.readme.io/6812404-Patchstack_connect_an_application.png)
+
+You will be taken to the next step, where you can see the API key or download the plugin ZIP file.
+
+![](https://files.readme.io/d0ff620-Patchstack_is_not_connected_2.png)

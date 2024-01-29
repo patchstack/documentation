@@ -1,0 +1,33 @@
+---
+title: Welcome to Patchstack docs
+description: Get started building your docs site with Starlight.
+template: splash
+hero:
+  tagline: Congrats on setting up a new Starlight project!
+  image:
+    file: ../../assets/big-logo.svg
+  actions:
+    - text: Getting started
+      link: /introduction/
+      icon: right-arrow
+      variant: primary
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Next steps
+
+<CardGrid stagger>
+	<Card title="Learn about Patchstack app" icon="pencil">
+		[Learn more](/introduction/).
+	</Card>
+	<Card title="Learn about Patchstack plugin" icon="add-document">
+		[Learn more](/plugin-introduction/).
+	</Card>
+	<Card title="Learn about Vulnerability Database" icon="setting">
+		[Learn more](/vulnerability-api-for-developers/).
+	</Card>
+	<Card title="Read the FAQ" icon="open-book">
+		[Learn more](/2fa-recovery/).
+	</Card>
+</CardGrid>
