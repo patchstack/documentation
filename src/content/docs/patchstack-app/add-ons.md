@@ -26,4 +26,4 @@ Patchstack's add-ons include:
 
 </ol>
 
-![](/src/assets/images/fe10500-small-Patchstack_Add-ons.png)
+![](@images/fe10500-small-Patchstack_Add-ons.png)

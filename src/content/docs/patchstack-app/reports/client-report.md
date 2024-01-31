@@ -31,6 +31,6 @@ _This feature is for the Business plan users only._
 
 Maintenance reports can be scheduled to be generated automatically. You can see and download the scheduled reports by visiting the **Reports** page and clicking on the **Scheduled reports** tab.
 
-![](/src/assets/images/638470b-patchstack_maintenance_report.png)
+![](@images/638470b-patchstack_maintenance_report.png)
 
-![](/src/assets/images/6653b9c-patchstack_maintenance_report_firewall.png)
+![](@images/6653b9c-patchstack_maintenance_report_firewall.png)

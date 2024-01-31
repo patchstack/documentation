@@ -16,7 +16,7 @@ There are two ways to delete your applications: in bulk, or one by one.
 <li>Click <b>Delete application</b></li>
 </ol>
 
-![](/src/assets/images/7926d54-patchstack_delete_application.png)
+![](@images/7926d54-patchstack_delete_application.png)
 
 ## Removing apps in bulk
 
@@ -27,4 +27,4 @@ To bulk delete your web apps from Patchstack:
 <li>You will be asked to confirm the deletion</li>  
 <li>Click <b>Delete applications</b></li></ol>
 
-![](/src/assets/images/a677381-patchstack_bulk_delete.png)
+![](@images/a677381-patchstack_bulk_delete.png)

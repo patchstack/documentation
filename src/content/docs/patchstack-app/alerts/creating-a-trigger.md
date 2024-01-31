@@ -13,7 +13,7 @@ _New triggers can be created on the Developer and Business plan only._
 
 You can create a trigger by clicking on **"+ Create Trigger"** on the **Alerts** page or navigating here: <a href="https://app.patchstack.com/alerts/create" target="_blank">https://app.patchstack.com/alerts/create</a>.
 
-![](/src/assets/images/4158fc2-Patchstack_-_Create_a_Trigger.png "Patchstack - Create a Trigger.png")
+![](@images/4158fc2-Patchstack_-_Create_a_Trigger.png "Patchstack - Create a Trigger.png")
 
 Give your trigger a name by typing it into <b>"Trigger Title"</b> field.  
 Select the condition of when the alert is triggered from the dropdown
@@ -64,7 +64,7 @@ For example by choosing "Match IP", you will have to choose, whether the status 
 
 You will see the conclusion of your built rule before saving it (see the image below).
 
-![](/src/assets/images/0b4f492-small-Patchstack_create_trigger.png)
+![](@images/0b4f492-small-Patchstack_create_trigger.png)
 
 The next step is to choose whether you would like to get notified to your email, Slack channel, or both.
 

@@ -11,7 +11,7 @@ updatedAt: "Wed May 10 2023 12:16:06 GMT+0000 (Coordinated Universal Time)"
 ---
 If you are using the Developer or Business plan, you can change some settings through the plugin as well.
 
-![](/src/assets/images/4320597-small-patchstack_plugin_activated.png)
+![](@images/4320597-small-patchstack_plugin_activated.png)
 
 To enter the settings page, click on the "Click here" link at the bottom of the screen.  
 You can then see mostly the same settings that you have on Patchstack App, under your site hardening tab:
@@ -26,4 +26,4 @@ You can then see mostly the same settings that you have on Patchstack App, under
 
 These settings can be changed from both sides (through the Patchstack App and through your WordPress application).
 
-![](/src/assets/images/04b1eb5-small-Patchstack_plugin_settings.png)
+![](@images/04b1eb5-small-Patchstack_plugin_settings.png)

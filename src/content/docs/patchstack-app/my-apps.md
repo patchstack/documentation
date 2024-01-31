@@ -7,7 +7,7 @@ createdAt: "Mon Jul 25 2022 09:03:10 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Dec 20 2023 13:36:16 GMT+0000 (Coordinated Universal Time)"
 ---
 On the **My Apps** page you see a general overview of all the sites you have added to the Patchstack App!
-![](/src/assets/images/3d12c97-patchstack-my-apps.png)
+![](@images/3d12c97-patchstack-my-apps.png)
 
 ## Overview of your WordPress apps
 

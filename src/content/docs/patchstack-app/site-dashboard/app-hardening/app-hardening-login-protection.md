@@ -8,7 +8,7 @@ updatedAt: "Thu Jan 18 2024 12:20:08 GMT+0000 (Coordinated Universal Time)"
 ---
 _Accessible for the Community (paid), Developer and Business plan users._
 
-![](/src/assets/images/534b768-patchstack_app_login_protection.png)
+![](@images/534b768-patchstack_app_login_protection.png)
 
 On the **Login Protection** subpage you can:
 

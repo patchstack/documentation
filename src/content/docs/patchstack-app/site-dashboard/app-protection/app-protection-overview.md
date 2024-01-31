@@ -12,7 +12,7 @@ Accessible for the Community (paid), Developer and Business plan users.
 
 On the **Protection Overview** page you can see where your site got attacks from, and how have the hackers tried to attack your web application.
 
-![](/src/assets/images/d3be1da-patchstack-app-protection.png)
+![](@images/d3be1da-patchstack-app-protection.png)
 
 ## Protection modules
 
@@ -49,4 +49,4 @@ Each hacking attempt or attack is shown as a separate protection log entry. You 
 
 To see the details of any attack, click on a table row. A popup opens next.
 
-![](/src/assets/images/d2fe03e-attack-popup.png)
+![](@images/d2fe03e-attack-popup.png)

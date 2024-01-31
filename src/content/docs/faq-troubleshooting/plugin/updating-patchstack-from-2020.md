@@ -18,11 +18,11 @@ To make sure you have the latest version of Patchstack, we recommend following t
    Just open your application dashboard on Patchstack App and navigate to **Plugin** from the submenu.  
    Click **Download Plugin**
 
-![](/src/assets/images/8b5bd5f-small-6d63d81-small-Patchstack_Plugin.png)
+![](@images/8b5bd5f-small-6d63d81-small-Patchstack_Plugin.png)
 
 3. Now navigate to your WordPress admin and go to the **Plugins** page. Click **Add New** from the top navigation. Then click **Upload Plugin**, choose the zip file from your filesystem, and click **Install Now**
 
-![](/src/assets/images/bff9a73-patchstack_upload_plugin.png)
+![](@images/bff9a73-patchstack_upload_plugin.png)
 
 4. As the plugin is installed, scroll down and find **Patchstack Security** and click on **Activate**
 5. Once activated, delete the old WebARX/Patchstack plugin (version 2.0.20 or lower)

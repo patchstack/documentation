@@ -21,7 +21,7 @@ Go to the Add-ons page in Patchstack App to activate **Volume upgrade**.
 
 The module shows, how many additional apps you have added and how much you pay extra per month.
 
-![](/src/assets/images/771598c-small-Patchstack_volume_upgrade.png)
+![](@images/771598c-small-Patchstack_volume_upgrade.png)
 
 ## Activating the volume upgrade
 
@@ -32,4 +32,4 @@ The price is shown instantaneously.
 
 Click **Enable** to proceed with activating this add-on.
 
-![](/src/assets/images/890124c-small-Patchstack_volume_upgrade_adding.png)
+![](@images/890124c-small-Patchstack_volume_upgrade_adding.png)

@@ -25,14 +25,14 @@ For each app, you have the following options:
 <li>Auto-update themes</li>
 </ol>
 
-![](/src/assets/images/b19d05a-small-Patchstack_software_automatic_updates.png)
+![](@images/b19d05a-small-Patchstack_software_automatic_updates.png)
 
 ## Turning on the Auto-Updates
 
 To turn on the **Auto-Updates** feature, click on **Change** in the corresponding table row.  
 You will be shown a popup (see the image below).
 
-![](/src/assets/images/adab7ff-small-Patchstack_auto-update.png)
+![](@images/adab7ff-small-Patchstack_auto-update.png)
 
 To activate any of the options, toggle the buttons.
 

@@ -10,7 +10,7 @@ _Accessible for the Community, Developer and Business plan users._
 
 To view a single app dashboard, navigate to **My Apps** > **yourdomain.com**
 
-![](/src/assets/images/9deff7e-patchstack_app_overview.png)
+![](@images/9deff7e-patchstack_app_overview.png)
 
 **App Dashboard** shows you a general overview of your selected site:
 

@@ -20,7 +20,7 @@ From **Login Protection** subpage you can:
 <li>Block certain IP addresses from being able to log in</li>
 </ul>
 
-![](/src/assets/images/9107e98-patchstack-login-protection.png)
+![](@images/9107e98-patchstack-login-protection.png)
 
 ## How does the new login URL work?
 

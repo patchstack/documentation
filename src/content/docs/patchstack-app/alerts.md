@@ -33,4 +33,4 @@ You can view the built-in trigger rules by clicking on the **Action** and **Edit
 To set up custom notifications, you will have to create a trigger.  
 You can create a trigger by clicking on **+ Create Trigger** on the top right corner and following this article: <a href="https://docs.patchstack.com/docs/creating-a-trigger" target="_blank">https://docs.patchstack.com/docs/creating-a-trigger</a>
 
-![](/src/assets/images/6a5df31-small-Patchstack_Alerts_and_triggers.png)
+![](@images/6a5df31-small-Patchstack_Alerts_and_triggers.png)

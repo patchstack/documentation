@@ -8,7 +8,7 @@ updatedAt: "Thu Jan 18 2024 12:02:47 GMT+0000 (Coordinated Universal Time)"
 ---
 _Accessible for the Community (paid), Developer and Business plan users._
 
-![](/src/assets/images/68d17f4-patchstack-hardening-general.png)
+![](@images/68d17f4-patchstack-hardening-general.png)
 
 On the **Hardening > General** page you can manage the settings such as:
 

@@ -16,7 +16,7 @@ On the **Software** overview page, you can see all the components (plugins, them
 The table shows, which of the components are vulnerable and which are just outdated.  
 Components that are grayed-out, are deactivated on the website.
 
-![](/src/assets/images/608b679-small-Patchstack_software_overview.png)
+![](@images/608b679-small-Patchstack_software_overview.png)
 
 ## Updating the software
 

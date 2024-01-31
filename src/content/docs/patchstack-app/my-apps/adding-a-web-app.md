@@ -8,17 +8,17 @@ updatedAt: "Wed Dec 20 2023 13:37:41 GMT+0000 (Coordinated Universal Time)"
 ---
 Click on **+ Add new** button.
 
-![](/src/assets/images/2c9c461-patchstack-my-apps-add-new.png)
+![](@images/2c9c461-patchstack-my-apps-add-new.png)
 
 A popup appears with further instructions (see the image below).
 
 Type your domain URL. If you want to switch between http/https, click on the arrows.
 
-![](/src/assets/images/897cdf9-Patchstack_connect_an_application.png)
+![](@images/897cdf9-Patchstack_connect_an_application.png)
 
 Now click on **Continue to connect plugin**.  
 You will be taken to the next step, where you can get the API key and download the Patchstack plugin file.
 
-![](/src/assets/images/121108e-Patchstack_is_not_connected_2.png)
+![](@images/121108e-Patchstack_is_not_connected_2.png)
 
 If you need further instructions, don't hesitate to reach out to us via live chat.

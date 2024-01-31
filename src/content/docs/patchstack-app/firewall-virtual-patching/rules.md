@@ -12,14 +12,14 @@ _Accessible for the Developer and Business plan users only._
 In the **Rules** subpage you can create and modify the firewall rules and attach them to certain applications.  
 A firewall rule can block or whitelist requests based on patterns. They can be assigned to sites directly or attached to a module.
 
-![](/src/assets/images/7ef2e64-small-Patchstack_protection_rules.png)
+![](@images/7ef2e64-small-Patchstack_protection_rules.png)
 
 ## Creating a rule
 
 To create a custom rule, click on the **+ Create Rule** button.  
 A new page opens up with a firewall rule creation form (see the image below).
 
-![](/src/assets/images/a84f62c-Patchstack_-_create_a_firewall_rule.png "Patchstack - create a firewall rule.png")
+![](@images/a84f62c-Patchstack_-_create_a_firewall_rule.png "Patchstack - create a firewall rule.png")
 
 Adding a simple rule:
 
@@ -46,7 +46,7 @@ If you want this rule to take effect, you need to attach it to your apps. To do 
 <li>Close the popup</b></li>
 </ol>
 
-![](/src/assets/images/96f9cec-small-Patchstack_attach_to_applications.png)
+![](@images/96f9cec-small-Patchstack_attach_to_applications.png)
 
 Now you need to sync your sites. To do that:
 

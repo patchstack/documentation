@@ -8,7 +8,7 @@ updatedAt: "Wed Jan 24 2024 14:39:28 GMT+0000 (Coordinated Universal Time)"
 ---
 _Accessible for the Community, Developer and Business plan users._
 
-![](/src/assets/images/8e4869e-patchstack_app_software.png)
+![](@images/8e4869e-patchstack_app_software.png)
 
 On the **Software** subpage you can:
 

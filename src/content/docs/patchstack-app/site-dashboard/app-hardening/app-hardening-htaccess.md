@@ -8,7 +8,7 @@ updatedAt: "Thu Jan 18 2024 12:02:52 GMT+0000 (Coordinated Universal Time)"
 ---
 _Accessible for the Community (paid), Developer and Business plan users._
 
-![](/src/assets/images/61bff6f-patchstack-htaccess-features.png)
+![](@images/61bff6f-patchstack-htaccess-features.png)
 
 ## .htaccess features
 

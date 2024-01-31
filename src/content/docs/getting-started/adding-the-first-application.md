@@ -12,15 +12,15 @@ In this step, we'll add our first web application to Patchstack.
 
 To do that, navigate to **Dashboard** and click on the **+ Add application** button as shown below.
 
-![](/src/assets/images/e4c967e-Patchstack_-_add_first_application.png)
+![](@images/e4c967e-Patchstack_-_add_first_application.png)
 
 A dialogue will open asking you for your domain URL. 
 
 1. Enter the domain name to the input. You can switch between http/https by clicking on the arrows
 2. Click **Continue to connect plugin**
 
-![](/src/assets/images/6812404-Patchstack_connect_an_application.png)
+![](@images/6812404-Patchstack_connect_an_application.png)
 
 You will be taken to the next step, where you can see the API key or download the plugin ZIP file.
 
-![](/src/assets/images/d0ff620-Patchstack_is_not_connected_2.png)
+![](@images/d0ff620-Patchstack_is_not_connected_2.png)

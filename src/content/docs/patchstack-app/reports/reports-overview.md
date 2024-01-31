@@ -9,7 +9,7 @@ updatedAt: "Tue Jan 23 2024 14:28:17 GMT+0000 (Coordinated Universal Time)"
 _Accessible for the Community, Developer and Business plan users._  
 **[https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)**
 
-![](/src/assets/images/c058112-patchstack_reports.png)
+![](@images/c058112-patchstack_reports.png)
 
 From the **Reports** page, you can generate PDF security reports for your sites.  
 With Patchstack, you can automatically schedule your reports generation so you don't have to manually generate them.

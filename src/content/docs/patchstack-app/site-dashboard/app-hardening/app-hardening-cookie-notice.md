@@ -10,7 +10,7 @@ _Accessible for the Community (paid), Developer and Business plan users only._
 
 **This feature will be removed from the Patchstack App soon!**
 
-![](/src/assets/images/cd18cce-patchstack-cookie-notice.png)
+![](@images/cd18cce-patchstack-cookie-notice.png)
 
 ## Setting up the Cookie Notice
 

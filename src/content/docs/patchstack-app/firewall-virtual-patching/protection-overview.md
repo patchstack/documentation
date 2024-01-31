@@ -6,7 +6,7 @@ hidden: false
 createdAt: "Thu Jan 04 2024 14:16:59 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu Jan 18 2024 14:21:19 GMT+0000 (Coordinated Universal Time)"
 ---
-![](/src/assets/images/ffe5801-patchstack_protection_modules.png)
+![](@images/ffe5801-patchstack_protection_modules.png)
 
 ## Protection modules
 
@@ -19,7 +19,7 @@ From this section, you see, how many times did Patchstack firewall block the tra
 By default, it shows the results for the last 30 days. You can also choose to show it last 7 days, or 60 days, by clicking on the filter at the top right corner of this section.  
 On the right side of the protection activity section, Patchstack App shows the top 5 IP's blocked, and top 5 threats blocked in the given period of time.
 
-![](/src/assets/images/9352b8b-patchstack_activity-protection.png)
+![](@images/9352b8b-patchstack_activity-protection.png)
 
 ## Log history
 
@@ -27,4 +27,4 @@ Each hacking attempt or attack is shown as a separate log entry. You can click o
 
 To see the details of any attack, click on a table row. A popup with details opens next.
 
-![](/src/assets/images/2137aaf-patchstack-log-history.png)
+![](@images/2137aaf-patchstack-log-history.png)

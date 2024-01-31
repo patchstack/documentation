@@ -24,7 +24,7 @@ When you add a new user, they will receive an email with a link to activate thei
 
 In order to attach an app to a user, go to My Apps > Action Button > Attach To User.
 
-![](/src/assets/images/05d1c7f-small-Patchstack_account_team.png)
+![](@images/05d1c7f-small-Patchstack_account_team.png)
 
 ## Adding a Seat User
 
@@ -33,7 +33,7 @@ Add a name, email address and role of the seat user.
 
 Note that you can **only add email addresses** that have **not yet registered** in Patchstack.
 
-![](/src/assets/images/7bc1fea-small-Patchstack_adding_seat_user.png)
+![](@images/7bc1fea-small-Patchstack_adding_seat_user.png)
 
 After adding the user, you can see the added user in the table below.  
 An invitation was sent to that email asking to register an account on Patchstack App.
@@ -45,11 +45,11 @@ For that, navigate to the **Applications** subpage under **Team**.
 You can see all your applications in this view.  
 Click on **"Action"** and **"Attach To User"** on the corresponding application.
 
-![](/src/assets/images/9a08559-small-Patchstack_team_applications.png)
+![](@images/9a08559-small-Patchstack_team_applications.png)
 
 You will be shown a popup, where you can choose, which seat attaches to the site.  
 Pick the newly created user and click on **"Attach"**.
 
-![](/src/assets/images/06a9a33-small-Patchstack_add_application_to_seat.png)
+![](@images/06a9a33-small-Patchstack_add_application_to_seat.png)
 
 Now the new user can manage the application from their own Patchstack App account.

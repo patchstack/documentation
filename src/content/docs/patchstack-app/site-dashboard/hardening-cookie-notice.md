@@ -8,7 +8,7 @@ updatedAt: "Thu Jan 18 2024 13:27:55 GMT+0000 (Coordinated Universal Time)"
 ---
 _Accessible for the Developer and Business plan users only._
 
-![](/src/assets/images/10141af-patchstack_cookie-notice.png)
+![](@images/10141af-patchstack_cookie-notice.png)
 
 
 ## Setting up the Cookie Notice

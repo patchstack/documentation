@@ -10,7 +10,7 @@ _Accessible for the Developer and Business plan users only._
 
 ## Hardening Features
 
-![](/src/assets/images/dd27832-patchstack-hardening-hardening.png)
+![](@images/dd27832-patchstack-hardening-hardening.png)
 
 From the **Hardening** page you can manage the settings such as:
 
@@ -58,4 +58,4 @@ To activate Google reCaptcha on your site, you will have to generate a reCaptcha
 
 After all the changes, click on **Save Settings**.
 
-![](/src/assets/images/06d7d08-Hardening_-_recaptcha.png "Hardening - recaptcha.png")
+![](@images/06d7d08-Hardening_-_recaptcha.png "Hardening - recaptcha.png")

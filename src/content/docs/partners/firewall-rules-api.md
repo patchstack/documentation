@@ -40,7 +40,7 @@ echo $res->getBody();
 
 For pagination, you can send a request to a special paginated API endpoint.
 
-```curl
+```bash
 curl --location 'api.patchstack.com/firewall/rules/paginated?page=1' --header 'PSKey: <KEY>'
 ```
 ```php

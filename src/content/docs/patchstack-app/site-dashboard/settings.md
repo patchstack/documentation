@@ -7,7 +7,7 @@ createdAt: "Thu May 25 2023 13:54:05 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Jan 24 2024 13:52:09 GMT+0000 (Coordinated Universal Time)"
 ---
 
-![](/src/assets/images/abcc570-patchstack_settings.png)
+![](@images/abcc570-patchstack_settings.png)
 
 From the settings subpage, you can get your API key that needs to be inserted to the plugin.  
 If your site URL changes, you can change it from the same page.

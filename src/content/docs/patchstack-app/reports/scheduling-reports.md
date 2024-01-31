@@ -23,7 +23,7 @@ Note that report scheduling is a paid feature of Patchstack.
 2. Click on the **+ Create Schedule** button at the top of the screen
 3. You will see a popup as such:
 
-![](/src/assets/images/7dff23b-patchstack_schedule_report.png)
+![](@images/7dff23b-patchstack_schedule_report.png)
 
 <ol start="4"><li>If you are on a <b>Developer plan</b>, pick your site URL from the left dropdown menu and click <b>Save</b>. Developer plan users can only have reports scheduled monthly.
 If you are on a <b>Business plan</b>, you can also choose to schedule the Maintenance reports, as well as customize some report settings. <b>Business plan</b> users can have the reports generated weekly basis. Having done your choices, click <b>Save</b></li></ol>
@@ -32,14 +32,14 @@ If you are on a <b>Business plan</b>, you can also choose to schedule the Mainte
 
 To edit a schedule, head to the **Scheduled reports** tab on the **Reports** page.
 
-![](/src/assets/images/837301e-patchstack_reports_business_plan_scheduled.png)
+![](@images/837301e-patchstack_reports_business_plan_scheduled.png)
 
 You can see here all the sites that have the reports scheduled.  
 To edit a scheduling, click on the gear icon on the row of the domain. 
 
 You will see a popup as such (note that the popup contains settings for a business plan user):
 
-![](/src/assets/images/c2d6a14-patchstack_edit_scheduled_reports.png)
+![](@images/c2d6a14-patchstack_edit_scheduled_reports.png)
 
 If you are a **Business plan user**, you can toggle the switches in order to customize the data shown on the PDF reports. Also, it is possible to upload your custom logo (to whitelabel a report).
 

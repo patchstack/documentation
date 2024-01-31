@@ -17,4 +17,4 @@ Navigate to <a href="https://app.patchstack.com" target="_blank">https://app.pat
 <li>You will find the <b>API key</b> from the right column</li>
 <li>Copy and paste it into your WordPress plugin</li></ol>
 
-![](/src/assets/images/d285f3b-small-Patchstack_api_key_settings.png)
+![](@images/d285f3b-small-Patchstack_api_key_settings.png)

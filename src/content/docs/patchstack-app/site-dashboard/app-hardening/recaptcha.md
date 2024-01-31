@@ -8,7 +8,7 @@ updatedAt: "Thu Jan 18 2024 13:24:28 GMT+0000 (Coordinated Universal Time)"
 ---
 _Accessible for the Community (paid), Developer and Business plan users only._
 
-![](/src/assets/images/f41183f-patchstack-hardening-recaptcha.png)
+![](@images/f41183f-patchstack-hardening-recaptcha.png)
 
 
 reCaptcha is a powerful tool for protecting your application against different spambots.  

@@ -23,7 +23,7 @@ Click on **Continue to connect plugin**.
 
 You are then shown a popup like this:
 
-![](/src/assets/images/3c05aa3-small-fe0cd72-small-Patchstack_dialogues.png)
+![](@images/3c05aa3-small-fe0cd72-small-Patchstack_dialogues.png)
 
 You can safely enter your WordPress username and password into the corresponding fields. Patchstack will connect with your app and install the plugin automatically. Please note that the login information is not stored on our end.
 
@@ -44,11 +44,11 @@ Go to your Network Admin on your WordPress admin</li>
 <li>You should see <b>Patchstack Security</b> there. If not, download and install it from WP plugins dashboard.</li> <li>Click on <b>Network Activate</b></li>
 </ol>
 
-![](/src/assets/images/3a05a15-small-Patchstack_network_activate.png)
+![](@images/3a05a15-small-Patchstack_network_activate.png)
 
 After activating the plugin in your whole network, you will see a Patchstack screen as in the picture below:
 
-![](/src/assets/images/0ad746b-small-Screenshot_2023-05-11_at_15.57.31.png)
+![](@images/0ad746b-small-Screenshot_2023-05-11_at_15.57.31.png)
 
 ## Step 3: Adding your subsites to Patchstack
 
@@ -58,7 +58,7 @@ This time, enter your subsite URL (e.g [https://example.com/subsite](<>))
 
 You will then see this popup, where you can just click **Verify installation to finish** this time.
 
-![](/src/assets/images/c8f8d0b-small-fe0cd72-small-Patchstack_dialogues_1.png)
+![](@images/c8f8d0b-small-fe0cd72-small-Patchstack_dialogues_1.png)
 
 Copy the API Key and insert them to the Patchstack plugin of your subsite.
 
@@ -68,7 +68,7 @@ Copy the API Key and insert them to the Patchstack plugin of your subsite.
 <li>Insert the API key of this subsite from Patchstack App</li>
 </ol>
 
-![](/src/assets/images/47faf7b-Patchstack_-_manage_settings.png "Patchstack - manage settings.png")
+![](@images/47faf7b-Patchstack_-_manage_settings.png "Patchstack - manage settings.png")
 
 You may check your Patchstack App now. If you see no alerts, your plugin is running correctly.  
 If it isn't, feel free to write to our support chat!

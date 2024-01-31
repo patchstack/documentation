@@ -22,4 +22,4 @@ It shows the following things:
 
 [Click here to download an example of Snapshot report!](https://s3.us-east-2.amazonaws.com/patchstack.com/patchstack_snapshot_report.pdf)
 
-![](/src/assets/images/01238b5-small-patchstack_snapshot_report2.jpg)
+![](@images/01238b5-small-patchstack_snapshot_report2.jpg)

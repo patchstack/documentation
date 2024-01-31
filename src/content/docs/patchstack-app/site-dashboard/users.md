@@ -18,4 +18,4 @@ Administrator</li>
 <li>Contributor</li>
 </ul>
 
-![](/src/assets/images/7e62c7d-patchstack_users.png)
+![](@images/7e62c7d-patchstack_users.png)

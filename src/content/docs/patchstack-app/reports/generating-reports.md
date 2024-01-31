@@ -9,7 +9,7 @@ updatedAt: "Tue Jan 23 2024 14:27:46 GMT+0000 (Coordinated Universal Time)"
 _Accessible for the Community, Developer and Business plan users._  
 **[https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)**
 
-![](/src/assets/images/ed2d84d-patchstack_reports.png)
+![](@images/ed2d84d-patchstack_reports.png)
 
 ## Generating Snapshot Report (Free)
 

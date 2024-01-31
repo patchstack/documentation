@@ -12,7 +12,7 @@ You can attach your domains to multiple groups.
 Grouping makes it easier to distinguish your apps from each other.
 
 For example if you sell care plans, you can group your sites by care plan names.
-![](/src/assets/images/7d462c9-groups.png)
+![](@images/7d462c9-groups.png)
 
 ## Creating a group
 

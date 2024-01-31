@@ -25,4 +25,4 @@ From there you can sign up two ways.
 
 Below is the screen you can see after successful sign-up. From this view you can [add your first websites or applications to Patchstack](https://docs.patchstack.com/docs/adding-the-first-application).
 
-![](/src/assets/images/bb8151c-Pathstack_first_dashboard.png)
+![](@images/bb8151c-Pathstack_first_dashboard.png)
