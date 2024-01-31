@@ -1,6 +1,6 @@
 ---
 title: "How do I delete my Patchstack account?"
-slug: "how-do-i-delete-my-patchstack-account"
+slug: "docs/how-do-i-delete-my-patchstack-account"
 excerpt: ""
 hidden: false
 metadata: 

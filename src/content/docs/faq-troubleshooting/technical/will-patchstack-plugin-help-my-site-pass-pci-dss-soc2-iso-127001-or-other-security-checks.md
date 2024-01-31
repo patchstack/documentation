@@ -1,6 +1,6 @@
 ---
 title: "Will Patchstack plugin help my site pass PCI-DSS, SOC2, ISO 127001 or other security checks?"
-slug: "will-patchstack-plugin-help-my-site-pass-pci-dss-soc2-iso-127001-or-other-security-checks"
+slug: "docs/will-patchstack-plugin-help-my-site-pass-pci-dss-soc2-iso-127001-or-other-security-checks"
 excerpt: ""
 hidden: false
 metadata: 

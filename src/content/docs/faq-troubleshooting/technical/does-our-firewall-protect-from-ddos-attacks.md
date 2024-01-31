@@ -1,6 +1,6 @@
 ---
 title: "Does our firewall protect from DDoS attacks?"
-slug: "does-our-firewall-protect-from-ddos-attacks"
+slug: "docs/does-our-firewall-protect-from-ddos-attacks"
 excerpt: ""
 hidden: false
 metadata: 

@@ -1,6 +1,6 @@
 ---
 title: "How to configure Patchstack to work with Cloudflare?"
-slug: "how-to-configure-patchstack-to-work-with-cloudflare"
+slug: "docs/how-to-configure-patchstack-to-work-with-cloudflare"
 excerpt: ""
 hidden: false
 metadata: 

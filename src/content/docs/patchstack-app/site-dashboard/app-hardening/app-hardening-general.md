@@ -1,6 +1,6 @@
 ---
 title: "General"
-slug: "app-hardening-general"
+slug: "docs/app-hardening-general"
 excerpt: ""
 hidden: false
 createdAt: "Wed Jan 17 2024 15:01:59 GMT+0000 (Coordinated Universal Time)"
@@ -8,21 +8,7 @@ updatedAt: "Thu Jan 18 2024 12:02:47 GMT+0000 (Coordinated Universal Time)"
 ---
 _Accessible for the Community (paid), Developer and Business plan users._
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/68d17f4-patchstack-hardening-general.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/68d17f4-patchstack-hardening-general.png)
 
 On the **Hardening > General** page you can manage the settings such as:
 

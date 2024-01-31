@@ -1,6 +1,6 @@
 ---
 title: "Error Code 7"
-slug: "error-code-7"
+slug: "docs/error-code-7"
 excerpt: "This error is shown when the setting \"Forbid proxy comment posting\" is enabled. If your website passes through a proxy first then it's possible that this is causing a false positive."
 hidden: false
 metadata: 

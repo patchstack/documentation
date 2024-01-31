@@ -1,6 +1,6 @@
 ---
 title: "Missing security headers Permission-Policy or Content-Security-Policy (CSP)"
-slug: "missing-security-headers-permission-policy-or-content-security-policy-csp"
+slug: "docs/missing-security-headers-permission-policy-or-content-security-policy-csp"
 excerpt: ""
 hidden: false
 createdAt: "Tue Dec 12 2023 11:08:10 GMT+0000 (Coordinated Universal Time)"

@@ -1,6 +1,6 @@
 ---
 title: "Error Code 22"
-slug: "error-code-22"
+slug: "docs/error-code-22"
 excerpt: "Error code 22 is the internal code we use for \"temporary IP ban\". If you see this error even though you are a legitimate visitor, there can be multiple causes:"
 hidden: false
 metadata: 

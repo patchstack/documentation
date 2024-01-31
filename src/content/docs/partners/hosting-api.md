@@ -1,6 +1,6 @@
 ---
 title: "Hosting API"
-slug: "hosting-api"
+slug: "docs/hosting-api"
 excerpt: ""
 hidden: true
 metadata: 

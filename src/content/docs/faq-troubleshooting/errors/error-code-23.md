@@ -1,6 +1,6 @@
 ---
 title: "Error Code 23"
-slug: "error-code-23"
+slug: "docs/error-code-23"
 excerpt: ""
 hidden: false
 metadata: 

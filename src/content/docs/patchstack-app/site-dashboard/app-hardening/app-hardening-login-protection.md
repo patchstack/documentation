@@ -1,6 +1,6 @@
 ---
 title: "Login Protection"
-slug: "app-hardening-login-protection"
+slug: "docs/app-hardening-login-protection"
 excerpt: ""
 hidden: false
 createdAt: "Thu Jan 18 2024 12:03:24 GMT+0000 (Coordinated Universal Time)"
@@ -8,21 +8,7 @@ updatedAt: "Thu Jan 18 2024 12:20:08 GMT+0000 (Coordinated Universal Time)"
 ---
 _Accessible for the Community (paid), Developer and Business plan users._
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/534b768-patchstack_app_login_protection.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/534b768-patchstack_app_login_protection.png)
 
 On the **Login Protection** subpage you can:
 

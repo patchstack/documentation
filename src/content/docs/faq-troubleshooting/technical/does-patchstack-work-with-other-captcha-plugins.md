@@ -1,6 +1,6 @@
 ---
 title: "Does Patchstack work with other captcha plugins?"
-slug: "does-patchstack-work-with-other-captcha-plugins"
+slug: "docs/does-patchstack-work-with-other-captcha-plugins"
 excerpt: ""
 hidden: false
 metadata: 

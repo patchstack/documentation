@@ -1,6 +1,6 @@
 ---
 title: "How to fix the missing security headers issue?"
-slug: "how-to-fix-the-missing-security-headers-issue"
+slug: "docs/how-to-fix-the-missing-security-headers-issue"
 excerpt: ""
 hidden: false
 metadata: 

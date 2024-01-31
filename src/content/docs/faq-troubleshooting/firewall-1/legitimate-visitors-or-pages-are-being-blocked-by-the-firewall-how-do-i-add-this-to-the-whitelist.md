@@ -1,6 +1,6 @@
 ---
 title: "Legitimate visitors or pages are being blocked by the firewall. How do I add this to the whitelist?"
-slug: "legitimate-visitors-or-pages-are-being-blocked-by-the-firewall-how-do-i-add-this-to-the-whitelist"
+slug: "docs/legitimate-visitors-or-pages-are-being-blocked-by-the-firewall-how-do-i-add-this-to-the-whitelist"
 excerpt: ""
 hidden: false
 metadata: 

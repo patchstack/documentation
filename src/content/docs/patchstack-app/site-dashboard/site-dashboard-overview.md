@@ -1,6 +1,6 @@
 ---
 title: "Overview"
-slug: "site-dashboard-overview"
+slug: "docs/site-dashboard-overview"
 excerpt: ""
 hidden: false
 createdAt: "Wed Aug 03 2022 12:00:20 GMT+0000 (Coordinated Universal Time)"
@@ -10,21 +10,7 @@ _Accessible for the Community, Developer and Business plan users._
 
 To view a single app dashboard, navigate to **My Apps** > **yourdomain.com**
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9deff7e-patchstack_app_overview.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/9deff7e-patchstack_app_overview.png)
 
 **App Dashboard** shows you a general overview of your selected site:
 

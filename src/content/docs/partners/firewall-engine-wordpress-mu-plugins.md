@@ -1,6 +1,6 @@
 ---
 title: "Firewall engine WordPress mu-plugins"
-slug: "firewall-engine-wordpress-mu-plugins"
+slug: "docs/firewall-engine-wordpress-mu-plugins"
 excerpt: ""
 hidden: true
 metadata: 

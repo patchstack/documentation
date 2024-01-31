@@ -1,6 +1,6 @@
 ---
 title: "How do I use the country blocking feature?"
-slug: "how-do-i-use-the-country-blocking-feature"
+slug: "docs/how-do-i-use-the-country-blocking-feature"
 excerpt: ""
 hidden: false
 metadata: 

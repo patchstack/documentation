@@ -1,6 +1,6 @@
 ---
 title: "How to Uninstall"
-slug: "how-to-uninstall-patchstack-plugin"
+slug: "docs/how-to-uninstall-patchstack-plugin"
 excerpt: ""
 hidden: false
 metadata: 
@@ -15,4 +15,4 @@ After successful deletion, the \*\_options table will be the only table that kee
 
 To deactivate, go to your **Plugins** page, find **Patchstack Security**, click on **Deactivate** and then **Delete**
 
-![](https://files.readme.io/6e81bdf-Patchstack_delete_plugin.jpg)
+![](/src/assets/images/6e81bdf-Patchstack_delete_plugin.jpg)

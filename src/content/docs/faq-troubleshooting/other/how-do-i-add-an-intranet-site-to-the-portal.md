@@ -1,6 +1,6 @@
 ---
 title: "How do I add an intranet site to the app?"
-slug: "how-do-i-add-an-intranet-site-to-the-portal"
+slug: "docs/how-do-i-add-an-intranet-site-to-the-portal"
 excerpt: ""
 hidden: false
 metadata: 

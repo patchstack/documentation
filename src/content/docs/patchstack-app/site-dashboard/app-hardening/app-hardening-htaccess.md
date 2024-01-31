@@ -1,6 +1,6 @@
 ---
 title: "Htaccess"
-slug: "app-hardening-htaccess"
+slug: "docs/app-hardening-htaccess"
 excerpt: ""
 hidden: false
 createdAt: "Thu Jan 18 2024 11:55:42 GMT+0000 (Coordinated Universal Time)"
@@ -8,21 +8,7 @@ updatedAt: "Thu Jan 18 2024 12:02:52 GMT+0000 (Coordinated Universal Time)"
 ---
 _Accessible for the Community (paid), Developer and Business plan users._
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/61bff6f-patchstack-htaccess-features.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/61bff6f-patchstack-htaccess-features.png)
 
 ## .htaccess features
 

@@ -1,6 +1,6 @@
 ---
 title: "Auto-install feature for the plugin is not working properly"
-slug: "auto-install-feature-for-the-plugin-is-not-working-properly"
+slug: "docs/auto-install-feature-for-the-plugin-is-not-working-properly"
 excerpt: ""
 hidden: false
 metadata: 

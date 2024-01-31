@@ -1,6 +1,6 @@
 ---
 title: "Error: Blocked as suspected bot"
-slug: "error-blocked-as-suspected-bot"
+slug: "docs/error-blocked-as-suspected-bot"
 excerpt: ""
 hidden: false
 metadata: 

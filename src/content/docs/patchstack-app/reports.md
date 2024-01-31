@@ -1,6 +1,6 @@
 ---
 title: "Reports"
-slug: "reports"
+slug: "docs/reports"
 excerpt: ""
 hidden: false
 metadata: 

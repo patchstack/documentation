@@ -1,6 +1,6 @@
 ---
 title: "Theme editor missing"
-slug: "theme-editor-missing"
+slug: "docs/theme-editor-missing"
 excerpt: ""
 hidden: false
 metadata: 

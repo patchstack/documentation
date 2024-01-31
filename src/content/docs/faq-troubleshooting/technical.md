@@ -1,6 +1,6 @@
 ---
 title: "Technical"
-slug: "technical"
+slug: "docs/technical"
 excerpt: ""
 hidden: false
 metadata: 

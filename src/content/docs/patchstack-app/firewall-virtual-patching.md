@@ -1,6 +1,6 @@
 ---
 title: "Protection"
-slug: "firewall-virtual-patching"
+slug: "docs/firewall-virtual-patching"
 excerpt: ""
 hidden: false
 metadata: 

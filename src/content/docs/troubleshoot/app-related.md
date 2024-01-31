@@ -1,6 +1,6 @@
 ---
 title: "App Errors"
-slug: "app-related"
+slug: "docs/app-related"
 excerpt: ""
 hidden: false
 metadata: 

@@ -1,6 +1,6 @@
 ---
 title: "App Dashboard"
-slug: "site-dashboard"
+slug: "docs/site-dashboard"
 excerpt: ""
 hidden: false
 metadata: 

@@ -12,3 +12,9 @@
 	--sl-color-gray-6: #24272f;
 	--sl-color-black: #17181c;
 }
+
+.starlight-aside--note {
+    --sl-color-asides-text-accent: white;
+    border-color: #afe614;
+    background-color: #457700;
+}

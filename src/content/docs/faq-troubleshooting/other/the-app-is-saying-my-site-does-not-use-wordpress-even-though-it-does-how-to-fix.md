@@ -1,6 +1,6 @@
 ---
 title: "The app is saying my site does not use WordPress even though it does. How to fix?"
-slug: "the-app-is-saying-my-site-does-not-use-wordpress-even-though-it-does-how-to-fix"
+slug: "docs/the-app-is-saying-my-site-does-not-use-wordpress-even-though-it-does-how-to-fix"
 excerpt: ""
 hidden: false
 metadata: 

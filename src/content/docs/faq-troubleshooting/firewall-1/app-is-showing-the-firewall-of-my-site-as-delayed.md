@@ -1,6 +1,6 @@
 ---
 title: "App is showing the firewall of my site as delayed"
-slug: "app-is-showing-the-firewall-of-my-site-as-delayed"
+slug: "docs/app-is-showing-the-firewall-of-my-site-as-delayed"
 excerpt: ""
 hidden: false
 metadata: 

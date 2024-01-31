@@ -1,6 +1,6 @@
 ---
 title: "Hardening > Hardening"
-slug: "hardening-hardening"
+slug: "docs/hardening-hardening"
 excerpt: "Manage your hardening features"
 hidden: true
 createdAt: "Fri Aug 05 2022 12:56:09 GMT+0000 (Coordinated Universal Time)"
@@ -10,21 +10,7 @@ _Accessible for the Developer and Business plan users only._
 
 ## Hardening Features
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/dd27832-patchstack-hardening-hardening.png",
-        null,
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/dd27832-patchstack-hardening-hardening.png)
 
 From the **Hardening** page you can manage the settings such as:
 
@@ -68,8 +54,8 @@ With Patchstack, you can integrate reCaptcha easily into your WordPress applicat
 You can choose whether to use reCaptcha v2 or reCaptcha v3.  
 Find information about different reCaptcha versions <a href="https://developers.google.com/recaptcha/docs/versions" target="_blank">here!</a>
 
-To activate Google reCaptcha on your site, you will have to generate a reCaptcha Public Key and reCaptcha Secret Key. Here is a tutorial how to generate those: <a href="https://docs.patchstack.com/docs/how-to-get-the-site-and-secret-key-for-the-recaptcha-feature" target="_blank">https\://docs.patchstack.com/docs/how-to-get-the-site-and-secret-key-for-the-recaptcha-feature</a>
+To activate Google reCaptcha on your site, you will have to generate a reCaptcha Public Key and reCaptcha Secret Key. Here is a tutorial how to generate those: <a href="https://docs.patchstack.com/docs/how-to-get-the-site-and-secret-key-for-the-recaptcha-feature" target="_blank">https://docs.patchstack.com/docs/how-to-get-the-site-and-secret-key-for-the-recaptcha-feature</a>
 
 After all the changes, click on **Save Settings**.
 
-![](https://files.readme.io/06d7d08-Hardening_-_recaptcha.png "Hardening - recaptcha.png")
+![](/src/assets/images/06d7d08-Hardening_-_recaptcha.png "Hardening - recaptcha.png")

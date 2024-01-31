@@ -1,6 +1,6 @@
 ---
 title: "Dashboard shows no attacks blocked"
-slug: "dashboard-shows-no-attacks-blocked"
+slug: "docs/dashboard-shows-no-attacks-blocked"
 excerpt: ""
 hidden: false
 metadata: 

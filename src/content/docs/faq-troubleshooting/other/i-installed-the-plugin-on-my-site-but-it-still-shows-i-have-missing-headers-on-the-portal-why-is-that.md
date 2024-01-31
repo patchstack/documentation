@@ -1,6 +1,6 @@
 ---
 title: "I installed the plugin on my site but it still shows I have missing headers on the app. Why is that?"
-slug: "i-installed-the-plugin-on-my-site-but-it-still-shows-i-have-missing-headers-on-the-portal-why-is-that"
+slug: "docs/i-installed-the-plugin-on-my-site-but-it-still-shows-i-have-missing-headers-on-the-portal-why-is-that"
 excerpt: ""
 hidden: false
 metadata: 

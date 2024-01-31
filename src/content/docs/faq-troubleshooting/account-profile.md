@@ -1,6 +1,6 @@
 ---
 title: "Account & Profile"
-slug: "account-profile"
+slug: "docs/account-profile"
 excerpt: ""
 hidden: false
 metadata: 

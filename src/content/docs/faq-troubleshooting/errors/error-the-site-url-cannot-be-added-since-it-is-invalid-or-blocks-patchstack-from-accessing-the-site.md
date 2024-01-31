@@ -1,6 +1,6 @@
 ---
 title: "Error: The site <URL> cannot be added since it is invalid or blocks Patchstack from accessing the site."
-slug: "error-the-site-url-cannot-be-added-since-it-is-invalid-or-blocks-patchstack-from-accessing-the-site"
+slug: "docs/error-the-site-url-cannot-be-added-since-it-is-invalid-or-blocks-patchstack-from-accessing-the-site"
 excerpt: ""
 hidden: false
 metadata: 

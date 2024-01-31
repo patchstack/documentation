@@ -1,6 +1,6 @@
 ---
 title: "Firewall"
-slug: "firewall-1"
+slug: "docs/firewall-1"
 excerpt: ""
 hidden: false
 metadata: 

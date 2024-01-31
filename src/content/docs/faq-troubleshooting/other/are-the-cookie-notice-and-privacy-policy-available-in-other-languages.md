@@ -1,6 +1,6 @@
 ---
 title: "Are the cookie notice and privacy policy available in other languages?"
-slug: "are-the-cookie-notice-and-privacy-policy-available-in-other-languages"
+slug: "docs/are-the-cookie-notice-and-privacy-policy-available-in-other-languages"
 excerpt: ""
 hidden: false
 metadata: 

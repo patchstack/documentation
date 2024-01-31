@@ -1,6 +1,6 @@
 ---
 title: "Add-Ons"
-slug: "add-ons-1"
+slug: "docs/add-ons-1"
 excerpt: ""
 hidden: false
 metadata: 

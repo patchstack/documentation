@@ -1,28 +1,13 @@
 ---
 title: "My Apps"
-slug: "my-apps"
+slug: "docs/my-apps"
 excerpt: "Apps overview page for managing your applications"
 hidden: false
 createdAt: "Mon Jul 25 2022 09:03:10 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Dec 20 2023 13:36:16 GMT+0000 (Coordinated Universal Time)"
 ---
 On the **My Apps** page you see a general overview of all the sites you have added to the Patchstack App!
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/3d12c97-patchstack-my-apps.png",
-        null,
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/3d12c97-patchstack-my-apps.png)
 
 ## Overview of your WordPress apps
 

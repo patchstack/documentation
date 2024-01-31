@@ -1,6 +1,6 @@
 ---
 title: "What is the difference between a WAF and vPatching?"
-slug: "what-is-the-difference-between-a-waf-and-virtual-patching"
+slug: "docs/what-is-the-difference-between-a-waf-and-virtual-patching"
 excerpt: ""
 hidden: false
 createdAt: "Tue Sep 20 2022 13:22:34 GMT+0000 (Coordinated Universal Time)"

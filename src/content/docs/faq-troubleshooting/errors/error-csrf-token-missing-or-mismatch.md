@@ -1,6 +1,6 @@
 ---
 title: "Error: \"CSRF token missing or mismatch\""
-slug: "error-csrf-token-missing-or-mismatch"
+slug: "docs/error-csrf-token-missing-or-mismatch"
 excerpt: ""
 hidden: false
 metadata: 

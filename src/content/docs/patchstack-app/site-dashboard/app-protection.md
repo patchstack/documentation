@@ -1,6 +1,6 @@
 ---
 title: "Protection"
-slug: "app-protection"
+slug: "docs/app-protection"
 excerpt: ""
 hidden: false
 createdAt: "Mon Aug 08 2022 12:40:05 GMT+0000 (Coordinated Universal Time)"

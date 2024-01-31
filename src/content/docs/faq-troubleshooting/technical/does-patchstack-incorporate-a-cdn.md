@@ -1,6 +1,6 @@
 ---
 title: "Does Patchstack incorporate a CDN?"
-slug: "does-patchstack-incorporate-a-cdn"
+slug: "docs/does-patchstack-incorporate-a-cdn"
 excerpt: ""
 hidden: false
 metadata: 

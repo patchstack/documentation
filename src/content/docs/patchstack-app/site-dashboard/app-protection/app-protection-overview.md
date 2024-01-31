@@ -1,30 +1,18 @@
 ---
 title: "Overview"
-slug: "app-protection-overview"
+slug: "docs/app-protection-overview"
 excerpt: "Overview of protection modules and blocked traffic"
 hidden: false
 createdAt: "Wed Jan 17 2024 13:45:49 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Jan 17 2024 14:17:39 GMT+0000 (Coordinated Universal Time)"
 ---
-_Accessible for the Community (paid), Developer and Business plan users._
+:::note
+Accessible for the Community (paid), Developer and Business plan users.
+:::
 
 On the **Protection Overview** page you can see where your site got attacks from, and how have the hackers tried to attack your web application.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/d3be1da-patchstack-app-protection.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/d3be1da-patchstack-app-protection.png)
 
 ## Protection modules
 
@@ -61,17 +49,4 @@ Each hacking attempt or attack is shown as a separate protection log entry. You 
 
 To see the details of any attack, click on a table row. A popup opens next.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/d2fe03e-attack-popup.png",
-        "attack-popup.png",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
+![](/src/assets/images/d2fe03e-attack-popup.png)

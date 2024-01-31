@@ -1,6 +1,6 @@
 ---
 title: "Subscription"
-slug: "account-subscription"
+slug: "docs/account-subscription"
 excerpt: ""
 hidden: false
 metadata: 
@@ -9,9 +9,9 @@ createdAt: "Tue Aug 16 2022 15:20:41 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue May 09 2023 14:08:38 GMT+0000 (Coordinated Universal Time)"
 ---
 On the **Subscription** subpage, you can switch between the pricing plans.  
-You'll find more information about the plans here: <a href="https://patchstack.com/pricing" target="_blank">https\://patchstack.com/pricing</a>.
+You'll find more information about the plans here: <a href="https://patchstack.com/pricing" target="_blank">https://patchstack.com/pricing</a>.
 
-![](https://files.readme.io/788bca3-small-Patchstack_subscription.png)
+![](/src/assets/images/788bca3-small-Patchstack_subscription.png)
 
 ## Entering your billing information
 
@@ -21,7 +21,7 @@ To enter billing information, choose the plan, after which, you will be taken to
 - You can add either Paypal or a credit card.
 - Choose whether you want to have an annual or monthly pricing plan.
 
-![](https://files.readme.io/afa8f40-small-Patchstack_add_credit_card.png)
+![](/src/assets/images/afa8f40-small-Patchstack_add_credit_card.png)
 
 ## Upgrading / downgrading your plan
 

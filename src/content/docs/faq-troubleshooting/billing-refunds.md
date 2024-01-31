@@ -1,6 +1,6 @@
 ---
 title: "Billing & Refunds"
-slug: "billing-refunds"
+slug: "docs/billing-refunds"
 excerpt: ""
 hidden: false
 metadata: 

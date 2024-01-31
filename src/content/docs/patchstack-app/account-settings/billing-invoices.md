@@ -1,6 +1,6 @@
 ---
 title: "Billing & Invoices"
-slug: "billing-invoices"
+slug: "docs/billing-invoices"
 excerpt: ""
 hidden: false
 metadata: 
@@ -13,7 +13,7 @@ On the **Billing & Invoices** page you can see the information about your plan; 
 
 By scrolling down, you see general data about your invoices and download these as PDF files.
 
-![](https://files.readme.io/e1c7f80-small-Patchstack_billing_and_invoices.png)
+![](/src/assets/images/e1c7f80-small-Patchstack_billing_and_invoices.png)
 
 ## Updating the credit card information
 
@@ -22,4 +22,4 @@ You will then see a popup for updating your credit card information as below.
 
 To delete the credit card, click on the red **Delete** button at the top right corner.
 
-![](https://files.readme.io/1776073-small-Patchstack_update_credit_card.png)
+![](/src/assets/images/1776073-small-Patchstack_update_credit_card.png)

@@ -1,6 +1,6 @@
 ---
 title: "Plugin Errors"
-slug: "plugin-related"
+slug: "docs/plugin-related"
 excerpt: ""
 hidden: false
 metadata: 

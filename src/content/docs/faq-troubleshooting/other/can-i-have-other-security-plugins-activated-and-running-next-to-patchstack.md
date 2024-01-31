@@ -1,6 +1,6 @@
 ---
 title: "Can I have other security plugins activated and running next to Patchstack?"
-slug: "can-i-have-other-security-plugins-activated-and-running-next-to-patchstack"
+slug: "docs/can-i-have-other-security-plugins-activated-and-running-next-to-patchstack"
 excerpt: ""
 hidden: false
 metadata: 

@@ -1,29 +1,15 @@
 ---
 title: "Generating Reports"
-slug: "generating-reports"
+slug: "docs/generating-reports"
 excerpt: ""
 hidden: false
 createdAt: "Mon Mar 06 2023 14:44:26 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Jan 23 2024 14:27:46 GMT+0000 (Coordinated Universal Time)"
 ---
 _Accessible for the Community, Developer and Business plan users._  
-<https://app.patchstack.com/reports/>
+**[https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)**
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ed2d84d-patchstack_reports.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/ed2d84d-patchstack_reports.png)
 
 ## Generating Snapshot Report (Free)
 

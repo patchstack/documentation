@@ -1,6 +1,6 @@
 ---
 title: "Does Patchstack have a free version?"
-slug: "does-patchstack-have-a-free-version"
+slug: "docs/does-patchstack-have-a-free-version"
 excerpt: "Yes, Patchstack has a free version."
 hidden: false
 metadata: 

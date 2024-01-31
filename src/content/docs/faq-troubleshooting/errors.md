@@ -1,6 +1,6 @@
 ---
 title: "Errors"
-slug: "errors"
+slug: "docs/errors"
 excerpt: ""
 hidden: false
 metadata: 

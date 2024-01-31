@@ -1,6 +1,6 @@
 ---
 title: "Should I upgrade from AppSumo to Developer plan?"
-slug: "should-i-upgrade-from-appsumo-to-developer-plan"
+slug: "docs/should-i-upgrade-from-appsumo-to-developer-plan"
 excerpt: ""
 hidden: false
 metadata: 

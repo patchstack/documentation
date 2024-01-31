@@ -1,26 +1,13 @@
 ---
 title: "Banned IPs"
-slug: "app-protection-banned-ips"
+slug: "docs/app-protection-banned-ips"
 excerpt: ""
 hidden: false
 createdAt: "Wed Jan 17 2024 14:09:50 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Jan 17 2024 15:02:41 GMT+0000 (Coordinated Universal Time)"
 ---
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/19091e0-patchstack-banned-ips.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
 
+![](/src/assets/images/19091e0-patchstack-banned-ips.png)
 
 Navigate to **Protection** > **Banned IPs** section to view all the IP addresses that are currently banned from visiting the site. In case it's a false positive blocking, you can unblock this IP by selecting **Action** > **Unban**. 
 

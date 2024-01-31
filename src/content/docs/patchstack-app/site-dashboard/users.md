@@ -1,6 +1,6 @@
 ---
 title: "Users"
-slug: "users"
+slug: "docs/users"
 excerpt: "See the data of users of your WordPress site"
 hidden: false
 createdAt: "Mon Aug 08 2022 13:10:56 GMT+0000 (Coordinated Universal Time)"
@@ -18,17 +18,4 @@ Administrator</li>
 <li>Contributor</li>
 </ul>
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/7e62c7d-patchstack_users.png",
-        null,
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
+![](/src/assets/images/7e62c7d-patchstack_users.png)

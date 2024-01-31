@@ -1,6 +1,6 @@
 ---
 title: "How do I remove Patchstack from the GDPR cookie notice?"
-slug: "how-do-i-remove-patchstack-from-the-gdpr-cookie-notice"
+slug: "docs/how-do-i-remove-patchstack-from-the-gdpr-cookie-notice"
 excerpt: ""
 hidden: false
 metadata: 

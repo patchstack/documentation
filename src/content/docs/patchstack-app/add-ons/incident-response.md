@@ -1,6 +1,6 @@
 ---
 title: "Incident Response"
-slug: "incident-response"
+slug: "docs/incident-response"
 excerpt: "While keeping this add-on enabled, Patchstack security experts will help you solve possible security incidents without additional cost."
 hidden: false
 metadata: 
@@ -20,23 +20,7 @@ Example reasons why sites could still get hacked:
 - Multiple WordPress installations on one server, some of which are unprotected by a firewall
 
 In case of a security issue, we will have our forensics team step in, collect evidence, safely clean up and restore the website and create a report to help you improve the security of your sites even more.
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9dab21c-small-Patchstack_Incident_Response.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "sizing": "500px"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/9dab21c-small-Patchstack_Incident_Response.png)
 
 The cost for this add-on is $9 per site / month.
 
@@ -53,7 +37,7 @@ To request malware removal, this add-on needs to be enabled for the application.
 <li>Click on <b>Request cleanup</b></li>
 </ol>
 
-![](https://files.readme.io/7631b4c-small-Patchstack_Incident_response_addon.png)
+![](/src/assets/images/7631b4c-small-Patchstack_Incident_response_addon.png)
 
 Now just fill in the form and submit the data to Patchstack.  
 We will get in touch with you in 1-2 working days!

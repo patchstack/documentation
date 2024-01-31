@@ -1,6 +1,6 @@
 ---
 title: "Pricing Plans"
-slug: "pricing-plans-1"
+slug: "docs/pricing-plans-1"
 excerpt: ""
 hidden: false
 metadata: 

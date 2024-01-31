@@ -1,6 +1,6 @@
 ---
 title: "Plugin"
-slug: "plugin"
+slug: "docs/plugin"
 excerpt: ""
 hidden: false
 metadata: 

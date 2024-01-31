@@ -1,6 +1,6 @@
 ---
 title: "Plugin Changelog"
-slug: "plugin-changelog"
+slug: "docs/plugin-changelog"
 excerpt: "These are all the changes made to the plugin in the past."
 hidden: false
 createdAt: "Mon Jul 25 2022 09:32:00 GMT+0000 (Coordinated Universal Time)"

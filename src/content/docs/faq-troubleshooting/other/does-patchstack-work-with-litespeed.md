@@ -1,6 +1,6 @@
 ---
 title: "Does Patchstack work with LiteSpeed?"
-slug: "does-patchstack-work-with-litespeed"
+slug: "docs/does-patchstack-work-with-litespeed"
 excerpt: ""
 hidden: false
 metadata: 

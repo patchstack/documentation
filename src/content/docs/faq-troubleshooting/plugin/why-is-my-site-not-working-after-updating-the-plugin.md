@@ -1,6 +1,6 @@
 ---
 title: "Why is my site not working after updating the plugin?"
-slug: "why-is-my-site-not-working-after-updating-the-plugin"
+slug: "docs/why-is-my-site-not-working-after-updating-the-plugin"
 excerpt: ""
 hidden: false
 metadata: 

@@ -1,6 +1,6 @@
 ---
 title: "Error: \"The URL <URL> cannot be added since it returned a 5xx error code, this indicates an internal server error on your site. Please make sure it is accessible and not in maintenance mode.\""
-slug: "error-the-url-url-cannot-be-added-since-it-returned-a-5xx-error-code-this-indicates-an-internal-server-error-on-your-site-please-make-sure-it-is-accessible-and-not-in-maintenance-mode"
+slug: "docs/error-the-url-url-cannot-be-added-since-it-returned-a-5xx-error-code-this-indicates-an-internal-server-error-on-your-site-please-make-sure-it-is-accessible-and-not-in-maintenance-mode"
 excerpt: ""
 hidden: false
 metadata: 

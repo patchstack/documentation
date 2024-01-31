@@ -1,6 +1,6 @@
 ---
 title: "How does multisite work and what is the pricing model?"
-slug: "how-does-multisite-work-and-what-is-the-pricing-model"
+slug: "docs/how-does-multisite-work-and-what-is-the-pricing-model"
 excerpt: ""
 hidden: false
 metadata: 

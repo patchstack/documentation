@@ -1,6 +1,6 @@
 ---
 title: "How to send email notifications to all my team members?"
-slug: "how-to-send-notifications-to-all-my-team-members"
+slug: "docs/how-to-send-notifications-to-all-my-team-members"
 excerpt: "Let's set up alerts!"
 hidden: false
 metadata: 

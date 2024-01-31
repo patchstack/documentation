@@ -1,6 +1,6 @@
 ---
 title: "Error: \"Warning: Cannot modify header information - headers already sent by\""
-slug: "error-warning-cannot-modify-header-information-headers-already-sent-by"
+slug: "docs/error-warning-cannot-modify-header-information-headers-already-sent-by"
 excerpt: ""
 hidden: false
 metadata: 

@@ -1,6 +1,6 @@
 ---
 title: "Error: \"The URL <URL> is invalid.\""
-slug: "error-the-url-url-is-invalid"
+slug: "docs/error-the-url-url-is-invalid"
 excerpt: ""
 hidden: false
 metadata: 

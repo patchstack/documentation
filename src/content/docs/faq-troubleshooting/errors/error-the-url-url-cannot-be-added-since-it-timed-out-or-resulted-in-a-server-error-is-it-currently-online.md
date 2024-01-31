@@ -1,6 +1,6 @@
 ---
 title: "Error: \"The URL <URL> cannot be added since it timed-out or resulted in a server error. Is it currently online?\""
-slug: "error-the-url-url-cannot-be-added-since-it-timed-out-or-resulted-in-a-server-error-is-it-currently-online"
+slug: "docs/error-the-url-url-cannot-be-added-since-it-timed-out-or-resulted-in-a-server-error-is-it-currently-online"
 excerpt: ""
 hidden: false
 metadata: 

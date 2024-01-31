@@ -1,6 +1,6 @@
 ---
 title: "Where is the Patchstack settings page on the plugin?"
-slug: "where-is-the-patchstack-settings-page-on-the-plugin"
+slug: "docs/where-is-the-patchstack-settings-page-on-the-plugin"
 excerpt: ""
 hidden: false
 metadata: 

@@ -1,6 +1,6 @@
 ---
 title: "Error: \"Cannot redeclare class Patchstack in…\""
-slug: "error-cannot-redeclare-class-patchstack-in"
+slug: "docs/error-cannot-redeclare-class-patchstack-in"
 excerpt: "How to act, when the Patchstack plugin causes a fatal error on your site"
 hidden: false
 metadata: 

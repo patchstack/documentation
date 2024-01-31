@@ -1,6 +1,6 @@
 ---
 title: "Does Patchstack work with nginx?"
-slug: "does-patchstack-work-with-nginx"
+slug: "docs/does-patchstack-work-with-nginx"
 excerpt: ""
 hidden: false
 metadata: 

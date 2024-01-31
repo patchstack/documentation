@@ -1,6 +1,6 @@
 ---
 title: "Groups"
-slug: "application-groups-old"
+slug: "docs/application-groups-old"
 excerpt: "Grouping your applications makes management easier"
 hidden: true
 createdAt: "Mon Jul 25 2022 09:03:27 GMT+0000 (Coordinated Universal Time)"
@@ -13,7 +13,7 @@ Grouping makes it easier to distinguish your domains from each other.
 
 For example, if it is important to know, where the website/application is hosted, you can attach it to a group (e.g. call it GoDaddy, Hostinger, Plesk...)
 
-![](https://files.readme.io/1ac7711-small-Patchstack_-_groups_overview.png)
+![](/src/assets/images/1ac7711-small-Patchstack_-_groups_overview.png)
 
 ## Creating a Group
 
@@ -24,7 +24,7 @@ When done, click **Done**.
 
 To read more about the custom firewall modules, check the **Protection** page in the Patchstack App.
 
-![](https://files.readme.io/256e79d-small-Create_group.png)
+![](/src/assets/images/256e79d-small-Create_group.png)
 
 ## Attaching Group to your domains
 
@@ -36,7 +36,7 @@ Find the domain from the list</lI>
 <li>Toggle the groups you wish to attach to that domain</li>
 <li>Click <b>Update</b></li></ol>
 
-![](https://files.readme.io/d64ca91-small-Screenshot_2023-05-04_at_16.12.33.png)
+![](/src/assets/images/d64ca91-small-Screenshot_2023-05-04_at_16.12.33.png)
 
 ## Detaching a Group from your domain
 
@@ -59,4 +59,4 @@ To modify the groups, click on **Manage groups** from the submenu of **My Apps**
 You can see all your groups from this page. It shows, how many firewall modules and applications are attached to each group.  
 You can modify the groups by clicking on the small gear icon on the group tab.
 
-![](https://files.readme.io/0c6d74e-small-Patchstack_-_Manage_groups.png)
+![](/src/assets/images/0c6d74e-small-Patchstack_-_Manage_groups.png)

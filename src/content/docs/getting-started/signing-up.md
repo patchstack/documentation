@@ -1,6 +1,6 @@
 ---
 title: "Signing Up"
-slug: "signing-up"
+slug: "docs/signing-up"
 excerpt: ""
 hidden: false
 createdAt: "Fri Oct 20 2023 08:59:19 GMT+0000 (Coordinated Universal Time)"
@@ -8,7 +8,7 @@ updatedAt: "Thu Nov 30 2023 13:40:01 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3
 ---
-To sign up and start using Patchstack, navigate to <a href="https://app.patchstack.com/register/" target="_blank">https\://app.patchstack.com/register</a>  
+To sign up and start using Patchstack, navigate to <a href="https://app.patchstack.com/register/" target="_blank">https://app.patchstack.com/register</a>  
 From there you can sign up two ways.
 
 ## Registering your account manually:
@@ -25,4 +25,4 @@ From there you can sign up two ways.
 
 Below is the screen you can see after successful sign-up. From this view you can [add your first websites or applications to Patchstack](https://docs.patchstack.com/docs/adding-the-first-application).
 
-![](https://files.readme.io/bb8151c-Pathstack_first_dashboard.png)
+![](/src/assets/images/bb8151c-Pathstack_first_dashboard.png)

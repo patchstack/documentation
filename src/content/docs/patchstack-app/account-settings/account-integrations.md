@@ -1,6 +1,6 @@
 ---
 title: "Integrations"
-slug: "account-integrations"
+slug: "docs/account-integrations"
 excerpt: "Get real-time alerts to your Slack channel!"
 hidden: false
 metadata: 
@@ -15,13 +15,13 @@ _This integration is for the Developer and Business plan users only._
 On the **Integrations** page you can integrate your Slack account with Patchstack.  
 That way you can set up Patchstack alerts and send these to your own Slack channel.
 
-![](https://files.readme.io/db4cf85-small-Patchstack_slack.png)
+![](/src/assets/images/db4cf85-small-Patchstack_slack.png)
 
 ## Setting up the Slack integration
 
 To integrate Slack, click on **"Integrate Slack"**. You will be taken to Slack.
 
-![](https://files.readme.io/92d4e6d-Patchstack_-_slack.png "Patchstack - slack.png")
+![](/src/assets/images/92d4e6d-Patchstack_-_slack.png "Patchstack - slack.png")
 
 1. Check the settings and click **"Allow"**.
 2. You will be taken back to the Patchstack App, with a success message.
@@ -29,7 +29,7 @@ To integrate Slack, click on **"Integrate Slack"**. You will be taken to Slack.
 4. Insert your channel name ( e.g **#alerts** ).
 5. Click on **"Save & Send Test"**.
 
-![](https://files.readme.io/3513e15-Slack-integration.png "Slack-integration.png")
+![](/src/assets/images/3513e15-Slack-integration.png "Slack-integration.png")
 
 You should now receive a message to your Slack channel.
 

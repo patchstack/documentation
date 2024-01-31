@@ -1,6 +1,6 @@
 ---
 title: "Hardening > Cookie Notice"
-slug: "hardening-cookie-notice"
+slug: "docs/hardening-cookie-notice"
 excerpt: "A feature that allows users to display the Cookie Notice bar on the site."
 hidden: true
 createdAt: "Mon Aug 08 2022 12:22:29 GMT+0000 (Coordinated Universal Time)"
@@ -8,20 +8,7 @@ updatedAt: "Thu Jan 18 2024 13:27:55 GMT+0000 (Coordinated Universal Time)"
 ---
 _Accessible for the Developer and Business plan users only._
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/10141af-patchstack_cookie-notice.png",
-        null,
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
+![](/src/assets/images/10141af-patchstack_cookie-notice.png)
 
 
 ## Setting up the Cookie Notice

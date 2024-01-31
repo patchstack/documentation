@@ -1,6 +1,6 @@
 ---
 title: "Error: You have entered an incorrect reCAPTCHA value on Login Page"
-slug: "error-you-have-entered-an-incorrect-recaptcha-value-on-login-page"
+slug: "docs/error-you-have-entered-an-incorrect-recaptcha-value-on-login-page"
 excerpt: ""
 hidden: false
 metadata: 

@@ -1,6 +1,6 @@
 ---
 title: "Other"
-slug: "other"
+slug: "docs/other"
 excerpt: ""
 hidden: false
 metadata: 

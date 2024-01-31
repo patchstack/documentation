@@ -1,6 +1,6 @@
 ---
 title: "Hardening > Login Protection"
-slug: "hardening-login-protection"
+slug: "docs/hardening-login-protection"
 excerpt: "Protect your login URL"
 hidden: true
 createdAt: "Mon Aug 08 2022 11:49:13 GMT+0000 (Coordinated Universal Time)"
@@ -20,21 +20,7 @@ From **Login Protection** subpage you can:
 <li>Block certain IP addresses from being able to log in</li>
 </ul>
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9107e98-patchstack-login-protection.png",
-        null,
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/9107e98-patchstack-login-protection.png)
 
 ## How does the new login URL work?
 

@@ -1,6 +1,6 @@
 ---
 title: "List of IP addresses, that Patchstack servers use"
-slug: "list-of-ip-addresses-that-patchstack-uses"
+slug: "docs/list-of-ip-addresses-that-patchstack-uses"
 excerpt: "Below is a list of most of the IP addresses that we currently use."
 hidden: false
 metadata: 

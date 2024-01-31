@@ -1,13 +1,13 @@
 ---
 title: "Developer Report"
-slug: "developer-report"
+slug: "docs/developer-report"
 excerpt: "Periodic PDF security report for site developers"
 hidden: false
 createdAt: "Fri Mar 03 2023 14:29:37 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu Nov 23 2023 12:53:02 GMT+0000 (Coordinated Universal Time)"
 ---
 _This feature is for the Developer and Business plan users only._  
-<https://app.patchstack.com/reports/>
+**[https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)**
 
 **Developer Report** is a periodic PDF security report. It means you will need to pick a time period (for example a month), in which the data is shown on the report.
 

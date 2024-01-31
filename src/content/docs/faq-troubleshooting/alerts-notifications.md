@@ -1,6 +1,6 @@
 ---
 title: "Alerts & Notifications"
-slug: "alerts-notifications"
+slug: "docs/alerts-notifications"
 excerpt: ""
 hidden: false
 metadata: 

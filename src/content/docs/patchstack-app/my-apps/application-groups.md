@@ -1,6 +1,6 @@
 ---
 title: "Groups"
-slug: "application-groups"
+slug: "docs/application-groups"
 excerpt: "Grouping your applications makes management easier"
 hidden: false
 createdAt: "Thu Dec 21 2023 15:09:56 GMT+0000 (Coordinated Universal Time)"
@@ -12,22 +12,7 @@ You can attach your domains to multiple groups.
 Grouping makes it easier to distinguish your apps from each other.
 
 For example if you sell care plans, you can group your sites by care plan names.
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/7d462c9-groups.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/7d462c9-groups.png)
 
 ## Creating a group
 

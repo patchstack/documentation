@@ -1,6 +1,6 @@
 ---
 title: "How do I turn on the XML-RPC feature?"
-slug: "how-do-i-turn-on-the-xml-rpc-feature"
+slug: "docs/how-do-i-turn-on-the-xml-rpc-feature"
 excerpt: ""
 hidden: false
 metadata: 

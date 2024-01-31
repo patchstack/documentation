@@ -1,6 +1,6 @@
 ---
 title: "API Errors"
-slug: "api-related"
+slug: "docs/api-related"
 excerpt: ""
 hidden: false
 metadata: 

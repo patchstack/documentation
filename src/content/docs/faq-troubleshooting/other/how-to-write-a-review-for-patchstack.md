@@ -1,6 +1,6 @@
 ---
 title: "How to write a review for Patchstack?"
-slug: "how-to-write-a-review-for-patchstack"
+slug: "docs/how-to-write-a-review-for-patchstack"
 excerpt: "Review Patchstack product, service, and support on WordPress.org or G2"
 hidden: false
 metadata: 
@@ -15,9 +15,9 @@ This will help us and we really appreciate your help in showing the value we cre
 
 <b>We collect reviews on two different platforms:</b>
 
-<b>WordPress.org:</b> <a href="https://wordpress.org/support/plugin/patchstack/reviews/" target="_blank">https\://wordpress.org/support/plugin/patchstack/reviews/</a>
+<b>WordPress.org:</b> <a href="https://wordpress.org/support/plugin/patchstack/reviews/" target="_blank">https://wordpress.org/support/plugin/patchstack/reviews/</a>
 
-<b>G2:</b> <a href="https://www.g2.com/products/patchstack/reviews" target="_blank">https\://www.g2.com/products/patchstack/reviews</a>
+<b>G2:</b> <a href="https://www.g2.com/products/patchstack/reviews" target="_blank">https://www.g2.com/products/patchstack/reviews</a>
 
 When writing a review, remember that you’re reviewing a service that our team poured our heart and soul into to create.  
 

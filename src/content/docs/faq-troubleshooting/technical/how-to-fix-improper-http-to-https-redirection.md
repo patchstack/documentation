@@ -1,6 +1,6 @@
 ---
 title: "How to fix \"Improper HTTP to HTTPS redirection\"?"
-slug: "how-to-fix-improper-http-to-https-redirection"
+slug: "docs/how-to-fix-improper-http-to-https-redirection"
 excerpt: ""
 hidden: false
 metadata: 

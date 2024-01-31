@@ -1,6 +1,6 @@
 ---
 title: "How do I block an IP address from accessing my site?"
-slug: "how-do-i-block-an-ip-address-from-accessing-my-site"
+slug: "docs/how-do-i-block-an-ip-address-from-accessing-my-site"
 excerpt: ""
 hidden: false
 metadata: 

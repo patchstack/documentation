@@ -1,6 +1,6 @@
 ---
 title: "Additional Settings"
-slug: "app-protection-additional-settings"
+slug: "docs/app-protection-additional-settings"
 excerpt: ""
 hidden: false
 createdAt: "Tue Jan 16 2024 15:02:52 GMT+0000 (Coordinated Universal Time)"
@@ -8,21 +8,7 @@ updatedAt: "Wed Jan 17 2024 15:02:17 GMT+0000 (Coordinated Universal Time)"
 ---
 _Accessible for the Community (paid), Developer and Business plan users._
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/e9a9dad-patchstack_protection_additional_settings.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/e9a9dad-patchstack_protection_additional_settings.png)
 
 ## User role whitelist
 
@@ -37,7 +23,7 @@ In case you want to block traffic to your web application from certain countries
 You can start typing the names of countries into the **"Blocked Countries"** input.  
 After typing the name, press **Enter** or click on the name of a given country.
 
-![](https://files.readme.io/09a9e14-small-Patchstack_-_country_blocking.png)
+![](/src/assets/images/09a9e14-small-Patchstack_-_country_blocking.png)
 
 If you want the country blocking to start working right away, click on **Enable Country Blocking**.  
 You may then click **Save Settings**.
@@ -93,21 +79,7 @@ Under the **General whitelist settings** section, you can manage whitelist setti
 
 Block IPs that are a potential threat to your sites.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/1f3457c-patchstack_block_ips.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/1f3457c-patchstack_block_ips.png)
 
 > 🚧 Example case:
 > 
@@ -151,7 +123,7 @@ What you can do:
 <li>Prevent image hotlinking</li>
 </ol>
 
-![](https://files.readme.io/42ab5b5-small-Patchstack_-_Hardening_firewall.png)
+![](/src/assets/images/42ab5b5-small-Patchstack_-_Hardening_firewall.png)
 
 In case you wish to write custom htaccess rules to the file, you can insert your rules to **Custom .htaccess rules** textfield.  
 Additionally, you can select if your written rules appear at the bottom of Patchstack rules or at the top of Patchstack rules in the .htaccess file.

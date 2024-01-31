@@ -1,6 +1,6 @@
 ---
 title: "Error Code 5529"
-slug: "error-code-5529"
+slug: "docs/error-code-5529"
 excerpt: ""
 hidden: false
 createdAt: "Tue Jul 11 2023 11:51:08 GMT+0000 (Coordinated Universal Time)"

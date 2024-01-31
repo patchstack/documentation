@@ -1,6 +1,6 @@
 ---
 title: "Can I install the same plugin file on all of my sites?"
-slug: "can-i-install-the-same-plugin-file-on-all-of-my-sites"
+slug: "docs/can-i-install-the-same-plugin-file-on-all-of-my-sites"
 excerpt: ""
 hidden: false
 metadata: 

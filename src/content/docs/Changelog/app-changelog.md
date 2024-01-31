@@ -1,6 +1,6 @@
 ---
 title: "App Changelog"
-slug: "app-changelog"
+slug: "docs/app-changelog"
 excerpt: "These are all the changes made to the app (portal) in the past."
 hidden: false
 metadata: 

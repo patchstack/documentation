@@ -1,6 +1,6 @@
 ---
 title: "Does the Patchstack plugin work on the server level or on an application level?"
-slug: "does-the-patchstack-plugin-work-on-the-server-level-or-on-an-application-level"
+slug: "docs/does-the-patchstack-plugin-work-on-the-server-level-or-on-an-application-level"
 excerpt: ""
 hidden: false
 metadata: 

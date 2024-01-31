@@ -1,6 +1,6 @@
 ---
 title: "Activity"
-slug: "activity"
+slug: "docs/activity"
 excerpt: "See all the basic activity about your WordPress site"
 hidden: false
 createdAt: "Mon Aug 08 2022 13:05:55 GMT+0000 (Coordinated Universal Time)"
@@ -8,21 +8,7 @@ updatedAt: "Thu Jan 18 2024 13:52:17 GMT+0000 (Coordinated Universal Time)"
 ---
 _Accessible for the Community (paid), Developer and Business plan users only._
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/7cb2d55-patchstack-activity.png",
-        null,
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/7cb2d55-patchstack-activity.png)
 
 The activity logs display a large number of events that occur on your WordPress application. They are stored for 12 months after which they are archived.
 

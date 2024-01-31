@@ -1,6 +1,6 @@
 ---
 title: "How does the annual plan pricing work and how will I be charged?"
-slug: "how-does-the-annual-plan-pricing-work-and-how-will-i-be-charged"
+slug: "docs/how-does-the-annual-plan-pricing-work-and-how-will-i-be-charged"
 excerpt: "Our annual payment pricing works a bit differently from most other services."
 hidden: false
 metadata: 

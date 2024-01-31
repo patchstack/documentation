@@ -1,6 +1,6 @@
 ---
 title: "Client Report"
-slug: "client-report"
+slug: "docs/client-report"
 excerpt: "Periodic PDF security report for site owners"
 hidden: true
 metadata: 
@@ -10,7 +10,7 @@ createdAt: "Fri Mar 03 2023 14:29:56 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu May 25 2023 11:53:30 GMT+0000 (Coordinated Universal Time)"
 ---
 _This feature is for the Business plan users only._  
-<https://app.patchstack.com/reports/>
+**[https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)**
 
 **Client Report** is a periodic PDF security report. It means you will need to pick a time period (for example a month), in which the data is shown on the report. If you manage your clients' websites, this type of report can be sent to them.
 
@@ -31,35 +31,6 @@ _This feature is for the Business plan users only._
 
 Maintenance reports can be scheduled to be generated automatically. You can see and download the scheduled reports by visiting the **Reports** page and clicking on the **Scheduled reports** tab.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/638470b-patchstack_maintenance_report.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "border": true
-    }
-  ]
-}
-[/block]
+![](/src/assets/images/638470b-patchstack_maintenance_report.png)
 
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/6653b9c-patchstack_maintenance_report_firewall.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "border": true
-    }
-  ]
-}
-[/block]
+![](/src/assets/images/6653b9c-patchstack_maintenance_report_firewall.png)

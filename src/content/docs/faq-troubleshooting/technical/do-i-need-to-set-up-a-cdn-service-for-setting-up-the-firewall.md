@@ -1,6 +1,6 @@
 ---
 title: "Do I need to set up a CDN service for setting up the firewall?"
-slug: "do-i-need-to-set-up-a-cdn-service-for-setting-up-the-firewall"
+slug: "docs/do-i-need-to-set-up-a-cdn-service-for-setting-up-the-firewall"
 excerpt: ""
 hidden: false
 metadata: 

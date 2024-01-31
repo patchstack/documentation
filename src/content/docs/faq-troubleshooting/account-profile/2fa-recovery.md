@@ -1,6 +1,6 @@
 ---
 title: "2FA recovery"
-slug: "2fa-recovery"
+slug: "docs/2fa-recovery"
 excerpt: ""
 hidden: false
 metadata: 

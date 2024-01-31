@@ -1,6 +1,6 @@
 ---
 title: "Do you offer refunds?"
-slug: "do-you-offer-refunds"
+slug: "docs/do-you-offer-refunds"
 excerpt: ""
 hidden: false
 metadata: 

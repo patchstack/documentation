@@ -1,6 +1,6 @@
 ---
 title: "How to generate security reports?"
-slug: "how-to-generate-security-reports"
+slug: "docs/how-to-generate-security-reports"
 excerpt: ""
 hidden: false
 metadata: 

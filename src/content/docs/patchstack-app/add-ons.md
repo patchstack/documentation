@@ -1,6 +1,6 @@
 ---
 title: "Add-Ons"
-slug: "add-ons"
+slug: "docs/add-ons"
 excerpt: ""
 hidden: false
 metadata: 
@@ -26,4 +26,4 @@ Patchstack's add-ons include:
 
 </ol>
 
-![](https://files.readme.io/fe10500-small-Patchstack_Add-ons.png)
+![](/src/assets/images/fe10500-small-Patchstack_Add-ons.png)

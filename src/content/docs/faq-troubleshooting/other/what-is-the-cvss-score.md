@@ -1,6 +1,6 @@
 ---
 title: "What is the CVSS score?"
-slug: "what-is-the-cvss-score"
+slug: "docs/what-is-the-cvss-score"
 excerpt: "You can find CVSS scores added to the vulnerability info in Patchstack database."
 hidden: false
 metadata: 
@@ -23,8 +23,8 @@ If an attack has a high complexity, it will add fewer score points because not e
 
 Besides the parameters that give us a clue about the attack complexity, we have three parameters that say what could be impacted (Confidentiality, Integrity, Availability).
 
-It is the so-called CIA Triad (you can read about the CIA Triad here - <a href="https://en.wikipedia.org/wiki/Information_security" target="_blank">https\://en.wikipedia.org/wiki/Information_security</a>)
+It is the so-called CIA Triad (you can read about the CIA Triad here - <a href="https://en.wikipedia.org/wiki/Information_security" target="_blank">https://en.wikipedia.org/wiki/Information_security</a>)
 
-By adding all these parameters to the CVSS calculator (you can try it yourself here <a href="https://www.first.org/cvss/calculator/3.1" target="_blank">https\://www.first.org/cvss/calculator/3.1</a>) we get the base score represented by numbers from 0.0 (zero - no threat) to 10.0 (ten -  critical threat), so the bigger number means the bigger problem.
+By adding all these parameters to the CVSS calculator (you can try it yourself here <a href="https://www.first.org/cvss/calculator/3.1" target="_blank">https://www.first.org/cvss/calculator/3.1</a>) we get the base score represented by numbers from 0.0 (zero - no threat) to 10.0 (ten -  critical threat), so the bigger number means the bigger problem.
 
 As you can see, CVSS is a very convenient and straightforward way to show the level of danger (similar to the earthquake scale).

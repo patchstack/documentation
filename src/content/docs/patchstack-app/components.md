@@ -1,6 +1,6 @@
 ---
 title: "Software"
-slug: "components"
+slug: "docs/components"
 excerpt: ""
 hidden: false
 metadata: 

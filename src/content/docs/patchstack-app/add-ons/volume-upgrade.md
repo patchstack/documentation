@@ -1,6 +1,6 @@
 ---
 title: "Volume Upgrade"
-slug: "volume-upgrade"
+slug: "docs/volume-upgrade"
 excerpt: "Add-on for connecting more applications"
 hidden: false
 metadata: 
@@ -21,22 +21,7 @@ Go to the Add-ons page in Patchstack App to activate **Volume upgrade**.
 
 The module shows, how many additional apps you have added and how much you pay extra per month.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/771598c-small-Patchstack_volume_upgrade.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "sizing": "500px"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/771598c-small-Patchstack_volume_upgrade.png)
 
 ## Activating the volume upgrade
 
@@ -47,18 +32,4 @@ The price is shown instantaneously.
 
 Click **Enable** to proceed with activating this add-on.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/890124c-small-Patchstack_volume_upgrade_adding.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "sizing": "500px"
-    }
-  ]
-}
-[/block]
+![](/src/assets/images/890124c-small-Patchstack_volume_upgrade_adding.png)

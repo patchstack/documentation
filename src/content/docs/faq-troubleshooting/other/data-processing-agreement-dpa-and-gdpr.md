@@ -1,6 +1,6 @@
 ---
 title: "Data Processing Agreement (DPA) and GDPR"
-slug: "data-processing-agreement-dpa-and-gdpr"
+slug: "docs/data-processing-agreement-dpa-and-gdpr"
 excerpt: "Do I need to sign data processing agreement (DPA) with Patchstack? Is Patchstack GDPR compliant?"
 hidden: false
 metadata: 

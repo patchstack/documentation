@@ -1,6 +1,6 @@
 ---
 title: "Does Patchstack work with MarketPlan.io?"
-slug: "does-patchstack-work-with-marketplanio"
+slug: "docs/does-patchstack-work-with-marketplanio"
 excerpt: ""
 hidden: false
 metadata: 

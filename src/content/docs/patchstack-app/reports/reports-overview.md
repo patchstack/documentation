@@ -1,29 +1,15 @@
 ---
 title: "Reports Overview"
-slug: "reports-overview"
+slug: "docs/reports-overview"
 excerpt: ""
 hidden: false
 createdAt: "Thu Mar 02 2023 15:02:57 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Jan 23 2024 14:28:17 GMT+0000 (Coordinated Universal Time)"
 ---
 _Accessible for the Community, Developer and Business plan users._  
-<https://app.patchstack.com/reports/>
+**[https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)**
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/c058112-patchstack_reports.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+![](/src/assets/images/c058112-patchstack_reports.png)
 
 From the **Reports** page, you can generate PDF security reports for your sites.  
 With Patchstack, you can automatically schedule your reports generation so you don't have to manually generate them.

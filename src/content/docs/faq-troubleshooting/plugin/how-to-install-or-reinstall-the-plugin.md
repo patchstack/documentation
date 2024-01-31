@@ -1,6 +1,6 @@
 ---
 title: "How to install or reinstall the plugin?"
-slug: "how-to-install-or-reinstall-the-plugin"
+slug: "docs/how-to-install-or-reinstall-the-plugin"
 excerpt: ""
 hidden: false
 metadata: 
@@ -35,4 +35,4 @@ Another way to install the Patchstack plugin is from WordPress itself. In your W
 <li>Go to your WordPress admin, navigate to <b>Settings</b> > <b>Security</b> and insert the API key there</li>
 </ol>
 
-![](https://files.readme.io/5beca91-small-Patchstack_api_key_settings.png)
+![](/src/assets/images/5beca91-small-Patchstack_api_key_settings.png)

@@ -1,6 +1,6 @@
 ---
 title: "What is Incident Response?"
-slug: "what-is-incident-response"
+slug: "docs/what-is-incident-response"
 excerpt: "While keeping this add-on enabled, Patchstack security experts will help you solve possible security incidents without additional cost."
 hidden: false
 metadata: 

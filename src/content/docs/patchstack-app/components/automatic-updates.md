@@ -1,6 +1,6 @@
 ---
 title: "Automatic Updates"
-slug: "automatic-updates"
+slug: "docs/automatic-updates"
 excerpt: "Update your software automatically"
 hidden: false
 metadata: 
@@ -25,14 +25,14 @@ For each app, you have the following options:
 <li>Auto-update themes</li>
 </ol>
 
-![](https://files.readme.io/b19d05a-small-Patchstack_software_automatic_updates.png)
+![](/src/assets/images/b19d05a-small-Patchstack_software_automatic_updates.png)
 
 ## Turning on the Auto-Updates
 
 To turn on the **Auto-Updates** feature, click on **Change** in the corresponding table row.  
 You will be shown a popup (see the image below).
 
-![](https://files.readme.io/adab7ff-small-Patchstack_auto-update.png)
+![](/src/assets/images/adab7ff-small-Patchstack_auto-update.png)
 
 To activate any of the options, toggle the buttons.
 

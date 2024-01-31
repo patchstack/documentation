@@ -1,6 +1,6 @@
 ---
 title: "Integrations"
-slug: "integrations"
+slug: "docs/integrations"
 excerpt: ""
 hidden: false
 metadata: 

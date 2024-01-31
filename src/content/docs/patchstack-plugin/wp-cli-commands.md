@@ -1,6 +1,6 @@
 ---
 title: "WP CLI Commands"
-slug: "wp-cli-commands"
+slug: "docs/wp-cli-commands"
 excerpt: ""
 hidden: false
 metadata: 

@@ -1,6 +1,6 @@
 ---
 title: "What is the best way to resell Patchstack to my customers?"
-slug: "what-is-the-best-way-to-resell-patchstack-to-my-customers"
+slug: "docs/what-is-the-best-way-to-resell-patchstack-to-my-customers"
 excerpt: ""
 hidden: false
 metadata: 

@@ -1,6 +1,6 @@
 ---
 title: "How to get the Site key and Secret key for the reCAPTCHA feature?"
-slug: "how-to-get-the-site-key-and-secret-key-for-the-recaptcha-feature"
+slug: "docs/how-to-get-the-site-key-and-secret-key-for-the-recaptcha-feature"
 excerpt: ""
 hidden: false
 metadata: 

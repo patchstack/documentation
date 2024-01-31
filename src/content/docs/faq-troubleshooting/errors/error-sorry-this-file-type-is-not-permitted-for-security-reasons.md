@@ -1,6 +1,6 @@
 ---
 title: "Error: \"Sorry, this file type is not permitted for security reasons\""
-slug: "error-sorry-this-file-type-is-not-permitted-for-security-reasons"
+slug: "docs/error-sorry-this-file-type-is-not-permitted-for-security-reasons"
 excerpt: ""
 hidden: false
 metadata: 

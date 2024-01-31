@@ -1,6 +1,6 @@
 ---
 title: "How to delete the Patchstack plugin manually?"
-slug: "how-to-delete-the-patchstack-plugin-manually"
+slug: "docs/how-to-delete-the-patchstack-plugin-manually"
 excerpt: ""
 hidden: false
 metadata: 

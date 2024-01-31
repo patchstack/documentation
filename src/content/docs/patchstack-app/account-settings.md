@@ -1,6 +1,6 @@
 ---
 title: "Account Settings"
-slug: "account-settings"
+slug: "docs/account-settings"
 excerpt: ""
 hidden: false
 metadata: 
@@ -22,4 +22,4 @@ On the main screen, you can:
 <li>Change your account timezone</li>
 </ol>
 
-![](https://files.readme.io/94aa299-small-Patchstack_account_settings.png)
+![](/src/assets/images/94aa299-small-Patchstack_account_settings.png)
