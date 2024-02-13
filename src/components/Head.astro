@@ -8,8 +8,8 @@ const { isFallback, lang } = Astro.props;
 <Default {...Astro.props}><slot /></Default>
 
 <script>
-import '/node_modules/glightbox/dist/js/glightbox.min.js';
-import '/node_modules/glightbox/dist/css/glightbox.min.css';
+import '/src/libs/glightbox/js/glightbox.min.js';
+import '/src/libs/glightbox/css/glightbox.min.css';
 window.addEventListener("load", function(){
 	const nolb = document.querySelectorAll(".nolb img");
 	nolb.forEach((img) => {
