@@ -10,7 +10,9 @@ sidebar:
 ---
 In this step, we'll add our first web application to Patchstack. 
 
-<iframe class="embedly-embed" src="//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FMFmPFzSaD3I&amp;display_name=YouTube&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DMFmPFzSaD3I&amp;image=http%3A%2F%2Fi.ytimg.com%2Fvi%2FMFmPFzSaD3I%2Fhqdefault.jpg&amp;key=7788cb384c9f4d5dbbdbeffd9fe4b92f&amp;type=text%2Fhtml&amp;schema=youtube" width="854" height="880" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+<div class="container">
+  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/MFmPFzSaD3I?si=CDjAhopxLuu69_H3"></iframe>
+</div>
 
 To add the first application, navigate to **Dashboard** and click on the **+ Add application** button as shown below.
 
