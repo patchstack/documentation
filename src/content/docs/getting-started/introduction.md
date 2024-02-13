@@ -11,4 +11,4 @@ sidebar:
 **Patchstack is a powerful tool that helps to protect your WordPress applications from attacks and identify security vulnerabilities within all your WordPress plugins, themes, and core.**
 
 It is powered by the WordPress ecosystem's most active community of ethical hackers.  
-Patchstack is trusted by leading WordPress experts such as Pagely, Cloudways, GridPane, Plesk, and others.
+Patchstack is trusted by leading WordPress experts such as GoDaddy, Pagely, Cloudways, GridPane, Plesk, and others.
