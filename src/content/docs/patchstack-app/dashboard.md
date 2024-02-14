@@ -5,6 +5,8 @@ excerpt: ""
 hidden: false
 createdAt: "Wed Oct 18 2023 12:41:44 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Dec 12 2023 12:31:21 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 1
 ---
 To access the dashboard, click on **Dashboard** from the left menu.
 
