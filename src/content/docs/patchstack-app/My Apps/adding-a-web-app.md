@@ -1,6 +1,6 @@
 ---
 title: "Adding an Application"
-slug: "docs/adding-a-web-app"
+slug: "docs/adding-an-application"
 excerpt: "Setting up a new web app is super easy"
 hidden: false
 createdAt: "Mon Jul 25 2022 09:03:16 GMT+0000 (Coordinated Universal Time)"

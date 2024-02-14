@@ -5,6 +5,8 @@ excerpt: ""
 hidden: false
 createdAt: "Mon Jul 25 2022 08:59:08 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Dec 12 2023 12:44:20 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 7.1
 ---
 ## 1. Download the .zip file
 

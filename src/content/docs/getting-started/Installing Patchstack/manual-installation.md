@@ -5,6 +5,8 @@ excerpt: ""
 hidden: false
 createdAt: "Tue Jul 26 2022 13:32:04 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Sun Jan 14 2024 16:28:50 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 7.2
 ---
 Let's set up the Patchstack plugin manually!  
 First, log in to your WordPress.  
