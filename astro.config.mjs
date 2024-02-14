@@ -14,7 +14,7 @@ export default defineConfig({
 				replacesTitle: true,
 			},
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				github: 'https://github.com/patchstack/documentation',
 			},
 			components: {
 				ThemeProvider: './src/components/ThemeProvider.astro',
