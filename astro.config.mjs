@@ -6,6 +6,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'Patchstack Docs',
+			favicon: '/images/psfavicon.svg',
 			customCss: [
 				'./src/styles/custom.css',
 			],
