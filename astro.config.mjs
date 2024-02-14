@@ -15,6 +15,9 @@ export default defineConfig({
 			},
 			social: {
 				github: 'https://github.com/patchstack/documentation',
+				discord: 'https://discord.gg/rkE8yxtNmS',
+				twitter: 'https://twitter.com/patchstackapp',
+				linkedin: 'https://www.linkedin.com/company/patchtsack'
 			},
 			components: {
 				ThemeProvider: './src/components/ThemeProvider.astro',
