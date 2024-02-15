@@ -5,6 +5,8 @@ excerpt: "Setting up a new web app is super easy"
 hidden: false
 createdAt: "Mon Jul 25 2022 09:03:16 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Dec 20 2023 13:37:41 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 2
 ---
 Click on **+ Add new** button.
 
