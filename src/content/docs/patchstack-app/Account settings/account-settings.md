@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Mon Jul 25 2022 09:10:12 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue May 09 2023 13:25:01 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 8
 ---
 On the **Account** page you can manage your profile data and access different settings related to your account.  
 On the main screen, you can:

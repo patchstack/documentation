@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Mon Jul 25 2022 09:07:59 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Sep 20 2023 13:29:48 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 6
 ---
 _Accessible for the Community, Developer and Business plan users. Community plan users can have a maximum of 1 alert trigger._  
 <https://app.patchstack.com/alerts/>

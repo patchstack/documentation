@@ -5,6 +5,8 @@ excerpt: "General overview of protection settings and logs across your sites"
 hidden: false
 createdAt: "Thu Jan 04 2024 14:16:59 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu Jan 18 2024 14:21:19 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 4
 ---
 ![](@images/ffe5801-patchstack_protection_modules.png)
 
