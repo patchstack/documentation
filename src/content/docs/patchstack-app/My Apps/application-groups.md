@@ -6,7 +6,7 @@ hidden: false
 createdAt: "Thu Dec 21 2023 15:09:56 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Jan 02 2024 14:19:18 GMT+0000 (Coordinated Universal Time)"
 sidebar:
-  order: 4
+  order: 2.3
 ---
 _This feature is accessible for the Developer and Business plan users._
 

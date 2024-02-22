@@ -5,6 +5,8 @@ excerpt: "See all the basic activity about your WordPress site"
 hidden: false
 createdAt: "Mon Aug 08 2022 13:05:55 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu Jan 18 2024 13:52:17 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 3.4
 ---
 _Accessible for the Community (paid), Developer and Business plan users only._
 

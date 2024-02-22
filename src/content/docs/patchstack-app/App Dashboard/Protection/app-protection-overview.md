@@ -5,6 +5,8 @@ excerpt: "Overview of protection modules and blocked traffic"
 hidden: false
 createdAt: "Wed Jan 17 2024 13:45:49 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Jan 17 2024 14:17:39 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 3.20
 ---
 :::note
 Accessible for the Community (paid), Developer and Business plan users.

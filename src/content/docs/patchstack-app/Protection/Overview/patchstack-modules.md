@@ -5,6 +5,8 @@ excerpt: "Patchstack provides managed modules which you can enable on your site.
 hidden: false
 createdAt: "Fri Nov 17 2023 10:20:26 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu Jan 18 2024 14:22:20 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 5.00
 ---
 # Introduction
 

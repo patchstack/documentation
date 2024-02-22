@@ -6,7 +6,7 @@ hidden: false
 createdAt: "Wed Aug 03 2022 11:23:18 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Jan 02 2024 14:19:02 GMT+0000 (Coordinated Universal Time)"
 sidebar:
-  order: 3
+  order: 2.2
 ---
 There are two ways to delete your applications: in bulk, or one by one.
 

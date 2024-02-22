@@ -5,6 +5,8 @@ excerpt: ""
 hidden: false
 createdAt: "Wed Jan 17 2024 14:09:50 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Jan 17 2024 15:02:41 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 3.22
 ---
 
 ![](@images/19091e0-patchstack-banned-ips.png)

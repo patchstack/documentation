@@ -1,15 +1,18 @@
 ---
-title: "Hardening > Cookie Notice"
-slug: "docs/hardening-cookie-notice"
+title: "Cookie Notice (deprecated)"
+slug: "docs/app-hardening-cookie-notice"
 excerpt: "A feature that allows users to display the Cookie Notice bar on the site."
-hidden: true
-createdAt: "Mon Aug 08 2022 12:22:29 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Thu Jan 18 2024 13:27:55 GMT+0000 (Coordinated Universal Time)"
+hidden: false
+createdAt: "Thu Jan 18 2024 13:27:26 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Thu Jan 18 2024 13:27:26 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 3.34
 ---
-_Accessible for the Developer and Business plan users only._
+_Accessible for the Community (paid), Developer and Business plan users only._
 
-![](@images/10141af-patchstack_cookie-notice.png)
+**This feature will be removed from the Patchstack App soon!**
 
+![](@images/cd18cce-patchstack-cookie-notice.png)
 
 ## Setting up the Cookie Notice
 
