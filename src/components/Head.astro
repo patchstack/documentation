@@ -4,7 +4,6 @@ import Default from '@astrojs/starlight/components/Head.astro';
 
 const { isFallback, lang } = Astro.props;
 let path = Astro.url.pathname.replace(/^\//, '').replace(/\/$/, '');
-console.log(path);
 if ( path === '' ) {
 	path = 'index';
 }
