@@ -6,7 +6,7 @@ hidden: false
 createdAt: "Mon Jul 25 2022 08:58:56 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Dec 12 2023 12:40:53 GMT+0000 (Coordinated Universal Time)"
 sidebar:
-  order: 7
+  order: 7.0
 ---
 Patchstack can be connected with WordPress in two ways:
 
