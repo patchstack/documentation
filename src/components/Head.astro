@@ -3,9 +3,16 @@ import type { Props } from '@astrojs/starlight/props';
 import Default from '@astrojs/starlight/components/Head.astro';
 
 const { isFallback, lang } = Astro.props;
-
+let path = Astro.url.pathname.replace(/^\//, '').replace(/\/$/, '');
+console.log(path);
+if ( path === '' ) {
+	path = 'index';
+}
+const imageSrc = '/open-graph/' + path + '.png';
+const canonicalImageSrc = new URL(imageSrc, Astro.site);
 ---
 <Default {...Astro.props}><slot /></Default>
+<meta property="og:image" content={canonicalImageSrc} />
 
 <script>
 import '/src/libs/glightbox/js/glightbox.min.js';
