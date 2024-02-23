@@ -1,6 +1,6 @@
 ---
 title: "Rules Advanced Creation"
-slug: "docs/advanced-rule-creation"
+slug: "docs/advanced-rule-creation-delete-it"
 excerpt: ""
 hidden: false
 createdAt: "Wed May 17 2023 10:44:05 GMT+0000 (Coordinated Universal Time)"
