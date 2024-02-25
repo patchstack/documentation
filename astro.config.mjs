@@ -25,8 +25,8 @@ export default defineConfig({
 				linkedin: 'https://www.linkedin.com/company/patchtsack'
 			},
 			components: {
-				ThemeProvider: './src/components/ThemeProvider.astro',
-				ThemeSelect: './src/components/ThemeSelect.astro',
+				//ThemeProvider: './src/components/ThemeProvider.astro',
+				//ThemeSelect: './src/components/ThemeSelect.astro',
 				Head: './src/components/Head.astro'
 			},
 			sidebar: [
