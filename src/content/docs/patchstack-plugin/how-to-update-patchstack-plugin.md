@@ -7,6 +7,8 @@ metadata:
   robots: "index"
 createdAt: "Tue Mar 07 2023 12:59:59 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 12:23:51 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 4
 ---
 You can update the Patchstack plugin in two ways:
 

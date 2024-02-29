@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Mon Jul 25 2022 09:21:53 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu May 25 2023 12:55:11 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 9.4
 ---
 _Seats and team features are available on the Developer and Business plan users only._  
 <https://app.patchstack.com/team/members>

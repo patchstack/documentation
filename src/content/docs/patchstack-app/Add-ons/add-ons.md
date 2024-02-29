@@ -9,7 +9,7 @@ metadata:
 createdAt: "Mon Jul 25 2022 09:06:19 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu May 25 2023 11:58:17 GMT+0000 (Coordinated Universal Time)"
 sidebar:
-  order: 7
+  order: 8
 ---
 _Accessible for the Developer and Business plan users only._  
 <https://app.patchstack.com/addons>

@@ -7,6 +7,8 @@ metadata:
   robots: "index"
 createdAt: "Mon Sep 19 2022 14:01:11 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 12:32:06 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 1.1
 ---
 If you are on the AppSumo plan, we strongly recommend you to upgrade your account to a Developer account, to get all the features we offer. You will still keep all the free features that you initially had on your plan.
 

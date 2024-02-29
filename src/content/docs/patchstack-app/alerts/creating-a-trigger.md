@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Mon Jul 25 2022 09:09:02 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu May 25 2023 11:57:30 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 7.2
 ---
 _New triggers can be created on the Developer and Business plan only._
 

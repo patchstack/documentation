@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Tue Aug 30 2022 12:07:02 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 12:01:29 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 1
 ---
 The Patchstack plugin is a WordPress plugin that connects your web application with Patchstack App.  
 You can find the plugin 

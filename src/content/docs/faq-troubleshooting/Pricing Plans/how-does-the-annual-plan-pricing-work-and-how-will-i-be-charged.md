@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Wed Jul 27 2022 11:54:33 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 12:38:54 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 3
 ---
 <b>How does it work?</b>  
 Once you start an annual plan with us, you will be charged for the entire amount right away and you will be charged every year for that amount unless you add more sites, adjust selected add-ons, or have more than 5 team members on your account.

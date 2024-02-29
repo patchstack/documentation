@@ -7,6 +7,8 @@ metadata:
   robots: "index"
 createdAt: "Tue Aug 16 2022 15:20:41 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue May 09 2023 14:08:38 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 9.1
 ---
 On the **Subscription** subpage, you can switch between the pricing plans.  
 You'll find more information about the plans here: <a href="https://patchstack.com/pricing" target="_blank">https://patchstack.com/pricing</a>.

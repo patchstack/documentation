@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Tue Aug 16 2022 15:23:44 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Jun 28 2023 12:24:00 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 9.2
 ---
 On the **Billing & Invoices** page you can see the information about your plan; when is the next billing date and download invoices.
 

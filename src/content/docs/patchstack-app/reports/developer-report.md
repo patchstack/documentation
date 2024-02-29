@@ -5,6 +5,8 @@ excerpt: "Periodic PDF security report for site developers"
 hidden: false
 createdAt: "Fri Mar 03 2023 14:29:37 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu Nov 23 2023 12:53:02 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 6.5
 ---
 _This feature is for the Developer and Business plan users only._  
 **[https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)**

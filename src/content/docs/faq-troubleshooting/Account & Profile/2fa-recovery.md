@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Fri Jan 20 2023 11:30:41 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Fri Jan 20 2023 11:54:22 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 2.1
 ---
 If you have lost the ability to log in with 2FA (for example you have lost your phone), we can remove the two factor authentication from your account.
 

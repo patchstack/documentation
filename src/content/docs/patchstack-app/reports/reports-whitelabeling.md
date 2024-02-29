@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Tue Mar 07 2023 14:29:28 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu May 25 2023 11:52:09 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 6.3
 ---
 _This feature is for the Business plan users only._  
 **[https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)**

@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Tue May 09 2023 13:02:07 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Jun 28 2023 12:21:53 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 8.1
 ---
 _This add-on is for the Developer and Business plan users only._  
 <https://app.patchstack.com/addons>

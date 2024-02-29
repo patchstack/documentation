@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Mon Jul 25 2022 09:21:35 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue May 09 2023 13:26:23 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 9.5
 ---
 If you wish to set up 2 factor authentication, check the checkbox on the right side of the <a href="https://app.patchstack.com/settings/account" target="_blank"><b>Account</b></a> page.
 

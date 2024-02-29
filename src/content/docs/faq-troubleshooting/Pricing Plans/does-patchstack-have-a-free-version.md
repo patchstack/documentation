@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Wed Jul 27 2022 12:18:00 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Jun 28 2023 12:35:06 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 3.1
 ---
 How does Patchstack free version help you?
 
