@@ -1,6 +1,6 @@
 ---
 title: "Automatic Updates"
-slug: "docs/automatic-updates"
+
 excerpt: "Update your software automatically"
 hidden: false
 metadata: 

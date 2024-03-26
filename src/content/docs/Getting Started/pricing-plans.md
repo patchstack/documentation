@@ -1,6 +1,6 @@
 ---
 title: "Pricing Plans"
-slug: "docs/pricing-plans"
+
 excerpt: ""
 hidden: false
 createdAt: "Mon Jul 25 2022 08:58:18 GMT+0000 (Coordinated Universal Time)"

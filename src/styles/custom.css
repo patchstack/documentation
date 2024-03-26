@@ -5,6 +5,7 @@
 	font-family: 'Faktum';
 	font-weight: 600;
 	font-style: normal;
+	font-display: swap;
 	src: url('/src/pages/open-graph/_faktum.woff');
 }
 
@@ -12,6 +13,7 @@
 	font-family: 'Faktum Regular';
 	font-weight: 400;
 	font-style: normal;
+	font-display: swap;
 	src: url('/src/pages/open-graph/_faktum-regular.woff');
 }
 

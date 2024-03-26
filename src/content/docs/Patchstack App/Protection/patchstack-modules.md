@@ -1,6 +1,6 @@
 ---
 title: "Patchstack protection modules"
-slug: "docs/patchstack-modules"
+
 excerpt: "Patchstack provides managed modules which you can enable on your site."
 hidden: false
 createdAt: "Fri Nov 17 2023 10:20:26 GMT+0000 (Coordinated Universal Time)"

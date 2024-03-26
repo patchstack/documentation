@@ -1,6 +1,6 @@
 ---
 title: "Overview"
-slug: "docs/app-protection-overview"
+
 excerpt: "Overview of protection modules and blocked traffic"
 hidden: false
 createdAt: "Wed Jan 17 2024 13:45:49 GMT+0000 (Coordinated Universal Time)"

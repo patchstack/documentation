@@ -1,6 +1,6 @@
 ---
 title: "Overview"
-slug: "docs/software-overview"
+
 excerpt: ""
 hidden: false
 metadata: 

@@ -1,6 +1,6 @@
 ---
 title: "Groups"
-slug: "docs/application-groups"
+
 excerpt: "Grouping your applications makes management easier"
 hidden: false
 createdAt: "Thu Dec 21 2023 15:09:56 GMT+0000 (Coordinated Universal Time)"

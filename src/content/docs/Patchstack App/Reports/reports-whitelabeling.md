@@ -1,6 +1,6 @@
 ---
 title: "Reports Whitelabeling"
-slug: "docs/reports-whitelabeling"
+
 excerpt: ""
 hidden: false
 metadata: 

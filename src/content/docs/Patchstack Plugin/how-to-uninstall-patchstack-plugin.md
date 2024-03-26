@@ -1,6 +1,6 @@
 ---
 title: "How to Uninstall"
-slug: "docs/how-to-uninstall-patchstack-plugin"
+
 excerpt: ""
 hidden: false
 metadata: 

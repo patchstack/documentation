@@ -1,6 +1,6 @@
 ---
 title: "Cookie Notice (deprecated)"
-slug: "docs/app-hardening-cookie-notice"
+
 excerpt: "A feature that allows users to display the Cookie Notice bar on the site."
 hidden: false
 createdAt: "Thu Jan 18 2024 13:27:26 GMT+0000 (Coordinated Universal Time)"

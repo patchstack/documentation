@@ -1,6 +1,6 @@
 ---
 title: "Signing Up"
-slug: "docs/signing-up"
+
 excerpt: ""
 hidden: false
 createdAt: "Fri Oct 20 2023 08:59:19 GMT+0000 (Coordinated Universal Time)"

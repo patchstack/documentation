@@ -1,6 +1,6 @@
 ---
 title: "Integrations"
-slug: "docs/account-integrations"
+
 excerpt: "Get real-time alerts to your Slack channel!"
 hidden: false
 metadata: 

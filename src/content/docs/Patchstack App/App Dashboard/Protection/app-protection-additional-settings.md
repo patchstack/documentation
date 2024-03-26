@@ -1,6 +1,6 @@
 ---
 title: "Additional Settings"
-slug: "docs/app-protection-additional-settings"
+
 excerpt: ""
 hidden: false
 createdAt: "Tue Jan 16 2024 15:02:52 GMT+0000 (Coordinated Universal Time)"

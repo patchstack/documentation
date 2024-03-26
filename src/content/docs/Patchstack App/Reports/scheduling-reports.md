@@ -1,6 +1,6 @@
 ---
 title: "Scheduling Reports"
-slug: "docs/scheduling-reports"
+
 excerpt: ""
 hidden: false
 metadata: 

@@ -1,6 +1,6 @@
 ---
 title: "Triggers"
-slug: "docs/triggers"
+
 excerpt: ""
 hidden: false
 metadata: 

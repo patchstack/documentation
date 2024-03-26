@@ -1,6 +1,6 @@
 ---
 title: "Snapshot Report"
-slug: "docs/snapshot-report"
+
 excerpt: "PDF security report about the current situation of your site"
 hidden: false
 metadata: 

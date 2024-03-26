@@ -1,6 +1,6 @@
 ---
 title: "Team"
-slug: "docs/team"
+
 excerpt: ""
 hidden: false
 metadata: 

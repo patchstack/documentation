@@ -1,6 +1,6 @@
 ---
 title: "Overview"
-slug: "docs/protection-overview"
+
 excerpt: "General overview of protection settings and logs across your sites"
 hidden: false
 createdAt: "Thu Jan 04 2024 14:16:59 GMT+0000 (Coordinated Universal Time)"

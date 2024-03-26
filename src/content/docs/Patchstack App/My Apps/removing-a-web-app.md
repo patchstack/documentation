@@ -1,6 +1,6 @@
 ---
 title: "Removing an Application"
-slug: "docs/removing-a-web-app"
+
 excerpt: ""
 hidden: false
 createdAt: "Wed Aug 03 2022 11:23:18 GMT+0000 (Coordinated Universal Time)"

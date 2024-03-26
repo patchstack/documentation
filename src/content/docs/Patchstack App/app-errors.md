@@ -1,6 +1,6 @@
 ---
 title: "App Errors"
-slug: "docs/app-errors"
+
 excerpt: "List of errors you may see in the app and what to do"
 hidden: false
 metadata: 

@@ -1,6 +1,6 @@
 ---
 title: "Banned IPs"
-slug: "docs/app-protection-banned-ips"
+
 excerpt: ""
 hidden: false
 createdAt: "Wed Jan 17 2024 14:09:50 GMT+0000 (Coordinated Universal Time)"

@@ -1,6 +1,6 @@
 ---
 title: "Introduction"
-slug: "docs/plugin-introduction"
+
 excerpt: ""
 hidden: false
 metadata: 

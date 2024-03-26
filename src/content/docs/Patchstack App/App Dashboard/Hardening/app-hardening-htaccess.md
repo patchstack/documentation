@@ -1,6 +1,6 @@
 ---
 title: "Htaccess"
-slug: "docs/app-hardening-htaccess"
+
 excerpt: ""
 hidden: false
 createdAt: "Thu Jan 18 2024 11:55:42 GMT+0000 (Coordinated Universal Time)"

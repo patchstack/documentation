@@ -1,6 +1,6 @@
 ---
 title: "Billing & Invoices"
-slug: "docs/billing-invoices"
+
 excerpt: ""
 hidden: false
 metadata: 

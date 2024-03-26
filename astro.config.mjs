@@ -53,7 +53,7 @@ export default defineConfig({
 				{
 					label: 'FAQ & Troubleshooting',
 					collapsed: true,
-					autogenerate: { directory: 'FAQ & Troubleshooting', collapsed: true },
+					autogenerate: { directory: 'FAQ Troubleshooting', collapsed: true },
 				},
 			],
 		}),

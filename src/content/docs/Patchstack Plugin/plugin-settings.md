@@ -1,6 +1,6 @@
 ---
 title: "Plugin Settings"
-slug: "docs/plugin-settings"
+
 excerpt: ""
 hidden: false
 metadata: 

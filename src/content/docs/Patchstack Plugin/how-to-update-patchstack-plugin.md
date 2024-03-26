@@ -1,6 +1,6 @@
 ---
 title: "How to Update"
-slug: "docs/how-to-update-patchstack-plugin"
+
 excerpt: ""
 hidden: false
 metadata: 

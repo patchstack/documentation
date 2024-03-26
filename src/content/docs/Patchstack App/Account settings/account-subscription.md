@@ -1,6 +1,6 @@
 ---
 title: "Subscription"
-slug: "docs/account-subscription"
+
 excerpt: ""
 hidden: false
 metadata: 

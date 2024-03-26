@@ -1,6 +1,6 @@
 ---
 title: "Login Protection"
-slug: "docs/app-hardening-login-protection"
+
 excerpt: ""
 hidden: false
 createdAt: "Thu Jan 18 2024 12:03:24 GMT+0000 (Coordinated Universal Time)"
