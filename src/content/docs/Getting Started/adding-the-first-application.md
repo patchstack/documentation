@@ -25,6 +25,15 @@ A dialogue will open asking you for your domain URL.
 
 ![](@images/6812404-Patchstack_connect_an_application.png)
 
-You will be taken to the next step, where you can see the API key or download the plugin ZIP file.
+You will be taken to the next step, where you can see the API key or download the plugin .zip file.
 
-![](@images/d0ff620-Patchstack_is_not_connected_2.png)
+![](@images/patchstack-add-site-step-2.jpeg)
+
+Upload the plugin to your WordPress site, and click "Resync."
+Patchstack will automatically sync if you upload the plugin within 30 minutes.
+
+
+**What if I already have the Patchstack plugin on my site?** 
+
+You can click **Sync manually**, and get the fresh API key.
+Insert it into your plugin's API field and click on **Resync**.

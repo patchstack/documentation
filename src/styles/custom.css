@@ -1,3 +1,32 @@
+/* Add Factum Font Faces */
+
+
+@font-face {
+	font-family: 'Faktum';
+	font-weight: 600;
+	font-style: normal;
+	src: url('/src/pages/open-graph/_faktum.woff');
+}
+
+@font-face {
+	font-family: 'Faktum Regular';
+	font-weight: 400;
+	font-style: normal;
+	src: url('/src/pages/open-graph/_faktum-regular.woff');
+}
+
+h1, h2, h3, span.link-title {
+    font-family: "Faktum", sans-serif;
+}
+
+.link-title {
+	font-size: 18px;
+}
+
+p, li {
+    font-family: "Faktum Regular", sans-serif;
+}
+
 /* Dark mode colors. */
 :root {
 	--sl-color-accent-low: #17181c;
@@ -63,4 +92,5 @@
 	right: 0;
 	width: 100%;
 	height: 100%!important;
+	border: 0;
 }

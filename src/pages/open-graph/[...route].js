@@ -24,7 +24,7 @@ export const { getStaticPaths, GET } = OGImageRoute({
             title: {
                 size: 65,
                 families: [
-                    'Faktum Wide SemiBold',
+                    'Faktum',
                 ],
                 weight: 'SemiBold',
             },
@@ -32,7 +32,7 @@ export const { getStaticPaths, GET } = OGImageRoute({
                 size: 25,
                 lineHeight: 1.25,
                 families: [
-                    'Faktum Wide SemiBold',
+                    'Faktum',
                 ],
                 weight: 'regular',
             },
