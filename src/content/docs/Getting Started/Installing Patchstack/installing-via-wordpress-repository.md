@@ -1,6 +1,6 @@
 ---
 title: "Installing via WordPress repository"
-slug: "docs/manual-installation"
+
 excerpt: ""
 hidden: false
 createdAt: "Tue Jul 26 2022 13:32:04 GMT+0000 (Coordinated Universal Time)"

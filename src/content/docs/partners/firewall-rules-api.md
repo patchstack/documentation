@@ -1,6 +1,6 @@
 ---
 title: "Firewall Rules API"
-slug: "docs/firewall-rules-api"
+
 excerpt: ""
 hidden: true
 metadata: 

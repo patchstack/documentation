@@ -1,6 +1,6 @@
 ---
 title: "My Apps"
-slug: "docs/my-apps"
+
 excerpt: "Apps overview page for managing your applications"
 hidden: false
 createdAt: "Mon Jul 25 2022 09:03:10 GMT+0000 (Coordinated Universal Time)"

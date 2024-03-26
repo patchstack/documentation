@@ -1,6 +1,6 @@
 ---
 title: "Setting up 2FA"
-slug: "docs/2-factor-authentication"
+
 excerpt: ""
 hidden: false
 metadata: 

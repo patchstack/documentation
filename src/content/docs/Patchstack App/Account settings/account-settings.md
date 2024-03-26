@@ -1,6 +1,6 @@
 ---
 title: "Account Settings"
-slug: "docs/account-settings"
+
 excerpt: ""
 hidden: false
 metadata: 

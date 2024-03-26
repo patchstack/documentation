@@ -1,6 +1,6 @@
 ---
 title: "Activity"
-slug: "docs/activity"
+
 excerpt: "See all the basic activity about your WordPress site"
 hidden: false
 createdAt: "Mon Aug 08 2022 13:05:55 GMT+0000 (Coordinated Universal Time)"

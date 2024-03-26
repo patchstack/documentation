@@ -1,6 +1,6 @@
 ---
 title: "reCAPTCHA"
-slug: "docs/recaptcha"
+
 excerpt: ""
 hidden: false
 createdAt: "Thu Jan 18 2024 12:20:27 GMT+0000 (Coordinated Universal Time)"

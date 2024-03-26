@@ -1,6 +1,6 @@
 ---
 title: "Installing via .zip"
-slug: "docs/installing-via-zip"
+
 excerpt: ""
 hidden: false
 createdAt: "Mon Jul 25 2022 08:59:08 GMT+0000 (Coordinated Universal Time)"

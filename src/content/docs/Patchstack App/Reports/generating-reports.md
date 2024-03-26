@@ -1,6 +1,6 @@
 ---
 title: "Generating Reports"
-slug: "docs/generating-reports"
+
 excerpt: ""
 hidden: false
 createdAt: "Mon Mar 06 2023 14:44:26 GMT+0000 (Coordinated Universal Time)"

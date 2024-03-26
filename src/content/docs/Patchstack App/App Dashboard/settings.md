@@ -1,6 +1,6 @@
 ---
 title: "Settings"
-slug: "docs/settings"
+
 excerpt: "Get your app API key or download the Patchstack plugin"
 hidden: false
 createdAt: "Thu May 25 2023 13:54:05 GMT+0000 (Coordinated Universal Time)"

@@ -1,6 +1,6 @@
 ---
 title: "Additional Seat"
-slug: "docs/additional-seat"
+
 excerpt: ""
 hidden: false
 metadata: 

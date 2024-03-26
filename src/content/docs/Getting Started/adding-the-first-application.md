@@ -1,6 +1,6 @@
 ---
 title: "Adding the First Application"
-slug: "docs/adding-the-first-application"
+
 excerpt: ""
 hidden: false
 createdAt: "Mon Jul 25 2022 08:58:43 GMT+0000 (Coordinated Universal Time)"

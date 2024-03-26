@@ -1,6 +1,6 @@
 ---
 title: "Logs"
-slug: "docs/software-logs"
+
 excerpt: ""
 hidden: false
 metadata: 

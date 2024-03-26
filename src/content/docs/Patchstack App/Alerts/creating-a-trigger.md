@@ -1,6 +1,6 @@
 ---
 title: "Creating a Trigger"
-slug: "docs/creating-a-trigger"
+
 excerpt: ""
 hidden: false
 metadata: 

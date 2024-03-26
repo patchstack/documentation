@@ -1,6 +1,6 @@
 ---
 title: "Users"
-slug: "docs/users"
+
 excerpt: "See the data of users of your WordPress site"
 hidden: false
 createdAt: "Mon Aug 08 2022 13:10:56 GMT+0000 (Coordinated Universal Time)"

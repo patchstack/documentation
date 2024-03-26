@@ -1,6 +1,6 @@
 ---
 title: "Overview"
-slug: "docs/site-dashboard-overview"
+
 excerpt: ""
 hidden: false
 createdAt: "Wed Aug 03 2022 12:00:20 GMT+0000 (Coordinated Universal Time)"

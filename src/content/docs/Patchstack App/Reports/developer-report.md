@@ -1,6 +1,6 @@
 ---
 title: "Developer Report"
-slug: "docs/developer-report"
+
 excerpt: "Periodic PDF security report for site developers"
 hidden: false
 createdAt: "Fri Mar 03 2023 14:29:37 GMT+0000 (Coordinated Universal Time)"

@@ -1,6 +1,6 @@
 ---
 title: "Volume Upgrade"
-slug: "docs/volume-upgrade"
+
 excerpt: "Add-on for connecting more applications"
 hidden: false
 metadata: 

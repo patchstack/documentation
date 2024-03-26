@@ -1,6 +1,6 @@
 ---
 title: "Dashboard"
-slug: "docs/dashboard"
+
 excerpt: ""
 hidden: false
 createdAt: "Wed Oct 18 2023 12:41:44 GMT+0000 (Coordinated Universal Time)"

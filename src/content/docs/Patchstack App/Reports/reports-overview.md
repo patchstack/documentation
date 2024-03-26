@@ -1,6 +1,6 @@
 ---
 title: "Reports Overview"
-slug: "docs/reports-overview"
+
 excerpt: ""
 hidden: false
 createdAt: "Thu Mar 02 2023 15:02:57 GMT+0000 (Coordinated Universal Time)"

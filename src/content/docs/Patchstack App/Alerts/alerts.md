@@ -1,6 +1,6 @@
 ---
 title: "Alerts"
-slug: "docs/alerts"
+
 excerpt: ""
 hidden: false
 metadata: 

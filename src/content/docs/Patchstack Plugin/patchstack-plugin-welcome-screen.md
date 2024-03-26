@@ -1,6 +1,6 @@
 ---
 title: "Welcome Screen"
-slug: "docs/patchstack-plugin-welcome-screen"
+
 excerpt: ""
 hidden: false
 metadata: 

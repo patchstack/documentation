@@ -1,6 +1,6 @@
 ---
 title: "General"
-slug: "docs/app-hardening-general"
+
 excerpt: ""
 hidden: false
 createdAt: "Wed Jan 17 2024 15:01:59 GMT+0000 (Coordinated Universal Time)"
