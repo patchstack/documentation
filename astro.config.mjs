@@ -33,27 +33,27 @@ export default defineConfig({
 				{
 					label: 'Getting started',
 					collapsed: true,
-					autogenerate: { directory: 'getting-started', collapsed: true },
+					autogenerate: { directory: 'Getting Started', collapsed: true },
 				},
 				{
 					label: 'Patchstack App',
 					collapsed: true,
-					autogenerate: { directory: 'patchstack-app', collapsed: true },
+					autogenerate: { directory: 'Patchstack App', collapsed: true },
 				},
 				{
 					label: 'Patchstack Plugin',
 					collapsed: true,
-					autogenerate: { directory: 'patchstack-plugin', collapsed: true },
+					autogenerate: { directory: 'Patchstack Plugin', collapsed: true },
 				},
 				{
 					label: 'Vulnerability Database',
 					collapsed: true,
-					autogenerate: { directory: 'vulnerability-database', collapsed: true },
+					autogenerate: { directory: 'Vulnerability Database', collapsed: true },
 				},
 				{
 					label: 'FAQ & Troubleshooting',
 					collapsed: true,
-					autogenerate: { directory: 'faq-troubleshooting', collapsed: true },
+					autogenerate: { directory: 'FAQ & Troubleshooting', collapsed: true },
 				},
 			],
 		}),
