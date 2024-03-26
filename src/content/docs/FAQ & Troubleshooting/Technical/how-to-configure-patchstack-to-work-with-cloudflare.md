@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Tue Aug 23 2022 12:35:39 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 13:02:14 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 7.4
 ---
 In order for Patchstack to work with Cloudflare, we recommend that you configure the IP address header override option. 
 

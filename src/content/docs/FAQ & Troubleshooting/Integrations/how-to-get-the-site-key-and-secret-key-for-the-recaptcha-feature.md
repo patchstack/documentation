@@ -7,6 +7,8 @@ metadata:
   robots: "index"
 createdAt: "Fri Aug 26 2022 11:28:05 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 13:00:35 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 6
 ---
 You have to enter your own reCAPTCHA keys in order to use the reCAPTCHA feature, here is how.
 

@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Tue Aug 09 2022 11:47:43 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 12:50:19 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 4
 ---
 Currently, Patchstack sends notifications only to the user, who is the **owner** or **manager** of the site.  
 But in case you would like to get notified to other email addresses, let's set up custom alerts!

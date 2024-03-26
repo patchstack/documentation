@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Fri Aug 26 2022 12:02:41 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 13:21:21 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 7.8
 ---
 The Patchstack plugin adds a reCaptcha to your login page, but it may not work with other plugins.
 

@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Mon Aug 22 2022 12:58:51 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue May 16 2023 14:17:00 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 7.3
 ---
 Sometimes you need to whitelist these IP addresses in order to avoid your hosting provider or (secondary) firewall blocking our services.
 

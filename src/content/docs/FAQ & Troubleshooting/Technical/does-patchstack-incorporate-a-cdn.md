@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Wed Jul 27 2022 10:37:08 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 13:01:15 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 7
 ---
 Patchstack is fully on the application level to make it as easy as possible to add your applications.
 

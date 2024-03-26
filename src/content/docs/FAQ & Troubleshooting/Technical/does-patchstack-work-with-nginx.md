@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Fri Aug 26 2022 11:24:13 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 24 2023 11:35:20 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 7.5
 ---
 If you run nginx, then the .htaccess functionality wont work.
 

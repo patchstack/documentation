@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Fri Aug 26 2022 11:30:51 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 13:13:40 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 7.6
 ---
 When your web application does not properly redirect HTTP requests to HTTPS, a Man-In-The-Middle attack may be possible.
 

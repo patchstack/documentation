@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Wed Jul 27 2022 11:26:02 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu May 25 2023 13:01:24 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 5
 ---
 You can generate a website security report for each website you have connected with Patchstack App.  
 Find the reports by you logging into your account and looking for Reports from your left-side menu in the Patchstack App.
