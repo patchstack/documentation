@@ -20,7 +20,7 @@ There is a button **Download latest plugin**, too.
 ## 2. Upload the .zip file to your WordPress site
 
 To do that:
-
+<Steps>
 1. Go to your WordPress admin
 
 2. Click **Plugins** > **Add new plugin**
@@ -33,3 +33,4 @@ To do that:
 
 6. You'll then see a screen as below, that means the plugin has been successfully connected to the Patchstack App
 ![](@images/f391553-patchstack-plugin-open-screen.png)
+</Steps>
