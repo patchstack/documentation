@@ -27,6 +27,14 @@ p, li {
     font-family: "Faktum Regular", sans-serif;
 }
 
+header img {
+	width: 280px;
+}
+
+header button {
+	max-width: 100% !important;
+}
+
 /* Dark mode colors. */
 :root {
 	--sl-color-accent-low: #17181c;
