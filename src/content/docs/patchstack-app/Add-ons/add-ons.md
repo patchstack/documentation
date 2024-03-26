@@ -21,7 +21,6 @@ Patchstack's add-ons include:
 
 <ol>
 
-<li><a href="https://docs.patchstack.com/docs/incident-response">Incident Response</a></li>
 <li><a href="https://docs.patchstack.com/docs/volume-upgrade">Volume Upgrade</a></li>
 <li><a href="https://docs.patchstack.com/docs/additional-seat">Additional Seat</a></li>
 <li><a href="https://docs.patchstack.com/docs/vulnerability-database-api">Vulnerability Database API</a></li>
