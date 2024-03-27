@@ -3,6 +3,10 @@
 	to = "/"
 
 [[redirects]]
+	from = "/docs"
+	to = "/"
+
+[[redirects]]
 	from = "/en/articles/2174752-app-plugin-change-log"
 	to = "/docs/app-plugin-recent-changes"
 
@@ -869,3 +873,7 @@
 [[redirects]]
 	from = "/docs/app-changelog"
 	to = "/changelog/app-changelog/"
+
+[[redirects]]
+	from = "/discuss/62e286cf7040390013b73bf7"
+	to = "/faq-troubleshooting/integrations/how-to-get-the-site-key-and-secret-key-for-the-recaptcha-feature/"
