@@ -6,7 +6,7 @@
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
-	src: url('/src/pages/open-graph/_faktum-semibold.woff2').format('woff2');
+	src: url('/src/pages/open-graph/_faktum-semibold.woff2') format('woff2');
 }
 
 @font-face {
@@ -14,10 +14,10 @@
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
-	src: url('/src/pages/open-graph/_faktum.woff2').format('woff2');
+	src: url('/src/pages/open-graph/_faktum.woff2') format('woff2');
 }
 
-h1, h2, h3, span.link-title {
+h1, h2, h3, span.link-title, p span {
     font-family: "Faktum", sans-serif;
 }
 
