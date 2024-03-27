@@ -1,4 +1,352 @@
 [[redirects]]
+	from = "/en"
+	to = "/"
+
+[[redirects]]
+	from = "/en/articles/2174752-app-plugin-change-log"
+	to = "/docs/app-plugin-recent-changes"
+
+[[redirects]]
+	from = "/technical-support-and-troubleshooting/plugin/how-to-get-the-site-and-secret-key-for-the-recaptcha-feature"
+	to = "/docs/how-to-get-the-site-key-and-secret-key-for-the-recaptcha-feature"
+
+[[redirects]]
+	from = "/en/articles/4733433-why-is-the-portal-showing-the-firewall-of-my-site-as-delayed"
+	to = "/docs/app-is-showing-the-firewall-of-my-site-as-delayed"
+
+[[redirects]]
+	from = "/en/articles/2155626-how-to-fix-the-missing-security-headers-issue"
+	to = "/docs/how-to-fix-the-missing-security-headers-issue"
+
+[[redirects]]
+	from = "/en/articles/3394412-app-change-log-history"
+	to = "/docs/app-changelog"
+
+[[redirects]]
+	from = "/technical-support-and-troubleshooting/general/portal-plugin-change-log"
+	to = "/docs/plugin-changelog"
+
+[[redirects]]
+	from = "/docs/app-plugin-recent-changes"
+	to = "/docs/plugin-changelog"
+
+[[redirects]]
+	from = "/en/articles/2135558-is-there-a-way-to-activate-notifications-when-a-site-goes-down"
+	to = "/docs/is-there-a-way-to-activate-notifications-when-a-site-goes-down"
+
+[[redirects]]
+	from = "/en/articles/2135513-what-is-the-best-way-to-resell-patchstack-to-my-customers"
+	to = "/docs/what-is-the-best-way-to-resell-patchstack-to-my-customers"
+
+[[redirects]]
+	from = "/en/articles/2135501-do-i-need-to-set-up-a-cdn-service-for-setting-up-the-firewall"
+	to = "/docs/do-i-need-to-set-up-a-cdn-service-for-setting-up-the-firewall"
+
+[[redirects]]
+	from = "/en/articles/2135489-does-the-patchstack-plugin-work-on-the-server-level-or-on-an-application-level"
+	to = "/docs/does-the-patchstack-plugin-work-on-the-server-level-or-on-an-application-level"
+
+[[redirects]]
+	from = "/en/articles/2135476-how-are-the-website-cleanups-made-in-patchstack"
+	to = "/docs/how-are-the-website-cleanups-made-in-patchstack"
+
+[[redirects]]
+	from = "/en/articles/2104361-does-patchstack-have-a-free-version"
+	to = "/docs/does-patchstack-have-a-free-version"
+
+[[redirects]]
+	from = "/en/articles/2104260-do-you-offer-refunds"
+	to = "/docs/do-you-offer-refunds"
+
+[[redirects]]
+	from = "/en/articles/2141348-are-the-cookie-notice-and-privacy-policy-available-in-other-languages"
+	to = "/docs/are-the-cookie-notice-and-privacy-policy-available-in-other-languages"
+
+[[redirects]]
+	from = "/en/articles/2141018-does-our-firewall-protect-from-ddos-attacks"
+	to = "/docs/does-our-firewall-protect-from-ddos-attacks"
+
+[[redirects]]
+	from = "/en/articles/2140867-does-patchstack-incorporate-a-cdn"
+	to = "/docs/does-patchstack-incorporate-a-cdn"
+
+[[redirects]]
+	from = "/en/articles/2140316-how-does-the-patchstack-firewall-compare-to-sucuri-or-wordfence"
+	to = "/docs/how-does-the-patchstack-firewall-compare-to-sucuri-or-wordfence"
+
+[[redirects]]
+	from = "/en/articles/2292992-does-the-patchstack-plugin-find-corrupted-files-or-malware"
+	to = "/docs/does-the-patchstack-plugin-find-corrupted-files-or-malware"
+
+[[redirects]]
+	from = "/en/articles/2165428-how-to-generate-security-reports"
+	to = "/docs/how-to-generate-security-reports"
+
+[[redirects]]
+	from = "/en/articles/3105081-how-does-the-annual-plan-pricing-work-and-how-will-i-be-charged"
+	to = "/docs/how-does-the-annual-plan-pricing-work-and-how-will-i-be-charged"
+
+[[redirects]]
+	from = "/en/articles/2919887-data-processing-agreement-dpa-and-gdpr"
+	to = "/docs/data-processing-agreement-dpa-and-gdpr"
+
+[[redirects]]
+	from = "/en/articles/2856404-how-do-i-delete-my-patchstack-account"
+	to = "/docs/how-do-i-delete-my-patchstack-account"
+
+[[redirects]]
+	from = "/en/articles/5088971-what-is-incident-response-assistance"
+	to = "/docs/what-is-incident-response-assistance"
+
+[[redirects]]
+	from = "/en/articles/5075948-what-is-the-cvss-score"
+	to = "/docs/what-is-the-cvss-score"
+
+[[redirects]]
+	from = "/en/articles/3710820-write-a-review-for-patchstack"
+	to = "/docs/how-to-write-a-review-for-patchstack"
+
+[[redirects]]
+	from = "/en/articles/3533531-does-patchstack-include-a-malware-scanner-cleanup-tool"
+	to = "/docs/does-patchstack-include-a-malware-scannercleanup-tool"
+
+[[redirects]]
+	from = "/discuss/62e3c5eba3b2ae0058c04818"
+	to = "/docs/error-cannot-redeclare-class-patchstack-in"
+
+[[redirects]]
+	from = "/discuss/62e3c5140be33c00a7322091"
+	to = "/docs/the-plugin-caused-my-site-or-admin-page-to-show-a-php-error-what-to-do"
+
+[[redirects]]
+	from = "/discuss/62e3c42c7924920036d7cb57"
+	to = "/docs/list-of-ip-addresses-that-patchstack-uses"
+
+[[redirects]]
+	from = "/discuss/62e3abe637e7f600436a6d55"
+	to = "/docs/error-code-7"
+
+[[redirects]]
+	from = "/discuss/62e3ab5e2111370098ddc8a0"
+	to = "/docs/error-code-22"
+
+[[redirects]]
+	from = "/discuss/62e3ab00293639004974dc46"
+	to = "/docs/how-to-delete-the-patchstack-plugin-manually"
+
+[[redirects]]
+	from = "/discuss/62e3a9e6190511008ae80aa1"
+	to = "/docs/how-to-install-or-reinstall-the-plugin"
+
+[[redirects]]
+	from = "/discuss/62e3a98b42695e00959ff2dd"
+	to = "/docs/app-is-showing-the-firewall-of-my-site-as-delayed"
+
+[[redirects]]
+	from = "/discuss/62e3a8d1de45e1002807a724"
+	to = "/docs/how-does-multisite-work-and-what-is-the-pricing-model"
+
+[[redirects]]
+	from = "/discuss/62e3a8b2afe98b0031293096"
+	to = "/docs/where-is-the-patchstack-settings-page-on-the-plugin"
+
+[[redirects]]
+	from = "/discuss/62e3a8571ad3b3001343b91e"
+	to = "/docs/i-activated-the-plugin-but-still-get-the-message-install-the-plugin-to-activate-the-firewall"
+
+[[redirects]]
+	from = "/discuss/62e3a6fd74412b04874ac485"
+	to = "/docs/theme-editor-missing"
+
+[[redirects]]
+	from = "/discuss/62e3a6ca5be34e0088e1ef59"
+	to = "/docs/how-do-i-turn-on-the-xml-rpc-feature"
+
+[[redirects]]
+	from = "/discuss/62e3a696833c5300a6bfba8f"
+	to = "/docs/how-do-i-use-the-country-blocking-feature"
+
+[[redirects]]
+	from = "/discuss/62e3a67986feff004241a16b"
+	to = "/docs/hardening-firewall#country-blocking"
+
+[[redirects]]
+	from = "/discuss/62e3a66a77efab0013540895"
+	to = "/docs/how-to-configure-patchstack-to-work-with-cloudflare"
+
+[[redirects]]
+	from = "/discuss/62e3a65191d1080013f0a66c"
+	to = "/"
+
+[[redirects]]
+	from = "/discuss/62e3a6141f25bf001468f023"
+	to = "/docs/why-is-my-site-not-working-after-updating-the-plugin"
+
+[[redirects]]
+	from = "/discuss/62e3a5ff905fdb00873946c1"
+	to = "/docs/destination-folder-already-exists-during-the-installation"
+
+[[redirects]]
+	from = "/discuss/62e3a5e98f8ac100207303e4"
+	to = "/"
+
+[[redirects]]
+	from = "/discuss/62e28b02f63d3100875c036b"
+	to = "/"
+
+[[redirects]]
+	from = "/discuss/62e28a9e095ef80098605cb1"
+	to = "/docs/error-sorry-this-file-type-is-not-permitted-for-security-reasons"
+
+[[redirects]]
+	from = "/discuss/62e28a5ea6f3270095850289"
+	to = "/docs/error-warning-cannot-modify-header-information-headers-already-sent-by"
+
+[[redirects]]
+	from = "/discuss/62e28a3062f62c00a30e7c90"
+	to = "/docs/error-cant-use-function-return-value-in-write-context-in"
+
+[[redirects]]
+	from = "/discuss/62e289db3a1bf90027824260"
+	to = "/"
+
+[[redirects]]
+	from = "/discuss/62e28992a7a6e40014aaac09"
+	to = "/docs/where-do-i-find-the-site-id-and-site-secret-key"
+
+[[redirects]]
+	from = "/discuss/62e2896354eb230014d766e4"
+	to = "/docs/error-blocked-as-suspected-bot"
+
+[[redirects]]
+	from = "/discuss/62e289282f6cce007dcd518a"
+	to = "/docs/can-i-have-other-security-plugins-activated-and-running-next-to-patchstack"
+
+[[redirects]]
+	from = "/discuss/62e288d48bdacb0014b0f4e9"
+	to = "/docs/does-patchstack-work-with-marketplanio"
+
+[[redirects]]
+	from = "/discuss/62e2882520f09001c8da2e5d"
+	to = "/docs/does-patchstack-work-with-litespeed"
+
+[[redirects]]
+	from = "/discuss/62e287d29842440078913639"
+	to = "/docs/does-patchstack-work-with-nginx"
+
+[[redirects]]
+	from = "/discuss/62e2876ec640d5064f77ce25"
+	to = "/docs/error-cannot-activate-plugin-because-of-ssl-routinesssl23_get_server_hellosslv3-alert-handshake-failure"
+
+[[redirects]]
+	from = "/discuss/62e286cf7040390013b73bf7"
+	to = "/docs/how-to-get-the-site-key-and-secret-key-for-the-recaptcha-feature"
+
+[[redirects]]
+	from = "/discuss/62e2857c0784d20091f55e08"
+	to = "/docs/error-you-have-entered-an-incorrect-recaptcha-value-on-login-page"
+
+[[redirects]]
+	from = "/discuss/62e283a5f27d8e00147b760d"
+	to = "/docs/how-to-fix-improper-http-to-https-redirection"
+
+[[redirects]]
+	from = "/discuss/62e13df6d1ff080014f13edb"
+	to = "/docs/how-to-fix-the-missing-security-headers-issue"
+
+[[redirects]]
+	from = "/discuss/62e13d408dfdce00392b5ca8"
+	to = "/docs/can-i-install-the-same-plugin-file-on-all-of-my-sites"
+
+[[redirects]]
+	from = "/discuss/62e13d024371170090d21233"
+	to = "/docs/how-do-i-block-an-ip-address-from-accessing-my-site"
+
+[[redirects]]
+	from = "/discuss/62e139d99974ea0091175dad"
+	to = "/docs/legitimate-visitors-or-pages-are-being-blocked-by-the-firewall-how-do-i-add-this-to-the-whitelist"
+
+[[redirects]]
+	from = "/discuss/62e139a40f969b004f71b604"
+	to = "/docs/how-do-i-remove-patchstack-from-the-gdpr-cookie-notice"
+
+[[redirects]]
+	from = "/discuss/62e139333e93d900a4bd3625"
+	to = "/docs/does-patchstack-work-with-other-captcha-plugins"
+
+[[redirects]]
+	from = "/discuss/62e132843fcdea005f8c6f69"
+	to = "/docs/deleting-a-site"
+
+[[redirects]]
+	from = "/discuss/62e1324c4189530029769bb8"
+	to = "/docs/error-csrf-token-missing-or-mismatch"
+
+[[redirects]]
+	from = "/discuss/62e13215e7101503294e4d35"
+	to = "/docs/the-app-is-saying-my-site-does-not-use-wordpress-even-though-it-does-how-to-fix"
+
+[[redirects]]
+	from = "/discuss/62e13180da8d590036ed5407"
+	to = "/docs/i-installed-the-plugin-on-my-site-but-it-still-shows-i-have-missing-headers-on-the-portal-why-is-that"
+
+[[redirects]]
+	from = "/discuss/62e1315c13eff7001acd3b05"
+	to = "/docs/error-the-url-url-is-invalid"
+
+[[redirects]]
+	from = "/discuss/62e130d0190c19006a37d9ec"
+	to = "/docs/error-the-url-url-cannot-be-added-since-it-returned-a-5xx-error-code-this-indicates-an-internal-server-error-on-your-site-please-make-sure-it-is-accessible-and-not-in-maintenance-mode"
+
+[[redirects]]
+	from = "/discuss/62e13086da8d590036ed4c48"
+	to = "/docs/error-the-url-url-cannot-be-added-since-it-timed-out-or-resulted-in-a-server-error-is-it-currently-online"
+
+[[redirects]]
+	from = "/discuss/62e12f755b8837009f003be3"
+	to = "/docs/auto-install-feature-for-the-plugin-is-not-working-properly"
+
+[[redirects]]
+	from = "/discuss/62e12f3b33898e002f8d9a83"
+	to = "/docs/dashboard-shows-no-attacks-blocked"
+
+[[redirects]]
+	from = "/discuss/62e12975e38cfa003d69171b"
+	to = "/docs/do-you-offer-refunds"
+
+[[redirects]]
+	from = "/discuss/62e132d022f2b3004a6c7be8"
+	to = "/docs/how-do-i-add-an-intranet-site-to-the-portal"
+
+[[redirects]]
+	from = "/docs/plugin-api"
+	to = "/docs/plugin-download"
+
+
+
+[[redirects]]
+	from = "/docs/500-additional-api-calls-per-month"
+	to = "/docs/500-additional-api-calls-per-day"
+
+[[redirects]]
+	from = "/docs/free-api"
+	to = "/docs/vulnerability-api-for-developers"
+
+[[redirects]]
+	from = "/docs/enterprise-api"
+	to = "/docs/vulnerability-api-for-hosts"
+
+[[redirects]]
+	from = "/docs/how-to-get-the-site-and-secret-key-for-the-recaptcha-feature"
+	to = "/docs/how-to-get-the-site-key-and-secret-key-for-the-recaptcha-feature"
+
+[[redirects]]
+	from = "/docs/protection"
+	to = "/docs/protection-overview"
+
+
+
+[[redirects]]
 	from = "/docs/introduction"
 	to = "/getting-started/introduction/"
 
