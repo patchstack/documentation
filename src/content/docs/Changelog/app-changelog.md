@@ -8,6 +8,8 @@ metadata:
   robots: "index"
 createdAt: "Mon Jul 25 2022 09:32:03 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Aug 09 2022 09:51:38 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 2
 ---
 <b>August 5th 2022</b>
 

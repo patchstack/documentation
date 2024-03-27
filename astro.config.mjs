@@ -49,14 +49,19 @@ export default defineConfig({
 					autogenerate: { directory: 'Patchstack Plugin', collapsed: true },
 				},
 				{
-					label: 'Vulnerability Database',
+					label: 'Database & API',
 					collapsed: true,
-					autogenerate: { directory: 'Vulnerability Database', collapsed: true },
+					autogenerate: { directory: 'Database API', collapsed: true },
 				},
 				{
 					label: 'FAQ & Troubleshooting',
 					collapsed: true,
 					autogenerate: { directory: 'FAQ Troubleshooting', collapsed: true },
+				},
+				{
+					label: 'Changelog',
+					collapsed: true,
+					autogenerate: { directory: 'Changelog', collapsed: true },
 				},
 			],
 		}),

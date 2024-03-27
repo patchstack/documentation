@@ -5,7 +5,59 @@ excerpt: "These are all the changes made to the plugin in the past."
 hidden: false
 createdAt: "Mon Jul 25 2022 09:32:00 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Jan 17 2024 10:39:45 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 1
 ---
+
+<b>March 8th 2024</b>
+
+<ul>
+
+<li>Version 2.2.11</li>
+<li>Fixed: potential issue where uploading logs to our API would not work properly.</li>
+
+</ul>
+
+<b>March 6th 2024</b>
+
+<ul>
+
+<li>Version 2.2.10</li>
+<li>Added: notice that plugin setting management will be removed in plugin on May 1st 2024.</li>
+<li>Removed: cookie notice feature.</li>
+<li>Removed: logs viewing through the plugin, must view through the App now.</li>
+<li>Changed: initial landing page for API key activation.</li>
+<li>Changed: post and comment activity logging activities is now opt-in.</li>
+<li>Fixed: unnecessary software fetching call if plugin is not connected.</li>
+<li>Fixed: logs will forcefully upload in batches of 100 now.</li>
+
+</ul>
+
+<b>February 28th 2024</b>
+
+<ul>
+
+<li>Version 2.2.9</li>
+
+<li>Fixed: software upload gets called too often if un-activated state.</li>
+<li>Fixed: force software upload if WP CLI.</li>
+<li>Fixed: PHP warning on 8.1+.</li>
+
+</ul>
+
+<b>January 30th 2024</b>
+
+<ul>
+
+<li>Version 2.2.8</li>
+
+<li>Added: command to unban all banned IP addresses from the firewall.</li>
+<li>Changed: WP CLI command to accept both key-id formats.</li>
+<li>Fixed: WP CLI command should load all options after activation.</li>
+<li>Updated: GeoIP database.</li>
+
+</ul>
+
 <b>January 17th 2024</b>
 
 <ul>
