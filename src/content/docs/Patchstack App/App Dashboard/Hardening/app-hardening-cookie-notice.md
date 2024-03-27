@@ -1,5 +1,5 @@
 ---
-title: "Cookie Notice (deprecated)"
+title: "Cookie Notice"
 
 excerpt: "A feature that allows users to display the Cookie Notice bar on the site."
 hidden: false
@@ -7,6 +7,9 @@ createdAt: "Thu Jan 18 2024 13:27:26 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu Jan 18 2024 13:27:26 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.34
+  badge: 
+    text: 'deprecated'
+    variant: 'danger'
 ---
 _Accessible for the Community (paid), Developer and Business plan users only._
 

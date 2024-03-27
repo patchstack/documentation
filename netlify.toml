@@ -1,3 +1,523 @@
 [[redirects]]
-  from = "/test123"
-  to = "/getting-started/pricing-plans/"
+	from = "/docs/introduction"
+	to = "/getting-started/introduction/"
+
+[[redirects]]
+	from = "/docs/pricing-plans"
+	to = "/getting-started/pricing-plans/"
+
+[[redirects]]
+	from = "/docs/signing-up"
+	to = "/getting-started/signing-up/"
+
+[[redirects]]
+	from = "/docs/adding-the-first-application"
+	to = "/getting-started/adding-the-first-application/"
+
+[[redirects]]
+	from = "/docs/installing-patchstack"
+	to = "/getting-started/installing-patchstack/"
+
+[[redirects]]
+	from = "/docs/wordpress-plugin"
+	to = "/getting-started/installing-patchstack/installing-via-zip/"
+
+[[redirects]]
+	from = "/docs/manual-installation"
+	to = "/getting-started/installing-patchstack/installing-via-wordpress-repository/"
+
+[[redirects]]
+	from = "/docs/dashboard"
+	to = "/patchstack-app/dashboard/"
+
+[[redirects]]
+	from = "/docs/my-apps"
+	to = "/patchstack-app/my-apps/overview/"
+
+[[redirects]]
+	from = "/docs/adding-a-web-app"
+	to = "/patchstack-app/my-apps/adding-a-web-app/"
+
+[[redirects]]
+	from = "/docs/removing-a-web-app"
+	to = "/patchstack-app/my-apps/removing-a-web-app/"
+
+[[redirects]]
+	from = "/docs/application-groups"
+	to = "/patchstack-app/my-apps/application-groups/"
+
+[[redirects]]
+	from = "/docs/site-dashboard-overview"
+	to = "/patchstack-app/app-dashboard/site-dashboard-overview/"
+
+[[redirects]]
+	from = "/docs/site-software"
+	to = "/patchstack-app/app-dashboard/site-software/"
+
+[[redirects]]
+	from = "/docs/app-protection-overview"
+	to = "/patchstack-app/app-dashboard/protection/app-protection-overview/"
+
+[[redirects]]
+	from = "/docs/app-protection-additional-settings"
+	to = "/patchstack-app/app-dashboard/protection/app-protection-additional-settings/"
+
+[[redirects]]
+	from = "/docs/app-protection-banned-ips"
+	to = "/patchstack-app/app-dashboard/protection/app-protection-banned-ips/"
+
+[[redirects]]
+	from = "/docs/app-hardening-general"
+	to = "/patchstack-app/app-dashboard/hardening/app-hardening-general/"
+
+[[redirects]]
+	from = "/docs/app-hardening-htaccess"
+	to = "/patchstack-app/app-dashboard/hardening/app-hardening-htaccess/"
+
+[[redirects]]
+	from = "/docs/app-hardening-login-protection"
+	to = "/patchstack-app/app-dashboard/hardening/app-hardening-login-protection/"
+
+[[redirects]]
+	from = "/docs/recaptcha"
+	to = "/patchstack-app/app-dashboard/hardening/recaptcha/"
+
+[[redirects]]
+	from = "/docs/app-hardening-cookie-notice"
+	to = "/patchstack-app/app-dashboard/hardening/app-hardening-cookie-notice/"
+
+[[redirects]]
+	from = "/docs/activity"
+	to = "/patchstack-app/app-dashboard/activity/"
+
+[[redirects]]
+	from = "/docs/users"
+	to = "/patchstack-app/app-dashboard/users/"
+
+[[redirects]]
+	from = "/docs/settings"
+	to = "/patchstack-app/app-dashboard/settings/"
+
+[[redirects]]
+	from = "/docs/software-overview"
+	to = "/patchstack-app/software/software-overview/"
+
+[[redirects]]
+	from = "/docs/software-logs"
+	to = "/patchstack-app/software/software-logs/"
+
+[[redirects]]
+	from = "/docs/automatic-updates"
+	to = "/patchstack-app/software/automatic-updates/"
+
+[[redirects]]
+	from = "/docs/protection-overview"
+	to = "/patchstack-app/protection/protection-overview/"
+
+[[redirects]]
+	from = "/docs/patchstack-modules"
+	to = "/patchstack-app/protection/patchstack-modules/"
+
+[[redirects]]
+	from = "/docs/custom-rules"
+	to = "/patchstack-app/protection/custom-rules/custom-rules/"
+
+[[redirects]]
+	from = "/docs/simple-rule"
+	to = "/patchstack-app/protection/custom-rules/simple-rule/"
+
+[[redirects]]
+	from = "/docs/advanced-rule-creation"
+	to = "/patchstack-app/protection/custom-rules/advanced-rule/"
+
+[[redirects]]
+	from = "/docs/reports-overview"
+	to = "/patchstack-app/reports/reports-overview/"
+
+[[redirects]]
+	from = "/docs/generating-reports"
+	to = "/patchstack-app/reports/generating-reports/"
+
+[[redirects]]
+	from = "/docs/scheduling-reports"
+	to = "/patchstack-app/reports/scheduling-reports/"
+
+[[redirects]]
+	from = "/docs/reports-whitelabeling"
+	to = "/patchstack-app/reports/reports-whitelabeling/"
+
+[[redirects]]
+	from = "/docs/snapshot-report"
+	to = "/patchstack-app/reports/snapshot-report/"
+
+[[redirects]]
+	from = "/docs/developer-report"
+	to = "/patchstack-app/reports/developer-report/"
+
+[[redirects]]
+	from = "/docs/alerts"
+	to = "/patchstack-app/alerts/alerts/"
+
+[[redirects]]
+	from = "/docs/triggers"
+	to = "/patchstack-app/alerts/triggers/"
+
+[[redirects]]
+	from = "/docs/creating-a-trigger"
+	to = "/patchstack-app/alerts/creating-a-trigger/"
+
+[[redirects]]
+	from = "/docs/add-ons"
+	to = "/patchstack-app/add-ons/add-ons/"
+
+[[redirects]]
+	from = "/docs/volume-upgrade"
+	to = "/patchstack-app/add-ons/volume-upgrade/"
+
+[[redirects]]
+	from = "/docs/additional-seat"
+	to = "/patchstack-app/add-ons/additional-seat/"
+
+[[redirects]]
+	from = "/docs/vulnerability-database-api"
+	to = "/patchstack-app/add-ons/vulnerability-database-api/"
+
+[[redirects]]
+	from = "/docs/account-settings"
+	to = "/patchstack-app/account-settings/account-settings/"
+
+[[redirects]]
+	from = "/docs/account-subscription"
+	to = "/patchstack-app/account-settings/account-subscription/"
+
+[[redirects]]
+	from = "/docs/billing-invoices"
+	to = "/patchstack-app/account-settings/billing-invoices/"
+
+[[redirects]]
+	from = "/docs/account-integrations"
+	to = "/patchstack-app/account-settings/account-integrations/"
+
+[[redirects]]
+	from = "/docs/team"
+	to = "/patchstack-app/account-settings/team/"
+
+[[redirects]]
+	from = "/docs/2-factor-authentication"
+	to = "/patchstack-app/account-settings/2-factor-authentication/"
+
+[[redirects]]
+	from = "/docs/app-errors"
+	to = "/patchstack-app/app-errors/"
+
+[[redirects]]
+	from = "/docs/plugin-introduction"
+	to = "/patchstack-plugin/plugin-introduction/"
+
+[[redirects]]
+	from = "/docs/patchstack-plugin-welcome-screen"
+	to = "/patchstack-plugin/patchstack-plugin-welcome-screen/"
+
+[[redirects]]
+	from = "/docs/plugin-settings"
+	to = "/patchstack-plugin/plugin-settings/"
+
+[[redirects]]
+	from = "/docs/how-to-update-patchstack-plugin"
+	to = "/patchstack-plugin/how-to-update-patchstack-plugin/"
+
+[[redirects]]
+	from = "/docs/how-to-uninstall-patchstack-plugin"
+	to = "/patchstack-plugin/how-to-uninstall-patchstack-plugin/"
+
+[[redirects]]
+	from = "/docs/wp-cli-commands"
+	to = "/patchstack-plugin/wp-cli-commands/"
+
+[[redirects]]
+	from = "/docs/vulnerability-api-for-developers"
+	to = "/vulnerability-database/vulnerability-api-for-developers/"
+
+[[redirects]]
+	from = "/docs/vulnerability-api-for-hosts"
+	to = "/vulnerability-database/vulnerability-api-for-hosts/"
+
+[[redirects]]
+	from = "/docs/api-properties"
+	to = "/vulnerability-database/api-properties/"
+
+[[redirects]]
+	from = "/docs/do-you-offer-refunds"
+	to = "/faq-troubleshooting/billing-refunds/do-you-offer-refunds/"
+
+[[redirects]]
+	from = "/docs/should-i-upgrade-from-appsumo-to-developer-plan"
+	to = "/faq-troubleshooting/billing-refunds/should-i-upgrade-from-appsumo-to-developer-plan/"
+
+[[redirects]]
+	from = "/docs/how-do-i-delete-my-patchstack-account"
+	to = "/faq-troubleshooting/account-profile/how-do-i-delete-my-patchstack-account/"
+
+[[redirects]]
+	from = "/docs/2fa-recovery"
+	to = "/faq-troubleshooting/account-profile/2fa-recovery/"
+
+[[redirects]]
+	from = "/docs/how-does-the-annual-plan-pricing-work-and-how-will-i-be-charged"
+	to = "/faq-troubleshooting/pricing-plans/how-does-the-annual-plan-pricing-work-and-how-will-i-be-charged/"
+
+[[redirects]]
+	from = "/docs/does-patchstack-have-a-free-version"
+	to = "/faq-troubleshooting/pricing-plans/does-patchstack-have-a-free-version/"
+
+[[redirects]]
+	from = "/docs/add-ons-1"
+	to = "/faq-troubleshooting/alerts-notifications/how-to-send-notifications-to-all-my-team-members/"
+
+[[redirects]]
+	from = "/docs/how-to-send-notifications-to-all-my-team-members"
+	to = "/faq-troubleshooting/reports/how-to-generate-security-reports/"
+
+[[redirects]]
+	from = "/docs/how-to-generate-security-reports"
+	to = "/faq-troubleshooting/integrations/how-to-get-the-site-key-and-secret-key-for-the-recaptcha-feature/"
+
+[[redirects]]
+	from = "/docs/how-to-get-the-site-key-and-secret-key-for-the-recaptcha-feature"
+	to = "/faq-troubleshooting/integrations/how-to-get-the-site-key-and-secret-key-for-the-recaptcha-feature/"
+
+[[redirects]]
+	from = "/docs/does-patchstack-incorporate-a-cdn"
+	to = "/faq-troubleshooting/technical/does-patchstack-incorporate-a-cdn/"
+
+[[redirects]]
+	from = "/docs/do-i-need-to-set-up-a-cdn-service-for-setting-up-the-firewall"
+	to = "/faq-troubleshooting/technical/do-i-need-to-set-up-a-cdn-service-for-setting-up-the-firewall/"
+
+[[redirects]]
+	from = "/docs/does-our-firewall-protect-from-ddos-attacks"
+	to = "/faq-troubleshooting/technical/does-our-firewall-protect-from-ddos-attacks/"
+
+[[redirects]]
+	from = "/docs/list-of-ip-addresses-that-patchstack-uses"
+	to = "/faq-troubleshooting/technical/list-of-ip-addresses-that-patchstack-uses/"
+
+[[redirects]]
+	from = "/docs/how-to-configure-patchstack-to-work-with-cloudflare"
+	to = "/faq-troubleshooting/technical/how-to-configure-patchstack-to-work-with-cloudflare/"
+
+[[redirects]]
+	from = "/docs/does-patchstack-work-with-nginx"
+	to = "/faq-troubleshooting/technical/does-patchstack-work-with-nginx/"
+
+[[redirects]]
+	from = "/docs/how-to-fix-improper-http-to-https-redirection"
+	to = "/faq-troubleshooting/technical/how-to-fix-improper-http-to-https-redirection/"
+
+[[redirects]]
+	from = "/docs/how-to-fix-the-missing-security-headers-issue"
+	to = "/faq-troubleshooting/technical/how-to-fix-the-missing-security-headers-issue/"
+
+[[redirects]]
+	from = "/docs/does-patchstack-work-with-other-captcha-plugins"
+	to = "/faq-troubleshooting/technical/does-patchstack-work-with-other-captcha-plugins/"
+
+[[redirects]]
+	from = "/docs/will-patchstack-plugin-help-my-site-pass-pci-dss-soc2-iso-127001-or-other-security-checks"
+	to = "/faq-troubleshooting/technical/will-patchstack-plugin-help-my-site-pass-pci-dss-soc2-iso-127001-or-other-security-checks/"
+
+[[redirects]]
+	from = "/docs/updating-patchstack-from-2020"
+	to = "/faq-troubleshooting/plugin/updating-patchstack-from-2020/"
+
+[[redirects]]
+	from = "/docs/does-the-patchstack-plugin-work-on-the-server-level-or-on-an-application-level"
+	to = "/faq-troubleshooting/plugin/does-the-patchstack-plugin-work-on-the-server-level-or-on-an-application-level/"
+
+[[redirects]]
+	from = "/docs/how-to-delete-the-patchstack-plugin-manually"
+	to = "/faq-troubleshooting/plugin/how-to-delete-the-patchstack-plugin-manually/"
+
+[[redirects]]
+	from = "/docs/how-to-install-or-reinstall-the-plugin"
+	to = "/faq-troubleshooting/plugin/how-to-install-or-reinstall-the-plugin/"
+
+[[redirects]]
+	from = "/docs/where-is-the-patchstack-settings-page-on-the-plugin"
+	to = "/faq-troubleshooting/plugin/where-is-the-patchstack-settings-page-on-the-plugin/"
+
+[[redirects]]
+	from = "/docs/why-is-my-site-not-working-after-updating-the-plugin"
+	to = "/faq-troubleshooting/plugin/why-is-my-site-not-working-after-updating-the-plugin/"
+
+[[redirects]]
+	from = "/docs/where-do-i-find-the-api-key"
+	to = "/faq-troubleshooting/plugin/where-do-i-find-the-api-key/"
+
+[[redirects]]
+	from = "/docs/can-i-install-the-same-plugin-file-on-all-of-my-sites"
+	to = "/faq-troubleshooting/plugin/can-i-install-the-same-plugin-file-on-all-of-my-sites/"
+
+[[redirects]]
+	from = "/docs/app-is-showing-the-firewall-of-my-site-as-delayed"
+	to = "/faq-troubleshooting/firewall/app-is-showing-the-firewall-of-my-site-as-delayed/"
+
+[[redirects]]
+	from = "/docs/i-activated-the-plugin-but-still-get-the-message-install-the-plugin-to-activate-the-firewall"
+	to = "/faq-troubleshooting/firewall/i-activated-the-plugin-but-still-get-the-message-install-the-plugin-to-activate-the-firewall/"
+
+[[redirects]]
+	from = "/docs/how-do-i-use-the-country-blocking-feature"
+	to = "/faq-troubleshooting/firewall/how-do-i-use-the-country-blocking-feature/"
+
+[[redirects]]
+	from = "/docs/how-do-i-block-an-ip-address-from-accessing-my-site"
+	to = "/faq-troubleshooting/firewall/how-do-i-block-an-ip-address-from-accessing-my-site/"
+
+[[redirects]]
+	from = "/docs/legitimate-visitors-or-pages-are-being-blocked-by-the-firewall-how-do-i-add-this-to-the-whitelist"
+	to = "/faq-troubleshooting/firewall/legitimate-visitors-or-pages-are-being-blocked-by-the-firewall-how-do-i-add-this-to-the-whitelist/"
+
+[[redirects]]
+	from = "/docs/what-is-the-difference-between-a-waf-and-virtual-patching"
+	to = "/faq-troubleshooting/firewall/what-is-the-difference-between-a-waf-and-virtual-patching/"
+
+[[redirects]]
+	from = "/docs/what-is-the-cvss-score"
+	to = "/faq-troubleshooting/other/what-is-the-cvss-score/"
+
+[[redirects]]
+	from = "/docs/how-to-write-a-review-for-patchstack"
+	to = "/faq-troubleshooting/other/how-to-write-a-review-for-patchstack/"
+
+[[redirects]]
+	from = "/docs/data-processing-agreement-dpa-and-gdpr"
+	to = "/faq-troubleshooting/other/data-processing-agreement-dpa-and-gdpr/"
+
+[[redirects]]
+	from = "/docs/how-does-the-patchstack-firewall-compare-to-sucuri-or-wordfence"
+	to = "/faq-troubleshooting/other/how-does-the-patchstack-firewall-compare-to-sucuri-or-wordfence/"
+
+[[redirects]]
+	from = "/docs/what-is-the-best-way-to-resell-patchstack-to-my-customers"
+	to = "/faq-troubleshooting/other/what-is-the-best-way-to-resell-patchstack-to-my-customers/"
+
+[[redirects]]
+	from = "/docs/how-do-i-connect-patchstack-with-multisite-environment"
+	to = "/faq-troubleshooting/other/how-do-i-connect-patchstack-with-multisite-environment/"
+
+[[redirects]]
+	from = "/docs/how-does-multisite-work-and-what-is-the-pricing-model"
+	to = "/faq-troubleshooting/other/how-does-multisite-work-and-what-is-the-pricing-model/"
+
+[[redirects]]
+	from = "/docs/theme-editor-missing"
+	to = "/faq-troubleshooting/other/theme-editor-missing/"
+
+[[redirects]]
+	from = "/docs/how-do-i-turn-on-the-xml-rpc-feature"
+	to = "/faq-troubleshooting/other/how-do-i-turn-on-the-xml-rpc-feature/"
+
+[[redirects]]
+	from = "/docs/can-i-have-other-security-plugins-activated-and-running-next-to-patchstack"
+	to = "/faq-troubleshooting/other/can-i-have-other-security-plugins-activated-and-running-next-to-patchstack/"
+
+[[redirects]]
+	from = "/docs/does-patchstack-work-with-marketplanio"
+	to = "/faq-troubleshooting/other/does-patchstack-work-with-marketplanio/"
+
+[[redirects]]
+	from = "/docs/does-patchstack-work-with-litespeed"
+	to = "/faq-troubleshooting/other/does-patchstack-work-with-litespeed/"
+
+[[redirects]]
+	from = "/docs/the-app-is-saying-my-site-does-not-use-wordpress-even-though-it-does-how-to-fix"
+	to = "/faq-troubleshooting/other/the-app-is-saying-my-site-does-not-use-wordpress-even-though-it-does-how-to-fix/"
+
+[[redirects]]
+	from = "/docs/i-installed-the-plugin-on-my-site-but-it-still-shows-i-have-missing-headers-on-the-portal-why-is-that"
+	to = "/faq-troubleshooting/other/i-installed-the-plugin-on-my-site-but-it-still-shows-i-have-missing-headers-on-the-portal-why-is-that/"
+
+[[redirects]]
+	from = "/docs/dashboard-shows-no-attacks-blocked"
+	to = "/faq-troubleshooting/other/dashboard-shows-no-attacks-blocked/"
+
+[[redirects]]
+	from = "/docs/how-do-i-add-an-intranet-site-to-the-portal"
+	to = "/faq-troubleshooting/other/how-do-i-add-an-intranet-site-to-the-portal/"
+
+[[redirects]]
+	from = "/docs/does-patchstack-have-a-malware-scanner"
+	to = "/faq-troubleshooting/malware-cleanup/does-patchstack-include-a-malware-scannercleanup-tool/"
+
+[[redirects]]
+	from = "/docs/missing-security-headers-permission-policy-or-content-security-policy-csp"
+	to = "/faq-troubleshooting/other/missing-security-headers-permission-policy-or-content-security-policy-csp/"
+
+[[redirects]]
+	from = "/docs/error-cannot-redeclare-class-patchstack-in"
+	to = "/faq-troubleshooting/errors/error-cannot-redeclare-class-patchstack-in/"
+
+[[redirects]]
+	from = "/docs/error-code-7"
+	to = "/faq-troubleshooting/errors/error-code-7/"
+
+[[redirects]]
+	from = "/docs/error-code-22"
+	to = "/faq-troubleshooting/errors/error-code-22/"
+
+[[redirects]]
+	from = "/docs/error-code-23"
+	to = "/faq-troubleshooting/errors/error-code-23/"
+
+[[redirects]]
+	from = "/docs/error-code-5529"
+	to = "/faq-troubleshooting/errors/error-code-5529/"
+
+[[redirects]]
+	from = "/docs/error-blocked-as-suspected-bot"
+	to = "/faq-troubleshooting/errors/error-blocked-as-suspected-bot/"
+
+[[redirects]]
+	from = "/docs/error-cannot-activate-plugin-because-of-ssl-routinesssl23_get_server_hellosslv3-alert-handshake-failure"
+	to = "/docs/error-cannot-activate-plugin-because-of-ssl-routinesssl23_get_server_hellosslv3-alert-handshake-failure/"
+
+[[redirects]]
+	from = "/docs/error-you-have-entered-an-incorrect-recaptcha-value-on-login-page"
+	to = "/faq-troubleshooting/errors/error-you-have-entered-an-incorrect-recaptcha-value-on-login-page/"
+
+[[redirects]]
+	from = "/docs/error-csrf-token-missing-or-mismatch"
+	to = "/faq-troubleshooting/errors/error-csrf-token-missing-or-mismatch/"
+
+[[redirects]]
+	from = "/docs/error-the-url-url-is-invalid"
+	to = "/faq-troubleshooting/errors/error-the-url-url-is-invalid/"
+
+[[redirects]]
+	from = "/docs/error-the-url-url-cannot-be-added-since-it-returned-a-5xx-error-code-this-indicates-an-internal-server-error-on-your-site-please-make-sure-it-is-accessible-and-not-in-maintenance-mode"
+	to = "/faq-troubleshooting/errors/error-the-url-url-cannot-be-added-since-it-returned-a-5xx-error-code-this-indicates-an-internal-server-error-on-your-site-please-make-sure-it-is-accessible-and-not-in-maintenance-mode/"
+
+[[redirects]]
+	from = "/docs/error-the-url-url-cannot-be-added-since-it-timed-out-or-resulted-in-a-server-error-is-it-currently-online"
+	to = "/faq-troubleshooting/errors/error-the-url-url-cannot-be-added-since-it-timed-out-or-resulted-in-a-server-error-is-it-currently-online/"
+
+[[redirects]]
+	from = "/docs/error-sorry-this-file-type-is-not-permitted-for-security-reasons"
+	to = "/faq-troubleshooting/errors/error-sorry-this-file-type-is-not-permitted-for-security-reasons/"
+
+[[redirects]]
+	from = "/docs/error-warning-cannot-modify-header-information-headers-already-sent-by"
+	to = "/faq-troubleshooting/errors/error-warning-cannot-modify-header-information-headers-already-sent-by/"
+
+[[redirects]]
+	from = "/docs/error-the-site-url-cannot-be-added-since-it-is-invalid-or-blocks-patchstack-from-accessing-the-site"
+	to = "/faq-troubleshooting/errors/error-the-site-url-cannot-be-added-since-it-is-invalid-or-blocks-patchstack-from-accessing-the-site/"
+
+[[redirects]]
+	from = "/docs/plugin-changelog"
+	to = "/changelog/plugin-changelog/"
+
+[[redirects]]
+	from = "/docs/app-changelog"
+	to = "/changelog/app-changelog/"
