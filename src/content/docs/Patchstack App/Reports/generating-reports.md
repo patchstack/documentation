@@ -20,7 +20,7 @@ _Accessible for the Community, Developer and Business plan users._
 3. Click the green **Generate** button
 4. The report is generated and you can download it, by clicking the download icon in the table below
 
-Read more about the **[Snapshot reports](https://docs.patchstack.com/docs/snapshot-report)** here.
+Read more about the **[Snapshot reports](/patchstack-app/reports/snapshot-report/)** here.
 
 ## Generating Developer Report
 
@@ -33,4 +33,4 @@ _This feature is only for the Developer and Business plan users_
 5. Click the green **Generate** button
 6. The report is generated and you can download it, by clicking the download icon in the table below
 
-Read more about the **[Developer reports](https://docs.patchstack.com/docs/developer-report)** here.
+Read more about the **[Developer reports](/patchstack-app/reports/developer-report/)** here.

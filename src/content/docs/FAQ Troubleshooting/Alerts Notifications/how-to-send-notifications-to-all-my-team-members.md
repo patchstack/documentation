@@ -25,4 +25,4 @@ But in case you would like to get notified to other email addresses, let's set u
 
 If you have multiple people you wish to send notifications to, you will need to repeat the process.
 
-[Click here to read more about creating custom alert triggers!](https://docs.patchstack.com/docs/creating-a-trigger)
+[Click here to read more about creating custom alert triggers!](/patchstack-app/alerts/creating-a-trigger/)

@@ -14,4 +14,4 @@ sidebar:
 Navigate to **Protection** > **Banned IPs** section to view all the IP addresses that are currently banned from visiting the site. In case it's a false positive blocking, you can unblock this IP by selecting **Action** > **Unban**. 
 
 Mostly, these IPs got blocked temporarily, after these bots or hackers were shown the Error 22 page on your site.  
-<a href="https://docs.patchstack.com/docs/error-code-22" target="_blank">📖 Read more about the **Error Code 22** here.</a>
+<a href="/faq-troubleshooting/errors/error-code-22/" target="_blank">📖 Read more about the **Error Code 22** here.</a>

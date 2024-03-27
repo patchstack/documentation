@@ -9,4 +9,4 @@ metadata:
 createdAt: "Tue Aug 23 2022 12:16:13 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Aug 23 2022 12:16:13 GMT+0000 (Coordinated Universal Time)"
 ---
-Follow the instructions <a href="https://docs.patchstack.com/docs/hardening-firewall#country-blocking" target="_blank"><b>here</b>.</a>
+Follow the instructions [here](/patchstack-app/app-dashboard/protection/app-protection-additional-settings/#country-blocking)</b>.</a>

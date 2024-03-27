@@ -15,7 +15,7 @@ You can update the Patchstack plugin in two ways:
 - From the WordPress admin area
 - From the Patchstack App
 
-**NB!** If you have \<= 2.0.20 version of Patchstack installed, follow this tutorial: <https://docs.patchstack.com/docs/updating-patchstack-from-2020>
+**NB!** If you have \<= 2.0.20 version of Patchstack installed, [follow this tutorial](/faq-troubleshooting/plugin/updating-patchstack-from-2020/)
 
 ## Updating from the WordPress admin area
 

@@ -15,7 +15,7 @@ First, please copy and paste the PHP error that you are facing and send it to us
 
 Secondly, if you can still access your WordPress admin panel, go to **Plugins** > **Patchstack Security** > **Deactivate**. After that, if your site still shows the fatal error, go back to **Plugins** and click **Delete** under **Patchstack Security**.
 
-If you cannot access your WordPress admin area at all, we recommend deleting the plugin manually. For that, follow the instructions here: <https://docs.patchstack.com/docs/how-to-delete-the-patchstack-plugin-manually>
+If you cannot access your WordPress admin area at all, we recommend deleting the plugin manually. For that, follow the instructions [here](/faq-troubleshooting/plugin/how-to-delete-the-patchstack-plugin-manually/).
 
 Possible fatal errors:  
 "Fatal error: Cannot redeclare class Patchstack in…"

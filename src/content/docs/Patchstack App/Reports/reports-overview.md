@@ -18,9 +18,9 @@ With Patchstack, you can automatically schedule your reports generation so you d
 
 Patchstack has 2 different types of reports available:
 
-- **[Snapshot report](https://docs.patchstack.com/docs/snapshot-report)**  
+- **[Snapshot report](/patchstack-app/reports/snapshot-report/)**  
   This is a security report about the current situation on the website. Snapshot report is a free feature for all user plans.
-- **[Developer report](https://docs.patchstack.com/docs/developer-report)**  
+- **[Developer report](/patchstack-app/reports/developer-report/)**  
   This is a periodic security report about the situation on the website, with security suggestions and improvements. Developer report is for the Developer and Business plan users only.
 
 From the **Reports** page you can see all the generated reports.  

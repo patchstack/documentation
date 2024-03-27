@@ -10,4 +10,4 @@ createdAt: "Fri Aug 26 2022 12:16:43 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 14:15:31 GMT+0000 (Coordinated Universal Time)"
 ---
 In some cases, the auto-install plugin feature may not work properly. When this happens, you should install the plugin manually.  
-Check this article: <https://docs.patchstack.com/docs/manual-installation>
+Check this [article](/getting-started/installing-patchstack/installing-via-wordpress-repository/)

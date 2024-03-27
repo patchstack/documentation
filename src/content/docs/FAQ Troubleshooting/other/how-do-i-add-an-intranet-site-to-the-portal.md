@@ -15,4 +15,4 @@ We are still working on supporting intranet sites properly:
 
 Because the site is not accessible from the public, you first have to add a random domain name to your account that exists on the public internet. After that, go to **My Apps** > yourdomain.com > Settings. Change the URL to the URL of your intranet site.
 
-After that, refresh the page and install the Patchstack plugin [manually](https://docs.patchstack.com/docs/manual-installation).
+After that, refresh the page and install the Patchstack plugin [manually](/getting-started/installing-patchstack/installing-via-wordpress-repository/).

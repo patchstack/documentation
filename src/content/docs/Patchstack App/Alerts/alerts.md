@@ -33,6 +33,6 @@ Triggers are used to get notified about:
 You can view the built-in trigger rules by clicking on the **Action** and **Edit** buttons of the trigger.
 
 To set up custom notifications, you will have to create a trigger.  
-You can create a trigger by clicking on **+ Create Trigger** on the top right corner and following this article: <a href="https://docs.patchstack.com/docs/creating-a-trigger" target="_blank">https://docs.patchstack.com/docs/creating-a-trigger</a>
+You can create a trigger by clicking on **+ Create Trigger** on the top right corner and following <a href="/patchstack-app/alerts/creating-a-trigger/" target="_blank">this article</a>.
 
 ![](@images/6a5df31-small-Patchstack_Alerts_and_triggers.png)

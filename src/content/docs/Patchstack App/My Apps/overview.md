@@ -33,7 +33,7 @@ Let's go through some more important table columns to explain the data shown.
 ## Manage groups
 
 You can attach your applications to the groups that you can define.  
-Check [this article](https://docs.patchstack.com/docs/application-groups) for details.
+Check [this article](/patchstack-app/my-apps/application-groups/) for details.
 
 ## Search and display
 
@@ -42,10 +42,10 @@ Left from the search-bar, you can choose how many applications to display per pa
 
 ## Adding a new web app
 
-To add a new WordPress application, click on **Add new** and follow the instructions, or carry on to the [next article](https://docs.patchstack.com/docs/adding-a-web-app).
+To add a new WordPress application, click on **Add new** and follow the instructions, or carry on to the [next article](/patchstack-app/my-apps/adding-a-web-app/).
 
 ## Removing a web app
 
 To delete an application, click on the trashcan icon.  
 To delete multiple apps simultaneously, check the according checkboxes, then click **Bulk actions** > **Delete**.  
-Check [this article](https://docs.patchstack.com/docs/removing-a-web-app) for more details.
+Check [this article](/patchstack-app/my-apps/removing-a-web-app/) for more details.

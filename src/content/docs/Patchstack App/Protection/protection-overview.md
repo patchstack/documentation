@@ -13,7 +13,7 @@ sidebar:
 ## Protection modules
 
 A module is a collection of firewall rules managed by Patchstack. Assign modules to your app to protect them. You can manage the protection modules, by clicking on the green **Manage** button.  
-[📖 Read more about the protection modules here.](https://docs.patchstack.com/docs/patchstack-modules)
+[📖 Read more about the protection modules here.](/patchstack-app/protection/patchstack-modules/)
 
 ## Activity
 

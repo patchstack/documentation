@@ -35,4 +35,4 @@ To integrate Slack, click on **"Integrate Slack"**. You will be taken to Slack.
 
 You should now receive a message to your Slack channel.
 
-To get real alerts to your Slack channel, you will need to create an alert trigger and set it to send alerts to Slack. Follow <a href="https://docs.patchstack.com/docs/creating-a-trigger" target="_blank"><b>this tutorial</b></a>.
+To get real alerts to your Slack channel, you will need to create an alert trigger and set it to send alerts to Slack. Follow [this tutorial](/patchstack-app/alerts/creating-a-trigger/).

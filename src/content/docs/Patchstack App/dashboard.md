@@ -34,7 +34,7 @@ You can use the search bar to find vulnerabilities of specific app, or search vu
 
 **Priority filter** - find vulnerabilities by patch priority. You can filter by high, medium and low patch priority vulnerabilities.
 
-**Severity filter** - find vulnerabilities by <a href="https://docs.patchstack.com/docs/what-is-the-cvss-score" target="_blank">CVSS severity score</a>. You can filter by critical, high, medium, low severity.
+**Severity filter** - find vulnerabilities by <a href="/faq-troubleshooting/other/what-is-the-cvss-score/" target="_blank">CVSS severity score</a>. You can filter by critical, high, medium, low severity.
 
 **Exploited** - filter out the vulnerabilities that are know to be exploited.
 

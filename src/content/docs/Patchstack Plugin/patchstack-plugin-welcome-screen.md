@@ -20,7 +20,7 @@ To find the key, you need to make sure you have added your domain to Patchstack 
 
 Helpful articles: 
 
-- [How to add my domain to the Patchstack App?](https://docs.patchstack.com/docs/adding-the-first-application)
-- [Where do I find the API key?](https://docs.patchstack.com/docs/where-do-i-find-the-api-key)
+- [How to add my domain to the Patchstack App?](/getting-started/adding-the-first-application/)
+- [Where do I find the API key?](/faq-troubleshooting/plugin/where-do-i-find-the-api-key/)
 
 In the next article, we'll see what's under the hood!

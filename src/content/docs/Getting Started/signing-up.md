@@ -23,6 +23,6 @@ From there you can sign up two ways.
 
 1. Click on the desired service provider and complete the authentication process.
 
-Below is the screen you can see after successful sign-up. From this view you can [add your first websites or applications to Patchstack](https://docs.patchstack.com/docs/adding-the-first-application).
+Below is the screen you can see after successful sign-up. From this view you can [add your first websites or applications to Patchstack](/getting-started/adding-the-first-application/).
 
 ![](@images/bb8151c-Pathstack_first_dashboard.png)

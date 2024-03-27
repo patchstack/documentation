@@ -27,6 +27,6 @@ NB! Patchstack does not offer reCaptcha integrations for other third-party forms
 You can choose whether to use reCaptcha v2 or reCaptcha v3.  
 Find information about different reCaptcha versions <a href="https://developers.google.com/recaptcha/docs/versions" target="_blank">here!</a>
 
-To activate Google reCaptcha on your site, you will have to generate a reCaptcha Public Key and reCaptcha Secret Key. Here is a tutorial how to generate those: <a href="https://docs.patchstack.com/docs/how-to-get-the-site-and-secret-key-for-the-recaptcha-feature" target="_blank">https://docs.patchstack.com/docs/how-to-get-the-site-and-secret-key-for-the-recaptcha-feature</a>
+To activate Google reCaptcha on your site, you will have to generate a reCaptcha Public Key and reCaptcha Secret Key. <a href="/faq-troubleshooting/integrations/how-to-get-the-site-key-and-secret-key-for-the-recaptcha-feature/" target="_blank">Here is a tutorial how to generate those</a>
 
 After all the changes, click on **Save Settings**.

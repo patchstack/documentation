@@ -15,4 +15,4 @@ After that, navigate to your account page: <https://app.patchstack.com/settings/
 
 Click on **Delete Account**. After 30 days your account will be completely terminated. You can still recover your account during that period of time.
 
-Read more about [how to remove your applications from the Patchstack App](https://docs.patchstack.com/docs/removing-a-web-app)
+Read more about [how to remove your applications from the Patchstack App](/patchstack-app/my-apps/removing-a-web-app/)

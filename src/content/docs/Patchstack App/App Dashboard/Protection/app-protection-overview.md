@@ -23,12 +23,12 @@ Patchstack firewall consists of four types of protection modules, which can be t
 ### vPatching Module
 
 Receive **vPatches** for known dangerous vulnerabilities in your applications. **vPatches** are highly specific and strict firewall rules that prevent vulnerabilities from being exploited without changing any code.  
-<a href="https://docs.patchstack.com/docs/patchstack-modules#vpatches" target="_blank">📖 Read more </a>
+<a href="/patchstack-app/protection/patchstack-modules/#vpatches" target="_blank">📖 Read more </a>
 
 ### Advanced Hardening
 
 The **Advanced Hardening** module applies additional security mechanics to the WordPress application to block common malicious requests against WordPress sites.  
-<a href="https://docs.patchstack.com/docs/patchstack-modules#advanced-hardening" target="_blank">📖 Read more </a>
+<a href="/patchstack-app/protection/patchstack-modules/#advanced-hardening" target="_blank">📖 Read more </a>
 
 ### Community IP Blocklist
 
@@ -37,7 +37,7 @@ Community IP blocklist blocks access to IP addresses which are known to exploit 
 ### Generic OWASP
 
 Generic firewall rules against OWASP top 10 vulnerability types including XSS, SQLi, RCE and for other known exploitation methods. Note, due to its generic nature this module may cause false-positives for more complex applications.  
-<a href="https://docs.patchstack.com/docs/patchstack-modules#generic-owasp" target="_blank">📖 Read more </a>
+<a href="/patchstack-app/protection/patchstack-modules/#generic-owasp" target="_blank">📖 Read more </a>
 
 ## Activity
 

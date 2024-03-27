@@ -21,10 +21,9 @@ Patchstack's add-ons include:
 
 <ol>
 
-<li><a href="https://docs.patchstack.com/docs/volume-upgrade">Volume Upgrade</a></li>
-<li><a href="https://docs.patchstack.com/docs/additional-seat">Additional Seat</a></li>
-<li><a href="https://docs.patchstack.com/docs/vulnerability-database-api">Vulnerability Database API</a></li>
-
+<li>[Volume upgrade](/patchstack-app/add-ons/volume-upgrade/)</li>
+<li>[Additional Seat](/patchstack-app/add-ons/additional-seat/)</li>
+<li>[Vulnerability Database API](/patchstack-app/add-ons/vulnerability-database-api/)</li>
 </ol>
 
 ![](@images/fe10500-small-Patchstack_Add-ons.png)

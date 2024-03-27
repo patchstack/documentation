@@ -21,4 +21,4 @@ Patchstack offers two types of security reports:
 - Developer report (for Developer and Business plan users)  
   The developer Report is a periodic PDF security report. It means you will need to pick a time period (for example a month), in which the data about your app is shown on the report.
 
-[Read more about generating the reports here](https://docs.patchstack.com/docs/generating-reports)
+[Read more about generating the reports here](/patchstack-app/reports/generating-reports/)
