@@ -7,13 +7,14 @@ const site = site_url || 'http://localhost:4321';
 // https://astro.build/config
 export default defineConfig({
 	site,
-	editLink: {
-		baseUrl: 'https://github.com/patchstack/documentation/edit/main/'
-	},
+	
 	integrations: [
 		starlight({
 			title: 'Patchstack Docs',
 			favicon: '/images/psfavicon.svg',
+			editLink: {
+				baseUrl: 'https://github.com/patchstack/documentation/blob/main'
+			},
 			customCss: [
 				'./src/styles/custom.css',
 			],
