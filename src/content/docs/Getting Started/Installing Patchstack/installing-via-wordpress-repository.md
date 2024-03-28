@@ -24,7 +24,7 @@ To connect the plugin with Patchstack App, you need to enter your **API key** in
 
 ![](@images/94cd479-small-Patchstack_WordPress_plugin.png)
 
-You can find **API key** in the <a href="https://app.patchstack.com" target="_blank"><b>Patchstack App</b></a>, when you navigate to **My Apps > yourdomain.com > Settings**. 
+You can find **API key** in the <a href="https://app.patchstack.com" target="_blank"><b>Patchstack App</b></a>, when you navigate to **My Sites > yourdomain.com > Settings**. 
 
 See image below:
 ![](@images/6bb39ff-patchstack-site-settings.png)

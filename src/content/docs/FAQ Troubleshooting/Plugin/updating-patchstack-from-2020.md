@@ -15,8 +15,8 @@ To make sure you have the latest version of Patchstack, we recommend following t
 
 1. Deactivate the old WebARX/Patchstack plugin (version 2.0.20 or lower). You can deactivate the Patchstack plugin by navigating to the **Plugins** page of your WordPress site. Find **Patchstack Security or WebARX** and click **Deactivate**
 2. Download the newest version of the Patchstack plugin from the Patchstack App.  
-   Just open your application dashboard on Patchstack App and navigate to **Plugin** from the submenu.  
-   Click **Download Plugin**
+   Just open your site dashboard on Patchstack App and navigate to **Settings** from the submenu.  
+   Click **Download latest version**
 
 ![](@images/8b5bd5f-small-6d63d81-small-Patchstack_Plugin.png)
 

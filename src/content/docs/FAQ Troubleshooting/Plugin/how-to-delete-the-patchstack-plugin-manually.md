@@ -13,4 +13,4 @@ In order to manually remove the Patchstack plugin from your WordPress site, plea
 
 Once logged in, head to the following location **/wp-content/plugins/** and delete the folder **patchstack**.
 
-When this is done, Patchstack will be removed from your WordPress app.
+When this is done, Patchstack will be removed from your WordPress site.

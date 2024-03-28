@@ -14,7 +14,7 @@ We have made it easy for you to block IP addresses.
 In order to block an IP address, do the following:
 
 <ol><li>Log in to the Patchstack App</li>
-<li>Go to <b>My Apps</b> > <b>yourdomain.com</b> > <b>Hardening</b></li>
+<li>Go to <b>My Sites</b> > <b>yourdomain.com</b> > <b>Hardening</b></li>
 <li>Scroll down to <b>IP Block List</b></li>
 <li>Enter each IP addresses to a new line</li>
 <li>The following formats are accepted:

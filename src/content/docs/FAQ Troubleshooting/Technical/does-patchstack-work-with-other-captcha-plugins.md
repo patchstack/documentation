@@ -17,4 +17,4 @@ Patchstack, by default, has the reCaptcha feature turned off. You can pick to wh
 
 Note that Patchstack's reCaptcha only works with WordPress's built-in forms and not for other plugins (e.g e-commerce registration forms).
 
-If you turn this feature on and have a different plugin installed that has the same kind of functionality, you may get locked out of your WordPress application. In this scenario, you have to delete either plugin.
+If you turn this feature on and have a different plugin installed that has the same kind of functionality, you may get locked out of your WordPress site. In this scenario, you have to delete either plugin.

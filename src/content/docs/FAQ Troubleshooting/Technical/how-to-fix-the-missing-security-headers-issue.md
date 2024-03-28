@@ -11,7 +11,7 @@ updatedAt: "Thu May 11 2023 12:00:52 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 7.7
 ---
-In the Patchstack App, this may show up under "improvements" when you view your application.
+In the Patchstack App, this may show up under "improvements" when you view your site.
 
 If you have our WordPress plugin installed, we will automatically try to inject the security headers into the response.
 
@@ -19,7 +19,7 @@ If this does not work, perhaps due to an aggressive caching plugin or caching/pr
 
 ## Adding the security headers automatically
 
-To automatically add the security headers, you need to navigate to the app or Patchstack plugin in your WordPress dashboard. 
+To automatically add the security headers, you need to navigate to the Patchstack App or Patchstack plugin in your WordPress dashboard. 
 
 <b>How to do it via Patchstack plugin?</b>
 
@@ -36,9 +36,9 @@ Navigate to your WordPress dashboard</li>
 
 <ol>
 <li>Click on the application you want to add security headers to from the Patchstack App dashboard</li>
-<li>Scroll down and find the Hardening tab </li>
-<li>From the Hardening options choose the Firewall tab</li>
-<li>Click the option "Add security headers"</li>
+<li>Click on the Hardening tab </li>
+<li>Click on the .htaccess sub-tab</li>
+<li>Switch on the option "Add security headers"</li>
 <li>Scroll down and click Save settings</li></ol>
 
 ## Adding the security headers manually
@@ -65,4 +65,4 @@ add_header Referrer-Policy "strict-origin-when-cross-origin";</pre>
 
 Additionally, in order to permanently remove the X-Powered-By header instead of using the above changes, set the expose_php value of your PHP configuration to "Off". You may have to ask your host to make the above changes.
 
-<i>Note that it may take up to 12 hours before the security headers error in the app is resolved. Or click on the "<b>Rescan</b>" button when you view your application in Patchstack App.</i>
+<i>Note that it may take up to 12 hours before the security headers error in the App is resolved.

@@ -20,7 +20,7 @@ Example payload looks like this: `[action] => edit_post`
 
 To whitelist a payload: 
 
-1. Navigate to **Protection > Additional Settings** tab of your application on Patchstack App
+1. Navigate to **Protection > Additional Settings** tab of your site on Patchstack App
 2. Into the Whitelist textbox, type "PAYLOAD:[action] => edit_post"
 3. Click Save Settings
 

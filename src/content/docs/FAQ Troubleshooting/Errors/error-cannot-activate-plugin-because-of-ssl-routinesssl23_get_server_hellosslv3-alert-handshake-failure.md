@@ -1,6 +1,5 @@
 ---
 title: "Error: Cannot activate plugin because of: SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure"
-slug: "docs/error-cannot-activate-plugin-because-of-ssl-routinesssl23_get_server_hellosslv3-alert-handshake-failure"
 excerpt: ""
 hidden: false
 metadata: 

@@ -15,10 +15,10 @@ When your web application does not properly redirect HTTP requests to HTTPS, a M
 
 It must redirect straight from the HTTP to the HTTPS version of your site with no additional HTTP redirects in between.
 
-In order to fix this on a WordPress app, first make sure your site is available over HTTPS (you might have to ask your host regarding this matter). If it is available over HTTPS, we recommend that you install the "Really Simple SSL" plugin. After the plugin setup, it may take up to 12 hours before the HTTPS/SSL error in the app is resolved.
+In order to fix this on a WordPress site, first make sure your site is available over HTTPS (you might have to ask your host regarding this matter). If it is available over HTTPS, we recommend that you install the "Really Simple SSL" plugin. After the plugin setup, it may take up to 12 hours before the HTTPS/SSL error in the app is resolved.
 
 <b>Apache</b>  
-If you do not run a WordPress site, you can create a .htaccess file in the root of your website (or modify existing one) through FTP or a file manager in CPanel/WHM/Plesk and add the following (make sure to change the domain name on the last line):
+If you do not run a WordPress site, you can create a .htaccess file in the root of your website (or modify existing one) through FTP or a file manager in cPanel/WHM/Plesk and add the following (make sure to change the domain name on the last line):
 
 <pre>
 RewriteEngine On 

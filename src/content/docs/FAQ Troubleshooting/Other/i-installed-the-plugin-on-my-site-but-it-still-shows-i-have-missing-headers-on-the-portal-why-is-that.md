@@ -9,7 +9,7 @@ metadata:
 createdAt: "Fri Aug 26 2022 12:12:18 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Aug 30 2022 14:10:22 GMT+0000 (Coordinated Universal Time)"
 ---
-Certain things are not updated instantly in the app, here's why.
+Certain things are not updated instantly in the Patchstack App, here's why.
 
 By default, we perform an extended monitoring scan of your site 2 times a day. However, we currently do not perform a new scan yet when the WordPress plugin has been installed on your site.
 

@@ -16,7 +16,7 @@ In order for Patchstack to work with Cloudflare, we recommend that you configure
 For that:
 
 <ol><li>
-Go to Patchstack App > <b>My Apps</b> > <b>yourdomain.com</b> > <b>Hardening</b></li>
+Go to Patchstack App > <b>My Sites</b> > <b>yourdomain.com</b> > <b>Protection</b> > <b>Additional settings</b></li>
 <li>To the <b>IP Address Header Override</b> input, type <b>HTTP_CF_CONNECTING_IP</b></li>
 <li>Save the settings</li>
 </ol>

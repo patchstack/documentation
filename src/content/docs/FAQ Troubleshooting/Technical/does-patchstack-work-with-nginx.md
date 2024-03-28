@@ -13,7 +13,7 @@ sidebar:
 ---
 If you run nginx, then the .htaccess functionality wont work.
 
-Apache has a feature that allows you to use a .htaccess file to easily implement or override rewrite rules on your application, but nginx does not have such a feature. In order for the rewrite rules to work, you must implement the nginx rules manually.
+Apache has a feature that allows you to use a .htaccess file to easily implement or override rewrite rules on your site, but nginx does not have such a feature. In order for the rewrite rules to work, you must implement the nginx rules manually.
 
 If you're not sure how to do this, you should ask your host for further assistance since it varies by the host how the nginx configuration works and is implemented. Some hosts provide you with access to an nginx.conf file in the root of your site, but this is not a universal standard so we do not attempt to write to this file.
 

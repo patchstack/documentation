@@ -15,7 +15,7 @@ sidebar:
 Once you start an annual plan with us, you will be charged for the entire amount right away and you will be charged every year for that amount unless you add more sites, adjust selected add-ons, or have more than 5 team members on your account.
 
 <b>What if I add more sites to my account?</b>  
-If you add more WordPress applications to your account after you already paid, we will charge you at the end of the day depending on how many apps you added and how many days are left until the next invoice. For example, if you started your plan on January 1st and add 1 site on July 1st, we will charge you 50% of the amount. Once it's January 1st again, you will be charged 100% for all apps and other services you have added to your account.
+If you add more WordPress applications to your account after you already paid, we will charge you at the end of the day depending on how many apps you added and how many days are left until the next invoice. For example, if you started your plan on January 1st and add 1 site on July 1st, we will charge you 50% of the amount. Once it's January 1st again, you will be charged 100% for all sites and other services you have added to your account.
 
 <b>What if I remove apps from my account?</b>  
 If you have 3 sites and paid for them and you remove 1 site, you will not receive a refund but instead have 1 open slot that can be used to add another site to your account. If you decide to keep 1 slot open then the next invoice will only charge you for 2 apps and the open slot will be removed.

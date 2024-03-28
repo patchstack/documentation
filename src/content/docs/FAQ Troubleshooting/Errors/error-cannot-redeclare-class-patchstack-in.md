@@ -1,6 +1,5 @@
 ---
 title: "Error: \"Cannot redeclare class Patchstack in…\""
-
 excerpt: "How to act, when the Patchstack plugin causes a fatal error on your site"
 hidden: false
 metadata: 
@@ -13,7 +12,7 @@ There are many reasons why this can happen, usually, it's because of an .htacces
 
 First, please copy and paste the PHP error that you are facing and send it to us through our chatbox at the bottom right corner of the page. This will help us to resolve your issue.
 
-Secondly, if you can still access your WordPress admin panel, go to **Plugins** > **Patchstack Security** > **Deactivate**. After that, if your site still shows the fatal error, go back to **Plugins** and click **Delete** under **Patchstack Security**.
+Secondly, if you can still access your WordPress admin panel, go to **Plugins** > **Security** > **Deactivate**. After that, if your site still shows the fatal error, go back to **Plugins** and click **Delete** under **Patchstack Security**.
 
 If you cannot access your WordPress admin area at all, we recommend deleting the plugin manually. For that, follow the instructions [here](/faq-troubleshooting/plugin/how-to-delete-the-patchstack-plugin-manually/).
 
