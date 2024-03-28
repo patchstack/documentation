@@ -31,7 +31,7 @@ This command will connect and activate the license of the Patchstack WordPress p
 These values can be found at the following location: 
 
 1. Go to the [Patchstack App](https://app.patchstack.com/) and login.
-2. Go to "My Apps" from the left menu.
+2. Go to "My Sites" from the left menu.
 3. Click on the URL of your site.
 4. Click on the "Settings" tab.
 5. On the right side, the API key section contains the full API key.

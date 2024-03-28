@@ -11,7 +11,7 @@ updatedAt: "Wed May 10 2023 12:01:29 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 1
 ---
-The Patchstack plugin is a WordPress plugin that connects your web application with Patchstack App.  
+The Patchstack plugin is a WordPress plugin that connects your site with Patchstack App.  
 You can find the plugin 
 
 <ul><li>here: <a href="https://wordpress.org/plugins/patchstack/" target="_blank">https://wordpress.org/plugins/patchstack/</a></li>

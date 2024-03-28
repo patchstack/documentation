@@ -28,8 +28,8 @@ You can update the Patchstack plugin in two ways:
 ## Updating from the Patchstack App
 
 1. Log in to <a href="https://app.patchstack.com" target="_blank">the Patchstack App</a>
-2. Navigate to **My Apps** from the left menu
-3. Find your application and click on it
+2. Navigate to **My Sites** from the left menu
+3. Find your site and click on it
 4. From the submenu, click **Software**
 5. Find the **Patchstack Security** plugin and tick the checkbox from the left column of the table row
 

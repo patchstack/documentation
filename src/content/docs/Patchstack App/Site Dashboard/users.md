@@ -10,7 +10,7 @@ sidebar:
 ---
 _Accessible for the Community (paid), Developer and Business plan users only._
 
-On the **Users** subpage you can see, which users have been registered on your application.  
+On the **Users** subpage you can see, which users have been registered on your site.  
 Patchstack shows only the following user roles:
 
 <ul><li>
