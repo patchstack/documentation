@@ -2,7 +2,7 @@
 title: "App Changelog"
 
 excerpt: "These are all the changes made to the app (portal) in the past."
-hidden: false
+hidden: true
 metadata: 
   image: []
   robots: "index"
