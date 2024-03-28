@@ -20,7 +20,7 @@ Navigate to "Plugins" from the admin menu and click "Add New" from the top.
 ![](@images/2707b1b-Installing_Patchstack_from_WordPress.png "Installing Patchstack from WordPress.png")
 
 You are now taken to the Patchstack plugin's setup screen.  
-To connect the plugin with Patchstack App, you need to enter your **API key** into the plugin.
+To connect the plugin with Patchstack App, you need to enter your site **API key** into the plugin.
 
 ![](@images/94cd479-small-Patchstack_WordPress_plugin.png)
 

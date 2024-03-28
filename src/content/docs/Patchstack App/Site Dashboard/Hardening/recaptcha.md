@@ -22,7 +22,7 @@ Our reCaptcha can only be used on the listed built-in WordPress forms.
 <li>Registration form</li>
 <li>Password reset form</li></ul>
 
-NB! Patchstack does not offer reCaptcha integrations for other third-party forms.
+**NB!** Patchstack does not offer reCaptcha integrations for plugins or themes (eg. WooCommerce, Contact Form 7).
 
 You can choose whether to use reCaptcha v2 or reCaptcha v3.  
 Find information about different reCaptcha versions <a href="https://developers.google.com/recaptcha/docs/versions" target="_blank">here!</a>

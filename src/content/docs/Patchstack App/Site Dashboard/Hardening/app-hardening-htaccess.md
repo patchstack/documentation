@@ -30,6 +30,6 @@ What you can do:
 In case you wish to write custom .htaccess rules to the file, you can insert your rules to **Custom .htaccess rules** textfield.  
 Additionally, you can select if your written rules appear before or after the Patchstack rules in the .htaccess file.
 
-Please note that If the custom htaccess rules provided there break your web application, Patchstack will automatically remove them and revert the .htaccess to the previous working state.
+Please note that If the custom .htaccess rules provided there break your web application, Patchstack will automatically remove them and revert the .htaccess to the previous working state.
 
 Having done all your changes, click on **Save Settings** at the bottom of this section.

@@ -1,5 +1,5 @@
 ---
-title: "Adding the First Application"
+title: "Adding the First Site"
 
 excerpt: ""
 hidden: false
@@ -8,13 +8,13 @@ updatedAt: "Tue Dec 12 2023 13:23:43 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 5
 ---
-In this step, we'll add our first web application to Patchstack. 
+In this step, we'll add our first site to Patchstack. 
 
 <div class="container">
   <iframe class="responsive-iframe" src="https://www.youtube.com/embed/MFmPFzSaD3I?si=CDjAhopxLuu69_H3"></iframe>
 </div>
 
-To add the first application, navigate to **Dashboard** and click on the **+ Add application** button as shown below.
+To add the first site, navigate to **Dashboard** and click on the **+ Add site** button as shown below.
 
 ![](@images/patchstack-dashboard-first-time.png)
 

@@ -1,5 +1,5 @@
 ---
-title: "Additional Settings"
+title: "Additional settings"
 
 excerpt: ""
 hidden: false
@@ -19,27 +19,27 @@ You can whitelist users from the Patchstack firewall. This means that the Patchs
 1. Toggle the roles, that you wish to whitelist from the firewall. 
 2. Click **Save settings** once the changes have been done.
 
-## Country Blocking
+## Country blocking
 
-In case you want to block traffic to your web application from certain countries, you can do so by scrolling down to the **Country Blocking** section.  
-You can start typing the names of countries into the **"Blocked Countries"** input.  
+In case you want to block traffic to your site from certain countries, you can do so by scrolling down to the **Country blocking** section.  
+You can start typing the names of countries into the **"blocked Countries"** input.  
 After typing the name, press **Enter** or click on the name of a given country.
 
 ![](@images/09a9e14-small-Patchstack_-_country_blocking.png)
 
-If you want the country blocking to start working right away, click on **Enable Country Blocking**.  
+If you want the country blocking to start working right away, click on **Enable country blocking**.  
 You may then click **Save Settings**.
 
-PS! We have also added the **Inversed Check** option which works the other way around.  
-When this is checked, the countries which are typed into the "Blocked Countries" input, will be the only countries from which the traffic to your application is allowed.
+PS! We have also added the **Inversed check** option which works the other way around.  
+When this is checked, the countries which are typed into the country list input, will be the only countries from which the traffic to your site is allowed.
 
 **Example:**  
 If you want to allow traffic ONLY from Germany: 
 
-<ol><li>Type "Germany" into <b>"Blocked Countries"</b></li>
-<li>Check <b>"Inversed Check"</b></li>
-<li>Check <b>"Enable Country Blocking"</b></li>
-<li>Click on <b>"Save Settings"</b></li></ol>
+<ol><li>Type "Germany" into <b>country input field</b></li>
+<li>Check <b>"Inversed check"</b></li>
+<li>Check <b>"Enable country blocking"</b></li>
+<li>Click on <b>"Save settings"</b></li></ol>
 
 ## General whitelist settings
 
@@ -77,7 +77,7 @@ Under the **General whitelist settings** section, you can manage whitelist setti
 > 
 > Leave this empty to use the Patchstack IP address grabbing function.
 
-## Block IP Settings
+## Block IP settings
 
 Block IPs that are a potential threat to your sites.
 
@@ -85,7 +85,7 @@ Block IPs that are a potential threat to your sites.
 
 > 🚧 Example case:
 > 
-> Patchstack has blocked 5 attacks on your application from one specific IP address in a period of 60 minutes.  
+> Patchstack has blocked 5 attacks on your site from one specific IP address in a period of 60 minutes.  
 > You would now want this IP to be blocked.
 > 
 > Type in the following data:

@@ -48,7 +48,6 @@ The dropdown includes the following conditions:
 <li><span class="color1">Domain Expiring</span> - sends an alert, when any of your site's domain is expiring</li>
 <li><span class="color1">SSL Certificate Expiring</span> - sends an alert, when any of your site's SSL is expiring</li>
 <li><span class="color1">Blacklisted</span> - sends an alert, when your WordPress site gets blacklisted (Google Safebrowsing, McAfee, Norton Safeweb, Phistank)</li>
-<li><span class="color1">Hacker Community Mention</span> - sends an alert, when your site gets mentioned in hacker communities</li>
 </ul>
 </li>
 
