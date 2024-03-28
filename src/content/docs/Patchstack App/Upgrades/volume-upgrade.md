@@ -12,7 +12,7 @@ sidebar:
   order: 8.1
 ---
 _This upgrade is for the Developer and Business plan users only._  
-<https://app.patchstack.com/addons>
+<https://app.patchstack.com/upgrades>
 
 Volume upgrade is for increasing the number of applications you can connect to your account.
 
