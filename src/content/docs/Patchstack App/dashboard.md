@@ -10,7 +10,7 @@ sidebar:
 ---
 To access the dashboard, click on **Dashboard** from the left menu.
 
-**Dashboard** shows you a general overview of all your WordPress apps:
+**Dashboard** shows you a general overview of all your WordPress sites:
 
 ![](@images/0f1710d-patchstack_dashboard.png)
 
@@ -18,7 +18,7 @@ To access the dashboard, click on **Dashboard** from the left menu.
 
 ![](@images/29e5623-patchstack-dashboard-vulnerabilities.png)
 
-Vulnerabilities section shows you a general overview about all the vulnerabilities currently present on each of your WordPress apps. The vulnerabilities are divided into different groups, which indicate the patching priority.
+Vulnerabilities section shows you a general overview about all the vulnerabilities currently present on each of your WordPress sites. The vulnerabilities are divided into different groups, which indicate the patching priority.
 
 **High priority** - these software versions are expected to be mass-exploited or have already known to be exploited vulnerabilities. It's important to patch those by updating the software to patched versions and/or enabling Patchstack firewall, which applies vPatches automatically.
 
@@ -28,7 +28,7 @@ Vulnerabilities section shows you a general overview about all the vulnerabiliti
 
 ## Vulnerability information and filtering
 
-You can use the search bar to find vulnerabilities of specific app, or search vulnerabilities by description.
+You can use the search bar to find vulnerabilities of specific site, or search vulnerabilities by description.
 
 ![](@images/dab2b1c-patchstack_filters.png)
 
@@ -92,9 +92,9 @@ On the left side, you see the number of attacks.
 
 By moving the cursor across the graph, you can see the number of attacks by day.
 
-## Apps
+## Sites
 
-In the **Apps** section, you see a quick overview of how many sites you have added to Patchstack, and how many of them have any outdated or vulnerable components.  
+In the **Sites** section, you see a quick overview of how many sites you have added to Patchstack, and how many of them have any outdated or vulnerable components.  
 You can add new websites(s) when you click the **"+ Add"** button. It will trigger a popup with steps to take to add more websites.
 
 ## Software

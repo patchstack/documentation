@@ -39,4 +39,4 @@ Sometimes, due to wrong configurations, you may get some alerts in Patchstack Ap
 
 ## Failed to cancel the subscription, contact support.
 
-Your account is probably expired due to payment failures, therefore there is nothing to cancel. You can contact support in the chatbox if you have any confusion.
+Your account is probably expired due to payment failures, therefore there is nothing to cancel. You can contact support in the chatbox if you have any confusions.

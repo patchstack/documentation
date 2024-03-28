@@ -24,7 +24,7 @@ When you add a new user, they will receive an email with a link to activate thei
 <li>Manager: Full control of all sites of all users, cannot modify users.</li>
 <li>Member: Read and write access to sites assigned to this user, cannot modify users or delete sites.</li></ol>
 
-In order to attach an app to a user, go to My Apps > Action Button > Attach To User.
+In order to attach a site to a user, go to Application > Action Button > Attach To User.
 
 ![](@images/05d1c7f-small-Patchstack_account_team.png)
 
@@ -40,10 +40,10 @@ Note that you can **only add email addresses** that have **not yet registered** 
 After adding the user, you can see the added user in the table below.  
 An invitation was sent to that email asking to register an account on Patchstack App.
 
-## Attaching a Seat User to the App
+## Attaching a Seat User to the Site
 
 Now you can choose, to which applications would you want to attach the freshly added user.  
-For that, navigate to the **Applications** subpage under **Team**.  
+For that, scroll down to the **Applications** table.
 You can see all your applications in this view.  
 Click on **"Action"** and **"Attach To User"** on the corresponding application.
 

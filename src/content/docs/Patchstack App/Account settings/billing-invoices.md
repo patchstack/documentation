@@ -11,7 +11,7 @@ updatedAt: "Wed Jun 28 2023 12:24:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 9.2
 ---
-On the **Billing & Invoices** page you can see the information about your plan; when is the next billing date and download invoices.
+On the **Billing & invoices** page you can see the information about your plan; when is the next billing date and download invoices.
 
 By scrolling down, you see general data about your invoices and download these as PDF files.
 
