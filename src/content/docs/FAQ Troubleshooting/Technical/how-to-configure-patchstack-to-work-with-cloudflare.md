@@ -11,6 +11,8 @@ updatedAt: "Wed May 10 2023 13:02:14 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 7.4
 ---
+The following steps should only be taken if your site is properly configured behind a Cloudflare proxy. On misconfigured sites, this could allow for IP address spoofing to exist which could potentially lead to a DoS attack
+
 In order for Patchstack to work with Cloudflare, we recommend that you configure the IP address header override option. 
 
 For that:
