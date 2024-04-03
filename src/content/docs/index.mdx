@@ -5,7 +5,7 @@ template: splash
 hero:
   tagline: Patchstack is a powerful tool that helps to protect your WordPress applications from attacks and identify security vulnerabilities within all your WordPress plugins, themes, and core. It is powered by the WordPress ecosystem's most active community of ethical hackers. Patchstack is trusted by leading WordPress experts such as Pagely, Cloudways, GridPane, Plesk, and others.
   image:
-    file: ../../assets/big-logo.svg
+    file: ../../assets/docs_search.png
   actions:
     - text: Get Started
       link: /getting-started/introduction/
@@ -13,22 +13,15 @@ hero:
       variant: primary
 ---
 
-import { Card, CardGrid, Steps } from '@astrojs/starlight/components';
+import CardGridPS from '../../components/CardGridPS.astro';
+import CardPS from '../../components/CardPS.astro';
 
 
-## Next steps
+## Learn more
 
-<CardGrid stagger>
-	<Card title="Learn about Patchstack App" icon="pencil">
-		[Learn more](/getting-started/introduction/).
-	</Card>
-	<Card title="Learn about Patchstack plugin" icon="add-document">
-		[Learn more](/patchstack-plugin/plugin-introduction/).
-	</Card>
-	<Card title="Learn about Vulnerability Database" icon="setting">
-		[Learn more](/database-api/vulnerability-api-for-developers/).
-	</Card>
-	<Card title="Read the FAQ" icon="open-book">
-		[Learn more](/faq-troubleshooting/account-profile/2fa-recovery/).
-	</Card>
-</CardGrid>
+<CardGridPS>
+	<CardPS title="Web Security App" icon="rocket" link="/getting-started/introduction/" />
+	<CardPS title="Connector Plugin" icon="puzzle" link="/patchstack-plugin/plugin-introduction/" />
+	<CardPS title="Vulnerability Database" icon="seti:db" link="/database-api/vulnerability-api-for-developers/" />
+	<CardPS title="Frequent Questions" icon="open-book" link="/faq-troubleshooting/account-profile/2fa-recovery/" />
+</CardGridPS>
