@@ -364,7 +364,11 @@
 
 [[redirects]]
 	from = "/docs/adding-the-first-application"
-	to = "/getting-started/adding-the-first-application/"
+	to = "/getting-started/adding-your-first-site/"
+
+[[redirects]]
+	from = "/getting-started/adding-the-first-application"
+	to = "/getting-started/adding-your-first-site/"
 
 [[redirects]]
 	from = "/docs/installing-patchstack"

@@ -1,5 +1,5 @@
 ---
-title: "Adding the First Site"
+title: "Adding your first site"
 
 excerpt: ""
 hidden: false
@@ -14,23 +14,23 @@ In this step, we'll add our first site to Patchstack.
   <iframe class="responsive-iframe" src="https://www.youtube.com/embed/MFmPFzSaD3I?si=CDjAhopxLuu69_H3"></iframe>
 </div>
 
-To add the first site, navigate to **Dashboard** and click on the **+ Add site** button as shown below.
+To add the first site, navigate to **Dashboard** and click on the green **+ Connect site** button.
 
-![](@images/patchstack-dashboard-first-time.png)
+![](@images/patchstack-adding-first-site.png)
 
 A dialogue will open asking you for your domain URL. 
 
 1. Enter the domain name to the input. You can switch between http/https by clicking on the arrows
-2. Click **Continue to connect plugin**
+2. Click **Continue to plugin sync**
 
-![](@images/6812404-Patchstack_connect_an_application.png)
+![](@images/patchstack-add-first-site-dialogue.png)
 
 You will be taken to the next step, where you can see the API key or download the plugin .zip file.
 
-![](@images/patchstack-add-site-step-2.jpeg)
+![](@images/patchstack-checking-sync-status.png)
 
-Upload the plugin to your WordPress site, and click "Resync."
-Patchstack will automatically sync if you upload the plugin within 30 minutes.
+Patchstack will  automatically sync if you upload the Patchstack plugin to your site within 30 minutes.
+If 30 minute exceedes, then after Uploading the plugin, click **Resync** in the dialogue.
 
 
 **What if I already have the Patchstack plugin on my site?** 

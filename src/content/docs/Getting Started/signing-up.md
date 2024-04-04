@@ -1,5 +1,5 @@
 ---
-title: "Signing Up"
+title: "Signing up"
 
 excerpt: ""
 hidden: false

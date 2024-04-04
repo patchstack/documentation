@@ -22,12 +22,12 @@ Navigate to "Plugins" from the admin menu and click "Add New" from the top.
 You are now taken to the Patchstack plugin's setup screen.  
 To connect the plugin with Patchstack App, you need to enter your site **API key** into the plugin.
 
-![](@images/94cd479-small-Patchstack_WordPress_plugin.png)
+![](@images/patchstack-wordpress-state-empty.png)
 
 You can find **API key** in the <a href="https://app.patchstack.com" target="_blank"><b>Patchstack App</b></a>, when you navigate to **My Sites > yourdomain.com > Settings**. 
 
 See image below:
-![](@images/6bb39ff-patchstack-site-settings.png)
+![](@images/patchstack-site-settings.png)
 
 That API key needs to be pasted to your WordPress plugin API key field.  
 After that, click **"Activate"** in WordPress plugin.
