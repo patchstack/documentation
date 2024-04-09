@@ -25,4 +25,4 @@ From there you can sign up two ways.
 
 Below is the screen you can see after successful sign-up. From this view you can [add your first sites to Patchstack](/getting-started/adding-the-first-site/).
 
-![](@images/bb8151c-Pathstack_first_dashboard.png)
+![](@images/patchstack-dashboard-view.png)

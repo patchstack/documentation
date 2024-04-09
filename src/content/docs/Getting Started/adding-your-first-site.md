@@ -14,7 +14,7 @@ In this step, we'll add our first site to Patchstack.
   <iframe class="responsive-iframe" src="https://www.youtube.com/embed/MFmPFzSaD3I?si=CDjAhopxLuu69_H3"></iframe>
 </div>
 
-To add the first site, navigate to **Dashboard** and click on the green **+ Connect site** button.
+To add the first site, navigate to **Dashboard** and click on the green **Connect site** button.
 
 ![](@images/patchstack-adding-first-site.png)
 
@@ -29,7 +29,7 @@ You will be taken to the next step, where you can see the API key or download th
 
 ![](@images/patchstack-checking-sync-status.png)
 
-Patchstack will  automatically sync if you upload the Patchstack plugin to your site within 30 minutes.
+Patchstack will automatically sync if you upload the Patchstack plugin to your site within 30 minutes.
 If 30 minute exceedes, then after Uploading the plugin, click **Resync** in the dialogue.
 
 

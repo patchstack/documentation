@@ -1,7 +1,7 @@
 ---
 title: "Groups"
 
-excerpt: "Grouping your applications makes management easier"
+excerpt: "Grouping your sites makes management easier"
 hidden: false
 createdAt: "Thu Dec 21 2023 15:09:56 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Jan 02 2024 14:19:18 GMT+0000 (Coordinated Universal Time)"
@@ -11,14 +11,14 @@ sidebar:
 _This feature is accessible for the Developer and Business plan users._
 
 You can attach your domains to multiple groups.  
-Grouping makes it easier to distinguish your apps from each other.
+Grouping makes it easier to distinguish your sites from each other.
 
 For example if you sell care plans, you can group your sites by care plan names.
-![](@images/7d462c9-groups.png)
+![](@images/patchstack-groups.png)
 
 ## Creating a group
 
-To create a group, click on a plus sign at the groups column in the **My Apps** view.  
+To create a group, click on a plus sign at the groups column in the **Sites** view.  
 You can give this group a name and attach it to the domain.
 
 ## Attaching a group

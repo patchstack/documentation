@@ -8,7 +8,7 @@ updatedAt: "Sun Jan 14 2024 16:28:50 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 7.2
 ---
-Let's set up the Patchstack plugin manually!  
+Let's set up the Patchstack plugin through WordPress!  
 First, log in to your WordPress.  
 Navigate to "Plugins" from the admin menu and click "Add New" from the top.
 
