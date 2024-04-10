@@ -35,4 +35,4 @@ To log in to your WordPress admin panel, you need to:
 
 1. First visit your secret URL (for example**"yourdomain.com/myadmin"**).
 2. Your IP gets whitelisted and from that moment on, you can log in from the regular **"yourdomain.com/wp-admin"** again.
-3. Other visitors are blocked from wp-admin page, unless they know your security token (eg myadmin).
+3. Other visitors are blocked from wp-admin page, unless they know your security token (in this case /myadmin).

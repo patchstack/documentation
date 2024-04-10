@@ -10,7 +10,7 @@ sidebar:
 ---
 _Accessible for the Community (paid), Developer and Business plan users only._
 
-![](@images/7cb2d55-patchstack-activity.png)
+![](@images/patchstack-site-activity.png)
 
 The activity logs display a large number of events that occur on your WordPress application. They are stored for 12 months after which they are archived.
 
