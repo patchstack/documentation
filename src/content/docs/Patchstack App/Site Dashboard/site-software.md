@@ -10,7 +10,7 @@ sidebar:
 ---
 _Accessible for the Community, Developer and Business plan users._
 
-![](@images/8e4869e-patchstack_app_software.png)
+![](@images/patchstack-site-software.png)
 
 On the **Software** subpage you can:
 

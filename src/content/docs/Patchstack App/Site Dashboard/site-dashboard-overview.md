@@ -10,9 +10,9 @@ sidebar:
 ---
 _Accessible for the Community, Developer and Business plan users._
 
-To view a single app dashboard, navigate to **My Sites** > **yourdomain.com**
+To view a single site dashboard, navigate to **Sites** > **yourdomain.com**
 
-![](@images/9deff7e-patchstack_app_overview.png)
+![](@images/patchstack-site-overview.png)
 
 **Site dashboard** shows you a general overview of your selected site:
 

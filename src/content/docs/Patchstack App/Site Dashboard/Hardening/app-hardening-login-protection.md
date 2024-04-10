@@ -10,9 +10,9 @@ sidebar:
 ---
 _Accessible for the Community (paid), Developer and Business plan users._
 
-![](@images/534b768-patchstack_app_login_protection.png)
+![](@images/patchstack-hardening-login-protection.png)
 
-On the **Login Protection** subpage you can:
+On the **Login protection** subpage you can:
 
 <ul>
 <li>Block access to wp-login.php</li>

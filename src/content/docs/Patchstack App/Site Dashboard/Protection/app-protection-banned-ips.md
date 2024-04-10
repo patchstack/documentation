@@ -9,7 +9,7 @@ sidebar:
   order: 3.22
 ---
 
-![](@images/19091e0-patchstack-banned-ips.png)
+![](@images/patchstack-site-banned-ips.png)
 
 Navigate to **Protection** > **Banned IPs** section to view all the IP addresses that are currently banned from visiting the site. In case it's a false positive blocking, you can unblock this IP by selecting **Action** > **Unban**. 
 

@@ -10,7 +10,7 @@ sidebar:
 ---
 _Accessible for the Community (paid), Developer and Business plan users._
 
-![](@images/68d17f4-patchstack-hardening-general.png)
+![](@images/patchstack-hardening-general.png)
 
 On the **Hardening > General** page you can manage the settings such as:
 

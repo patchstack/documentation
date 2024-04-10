@@ -7,14 +7,15 @@ createdAt: "Thu Jan 18 2024 11:55:42 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu Jan 18 2024 12:02:52 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.31
+  label: ".htaccess"
 ---
 _Accessible for the Community (paid), Developer and Business plan users._
 
-![](@images/61bff6f-patchstack-htaccess-features.png)
+![](@images/patchstack-hardening-htaccess.png)
 
 ## .htaccess features
 
-On the **.htaccess features** you can directly modify your .htaccess file by changing the settings in Patchstack App.
+On the **.htaccess features** you can modify some of your site settings and modify your .htaccess file.
 
 What you can do:
 
@@ -32,4 +33,4 @@ Additionally, you can select if your written rules appear before or after the Pa
 
 Please note that If the custom .htaccess rules provided there break your web application, Patchstack will automatically remove them and revert the .htaccess to the previous working state.
 
-Having done all your changes, click on **Save Settings** at the bottom of this section.
+Having done all your changes, click on **Save settings** at the bottom of this section.

@@ -8,13 +8,12 @@ updatedAt: "Wed Jan 17 2024 14:17:39 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.20
 ---
-:::note
-Accessible for the Community (paid), Developer and Business plan users.
-:::
 
-On the **Protection Overview** page you can see where your site got attacks from, and how have the hackers tried to attack your web application.
+_Accessible for the Community (paid), Developer and Business plan users._
 
-![](@images/d3be1da-patchstack-app-protection.png)
+On the **Protection overview** page you can see where your site got attacks from, and how have the hackers tried to attack your web application.
+
+![](@images/patchstack-site-protection-overview.png)
 
 ## Protection modules
 
@@ -42,7 +41,7 @@ Generic firewall rules against OWASP top 10 vulnerability types including XSS, S
 ## Activity
 
 From the **Activity** section, you see, how many times did Patchstack firewall block the traffic for potential threats.  
-You can set a filter to show the data about up to 60 days.  
+You can set a filter to show the data about up to 1 year.  
 On the right side of the protection activity section, Patchstack App shows the top 5 IP's blocked, and top 5 threats blocked in the given period of time.
 
 ## Log history
@@ -51,4 +50,4 @@ Each hacking attempt or attack is shown as a separate protection log entry. You 
 
 To see the details of any attack, click on a table row. A popup opens next.
 
-![](@images/d2fe03e-attack-popup.png)
+![](@images/patchstack-attack-popup.png)

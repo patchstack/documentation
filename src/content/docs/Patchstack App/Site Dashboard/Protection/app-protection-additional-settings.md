@@ -10,7 +10,7 @@ sidebar:
 ---
 _Accessible for the Community (paid), Developer and Business plan users._
 
-![](@images/e9a9dad-patchstack_protection_additional_settings.png)
+![](@images/patchstack-protection-additional-settings.png)
 
 ## User role whitelist
 
@@ -22,13 +22,13 @@ You can whitelist users from the Patchstack firewall. This means that the Patchs
 ## Country blocking
 
 In case you want to block traffic to your site from certain countries, you can do so by scrolling down to the **Country blocking** section.  
-You can start typing the names of countries into the **"blocked Countries"** input.  
+You can start typing the names of countries into the country list input field.  
 After typing the name, press **Enter** or click on the name of a given country.
 
-![](@images/09a9e14-small-Patchstack_-_country_blocking.png)
+![](@images/patchstack-country-blocking.png)
 
 If you want the country blocking to start working right away, click on **Enable country blocking**.  
-You may then click **Save Settings**.
+Scroll down and click **Save settings**.
 
 PS! We have also added the **Inversed check** option which works the other way around.  
 When this is checked, the countries which are typed into the country list input, will be the only countries from which the traffic to your site is allowed.
@@ -42,8 +42,6 @@ If you want to allow traffic ONLY from Germany:
 <li>Click on <b>"Save settings"</b></li></ol>
 
 ## General whitelist settings
-
-_Accessible for the Community, Developer and Business plan users._
 
 Under the **General whitelist settings** section, you can manage whitelist settings and add IP address header override rule.
 
@@ -107,29 +105,3 @@ Block IPs that are a potential threat to your sites.
 > 127.0.0.\*  
 > 127.0.0.0/24  
 > 127.0.0.0-127.0.0.255
-
-## .htaccess Features
-
-_Accessible for the Developer and Business plan users only._
-
-From **.htaccess Features** you can directly modify your .htaccess file by changing your settings.
-
-What you can do:
-
-<ul>
-<li>Add security headers</li>
-<li>Prevent default WordPress file access</li>
-<li>Block access to debug.log file</li>
-<li>Disable index views</li>
-<li>Forbid proxy comment posting</li>
-<li>Prevent image hotlinking</li>
-</ol>
-
-![](@images/42ab5b5-small-Patchstack_-_Hardening_firewall.png)
-
-In case you wish to write custom htaccess rules to the file, you can insert your rules to **Custom .htaccess rules** textfield.  
-Additionally, you can select if your written rules appear at the bottom of Patchstack rules or at the top of Patchstack rules in the .htaccess file.
-
-Please note that If the custom htaccess rules provided there break your web application, Patchstack will automatically remove them and revert the .htaccess to the previous working state.
-
-Having done all your changes, click on **Save Settings** at the bottom of this section.
