@@ -872,7 +872,7 @@
 
 [[redirects]]
 	from = "/docs/plugin-changelog"
-	to = "/changelog/plugin-changelog/"
+	to = "/patchstack-plugin/changelog/"
 
 [[redirects]]
 	from = "/docs/app-changelog"
