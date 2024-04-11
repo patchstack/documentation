@@ -895,5 +895,5 @@
 	to = "/partners/firewall-engine-wordpress-mu-plugins/"
 
 [[redirects]]
-	from = "/changelog/plugin-changelog/"
+	from = "/changelog/plugin-changelog"
 	to = "/patchstack-plugin/changelog/"
