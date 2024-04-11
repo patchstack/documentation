@@ -58,11 +58,6 @@ export default defineConfig({
 					collapsed: true,
 					autogenerate: { directory: 'FAQ Troubleshooting', collapsed: true },
 				},
-				{
-					label: 'Changelog',
-					collapsed: true,
-					autogenerate: { directory: 'Changelog', collapsed: true },
-				},
 			],
 		}),
 	],
