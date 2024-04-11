@@ -1,5 +1,5 @@
 ---
-title: "Plugin Changelog"
+title: "Changelog"
 
 excerpt: "These are all the changes made to the plugin in the past."
 hidden: false
@@ -8,6 +8,23 @@ updatedAt: "Wed Jan 17 2024 10:39:45 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 1
 ---
+
+
+<b>April 11th 2024</b>
+
+<ul>
+
+<li>Version 2.2.12</li>
+<li>Added: error info if WP CLI activation fails.</li>
+<li>Updated: a few documentation hyperlinks.</li>
+<li>Updated: WordPress tested up to value.</li>
+<li>Fixed: AJAX plugin activation error.</li>
+<li>Fixed: potential fatal error during plugin activation.</li>
+<li>Fixed: missing ) in text.</li>
+<li>Fixed: reset API keys under certain conditions.</li>
+
+</ul>
+
 
 <b>March 8th 2024</b>
 
