@@ -29,4 +29,4 @@ Each hacking attempt or attack is shown as a separate log entry. You can click o
 
 To see the details of any attack, click on a table row. A popup with details opens next.
 
-![](@images/2137aaf-patchstack-log-history.png)
+![](@images/patchstack-protection-log-history.png)
