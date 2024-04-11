@@ -18,4 +18,4 @@ On the **Logs** subpage you can see the history of what actions have you taken w
 
 As seen on the screen below, it shows that the user has updated the same plugin on two different WordPress sites.
 
-![](@images/e5cbf27-small-Patchstack_software_logs.png)
+![](@images/patchstack-software-logs.png)

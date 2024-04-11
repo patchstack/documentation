@@ -25,7 +25,7 @@ export default defineConfig({
 			social: {
 				discord: 'https://discord.gg/rkE8yxtNmS',
 				twitter: 'https://twitter.com/patchstackapp',
-				linkedin: 'https://www.linkedin.com/company/patchtsack'
+				linkedin: 'https://www.linkedin.com/company/patchstack'
 			},
 			components: {
 				//ThemeProvider: './src/components/ThemeProvider.astro',

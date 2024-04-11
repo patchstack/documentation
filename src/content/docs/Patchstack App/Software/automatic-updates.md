@@ -1,5 +1,5 @@
 ---
-title: "Automatic Updates"
+title: "Automatic updates"
 
 excerpt: "Update your software automatically"
 hidden: false
@@ -12,12 +12,10 @@ sidebar:
   order: 4.2
 ---
 _Accessible for the Developer and Business plan users only._  
-[\<https://app.patchstack.com/software/updates>](https://app.patchstack.com/software/updates)
+[https://app.patchstack.com/software/updates](https://app.patchstack.com/software/updates)
 
 On the **Automatic updates** subpage, you can see which of your sites have auto-updates enabled. You can turn automatic updates for each of your sites on / off.  
 Patchstack also has an option to only auto-update such software that has any vulnerabilities detected.
-
-**Automatic updates** feature is available since version 2.0.11. So, if there is no possibility of turning auto-updates on, make sure you have the <a href="https://wordpress.org/plugins/patchstack/" target="_blank">latest version of Patchstack</a> installed on your site.
 
 For each site, you have the following options:
 
@@ -27,16 +25,22 @@ For each site, you have the following options:
 <li>Auto-update themes</li>
 </ol>
 
-![](@images/b19d05a-small-Patchstack_software_automatic_updates.png)
+![](@images/patchstack-software-automatic-updates.png)
 
-## Turning on the Auto-updates
+## Turning on the auto-updates
 
-To turn on the **Auto-updates** feature, click on **Change** in the corresponding table row.  
-You will be shown a popup (see the image below).
+To turn on the **auto-updates** feature, click the **Change** button of the corresponding site in the table.  
+You will be shown a popup, which lets you toggle auto-updates for:
+* Only vulnerable software versions
+* For all WordPress core versions
+* For all plugin versions
+* For all theme versions
 
-![](@images/adab7ff-small-Patchstack_auto-update.png)
+To activate any of the options, toggle the buttons. (see the image below).
 
-To activate any of the options, toggle the buttons.
+![](@images/patchstack-software-auto-update-settings.png)
+
+
 
 > ❗️ Keep in mind that updating software could potentially break your site, but for security reasons, it is recommended to auto-update at least your vulnerable components.
 
