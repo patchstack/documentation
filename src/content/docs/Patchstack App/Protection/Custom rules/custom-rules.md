@@ -1,5 +1,5 @@
 ---
-title: "Custom ruless"
+title: "Custom rules"
 
 excerpt: ""
 hidden: true
