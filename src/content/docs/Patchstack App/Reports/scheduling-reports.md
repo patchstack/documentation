@@ -29,22 +29,22 @@ Note that report scheduling is a paid feature of Patchstack.
     * Monthly, on the 1st
     * Weekly, on Mondays
   
-    If you are on a **Business plan**, you can also customize some report settings. 
-    Having done your choices, click **Save**
+    If you are on a **Business plan**, you can also customize some report settings and upload your customer logo, which will be shown on the reports.
+    Having done your choices, click **Save**.
 
 ## Editing a report schedule
 
 To edit a schedule, head to the **Scheduled reports** tab on the **Reports** page.
 
-![](@images/837301e-patchstack_reports_business_plan_scheduled.png)
+![](@images/patchstack-scheduled-reports.png)
 
 You can see here all the sites that have the reports scheduled.  
 To edit a scheduling, click on the gear icon on the row of the domain. 
 
-You will see a popup as such (note that the popup contains settings for a business plan user):
+You will see a popup as such (note that the screenshot contains some settings for a business plan user):
 
-![](@images/c2d6a14-patchstack_edit_scheduled_reports.png)
+![](@images/patchstack-edit-report-schedule.png)
 
-If you are a **Business plan user**, you can toggle the switches in order to customize the data shown on the PDF reports. Also, it is possible to upload your custom logo (to whitelabel a report).
+If you are a **Business plan user**, you can toggle the switches in order to customize the data shown on the PDF reports. Also, it is possible to upload the customer logo, so it will be shown on the reports.
 
 After making the changes, click on **Save** button at the top right corner.
