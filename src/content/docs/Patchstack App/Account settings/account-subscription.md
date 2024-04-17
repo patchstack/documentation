@@ -13,7 +13,7 @@ sidebar:
 On the **Subscription** subpage, you can switch between the pricing plans.  
 You'll find more information about the plans here: <a href="https://patchstack.com/pricing" target="_blank">https://patchstack.com/pricing</a>.
 
-![](@images/788bca3-small-Patchstack_subscription.png)
+![](@images/patchstack-subscription.png)
 
 ## Entering your billing information
 

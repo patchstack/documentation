@@ -17,7 +17,7 @@ _This feature is for the Business plan users only._
 If you are on a **Business plan**, you can add your custom logo on the Patchstack reports.  
 To upload a logo, head to the **Reports** page on the Patchstack App.
 
-![](@images/b9878a9-patchstack_reports_business_plan_scheduled.png)
+![](@images/patchstack-reports-whitelabeling.png)
 
 Click on the **Upload your logo** button at the top right of the screen.  
 Choose the file and upload it.

@@ -2,7 +2,7 @@
 title: "Plugin Settings"
 
 excerpt: ""
-hidden: false
+hidden: true
 metadata: 
   image: []
   robots: "index"
@@ -10,6 +10,7 @@ createdAt: "Tue Aug 30 2022 13:41:33 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 12:16:06 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3
+  hidden: true
 ---
 If you are using the Developer or Business plan, you can change some settings through the plugin as well.
 

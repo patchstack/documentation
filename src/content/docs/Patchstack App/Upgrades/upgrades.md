@@ -14,7 +14,7 @@ sidebar:
 _Accessible for the Developer and Business plan users only._  
 <https://app.patchstack.com/upgrades>
 
-Add-Ons are the extra features developed by Patchstack.  
+Upgrades are the extra features developed by Patchstack.  
 These can be managed on the **Upgrades** page.
 
 Patchstack's upgrades include:
@@ -26,4 +26,4 @@ Patchstack's upgrades include:
 3. [Vulnerability Database API](/patchstack-app/upgrades/vulnerability-database-api/)
 
 
-![](@images/fe10500-small-Patchstack_Add-ons.png)
+![](@images/patchstack-upgrades.png)
