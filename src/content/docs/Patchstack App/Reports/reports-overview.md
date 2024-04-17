@@ -11,7 +11,7 @@ sidebar:
 _Accessible for the Community, Developer and Business plan users._  
 **[https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)**
 
-![](@images/c058112-patchstack_reports.png)
+![](@images/patchstack-reports.png)
 
 From the **Reports** page, you can generate PDF security reports for your sites.  
 With Patchstack, you can automatically schedule your reports generation so you don't have to manually generate them.

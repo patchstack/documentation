@@ -23,12 +23,14 @@ Note that report scheduling is a paid feature of Patchstack.
 
 1. Go to the **Reports** page in Patchstack App
 2. Click on the **+ Create Schedule** button at the top of the screen
-3. You will see a popup as such:
+3. You will see a popup as such: ![](@images/patchstack-scheduling-reports.png)
 
-![](@images/7dff23b-patchstack_schedule_report.png)
-
-<ol start="4"><li>If you are on a <b>Developer plan</b>, pick your site URL from the left dropdown menu and click <b>Save</b>. Developer plan users can only have reports scheduled monthly.
-If you are on a <b>Business plan</b>, you can also choose to schedule the Maintenance reports, as well as customize some report settings. <b>Business plan</b> users can have the reports generated weekly basis. Having done your choices, click <b>Save</b></li></ol>
+4. Pick your site URL from the left dropdown menu and click **Save**. You can choose to schedule the reports two ways:
+    * Monthly, on the 1st
+    * Weekly, on Mondays
+  
+    If you are on a **Business plan**, you can also customize some report settings. 
+    Having done your choices, click **Save**
 
 ## Editing a report schedule
 

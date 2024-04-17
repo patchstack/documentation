@@ -11,7 +11,7 @@ sidebar:
 _Accessible for the Community, Developer and Business plan users._  
 **[https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)**
 
-![](@images/ed2d84d-patchstack_reports.png)
+![](@images/patchstack-reports.png)
 
 ## Generating Snapshot Report (Free)
 
