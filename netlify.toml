@@ -897,3 +897,15 @@
 [[redirects]]
 	from = "/changelog/plugin-changelog"
 	to = "/patchstack-plugin/changelog/"
+
+[[redirects]]
+	from = "/patchstack-app/protection/custom-rules/custom-rules"
+	to = "/patchstack-app/protection/custom-rules"
+
+[[redirects]]
+	from = "/patchstack-app/protection/custom-rules/simple-rule"
+	to = "/patchstack-app/protection/create-rule/simple-rule"
+
+[[redirects]]
+	from = "/patchstack-app/protection/custom-rules/advanced-rule"
+	to = "/patchstack-app/protection/create-rule/advanced-rule"

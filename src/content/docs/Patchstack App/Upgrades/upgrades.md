@@ -11,7 +11,7 @@ updatedAt: "Thu May 25 2023 11:58:17 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 8
 ---
-_Accessible for the Developer and Business plan users only._  
+_Accessible for the Community, Developer and Business plan users._  
 <https://app.patchstack.com/upgrades>
 
 Upgrades are the extra features developed by Patchstack.  

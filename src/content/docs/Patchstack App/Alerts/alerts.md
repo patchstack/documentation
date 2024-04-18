@@ -11,7 +11,8 @@ updatedAt: "Wed Sep 20 2023 13:29:48 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 7
 ---
-_Accessible for the Community, Developer and Business plan users. Community plan users can have a maximum of 1 alert trigger._  
+_Accessible for the Community, Developer and Business plan users._
+_Community plan users have only one alert trigger, and that cannot be modified._  
 <https://app.patchstack.com/alerts/>
 
 On the **Alerts** page you see an overview of the latest alerts and the alert triggers.  

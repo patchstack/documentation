@@ -1,5 +1,5 @@
 ---
-title: "Advanced rules"
+title: "Advanced rule"
 
 excerpt: ""
 hidden: true
@@ -8,7 +8,13 @@ updatedAt: "Mon Jan 22 2024 15:03:34 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 5.22
 ---
+
+_Accessible for the Developer and Business plan users only._  
+[https://app.patchstack.com/protection/rules/create](https://app.patchstack.com/protection/rules/create)
+
 The advanced rule creation page should be used by the more advanced users who want to create more specific rules. As at this time our firewall only supports PHP, we will speak of PHP and show examples in PHP below.
+
+![](@images/patchstack-custom-rules-create-advanced.png)
 
 ### Rule name
 

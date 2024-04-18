@@ -11,13 +11,13 @@ updatedAt: "Wed Jun 28 2023 12:21:53 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 8.1
 ---
-_This upgrade is for the Developer and Business plan users only._  
 <https://app.patchstack.com/upgrades>
 
 Volume upgrade is for increasing the number of applications you can connect to your account.
 
-- On the Developer plan, you can connect 50 extra sites for $99 / month.
-- On the Business plan, you can connect 50 extra sites for $149 / month.
+- On the Community plan, you will get 40 extra site slots for $49 / month.
+- On the Developer plan, you will get 50 extra site slots for $99 / month.
+- On the Business plan, you will get 50 extra site slots for $149 / month.
 
 Go to the Upgrades page in Patchstack App to activate **Volume upgrade**.
 
