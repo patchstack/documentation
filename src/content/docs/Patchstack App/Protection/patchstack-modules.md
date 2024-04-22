@@ -10,7 +10,7 @@ sidebar:
 ---
 # Introduction
 
-Patchstack modules are modules managed by us and regularly updated to contain the latest vPatch definitions. Below contain the modules which you can enable on your apps with a description about its functionality.
+Patchstack modules are modules managed by us and regularly updated to contain the latest vPatch definitions. Below contain the modules which you can enable on your sites with a description about its functionality.
 
 ## vPatches
 

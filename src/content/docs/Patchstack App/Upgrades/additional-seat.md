@@ -12,15 +12,15 @@ sidebar:
   order: 8.2
 ---
 _This upgrade is for the Developer and Business plan users only._  
-<https://app.patchstack.com/addons>
+<https://app.patchstack.com/upgrades>
 
 **Additional seat** upgrade allows you to attach other email addresses to your account to which you can assign specific permissions and/or sites.  
-Enable this add-on by clicking on the gray icon at the top right corner of this module on the Upgrades page.
+Enable this add-on by clicking on the **Manage** button at the top right corner of this module on the Upgrades page.
 
 For the Business plan, 5 seats in total are included in the account.
 
 If you want to add more seats than included in your plan, an extra seat costs $24 / month.
-![](@images/8df94e8-Patchstack_additional_seat.png)
+![](@images/patchstack-upgrades-seats.png)
 
 You can manage the seats by navigating to your account settings and click on **"Seats"** from the top menu.  
 Or click here: <a href="https://app.patchstack.com/team/" target="_blank">https://app.patchstack.com/team/</a>

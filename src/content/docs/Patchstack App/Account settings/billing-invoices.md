@@ -15,7 +15,7 @@ On the **Billing & invoices** page you can see the information about your plan; 
 
 By scrolling down, you see general data about your invoices and download these as PDF files.
 
-![](@images/e1c7f80-small-Patchstack_billing_and_invoices.png)
+![](@images/patchstack-billing-and-invoices.png)
 
 ## Updating the credit card information
 

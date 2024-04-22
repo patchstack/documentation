@@ -24,4 +24,4 @@ On the main screen, you can:
 <li>Change your account timezone</li>
 </ol>
 
-![](@images/94aa299-small-Patchstack_account_settings.png)
+![](@images/patchstack-account-settings.png)

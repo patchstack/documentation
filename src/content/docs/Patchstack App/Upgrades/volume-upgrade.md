@@ -21,15 +21,11 @@ Volume upgrade is for increasing the number of applications you can connect to y
 
 Go to the Upgrades page in Patchstack App to activate **Volume upgrade**.
 
-The module shows, how many additional apps you have added and how much you pay extra per month.
-
-![](@images/771598c-small-Patchstack_volume_upgrade.png)
-
-## Activating the Volume Upgrade
+The module shows, how many additional site you can add in total and how much you currently pay extra per month.
 
 To increase your site slots, click on the green plus icon in the module. 
 The price is shown instantaneously.
 
 Click **Update** to proceed with activating/modifying this add-on.
 
-![](@images/890124c-small-Patchstack_volume_upgrade_adding.png)
+![](@images/patchstack-upgrades-volume-upgrade.png)
