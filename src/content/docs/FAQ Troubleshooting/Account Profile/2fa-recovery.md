@@ -13,9 +13,13 @@ sidebar:
 ---
 If you have lost the ability to log in with 2FA (for example you have lost your phone), we can remove the two factor authentication from your account.
 
-To do that: 
+To request removing the 2FA from your account: 
 
 1. Write an email stating that you wish to remove 2FA from your account. In the email, write down 3 domains that you protect with Patchstack, that are active on your account. In case you have less domains, write these all down.
 2. Email must be sent from the same email address that your Patchstack account is registered with.
 3. Send your email to [sander.j@patchstack.com](mailto:sander.j@patchstack.com).
-4. For faster communication, send a message to our support chat about your request. We may  deal with it faster.
+4. For faster processing, you can also notify us about it via our 
+<a href="#" id="launch-intercom">support chat</a>.
+
+
+<script>document.querySelector("#launch-intercom").addEventListener("click", ()=>{Intercom("show")});</script>

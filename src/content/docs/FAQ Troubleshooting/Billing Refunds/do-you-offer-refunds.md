@@ -11,6 +11,7 @@ updatedAt: "Fri May 12 2023 10:10:12 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 1
 ---
-Yes, we do, within 30 days of the first payment.
+Patchstack offers refunds within 30 days of the first payment.
 
-You can ask for a refund from our support chat. We will then check your account and let you know about the process of refunding.
+To request a refund, please open the new chat in our support channel. 
+After your refund request, we will check your account and let you know about the process of refunding.
