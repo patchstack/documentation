@@ -1,5 +1,5 @@
 ---
-title: "Additional Seat"
+title: "Additional seat"
 
 excerpt: ""
 hidden: false

@@ -1,5 +1,5 @@
 ---
-title: "Reports Whitelabeling"
+title: "Reports whitelabeling"
 
 excerpt: ""
 hidden: false

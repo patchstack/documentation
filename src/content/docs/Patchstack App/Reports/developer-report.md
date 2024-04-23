@@ -1,5 +1,5 @@
 ---
-title: "Developer Report"
+title: "Developer report"
 
 excerpt: "Periodic PDF security report for site developers"
 hidden: false

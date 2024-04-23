@@ -1,5 +1,5 @@
 ---
-title: "How to Uninstall"
+title: "How to uninstall"
 
 excerpt: ""
 hidden: false

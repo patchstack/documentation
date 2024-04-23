@@ -1,5 +1,5 @@
 ---
-title: "Account Settings"
+title: "Account settings"
 
 excerpt: ""
 hidden: false

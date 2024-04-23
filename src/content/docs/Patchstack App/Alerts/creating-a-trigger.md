@@ -1,5 +1,5 @@
 ---
-title: "Creating a Trigger"
+title: "Creating a trigger"
 
 excerpt: ""
 hidden: false

@@ -1,5 +1,5 @@
 ---
-title: "Generating Reports"
+title: "Generating reports"
 
 excerpt: ""
 hidden: false

@@ -1,5 +1,5 @@
 ---
-title: "App Errors"
+title: "App errors"
 
 excerpt: "List of errors you may see in the app and what to do"
 hidden: false

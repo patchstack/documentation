@@ -1,5 +1,5 @@
 ---
-title: "Snapshot Report"
+title: "Snapshot report"
 
 excerpt: "PDF security report about the current situation of your site"
 hidden: false

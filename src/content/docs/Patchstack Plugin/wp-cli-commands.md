@@ -1,5 +1,5 @@
 ---
-title: "WP CLI Commands"
+title: "WP CLI commands"
 
 excerpt: ""
 hidden: false

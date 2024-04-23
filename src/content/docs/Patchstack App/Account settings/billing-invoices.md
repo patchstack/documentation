@@ -1,5 +1,5 @@
 ---
-title: "Billing & Invoices"
+title: "Billing & invoices"
 
 excerpt: ""
 hidden: false

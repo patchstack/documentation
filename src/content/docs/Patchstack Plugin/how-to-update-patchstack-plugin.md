@@ -1,5 +1,5 @@
 ---
-title: "How to Update"
+title: "How to update"
 
 excerpt: ""
 hidden: false
@@ -23,7 +23,7 @@ You can update the Patchstack plugin in two ways:
 2. Scroll down and search for **Patchstack Security**
 3. Click on **Update**
 
-![](@images/888a34b-patchstack_plugin_update.png)
+![](@images/patchstack-plugin-updating.png)
 
 ## Updating from the Patchstack App
 
@@ -33,4 +33,4 @@ You can update the Patchstack plugin in two ways:
 4. From the submenu, click **Software**
 5. Find the **Patchstack Security** plugin and tick the checkbox from the left column of the table row
 
-![](@images/2f36390-small-patchstack_update_patchstack.png)
+![](@images/patchstack-update-patchstack.png)

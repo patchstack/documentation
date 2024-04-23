@@ -1,5 +1,5 @@
 ---
-title: "Volume Upgrade"
+title: "Volume upgrade"
 
 excerpt: "Add-on for connecting more applications"
 hidden: false

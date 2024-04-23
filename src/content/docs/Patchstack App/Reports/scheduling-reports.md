@@ -1,5 +1,5 @@
 ---
-title: "Scheduling Reports"
+title: "Scheduling reports"
 
 excerpt: ""
 hidden: false

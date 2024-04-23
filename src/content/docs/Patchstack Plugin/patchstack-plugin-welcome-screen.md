@@ -1,5 +1,5 @@
 ---
-title: "Welcome Screen"
+title: "Welcome screen"
 
 excerpt: ""
 hidden: false
@@ -20,7 +20,7 @@ To find the key, you need to make sure you have added your domain to Patchstack 
 
 Helpful articles: 
 
-- [How to add my domain to the Patchstack App?](/getting-started/adding-the-first-application/)
+- [How to add my domain to the Patchstack App?](/getting-started/adding-your-first-site/)
 - [Where do I find the API key?](/faq-troubleshooting/plugin/where-do-i-find-the-api-key/)
 
 In the next article, we'll see what's under the hood!
