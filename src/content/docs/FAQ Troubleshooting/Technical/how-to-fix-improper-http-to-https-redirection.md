@@ -20,13 +20,13 @@ In order to fix this on a WordPress site, first make sure your site is available
 <b>Apache</b>  
 If you do not run a WordPress site, you can create a .htaccess file in the root of your website (or modify existing one) through FTP or a file manager in cPanel/WHM/Plesk and add the following (make sure to change the domain name on the last line):
 
-<pre>
+```typescript
 RewriteEngine On 
 RewriteCond %{SERVER_PORT} 80 
 RewriteRule ^(.*)$ https://www.yourdomain.com/$1 [R,L]
-</pre>
+```
 
-<b>nginx</b>  
+<b>Nginx</b>  
 It's a bit more technical to do this for Nginx, as you probably need root access to modify the Nginx web server configuration settings.
 
 The easiest way is to set up a listener for port 80 (HTTP), which redirects traffic with a 301 permanent redirect to the port 443 (HTTPS) listener.

@@ -1,5 +1,5 @@
 ---
-title: "How do I add an intranet site to the App?"
+title: "How do I add an intranet site to the Patchstack App?"
 
 excerpt: ""
 hidden: false
@@ -13,6 +13,6 @@ In order to add an intranet site to the Patchstack App, you have to do a few dif
 
 We are still working on supporting intranet sites properly:
 
-Because the site is not accessible from the public, you first have to add a random domain name to your account that exists on the public internet. After that, go to **My Sites** > yourdomain.com > Settings. Change the URL to the URL of your intranet site.
+Because the site is not accessible from the public, you first have to add a random domain name to your account that exists on the public internet. After that, go to **Sites** > **yourdomain.com** > **Settings**. Change the URL to the URL of your intranet site.
 
 After that, refresh the page and install the Patchstack plugin [manually](/getting-started/installing-patchstack/installing-via-wordpress-repository/).

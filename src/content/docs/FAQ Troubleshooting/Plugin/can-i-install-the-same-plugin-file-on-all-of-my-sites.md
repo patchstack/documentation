@@ -11,4 +11,4 @@ updatedAt: "Wed May 10 2023 13:42:14 GMT+0000 (Coordinated Universal Time)"
 ---
 Unfortunately, it is not possible at this time.
 
-Each plugin .zip file you download has its own key that is used to connect your application to the Patchstack App. If you upload the same zip file to multiple applications, the logged data gets corrupted.
+Each plugin .zip file you download has its own key that is used to connect your site to the Patchstack App. If you upload the same .zip file to multiple websites, the logged data gets corrupted.

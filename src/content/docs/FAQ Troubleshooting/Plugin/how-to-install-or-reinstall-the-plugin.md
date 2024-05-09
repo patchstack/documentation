@@ -28,11 +28,16 @@ Another way to install the Patchstack plugin is from WordPress itself. In your W
 <ol><li>Install and activate the plugin</li>
 <li>Go to Patchstack App and navigate to <b>My Sites</b> > <b>yourdomain.com</b></li>
 
-<li>Click on the <b>Settings</b> from the submenu (image below)</li>
+<li>Click on the <b>Settings</b> from the submenu (image below)
+
+![](@images/patchstack-site-settings.png)
+
+</li>
+
 
 <li>Copy the API key from there</li>
 
 <li>Go to your WordPress admin, navigate to <b>Settings</b> > <b>Security</b> and insert the API key there</li>
 </ol>
 
-![](@images/5beca91-small-Patchstack_api_key_settings.png)
+

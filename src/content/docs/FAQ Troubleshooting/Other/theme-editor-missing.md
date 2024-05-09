@@ -13,8 +13,8 @@ This security measure is turned on by default in the plugin.
 In order to make this option appear again while having the Patchstack plugin activated, do the following:
 
 <ol><li>
-Go to the Patchstack App > <b>My Sites</b> > <b>yourdomain.com</b> > <b>Hardening</b></li>
+Go to the <b>Patchstack App</b> > <b>Sites</b> > <b>yourdomain.com</b> > <b>Hardening</b></li>
 <li>From the submenu choose again <b>Hardening</b></li>
-<li>Uncheck the <b>Disable the theme editor</b></li>
-<li>Scroll down and click <b>"Save Settings</b></li>
+<li>Uncheck the <b>Disable theme editor to protect from potential automated attacks</b></li>
+<li>Scroll down and click <b>Save settings</b></li>
 </ol>

@@ -1,5 +1,5 @@
 ---
-title: "I activated the plugin, but still get the message: Install the plugin to activate the firewall"
+title: "I activated the plugin, but still get the message: \"Install the plugin to activate the firewall\""
 
 excerpt: ""
 hidden: false
@@ -17,4 +17,7 @@ In order to solve this, deactivating and then activating the plugin from the plu
 
 If this still does not work, your host is probably blocking outgoing connections to our server, <a href="https://api.patchstack.com" target="_blank">https://api.patchstack.com</a>
 
-Feel free to contact our support chat with this issue.
+Feel free to <a href="#" id="launch-intercom">contact our support chat</a> with this issue.
+
+
+<script>document.querySelector("#launch-intercom").addEventListener("click", ()=>{Intercom("show")});</script>

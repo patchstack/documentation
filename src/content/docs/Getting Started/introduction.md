@@ -1,5 +1,5 @@
 ---
-title: "Patchstack Documentation"
+title: "Patchstack documentation"
 
 excerpt: ""
 hidden: false

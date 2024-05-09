@@ -13,6 +13,6 @@ By default, the Patchstack plugin injects certain security headers into the serv
 
 This most likely happens because they insert your site as an iframe into their application which the X-Frame-Options security header prevents from doing because it prevents clickjacking attacks.
 
-In order to make it work, disable the security headers setting by going to the Patchstack App > My Sites > yourdomain.com > Hardening > .htaccess > Uncheck "Add security headers" > scroll down and click on the save settings button.
+In order to make it work, disable the security headers setting by going to the **Patchstack App** > **Sites** > **yourdomain.com** > **Hardening** > **.htaccess** > Uncheck **Add security headers** > Scroll down and click on the **Save settings** button.
 
 It might take a few minutes before the security headers have been removed from your site.

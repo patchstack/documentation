@@ -11,19 +11,23 @@ If you are sure, it was a false positive blocking, you may whitelist the payload
 
 We recommend you to check the firewall logs on your site. To open the firewall log:
 
-1. Go to Patchstack App > yourdomain.com
+1. Go to **Patchstack App** > **yourdomain.com**
 2. Open the **Protection** tab
-3. Now, from the firewall log, open the log entry which has the IP of the person who got blocked
-4. Copy the part of the payload that should be whitelisted. 
+3. Scroll to the bottom of this page, to find the **Activity** section
+4. open the log entry which has the IP of the person who got blocked
+5. Copy the part of the payload that should be whitelisted. 
 
 Example payload looks like this: `[action] => edit_post`
 
 To whitelist a payload: 
 
-1. Navigate to **Protection > Additional Settings** tab of your site on Patchstack App
+1. Navigate to **Protection** > **Additional Settings** tab of your site on your site page in Patchstack App
 2. Into the Whitelist textbox, type "PAYLOAD:[action] => edit_post"
-3. Click Save Settings
+3. Click **Save settings**
 
 If done correctly, the visitor should not get blocked with such request anymore.
 
-If you have any questions regarding this error, feel free to chat with our live support on the website.
+If you have any questions regarding this error, feel free to <a href="#" id="launch-intercom">chat with our live support</a> here.
+
+
+<script>document.querySelector("#launch-intercom").addEventListener("click", ()=>{Intercom("show")});</script>

@@ -19,10 +19,6 @@
 	to = "/docs/app-is-showing-the-firewall-of-my-site-as-delayed"
 
 [[redirects]]
-	from = "/en/articles/2155626-how-to-fix-the-missing-security-headers-issue"
-	to = "/docs/how-to-fix-the-missing-security-headers-issue"
-
-[[redirects]]
 	from = "/en/articles/3394412-app-change-log-history"
 	to = "/docs/app-changelog"
 
@@ -167,10 +163,6 @@
 	to = "/docs/how-do-i-turn-on-the-xml-rpc-feature"
 
 [[redirects]]
-	from = "/discuss/62e3a696833c5300a6bfba8f"
-	to = "/docs/how-do-i-use-the-country-blocking-feature"
-
-[[redirects]]
 	from = "/discuss/62e3a67986feff004241a16b"
 	to = "/docs/hardening-firewall#country-blocking"
 
@@ -255,10 +247,6 @@
 	to = "/docs/how-to-fix-improper-http-to-https-redirection"
 
 [[redirects]]
-	from = "/discuss/62e13df6d1ff080014f13edb"
-	to = "/docs/how-to-fix-the-missing-security-headers-issue"
-
-[[redirects]]
 	from = "/discuss/62e13d408dfdce00392b5ca8"
 	to = "/docs/can-i-install-the-same-plugin-file-on-all-of-my-sites"
 
@@ -285,10 +273,6 @@
 [[redirects]]
 	from = "/discuss/62e1324c4189530029769bb8"
 	to = "/docs/error-csrf-token-missing-or-mismatch"
-
-[[redirects]]
-	from = "/discuss/62e13215e7101503294e4d35"
-	to = "/docs/the-app-is-saying-my-site-does-not-use-wordpress-even-though-it-does-how-to-fix"
 
 [[redirects]]
 	from = "/discuss/62e13180da8d590036ed5407"
@@ -671,10 +655,6 @@
 	to = "/faq-troubleshooting/technical/how-to-fix-improper-http-to-https-redirection/"
 
 [[redirects]]
-	from = "/docs/how-to-fix-the-missing-security-headers-issue"
-	to = "/faq-troubleshooting/technical/how-to-fix-the-missing-security-headers-issue/"
-
-[[redirects]]
 	from = "/docs/does-patchstack-work-with-other-captcha-plugins"
 	to = "/faq-troubleshooting/technical/does-patchstack-work-with-other-captcha-plugins/"
 
@@ -721,10 +701,6 @@
 [[redirects]]
 	from = "/docs/i-activated-the-plugin-but-still-get-the-message-install-the-plugin-to-activate-the-firewall"
 	to = "/faq-troubleshooting/firewall/i-activated-the-plugin-but-still-get-the-message-install-the-plugin-to-activate-the-firewall/"
-
-[[redirects]]
-	from = "/docs/how-do-i-use-the-country-blocking-feature"
-	to = "/faq-troubleshooting/firewall/how-do-i-use-the-country-blocking-feature/"
 
 [[redirects]]
 	from = "/docs/how-do-i-block-an-ip-address-from-accessing-my-site"
@@ -785,10 +761,6 @@
 [[redirects]]
 	from = "/docs/does-patchstack-work-with-litespeed"
 	to = "/faq-troubleshooting/other/does-patchstack-work-with-litespeed/"
-
-[[redirects]]
-	from = "/docs/the-app-is-saying-my-site-does-not-use-wordpress-even-though-it-does-how-to-fix"
-	to = "/faq-troubleshooting/other/the-app-is-saying-my-site-does-not-use-wordpress-even-though-it-does-how-to-fix/"
 
 [[redirects]]
 	from = "/docs/i-installed-the-plugin-on-my-site-but-it-still-shows-i-have-missing-headers-on-the-portal-why-is-that"

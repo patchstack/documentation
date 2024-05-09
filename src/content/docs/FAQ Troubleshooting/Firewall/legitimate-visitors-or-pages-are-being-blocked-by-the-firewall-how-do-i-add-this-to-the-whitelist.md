@@ -14,7 +14,7 @@ Our whitelist feature makes it easy to whitelist specific requests.
 To whitelist:
 
 <ol><li>Log in to the Patchstack App</li>
-<li>Go to <b>My Sites</b> > <b>yourdomain.com</b> > <b>Hardening</b></li>
+<li>Go to <b>Sites</b> > <b>yourdomain.com</b> > <b>Hardening</b></li>
 <li>Scroll down to <b>Whitelist text field</b></li>
 </ol>
 

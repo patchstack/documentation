@@ -18,7 +18,7 @@ To make sure you have the latest version of Patchstack, we recommend following t
    Just open your site dashboard on Patchstack App and navigate to **Settings** from the submenu.  
    Click **Download latest version**
 
-![](@images/8b5bd5f-small-6d63d81-small-Patchstack_Plugin.png)
+![](@images/patchstack-site-settings.png)
 
 3. Now navigate to your WordPress admin and go to the **Plugins** page. Click **Add New** from the top navigation. Then click **Upload Plugin**, choose the zip file from your filesystem, and click **Install Now**
 

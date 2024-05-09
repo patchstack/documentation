@@ -20,5 +20,5 @@ If you add more WordPress applications to your account after you already paid, w
 <b>What if I remove apps from my account?</b>  
 If you have 3 sites and paid for them and you remove 1 site, you will not receive a refund but instead have 1 open slot that can be used to add another site to your account. If you decide to keep 1 slot open then the next invoice will only charge you for 2 apps and the open slot will be removed.
 
-<b>What if I turn on/turn off add-ons or add more team members?</b>  
-If you turn on add-ons such as the volume upgrade and additional seat add-on to your account, you will be charged right away for the add-ons and at the end of the day for team members for the outstanding amount depending on how many days are left until the next invoice, as described above.
+<b>What if I turn on/turn off upgrades or add more seats?</b>  
+If you turn on upgrades such as the **volume upgrade** and **additional seat upgrade** to your account, you will be charged right away for these upgrades and at the end of the day for team members for the outstanding amount depending on how many days are left until the next invoice, as described above. Because upgrades are dynamic services, they are paid monthly, even if you are on an annual plan.

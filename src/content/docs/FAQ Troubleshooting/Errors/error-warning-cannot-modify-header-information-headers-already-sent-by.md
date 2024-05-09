@@ -13,4 +13,7 @@ There are 2 possible reasons this can happen:
 
 <ol><li>Check the very first error that shows up on the screen. If this error occurs in a file that is unrelated to Patchstack then the initial cause of this error is not caused by the Patchstack plugin. Try turning off your plugins one-by-one until the error disappears.</li>
 
-<li>If the very first error that shows up on the screen is in a file of the Patchstack plugin, then please copy the error, start a new chat, and paste the error. That way we can figure out the cause and fix the error in a future plugin version.</li></ol>
+<li>If the very first error that shows up on the screen is in a file of the Patchstack plugin, then please copy the error, <a href="#" id="launch-intercom">start a new chat</a>, and paste the error with your site URL. That way we can figure out the cause and fix the error in a future plugin version.</li></ol>
+
+
+<script>document.querySelector("#launch-intercom").addEventListener("click", ()=>{Intercom("show")});</script>

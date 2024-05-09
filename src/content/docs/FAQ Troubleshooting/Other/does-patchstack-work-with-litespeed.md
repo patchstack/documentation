@@ -12,8 +12,8 @@ updatedAt: "Tue Aug 23 2022 13:49:24 GMT+0000 (Coordinated Universal Time)"
 LiteSpeed has the ability to support .htaccess files as well, so Patchstack will work with LiteSpeed.  
 However, make sure your .htaccess file contains the following on top of the file:
 
-<pre>
-&lt;IfModule LiteSpeed&gt;
-   CacheLookup public on
-&lt;/IfModule&gt;
-</pre>
+```
+<IfModule LiteSpeed>
+  CacheLookup public on
+</IfModule>
+```

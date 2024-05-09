@@ -15,7 +15,7 @@ As of April 10th 2019, we added a new option that blocks access to XML-RPC by de
 In order to turn it back on:
 
 <ol>
-<li>Go to Patchstack App > <b>My Sites</b> > <b>yourdomain.com</b> > <b>Hardening</b></li>
-<li>Scroll down a bit and uncheck the <b>Restrict XML-RPC Access</b></li>
-<li>Click <b>"Save Settings"</b></li>
+<li>Go to <b>Patchstack App</b> > <b>Sites</b> > <b>yourdomain.com</b> > <b>Hardening</b></li>
+<li>Scroll down a bit and uncheck the <b>Restrict XML-RPC access to authenticated users only</b></li>
+<li>Click <b>Save settings</b></li>
 </ol>

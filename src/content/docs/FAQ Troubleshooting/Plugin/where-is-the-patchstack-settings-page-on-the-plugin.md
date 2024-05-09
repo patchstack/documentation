@@ -16,3 +16,7 @@ When we released version 1.3.5 of the Patchstack plugin, we moved the Patchstack
 
 **Versions 2.1.0+**  
 Since version 2.1.0, the Patchstack settings are hidden by default and we encourage you to manage the Patchstack settings of your WordPress site through <https://app.patchstack.com>. If you do not wish to do this, you can go to **/wp-admin** > **Settings** > **Security**, and on this page click on the link at the bottom of the screen to turn on the setting management through WordPress.
+
+
+**Upcoming version 2.2.13+**
+Settings management from the plugin is removed.

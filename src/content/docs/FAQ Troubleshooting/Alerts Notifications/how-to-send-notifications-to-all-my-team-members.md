@@ -17,7 +17,7 @@ But in case you would like to get notified to other email addresses, let's set u
 ## Setting up an email alert
 
 <ol><li>Navigate to the <a href="https://app.patchstack.com/alerts/latest" target="_blank"><b>Alerts</b></a> page from Patchstack App</li>
-<li>On the top right corner, click on **+ Create Trigger** button</li>
+<li>On the top right corner, click on <b>+Create Trigger</b> button</li>
 <li>Give your trigger a title (e.g. Notification to Joe)</li>
 <li>Choose the condition of when the alert is triggered. If you want to alert this email about found vulnerabilities, pick "Vulnerable" from the list</li>
 <li>Choose <b>Email Notification</b> and enter the email</li>

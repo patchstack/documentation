@@ -31,8 +31,8 @@ How does Patchstack free version help you?
 <li>Receive real-time alerts to email if any security vulnerabilities are found.</li>
 <li>Have a central security dashboard for up to 10 websites (via the Patchstack App).</li></ul>
 
-** What's the difference between a free version and paid version? **  
-The free version of Patchstack only detects and notifies you about the vulnerabilities in the plugins, themes and core version your sites use. The paid version of Patchstack will also protect against the attacks on your site.
+**What's the difference between a free version and paid version?**
+The free version of Patchstack only detects and notifies you about the vulnerabilities in the plugins, themes and core version your sites use. The paid version of Patchstack will also protect against the attacks on your site. The pricing for complete Patchstack protection starts from $5 / month per site.
 
 Take a look at <a href="https://patchstack.com/pricing/" target="_blank">Patchstack pricing here</a>.  
 Take a look at the <a href="https://wordpress.org/plugins/patchstack/" target="_blank">Patchstack plugin in the WordPress repository here</a>.

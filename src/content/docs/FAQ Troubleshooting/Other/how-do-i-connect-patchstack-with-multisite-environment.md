@@ -17,21 +17,16 @@ Here are the steps to take to install Patchstack on your multisite network.
 ## Step 1: Installing Patchstack on the multisite network
 
 To install Patchstack on the multisite network, the easiest way is to do it via the Patchstack App.  
-Navigate to <a href="https://app.patchstack.com/sites" target="_blank"><b>My Sites</b></a> on the Patchstack App and click on "+ Add New" (at the top bar).  
+Navigate to <a href="https://app.patchstack.com/sites" target="_blank"><b>Sites</b></a> on the Patchstack App and click on **+ Add New** (at the top bar).  
 Type in the name of the domain and press **Enter**.  
 Click on **Continue to connect plugin**.
 
 You are then shown a popup like this:
 
-![](@images/3c05aa3-small-fe0cd72-small-Patchstack_dialogues.png)
+![](@images/patchstack-checking-sync-status.png)
 
-You can safely enter your WordPress username and password into the corresponding fields. Patchstack will connect with your app and install the plugin automatically. Please note that the login information is not stored on our end.
-
-After inserting your credentials, click on **Auto-install and finish**.  
-Patchstack should now be successfully installed on your main network.
-
-Note that, if the automatic installation didn't work, you need to do it manually.  
-For that, install the Patchstack plugin to your WordPress site. After plugin activation, enter the API key that you were shown on the Patchstack App.
+Download the latest plugin, and upload it to your WordPress site.
+After plugin activation, move on to the next step.
 
 ## Step 2: Activating Patchstack on your network
 
@@ -53,12 +48,12 @@ After activating the plugin in your whole network, you will see a Patchstack scr
 ## Step 3: Adding your subsites to Patchstack
 
 If Patchstack didn't already add your subsites to the Patchstack App automatically, you can do so manually as well.  
-Head back to the Patchstack **My Sites** page, where you can click **+ Add new**.  
+Head back to the Patchstack **Sites** page, where you can click **+ Add new**.  
 This time, enter your subsite URL (e.g [https://example.com/subsite](<>))
 
-You will then see this popup, where you can just click **Verify installation to finish** this time.
+You will then see this popup, which you can just close this time.
 
-![](@images/c8f8d0b-small-fe0cd72-small-Patchstack_dialogues_1.png)
+![](@images/patchstack-checking-sync-status.png)
 
 Copy the API Key and insert them to the Patchstack plugin of your subsite.
 

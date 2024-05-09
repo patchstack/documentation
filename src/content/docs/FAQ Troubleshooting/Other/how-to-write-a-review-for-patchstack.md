@@ -21,6 +21,7 @@ This will help us and we really appreciate your help in showing the value we cre
 
 When writing a review, remember that you’re reviewing a service that our team poured our heart and soul into to create.  
 
-When you have problems with the service, it's always good to <b>contact support to find help from our team first.</b> Our minimum response time is between a few minutes to a few hours. 
+When you have problems with the service, it's always good to <b><a href="#" id="launch-intercom">open up a  support chat</a> to find help from our team first.</b> Our minimum response time is between a few minutes to a few hours. 
 
-You can contact our support via the chat bubble on the bottom right.
+
+<script>document.querySelector("#launch-intercom").addEventListener("click", ()=>{Intercom("show")});</script>
