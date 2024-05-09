@@ -21,4 +21,4 @@ Here's a list of how often and for what we sync.
 
 **Ping** - your site is pinged by Patchstack every 3 hours to check if it is still properly connected to the Patchstack App
 
-**Subscription status** is automatically synced twice a day, to check if it is still valid. It is synced instantly once the license has been manually removed / changed.
+**Status of subscription** is automatically synced twice a day, to check if your license is still valid. It is also synced instantly if the license has been manually removed / changed.
