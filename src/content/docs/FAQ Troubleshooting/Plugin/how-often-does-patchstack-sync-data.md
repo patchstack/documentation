@@ -19,4 +19,4 @@ Here's a list of how often and for what we sync.
 
 **Software data** is synced twice a day at random times. Also the software data is synced every time when you update, activate, deactivate, delete any plugin/theme in your WordPress admin
 
-**Ping** your site is pinged by Patchstack every 3 hours to check if it is still properly connected to the Patchstack App
+**Ping** - your site is pinged by Patchstack every 3 hours to check if it is still properly connected to the Patchstack App
