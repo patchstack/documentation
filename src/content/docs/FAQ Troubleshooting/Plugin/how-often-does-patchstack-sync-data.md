@@ -1,5 +1,5 @@
 ---
-title: "How often does Patchstack sync the data between my site and Patchstack App?"
+title: "How often does Patchstack sync with my site?"
 
 excerpt: ""
 hidden: false
