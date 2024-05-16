@@ -43,14 +43,6 @@ The dropdown includes the following conditions:
 </ul>
 </li>
 
-<li>Security Monitor Event
-<ul>
-<li><span class="color1">Domain Expiring</span> - sends an alert, when any of your site's domain is expiring</li>
-<li><span class="color1">SSL Certificate Expiring</span> - sends an alert, when any of your site's SSL is expiring</li>
-<li><span class="color1">Blacklisted</span> - sends an alert, when your WordPress site gets blacklisted (Google Safebrowsing, McAfee, Norton Safeweb, Phistank)</li>
-</ul>
-</li>
-
 <li>Firewall Logs Event
 <ul>
 <li><span class="color1">Match IP</span> - sends an alert, when your site gets visited from a certain URL</li>
