@@ -32,7 +32,8 @@ export default defineConfig({
 			components: {
 				//ThemeProvider: './src/components/ThemeProvider.astro',
 				//ThemeSelect: './src/components/ThemeSelect.astro',
-				Head: './src/components/Head.astro'
+				Head: './src/components/Head.astro',
+				SkipLink: './src/components/SkipLink.astro',
 			},
 			sidebar: [
 				{
