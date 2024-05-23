@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 const site_url = process.env.URL;
@@ -7,7 +7,9 @@ const site = site_url || 'http://localhost:4321';
 // https://astro.build/config
 export default defineConfig({
 	site,
-	
+	image: {
+		service: passthroughImageService(),
+	},
 	integrations: [
 		starlight({
 			title: 'Patchstack Docs',
@@ -60,5 +62,6 @@ export default defineConfig({
 				},
 			],
 		}),
+
 	],
 });
