@@ -6,7 +6,7 @@ const site_url = process.env.URL;
 const site = site_url || 'http://localhost:4321';
 // https://astro.build/config
 export default defineConfig({
-	site,
+	site: site,
 	image: {
 		service: passthroughImageService(),
 	},
