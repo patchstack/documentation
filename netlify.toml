@@ -310,7 +310,13 @@
 	from = "/docs/plugin-api"
 	to = "/docs/plugin-download"
 
+[[redirects]]
+	from = "/login"
+	to = "/"
 
+[[redirects]]
+	from = "/docs/reports"
+	to = "/patchstack-app/reports/reports-overview"
 
 [[redirects]]
 	from = "/docs/500-additional-api-calls-per-month"
