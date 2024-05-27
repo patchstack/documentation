@@ -164,7 +164,7 @@
 
 [[redirects]]
 	from = "/discuss/62e3a67986feff004241a16b"
-	to = "/docs/hardening-firewall#country-blocking"
+	to = "/patchstack-app/site-dashboard/protection/app-protection-overview/"
 
 [[redirects]]
 	from = "/discuss/62e3a66a77efab0013540895"
@@ -943,3 +943,31 @@
 [[redirects]]
 	from = "https://docs.patchstack.com/discuss/*"
 	to = "/"
+
+[[redirects]]
+	from = "/docs/app-protection"
+	to = "/patchstack-app/site-dashboard/protection/app-protection-overview/"
+
+[[redirects]]
+	from = "cdn-cgi/*"
+	to = "/"
+
+[[redirects]]
+	from = "/docs/report-whitelabel"
+	to = "/patchstack-app/reports/reports-whitelabeling/"
+
+[[redirects]]
+	from = "/docs/overview"
+	to = "/"
+
+[[redirects]]
+	from = "/docs/overview-1"
+	to = "/"
+
+[[redirects]]
+	from = "/docs/additional-seats"
+	to = "/patchstack-app/upgrades/additional-seat/"
+
+[[redirects]]
+	from = ""
+	to = ""
