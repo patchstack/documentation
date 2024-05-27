@@ -232,7 +232,7 @@
 
 [[redirects]]
 	from = "/discuss/62e2876ec640d5064f77ce25"
-	to = "/docs/error-cannot-activate-plugin-because-of-ssl-routinesssl23_get_server_hellosslv3-alert-handshake-failure"
+	to = "/faq-troubleshooting/errors/error-cannot-activate-plugin-because-of-ssl-routinesssl23_get_server_hellosslv3-alert-handshake-failure/"
 
 [[redirects]]
 	from = "/discuss/62e286cf7040390013b73bf7"
@@ -814,7 +814,7 @@
 
 [[redirects]]
 	from = "/docs/error-cannot-activate-plugin-because-of-ssl-routinesssl23_get_server_hellosslv3-alert-handshake-failure"
-	to = "/docs/error-cannot-activate-plugin-because-of-ssl-routinesssl23_get_server_hellosslv3-alert-handshake-failure/"
+	to = "/faq-troubleshooting/errors/error-cannot-activate-plugin-because-of-ssl-routinesssl23_get_server_hellosslv3-alert-handshake-failure/"
 
 [[redirects]]
 	from = "/docs/error-you-have-entered-an-incorrect-recaptcha-value-on-login-page"
@@ -878,12 +878,68 @@
 
 [[redirects]]
 	from = "/patchstack-app/protection/custom-rules/custom-rules"
-	to = "/patchstack-app/protection/custom-rules"
+	to = "/patchstack-app/protection/custom-rules/"
 
 [[redirects]]
 	from = "/patchstack-app/protection/custom-rules/simple-rule"
-	to = "/patchstack-app/protection/create-rule/simple-rule"
+	to = "/patchstack-app/protection/create-rule/simple-rule/"
 
 [[redirects]]
 	from = "/patchstack-app/protection/custom-rules/advanced-rule"
-	to = "/patchstack-app/protection/create-rule/advanced-rule"
+	to = "/patchstack-app/protection/create-rule/advanced-rule/"
+
+[[redirects]]
+	from = "/patchstack-app/app-dashboard/site-dashboard-overview"
+	to = "/patchstack-app/site-dashboard/site-dashboard-overview/"
+
+[[redirects]]
+	from = "/edit/*"
+	to = "/"
+
+[[redirects]]
+	from = "/login/*"
+	to = "/"
+
+[[redirects]]
+	from = "/patchstack-app/my-apps/adding-a-web-app"
+	to = "/patchstack-app/sites/adding-a-site/"
+
+[[redirects]]
+	from = "/vulnerability-database/vulnerability-api-for-developers"
+	to = "/database-api/vulnerability-api-for-developers/"
+
+[[redirects]]
+	from = "/patchstack-plugin/plugin-settings"
+	to = "/patchstack-plugin/patchstack-plugin-welcome-screen/"
+
+[[redirects]]
+	from = "/en/articles/2155626-how-to-fix-the-missing-security-headers-issue"
+	to = "/faq-troubleshooting/technical/how-to-fix-the-missing-security-headers-issue/"
+
+[[redirects]]
+	from = "/patchstack-app/add-ons/add-ons"
+	to = "/patchstack-app/upgrades/upgrades/"
+
+[[redirects]]
+	from = "/patchstack-app/app-dashboard/protection/app-protection-overview"
+	to = "/patchstack-app/site-dashboard/protection/app-protection-overview/"
+
+[[redirects]]
+	from = "/patchstack-app/add-ons/additional-seat"
+	to = "/patchstack-app/upgrades/additional-seat/"
+
+[[redirects]]
+	from = "/patchstack-app/app-dashboard/hardening/app-hardening-general"
+	to = "/patchstack-app/site-dashboard/hardening/app-hardening-general/"
+
+[[redirects]]
+	from = "/docs/application-groups"
+	to = "/patchstack-app/sites/site-groups/"
+
+[[redirects]]
+	from = "/patchstack-app/my-apps/overview/"
+	to = "/patchstack-app/sites/overview/"
+
+[[redirects]]
+	from = "https://docs.patchstack.com/discuss/*"
+	to = "/"
