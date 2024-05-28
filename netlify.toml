@@ -967,3 +967,7 @@
 [[redirects]]
 	from = "/docs/additional-seats"
 	to = "/patchstack-app/upgrades/additional-seat/"
+
+[[redirects]]
+	from = "/getting-started/introduction"
+	to =  "/getting-started/welcome/"

@@ -6,7 +6,7 @@ hidden: false
 createdAt: "Fri Oct 20 2023 08:59:19 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu Nov 30 2023 13:40:01 GMT+0000 (Coordinated Universal Time)"
 sidebar:
-  order: 3
+  order: 4
 ---
 To sign up and start using Patchstack, navigate to <a href="https://app.patchstack.com/register/" target="_blank">https://app.patchstack.com/register</a>  
 From there you can sign up two ways.
@@ -23,6 +23,6 @@ From there you can sign up two ways.
 
 1. Click on the desired service provider and complete the authentication process.
 
-Below is the screen you can see after successful sign-up. From this view you can [add your first sites to Patchstack](/getting-started/adding-the-first-site/).
+Below is the screen you can see after successful sign-up. From this view you can [add your first sites to Patchstack](/getting-started/adding-your-first-site/).
 
 ![](@images/patchstack-adding-first-site.png)
