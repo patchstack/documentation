@@ -1,0 +1,38 @@
+---
+title: "Adding your first site"
+
+excerpt: ""
+hidden: false
+createdAt: "Mon Jul 25 2022 08:58:43 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Tue Dec 12 2023 13:23:43 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 5
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+In this article, we will show, how you can add and connect your first website with Patchstack App.
+You can watch this <a href="https://www.youtube.com/watch?v=MFmPFzSaD3I" target="_blank">tutorial video</a> below, or follow the steps in the next chapter.
+<div class="container">
+  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/MFmPFzSaD3I?si=CDjAhopxLuu69_H3"></iframe>
+</div>
+
+
+## Steps for adding your first site
+
+To add the first site, make sure you are logged into Patchstack App. 
+Then follow these steps.
+
+<Steps>
+1. Navigate to <a href="https://app.patchstack.com/dashboard" target="_blank"><b>Dashboard</b></a>. Then, click on the green **Connect site** button. ![](@images/patchstack-adding-first-site.png)
+A dialogue will open asking you for your domain URL. 
+2. Enter the domain name to the input. You can switch between http/https by clicking on the arrows
+3. Click **Continue to plugin sync** ![](@images/patchstack-add-first-site-dialogue.png)
+4. You will be taken to the next step, where you can see the API key or download the plugin .zip file.![](@images/patchstack-checking-sync-status.png)
+5. Patchstack will automatically sync the data between Patchstack App and your site if you upload the Patchstack plugin to your site within 30 minutes.
+In case this 30 minute exceeds, then you need to click **Resync** in the dialogue, after uploading the plugin.
+</Steps>
+
+**What if I already have the Patchstack plugin on my site?** 
+
+If you already have the Patchstack plugin installed on your site, you can click **Sync manually**, and get the API key. You will have to insert this API key into your WordPress plugin's API field and click on **Resync**.

@@ -1,6 +1,5 @@
 ---
-title: "Installing the Patchstack Plugin"
-
+title: "Installing the Patchstack plugin"
 excerpt: ""
 hidden: false
 createdAt: "Mon Jul 25 2022 08:58:56 GMT+0000 (Coordinated Universal Time)"

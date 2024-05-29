@@ -11,7 +11,7 @@ updatedAt: "Wed Jun 28 2023 12:21:53 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 8.1
 ---
-<https://app.patchstack.com/upgrades>
+<https://app.patchstack.com/billing/subscription>
 
 Volume upgrade is for increasing the number of applications you can connect to your account.
 

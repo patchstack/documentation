@@ -1,0 +1,29 @@
+---
+title: "Installing via WordPress repository"
+excerpt: ""
+hidden: false
+createdAt: "Tue Jul 26 2022 13:32:04 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Sun Jan 14 2024 16:28:50 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 7.2
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Let's set up the Patchstack plugin through WordPress!  
+First, log in to your WordPress.  
+Navigate to "Plugins" from the admin menu and click "Add New" from the top.
+
+<Steps>
+1. On the right side you see the "Search plugins..." search box.
+2. Type **"Patchstack"** to search box
+3. Click on **"Install Now"** button
+4. Click **"Activate"** ![](@images/2707b1b-Installing_Patchstack_from_WordPress.png "Installing Patchstack from WordPress.png")
+5. You are now taken to the Patchstack plugin's setup screen, where you need to enter the Patchstack API key.  
+6. In Patchstack App, navigate to **My Sites > yourdomain.com > Settings**, to find and copy the **API key**. See image below: ![](@images/patchstack-site-settings.png)
+7. To connect the plugin with Patchstack App, you need to paste your site **API key** into the plugin API field. ![](@images/patchstack-wordpress-state-empty.png)
+8. Click **Sync** in WordPress plugin.
+</Steps>
+
+**Congratulations** - After completing all previous steps, Patchstack should now be up and running on your site!  
+If you want to have your site protected by our vPatches and other firewall rules, you can click on **Activate for $5 on the App** button. You will be directed to set up billing to enable the Patchstack protection.
