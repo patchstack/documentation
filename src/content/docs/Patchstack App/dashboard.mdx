@@ -8,7 +8,10 @@ updatedAt: "Tue Dec 12 2023 12:31:21 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 1
 ---
-To access the dashboard, click on **Dashboard** from the left menu.
+
+import { Steps } from '@astrojs/starlight/components';
+
+To access the main dashboard in Patchstack App, click on **Dashboard** from the left-side navigation menu.
 
 **Dashboard** shows you a general overview of all your WordPress sites:
 
@@ -18,40 +21,36 @@ To access the dashboard, click on **Dashboard** from the left menu.
 
 ![](@images/patchstack-dashboard-vulnerabilities-section.png)
 
-Vulnerabilities section shows you a general overview about all the vulnerabilities currently present on each of your WordPress sites. The vulnerabilities are divided into different groups, which indicate the patching priority.
+Vulnerabilities section shows you a general overview about all the vulnerabilities currently present on each of your WordPress sites. The vulnerabilities are divided into three different groups, which indicate the patching priority:
 
-**High priority** - these software versions are expected to be mass-exploited or have already known to be exploited vulnerabilities. It's important to patch those by updating the software to patched versions and/or enabling Patchstack firewall, which applies vPatches automatically.
+<Steps>
+1. **High patch priority** software versions are expected to be mass-exploited or have already known to be exploited vulnerabilities. It's important to patch those by updating the software to patched versions and/or enabling Patchstack firewall, which applies vPatches automatically.
 
-**Medium priority** - these software versions are not expected to be mass-exploited, but could potentially be exploited in more targeted attacks. It's important to patch those by updating the software to patched versions and/or enabling Patchstack firewall, which applies vPatches automatically.
+2. **Medium patch priority** software versions are not expected to be mass-exploited, but could potentially be exploited in more targeted attacks. It's important to patch those by updating the software to patched versions and/or enabling Patchstack firewall, which applies vPatches automatically.
 
-**Low priority** - these software versions are not expected to be exploited. Low patch priority vulnerabilities won't receive a vPatch from Patchstack.
+3. **Low patch priority** software versions are not expected to be exploited, therefore low patch priority vulnerabilities won't receive a vPatch from Patchstack.
+</Steps>
+
 
 ## Vulnerability information and filtering
 
-You can use the search bar to find vulnerabilities of specific site, or search vulnerabilities by description.
+You can use the search bar on the dashboard page, to find current vulnerabilities across any of your specific sites, or you can search your vulnerabilities by description.
 
 ![](@images/patchstack-filters.png)
 
-**Priority filter** - find vulnerabilities by patch priority. You can filter by high, medium and low patch priority vulnerabilities.
+There are three main filters for vulnerability searching on the dashboard:
+<Steps>
+1. **Priority filter** - find vulnerabilities by patch priority. You can filter by high, medium and low patch priority vulnerabilities.
 
-**Severity filter** - find vulnerabilities by <a href="/faq-troubleshooting/other/what-is-the-cvss-score/" target="_blank">CVSS severity score</a>. You can filter by critical, high, medium, low severity.
+2. **Severity filter** - find vulnerabilities by <a href="/faq-troubleshooting/other/what-is-the-cvss-score/" target="_blank">CVSS severity score</a>. You can filter by critical, high, medium, low severity.
 
-**Exploited** - filter out the vulnerabilities that are know to be exploited.
+3. **Exploited** - filter out the vulnerabilities that are know to be exploited.
+</Steps>
 
-There are several icons on each vulnerability. Below is a list of what each icon means.
 
 ### List of vulnerability icons with descriptions
 
-<style>
-.icon-row-container {
-  display: block;
-}
-.icon-row {
-  display: grid;
-  grid-template-columns: 120px auto;
-  align-items:center;
-}
-</style>
+There are several icons shown on each vulnerability row. Below is a list of what each icon means.
 
 <div class="icon-row-container">
 <div class="icon-row">
@@ -168,16 +167,17 @@ In the **Threats Blocked** section you can see a graph, which shows you how many
 On the top right corner, you can choose the time period (7 days, 1 month, 6 months or 1 year).  
 On the left side, you see the number of attacks.
 
-By moving the cursor across the graph, you can see the number of attacks by day.
+By moving the cursor on the graph, you can see the number of attacks by day.
 
 ## Sites
 
-In the **Sites** section, you see a quick overview of how many sites you have added to Patchstack, and how many of them have any outdated or vulnerable components.  
-You can add new websites(s) when you click the **"+ Add new"** button. It will trigger a popup with steps to take to add more websites.
+In the **Sites** section, you see a quick overview of how many sites you have added to the Patchstack App. 
+It also shows how many of your sites have any outdated or vulnerable components.  
+To add new websites to Patchstack App, click the **"+ Add new"** button. It will trigger a popup with steps to take to add more websites.
 
 ## Software
 
-In the **Software** section, you can see how many software components your sites have in total.  
+In the **Software** section, you can see how many software components (plugins, themes, WordPress core) your sites have in total.  
 The next number shows how many of these are vulnerable.  
 The third number shows how many of these components are disabled.
 

@@ -12,7 +12,7 @@ sidebar:
   order: 8.2
 ---
 _This upgrade is for the Developer and Business plan users only._  
-<https://app.patchstack.com/upgrades>
+<https://app.patchstack.com/billing/subscription>
 
 **Additional seat** upgrade allows you to attach other email addresses to your account to which you can assign specific permissions and/or sites.  
 Enable this add-on by clicking on the **Manage** button at the top right corner of this module on the Upgrades page.

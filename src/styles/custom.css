@@ -109,3 +109,12 @@ header button {
 	font-size: 1rem;
 	line-height: var(--sl-line-height);
 }
+
+.icon-row-container {
+  display: block;
+}
+.icon-row {
+  display: grid;
+  grid-template-columns: 120px auto;
+  align-items:center;
+}

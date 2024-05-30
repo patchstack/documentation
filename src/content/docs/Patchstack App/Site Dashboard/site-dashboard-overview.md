@@ -1,6 +1,5 @@
 ---
 title: "Overview"
-
 excerpt: ""
 hidden: false
 createdAt: "Wed Aug 03 2022 12:00:20 GMT+0000 (Coordinated Universal Time)"
@@ -10,15 +9,12 @@ sidebar:
 ---
 _Accessible for the Community, Developer and Business plan users._
 
-To view a single site dashboard, navigate to **Sites** > **yourdomain.com**
+To view a single site dashboard, navigate to **Sites** > **yourdomain.com** in Patchstack App.
 
 ![](@images/patchstack-site-overview.png)
 
-**Site dashboard** shows you a general overview of your selected site:
+**Site dashboard** shows you the following, general overview of your WordPress site:
 
-<ul><li>An overview of the current vulnerabilities</li>
-<li>What kind of improvements are there to be made</li>
-<li>How many security tests have been passed and what needs to be looked over or fixed</li>
-<li>How many attacks on your site have been blocked within a certain time period</li>
-<li>How much software (themes or plugins) has been installed on your site; how many components are vulnerable; how many are outdated</li>
-<li>Shows upgrades (available for paid plan users)</li></ul>
+* An overview and search of the current vulnerabilities - read more about the <a href="/patchstack-app/dashboard/#vulnerability-information-and-filtering" target="_blank">vulnerability details and searching here</a>
+* How many attacks on your site have been blocked within a certain time period
+* How many software components (themes, plugins, WordPress core) have been installed on your site; how many of these components are vulnerable; how many are outdated
