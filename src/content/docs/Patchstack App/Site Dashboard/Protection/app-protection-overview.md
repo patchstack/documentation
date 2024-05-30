@@ -9,19 +9,24 @@ sidebar:
   order: 3.20
 ---
 
-_Accessible for the Community (paid), Developer and Business plan users._
+_Accessible for the Community (paid), Developer and Business plan users._ \
+The **Protection overview** subpage is found at **Sites** > **yoursite.com** > **Protection** in Patchstack App.
 
-On the **Protection overview** page you can see where your site got attacks from, and how have the hackers tried to attack your web application.
+On the **Protection overview** subpage you can:
+* Toggle the protection modules on/off for your site
+* See where your site got attacks from
+* See how have the hackers tried to attack your site
 
 ![](@images/patchstack-site-protection-overview.png)
 
 ## Protection modules
 
-Patchstack firewall consists of four types of protection modules, which can be toggled on and off for any protected site. The protection modules also show, how many of your apps are attached to each module.
+Patchstack firewall consists of four types of protection modules, which can be toggled on and off for any protected site. These protection modules also show the number of your sites are attached to each module.
+Below are the decriptions for all four protection modules:
 
-### vPatching Module
+### vPatching module
 
-Receive **vPatches** for known dangerous vulnerabilities in your applications. **vPatches** are highly specific and strict firewall rules that prevent vulnerabilities from being exploited without changing any code.  
+Receive **vPatches** (<a href="https://patchstack.com/articles/virtual-patching/" target="_blank">virtual patches</a>) for known dangerous vulnerabilities in your sites. **vPatches** are highly specific and strict firewall rules that prevent vulnerabilities from being exploited without changing any code.  
 <a href="/patchstack-app/protection/patchstack-modules/#vpatches" target="_blank">📖 Read more </a>
 
 ### Advanced Hardening
@@ -38,13 +43,13 @@ Community IP blocklist blocks access to IP addresses which are known to exploit 
 Generic firewall rules against OWASP top 10 vulnerability types including XSS, SQLi, RCE and for other known exploitation methods. Note, due to its generic nature this module may cause false-positives for more complex applications.  
 <a href="/patchstack-app/protection/patchstack-modules/#generic-owasp" target="_blank">📖 Read more </a>
 
-## Activity
+## Activity section
 
-From the **Activity** section, you see, how many times did Patchstack firewall block the traffic for potential threats.  
-You can set a filter to show the data about up to 1 year.  
-On the right side of the protection activity section, Patchstack App shows the top 5 IP's blocked, and top 5 threats blocked in the given period of time.
+From the **Activity** section of the **Protection overview** page, you see how many times did Patchstack firewall block the traffic for potential threats.  
+You can set a filter to show the data from up to 1 year ago.
+On the right side of this protection activity section, Patchstack App shows the top 5 IP's blocked, and top 5 threats blocked in the given period of time.
 
-## Log history
+## Log history section
 
 Each hacking attempt or attack is shown as a separate protection log entry. You can click on any log entry to view more details about the particular blocking.
 

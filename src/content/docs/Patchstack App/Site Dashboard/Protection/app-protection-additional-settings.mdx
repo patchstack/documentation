@@ -8,44 +8,59 @@ updatedAt: "Wed Jan 17 2024 15:02:17 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.21
 ---
-_Accessible for the Community (paid), Developer and Business plan users._
+import { Steps } from '@astrojs/starlight/components';
+
+_Additional settings are accessible for the Community (paid), Developer and Business plan users._
+
+The **Additional settings** subpage is found at **Sites** > **yoursite.com** > **Protection** > **Additional settings** in Patchstack App.
 
 ![](@images/patchstack-protection-additional-settings.png)
 
-## User role whitelist
 
-You can whitelist users from the Patchstack firewall. This means that the Patchstack firewall would not run against these user types. 
 
-1. Toggle the roles, that you wish to whitelist from the firewall. 
-2. Click **Save settings** once the changes have been done.
+## Additional settings features
 
-## Country blocking
+### User role whitelist
 
-In case you want to block traffic to your site from certain countries, you can do so by scrolling down to the **Country blocking** section.  
-You can start typing the names of countries into the country list input field.  
-After typing the name, press **Enter** or click on the name of a given country.
+You can whitelist user types from the Patchstack firewall engine. This means that the Patchstack firewall would not run against these user types at all. To whitelist any user type, do the following:
+<Steps>
+1. Navigate to your sites' **Protection** > **Additional settings** page in Patchstack App
+2. Look for the **User role whitelist** section
+3. Toggle the roles, that you wish to whitelist
+4. Click **Save settings** once the changes have been done.
+</Steps>
+### Country blocking
 
+In case you want to block traffic to your site from certain countries, you can do so in the **Country blocking** section. 
 ![](@images/patchstack-country-blocking.png)
-
-If you want the country blocking to start working right away, click on **Enable country blocking**.  
-Scroll down and click **Save settings**.
-
-PS! We have also added the **Inversed check** option which works the other way around.  
+To block any country from viewing your site, do the following:
+<Steps>
+1. Navigate to your sites' **Protection** > **Additional settings** page in Patchstack App
+2. Look for the **Country blocking** section
+3. Toggle the **Enable country blocking** switch
+3. Start typing the name of the country into the country list field
+4. Click on the country name
+5. Scroll down and click on **Save settings**
+</Steps>
+### Inversed country blocking
+We have also added the **Inversed check** option which works the other way around.  
 When this is checked, the countries which are typed into the country list input, will be the only countries from which the traffic to your site is allowed.
 
-**Example:**  
-If you want to allow traffic ONLY from Germany: 
+**Example case:**  
+If you want to allow traffic ONLY from (for example) Germany: 
 
 <ol><li>Type "Germany" into <b>country input field</b></li>
-<li>Check <b>"Inversed check"</b></li>
-<li>Check <b>"Enable country blocking"</b></li>
-<li>Click on <b>"Save settings"</b></li></ol>
+<li>Check <b>Inversed check</b></li>
+<li>Check <b>Enable country blocking</b></li>
+<li>Click on <b>Save settings</b></li></ol>
 
-## General whitelist settings
+PS! In some rare occurrences, the country blocking feature can cause false positive blockings. We recommend using country blocking on server level.
+
+### General whitelist settings
 
 Under the **General whitelist settings** section, you can manage whitelist settings and add IP address header override rule.
 
-> 📘 Whitelist
+> #### 📘 Whitelist
 > 
 > Each rule must be on a new line.
 > 
@@ -67,7 +82,7 @@ Under the **General whitelist settings** section, you can manage whitelist setti
 > 
 > In this scenario, the firewall will not run if the IP address is 192.168.1.1 or if the payload contains contact_form or if the URL contains water or if the URL contains /some-form.
 
-> 📘 IP Address Header Override
+> #### 📘 IP Address Header Override
 > 
 > If you would like to override the IP address header that we use to grab the IP address of the visitor, enter the value to IP Address Header Override input.
 > 
@@ -75,13 +90,13 @@ Under the **General whitelist settings** section, you can manage whitelist setti
 > 
 > Leave this empty to use the Patchstack IP address grabbing function.
 
-## Block IP settings
+### Block IP settings
 
-Block IPs that are a potential threat to your sites.
+In this section, you can Block IPs that are a potential threat to your sites.
 
 ![](@images/1f3457c-patchstack_block_ips.png)
 
-> 🚧 Example case:
+> #### 🚧 Example case:
 > 
 > Patchstack has blocked 5 attacks on your site from one specific IP address in a period of 60 minutes.  
 > You would now want this IP to be blocked.
@@ -96,7 +111,7 @@ Block IPs that are a potential threat to your sites.
 > 
 > Now - any IP address which meets all those conditions will be blocked for three days.
 
-> 📘 IP Block List
+> #### 📘 IP Block List
 > 
 > Lets you completely block IP addresses by entering each IP address to a new line.
 > 

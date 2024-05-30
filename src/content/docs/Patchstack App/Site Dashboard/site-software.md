@@ -1,6 +1,5 @@
 ---
 title: "Software"
-
 excerpt: "Manage all the plugins and themes of your site from one page"
 hidden: false
 createdAt: "Wed Aug 03 2022 12:13:03 GMT+0000 (Coordinated Universal Time)"
