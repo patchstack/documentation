@@ -1,0 +1,30 @@
+---
+title: "General"
+excerpt: ""
+hidden: false
+createdAt: "Wed Jan 17 2024 15:01:59 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Thu Jan 18 2024 12:02:47 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 3.3
+---
+import { Steps } from '@astrojs/starlight/components';
+
+_Accessible for the Community (paid), Developer and Business plan users._
+
+Hardening rules are extra firewall settings, that can be tweaked according to your needs.
+To view your site hardening settings, navigate to **Sites** > **yourdomain.com** > **Hardening** in Patchstack App.
+
+![](@images/patchstack-hardening-general.png)
+
+On this page you can manage the following security settings of your site:
+
+<Steps>
+1. **Disable the theme editor** - this feature could protect you from potential automated attacks that involve the theme editor
+2. **Remove readme.html from the WordPress root folder** - this will attempt to stop basic readme.html scans by bots or visitors
+3. **Block readme.txt access**
+4. **Disable user enumeration** - this feature blocks hackers from getting your WordPress usernames
+5. **Hide WordPress version** - this feature removes the WordPress version in the &lt;meta> tag in the HTML output
+6. **Block WordPress application password feature** - this feature disables the application passwords feature introduced in WordPress 5.6
+7. **Restrict XML-RPC Access** - this feature restricts access to xmlrpc.php by only allowing authenticated users to access it
+8. **Restrict WP REST API Access** - this feature restricts access to the WP Rest API by only allowing authenticated users to access it
+</Steps>
