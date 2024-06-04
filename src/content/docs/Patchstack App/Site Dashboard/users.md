@@ -8,11 +8,14 @@ updatedAt: "Thu Jan 18 2024 14:00:34 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.5
 ---
-_Accessible for the Community (paid), Developer and Business plan users only._
+_Site users page is accessible for the Community (paid), Developer and Business plan users only._
 
-On the **Users** subpage you can see, which users have been registered on your site.  
-Patchstack shows only the following user roles:
 
+To view your WordPress sites' users navigate to **Sites** > **yourdomain.com** > **Users** in Patchstack App.
+
+
+On this **Users** subpage you can see all the regular users that have been registered on your WordPress site.
+Patchstack shows you only the users with following roles:
 <ul><li>
 Administrator</li>
 <li>Editor</li>
@@ -20,4 +23,8 @@ Administrator</li>
 <li>Contributor</li>
 </ul>
 
+_Privacy notice: Patchstack does not store your WordPress users' data. This data is synced directly from your site each time this users table is loaded._
+
 ![](@images/patchstack-site-users.png)
+
+

@@ -9,7 +9,7 @@ sidebar:
   order: 3.20
 ---
 
-_Accessible for the Community (paid), Developer and Business plan users._ \
+_Protection settings are accessible for the Community (paid), Developer and Business plan users._ \
 The **Protection overview** subpage is found at **Sites** > **yoursite.com** > **Protection** in Patchstack App.
 
 On the **Protection overview** subpage you can:

@@ -8,25 +8,28 @@ updatedAt: "Thu Jan 18 2024 13:24:28 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.33
 ---
-_Accessible for the Community (paid), Developer and Business plan users only._
+_ReCAPTCHA feature is accessible for the Community (paid), Developer and Business plan users._
+
+
+To manage your site's reCAPTCHA settings navigate to **Sites** > **yourdomain.com** > **Hardening** > **Login protection** in Patchstack App.
+
 
 ![](@images/patchstack-hardening-recaptcha.png)
 
 
-reCaptcha is a powerful tool for protecting your application against different spambots.  
-With Patchstack, you can integrate reCaptcha easily into your WordPress applications.  
-Our reCaptcha can only be used on the listed built-in WordPress forms.
-
+reCAPTCHA is a powerful tool for protecting your website against spambots.  
+With Patchstack, you can integrate reCAPTCHA easily into your WordPress sites.  
+Our reCAPTCHA can only be used on the listed built-in WordPress forms below:
 <ul><li>Commenting forms</li>
 <li>Login form</li>
 <li>Registration form</li>
 <li>Password reset form</li></ul>
 
-**NB!** Patchstack does not offer reCaptcha integrations for plugins or themes (eg. WooCommerce, Contact Form 7).
+**NB!** Patchstack does not offer reCAPTCHA integrations for plugins or themes (eg. WooCommerce, Contact Form 7).
 
-You can choose whether to use reCaptcha v2 or reCaptcha v3.  
-Find information about different reCaptcha versions <a href="https://developers.google.com/recaptcha/docs/versions" target="_blank">here!</a>
+You can choose whether to use reCAPTCHA v2 or reCAPTCHA v3.  
+Find information about different reCAPTCHA versions <a href="https://developers.google.com/recaptcha/docs/versions" target="_blank">here!</a>
 
-To activate Google reCaptcha on your site, you will have to generate a reCaptcha Public Key and reCaptcha Secret Key. <a href="/faq-troubleshooting/integrations/how-to-get-the-site-key-and-secret-key-for-the-recaptcha-feature/" target="_blank">Here is a tutorial how to generate those</a>
+To activate Google reCAPTCHA on your site, you will have to generate a reCAPTCHA Public Key and reCAPTCHA Secret Key. <a href="/faq-troubleshooting/integrations/how-to-get-the-site-key-and-secret-key-for-the-recaptcha-feature/" target="_blank">Here is a tutorial how to generate those</a>
 
 After all the changes, click on **Save settings**.

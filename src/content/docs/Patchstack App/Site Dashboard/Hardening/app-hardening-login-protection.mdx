@@ -1,0 +1,44 @@
+---
+title: "Login protection"
+
+excerpt: ""
+hidden: false
+createdAt: "Thu Jan 18 2024 12:03:24 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Thu Jan 18 2024 12:20:08 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 3.32
+---
+import { Steps } from '@astrojs/starlight/components';
+
+_Login protection is accessible for the Community (paid), Developer and Business plan users._
+
+To manage your sites' login protection, and set up 2FA (two factor authentication) for your WordPress site, navigate to **Sites** > **yourdomain.com** > **Hardening** > **Login protection** in Patchstack App.
+
+![](@images/patchstack-hardening-login-protection.png)
+
+On the **Login protection** subpage you can:
+
+<ul>
+<li>Block access to default /wp-admin page and set up a custom login URL</li>
+<li>Ban IPs that fail on multiple login attempts</li>
+<li>Set a specific time, where in between users can log in to WordPress</li>
+<li>Enable WordPress users to set up the 2FA from WordPress profile page</li>
+<li>Add IP addresses to WordPress login whitelist</li>
+<li>Block certain IP addresses from being able to log into WordPress</li>
+</ul>
+
+## How our custom login URL feature works
+
+If you define a new URL for login, it works like a security token for your wp-admin. Entering your custom URL once, will whitelist your IP to access regular wp-admin URL again.
+
+### Example usage:
+
+Let's say you enter **"myadmin"** to the **New URL** field.  
+To log in to your WordPress admin panel, you need to:
+
+<Steps>
+1. First visit your secret URL (for example **yourdomain.com/myadmin**)
+2. Your IP gets whitelisted
+3. You can now log in from the regular **yourdomain.com/wp-admin** again
+3. Other visitors are blocked from wp-admin page, unless they know your security token (in this case /myadmin)
+</Steps>

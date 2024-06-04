@@ -10,7 +10,7 @@ sidebar:
 ---
 import { Steps } from '@astrojs/starlight/components';
 
-_Additional settings are accessible for the Community (paid), Developer and Business plan users._
+_Protection additional settings are accessible for the Community (paid), Developer and Business plan users._
 
 The **Additional settings** subpage is found at **Sites** > **yoursite.com** > **Protection** > **Additional settings** in Patchstack App.
 
@@ -49,10 +49,12 @@ When this is checked, the countries which are typed into the country list input,
 **Example case:**  
 If you want to allow traffic ONLY from (for example) Germany: 
 
-<ol><li>Type "Germany" into <b>country input field</b></li>
-<li>Check <b>Inversed check</b></li>
-<li>Check <b>Enable country blocking</b></li>
-<li>Click on <b>Save settings</b></li></ol>
+<Steps>
+1. Type "Germany" into **country input field**
+2. Check **Inversed check**
+3. Check **Enable country blocking**
+4. Click on **Save settings**
+</Steps>
 
 PS! In some rare occurrences, the country blocking feature can cause false positive blockings. We recommend using country blocking on server level.
 

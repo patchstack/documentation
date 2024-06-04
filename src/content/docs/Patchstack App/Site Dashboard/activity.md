@@ -8,16 +8,19 @@ updatedAt: "Thu Jan 18 2024 13:52:17 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.4
 ---
-_Accessible for the Community (paid), Developer and Business plan users only._
+_Activity log is accessible for the Community (paid), Developer and Business plan users only._
+
+To view your site's activity log, navigate to **Sites** > **yourdomain.com** > **Activity** in Patchstack App.
+
 
 ![](@images/patchstack-site-activity.png)
 
-The activity logs display a large number of events that occur on your WordPress application. They are stored for 12 months after which they are archived.
+Patchstack activity log displays a large number of events that occur on your WordPress application. The logs are stored for 12 months after which they are archived.
 
 On the **Activity** page, you can:
 
 1. Enable / disable the activity log  
-   _Disabling the activity log is useful, when your site has a lot of activity. For example, the activity log database may become too large on dropshipping ecommerce sites, where huge amounts of products are being constantly imported. On such sites, we'd recommend disabling the activity logs._
+   _Disabling the activity log is useful, when your site has a lot of activity. For example, the activity log database may become too large on dropshipping ecommerce sites, where huge amounts of products are being constantly imported. On such sites, we recommend disabling the activity logs._
 2. Enable / disable logging the failed logins  
    _This will store the failed login entries WordPress activity logs database_
 3. Enable / disable uploading the failed login logs to Patchstack  
