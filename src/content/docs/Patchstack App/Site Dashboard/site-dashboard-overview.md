@@ -7,7 +7,7 @@ updatedAt: "Wed Jan 24 2024 13:53:45 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3
 ---
-_Accessible for the Community, Developer and Business plan users._
+_Site dashboard page is accessible for the Community, Developer and Business plan users._
 
 To view a single site dashboard, navigate to **Sites** > **yourdomain.com** in Patchstack App.
 

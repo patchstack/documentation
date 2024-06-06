@@ -11,18 +11,20 @@ updatedAt: "Mon Nov 13 2023 15:30:24 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 4.2
 ---
-_Accessible for the Developer and Business plan users only._  
-[https://app.patchstack.com/software/updates](https://app.patchstack.com/software/updates)
+_Automatic updates page is accessible for the Community, Developer and Business plan users._  
+
+Navigate to the automatic updates page by visiting **Software** > **Automatic updates**, or click here: [https://app.patchstack.com/software/updates](https://app.patchstack.com/software/updates)
 
 On the **Automatic updates** subpage, you can see which of your sites have auto-updates enabled. You can turn automatic updates for each of your sites on / off.  
 Patchstack also has an option to only auto-update such software that has any vulnerabilities detected.
 
 For each site, you have the following options:
 
-<ol><li>Auto-update only vulnerable components (recommended)</li>
-<li>Auto-update WordPress core</li>
-<li>Auto-update plugins</li>
-<li>Auto-update themes</li>
+<ol><li>Auto-update only vulnerable components (recommended)
+ - this option includes core versions, plugins and themes</li>
+<li>Auto-update WordPress core (whenever update is available)</li>
+<li>Auto-update plugins (whenever update is available)</li>
+<li>Auto-update themes (whenever update is available)</li>
 </ol>
 
 ![](@images/patchstack-software-automatic-updates.png)
@@ -32,9 +34,9 @@ For each site, you have the following options:
 To turn on the **auto-updates** feature, click the **Change** button of the corresponding site in the table.  
 You will be shown a popup, which lets you toggle auto-updates for:
 * Only vulnerable software versions
-* For all WordPress core versions
-* For all plugin versions
-* For all theme versions
+* For all WordPress core versions (whenever update is available)
+* For all plugin versions (whenever update is available)
+* For all theme versions (whenever update is available)
 
 To activate any of the options, toggle the buttons. (see the image below).
 
@@ -42,6 +44,6 @@ To activate any of the options, toggle the buttons. (see the image below).
 
 
 
-> ❗️ Keep in mind that updating software could potentially break your site, but for security reasons, it is recommended to auto-update at least your vulnerable components.
+> ❗️ Keep in mind that updating software could potentially break your site, but for security reasons, it is recommended to auto-update at least your vulnerable software components.
 
 After toggling the buttons, click **Update**.

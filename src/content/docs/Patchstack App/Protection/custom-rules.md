@@ -8,7 +8,9 @@ updatedAt: "Thu Jan 25 2024 12:31:25 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 5.20
 ---
-_Accessible for the Developer and Business plan users only._  
+_Custom firewall rules are accessible for the Developer and Business plan users only._  
+
+Navigate to the custom firewall rules page by visiting **Protection** > **Custom rules**, or click here:
 [https://app.patchstack.com/protection/rules](https://app.patchstack.com/protection/rules)
 
 On the custom rules page, you'll see an overview of which rules you have created and to which sites are these attached to. You can use this page to attach / detach rules from your sites, or change the rules.

@@ -9,7 +9,9 @@ sidebar:
   order: 5.22
 ---
 
-_Accessible for the Developer and Business plan users only._  
+_Custom firewall rules (including advanced rules) are accessible for the Developer and Business plan users only._  
+
+Navigate to the advanced firewall rules creation page by visiting **Protection** > **Custom rules** > **Advanced**, or click here:
 [https://app.patchstack.com/protection/rules/create](https://app.patchstack.com/protection/rules/create)
 
 The advanced rule creation page should be used by the more advanced users who want to create more specific rules. As at this time our firewall only supports PHP, we will speak of PHP and show examples in PHP below.

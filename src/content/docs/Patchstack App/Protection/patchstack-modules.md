@@ -8,11 +8,11 @@ updatedAt: "Thu Jan 18 2024 14:22:20 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 5.10
 ---
-# Introduction
+## Introduction
 
 Patchstack modules are modules managed by us and regularly updated to contain the latest vPatch definitions. Below contain the modules which you can enable on your sites with a description about its functionality.
 
-## vPatches
+### vPatches
 
 This module contains all the vPatches that protect you against plugin, theme and WordPress vulnerabilities for which we generated a vPatch. These vPatches match against specific conditions in the request to ensure a as low as possible false positive rate.
 
@@ -26,7 +26,7 @@ For example, a vPatch for a plugin vulnerability which allows someone to export 
 
 This allows us to block specific attacks without it affecting users who still may need to access the ability to export orders.
 
-## Advanced Hardening
+### Advanced Hardening
 
 This module contains protection rules that protect you against commonly seen attacks that target WordPress sites. Some examples of the protection rules that are part of this module are listed below. All of them are not executed against users who are logged in as administrator.
 
@@ -45,11 +45,11 @@ These protection rules could cause false positives with remote WordPress managem
 - Block requests that contain wp_is_mobile in the browser user agent (spoofed).
   - At one point a large number of premium plugins/themes from a vendor contained a backdoor that got triggered with this string in the user agent. We block attacks if this is present.
 
-## Community IP Blocklist
+### Community IP Blocklist
 
 Community IP blocklist blocks access to IP addresses which are known to exploit vulnerabilities. This module contributes threat data back to the Patchstack network.
 
-## Generic OWASP
+### Generic OWASP
 
 This module contains protection rules that protect you against requests that contain certain patterns that match the <a href="https://owasp.org/www-project-top-ten/" target="_blank">OWASP top 10</a> ruleset.
 

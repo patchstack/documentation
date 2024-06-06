@@ -7,7 +7,11 @@ updatedAt: "Wed Jan 24 2024 14:39:28 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.1
 ---
-_Accessible for the Community, Developer and Business plan users._
+_Site software page is Accessible for the Community, Developer and Business plan users._
+
+To view and manage your WordPress software via Patchstack App, navigate to **Sites** > **yourdomain.com** > **Software** in Patchstack App.
+
+
 
 ![](@images/patchstack-site-software.png)
 

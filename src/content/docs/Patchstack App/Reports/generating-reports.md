@@ -1,5 +1,5 @@
 ---
-title: "Generating reports"
+title: "Generating security reports"
 
 excerpt: ""
 hidden: false
@@ -8,12 +8,14 @@ updatedAt: "Tue Jan 23 2024 14:27:46 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 6.1
 ---
-_Accessible for the Community, Developer and Business plan users._  
+_Patchstack reports are accessible for the Community, Developer and Business plan users._
+
+To view and generate the Patchstack security reports, navigate to **Reports** link in Patchstack App navigation menu, or click here: 
 **[https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)**
 
 ![](@images/patchstack-reports.png)
 
-## Generating Snapshot Report (Free)
+### Generating Snapshot report (Free)
 
 1. Go to the **Reports** page in the Patchstack App
 2. Click on the **Application** dropdown and choose your application
@@ -22,7 +24,7 @@ _Accessible for the Community, Developer and Business plan users._
 
 Read more about the **[Snapshot reports](/patchstack-app/reports/snapshot-report/)** here.
 
-## Generating Developer Report
+### Generating Developer report
 
 _This feature is only for the Developer and Business plan users_
 

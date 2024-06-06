@@ -8,12 +8,14 @@ updatedAt: "Thu Nov 23 2023 12:53:02 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 6.5
 ---
-_This feature is for the Developer and Business plan users only._  
-**[https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)**
+_The Developer report feature is available for the Developer and Business plan users._  
 
-**Developer Report** is a periodic PDF security report. It means you will need to pick a time period (for example a month), in which the data is shown on the report.
+To generate a Developer report, navigate to **Reports** page in Patchstack App, or click here:
+[https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)
 
-**Data in this report:**
+**Developer Report** is a periodic PDF security report. It means you will need to pick a time period (two dates), in which the data is shown on the report.
+
+**The developer report shows:**
 
 - Actions suggested to improve the security of your site
 - Statistics and detailed information about:
