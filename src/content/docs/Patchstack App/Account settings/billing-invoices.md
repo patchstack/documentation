@@ -11,6 +11,9 @@ updatedAt: "Wed Jun 28 2023 12:24:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 9.2
 ---
+
+To view your billing settings and past invoices, click on your name on Patchstack App (at the bottom left corner of the screen), then navigate to the **Billing & invoices** page, or click here: https://app.patchstack.com/billing/info
+
 On the **Billing & invoices** page you can see the information about your plan; when is the next billing date and download invoices.
 
 By scrolling down, you see general data about your invoices and download these as PDF files.

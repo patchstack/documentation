@@ -118,3 +118,7 @@ header button {
   grid-template-columns: 120px auto;
   align-items:center;
 }
+
+.color1 {
+	color: rgba(110,190,0,1);
+}

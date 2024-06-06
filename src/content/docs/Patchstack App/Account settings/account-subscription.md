@@ -10,7 +10,10 @@ updatedAt: "Tue May 09 2023 14:08:38 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 9.1
 ---
-On the **Subscription** subpage, you can switch between the pricing plans.  
+
+To view your account subscription settings, click on your name on Patchstack App (at the bottom left corner of the screen), then navigate to the **Subscription** page, or click here: https://app.patchstack.com/billing/subscription
+
+On the **Subscription** page, you can switch between the pricing plans.  
 You'll find more information about the plans here: <a href="https://patchstack.com/pricing" target="_blank">https://patchstack.com/pricing</a>.
 
 ![](@images/patchstack-subscription.png)
@@ -28,4 +31,4 @@ To enter billing information, choose the plan, after which, you will be taken to
 ## Upgrading / downgrading your plan
 
 If you have already subscribed to a Developer or a Business plan, you can manage your plans from the same page.  
-Just change your pricing plan by selecting one.
+Just change your pricing plan by selecting one first.

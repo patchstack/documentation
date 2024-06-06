@@ -11,19 +11,15 @@ updatedAt: "Thu May 25 2023 11:58:17 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 8
 ---
-_Accessible for the Community, Developer and Business plan users._  
-<https://app.patchstack.com/upgrades>
+_Upgrades are available for the Community, Developer and Business plan users._  
 
-Upgrades are the extra features developed by Patchstack.  
-These can be managed on the **Upgrades** page.
+To view available plan upgrades, navigate to **Upgrades** in Patchstack App, or click here:
+<a href="https://app.patchstack.com/billing/subscription" target="_blank">https://app.patchstack.com/billing/subscription</a>
 
-Patchstack's upgrades include:
+Patchstack's plan upgrades include:
 
-
-
-1. [Volume upgrade](/patchstack-app/upgrades/volume-upgrade/)
-2. [Additional Seat](/patchstack-app/upgrades/additional-seat/)
-3. [Vulnerability Database API](/patchstack-app/upgrades/vulnerability-database-api/)
-
+1. [Volume upgrade](/patchstack-app/upgrades/volume-upgrade/) - extend the amount of sites you can add to your Patchstack account
+2. [Additional seat](/patchstack-app/upgrades/additional-seat/) - grant access to your Patchstack App sites for another user
+3. [Vulnerability database API](/patchstack-app/upgrades/vulnerability-database-api/) - access our API endpoints to query our database
 
 ![](@images/patchstack-upgrades.png)

@@ -11,9 +11,13 @@ updatedAt: "Wed Jun 28 2023 12:21:53 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 8.1
 ---
-<https://app.patchstack.com/billing/subscription>
 
-Volume upgrade is for increasing the number of applications you can connect to your account.
+_Volume upgrade is available for the Community, Developer and Business plan users._  
+
+To view available plan upgrades, navigate to **Upgrades** in Patchstack App, or click here:
+<a href="https://app.patchstack.com/billing/subscription" target="_blank">https://app.patchstack.com/billing/subscription</a>
+
+Volume upgrade is afeature for increasing the number of sites you can add to your Patchstack account.
 
 - On the Community plan, you will get 40 extra site slots for $49 / month.
 - On the Developer plan, you will get 50 extra site slots for $99 / month.

@@ -11,6 +11,8 @@ updatedAt: "Tue May 09 2023 13:25:01 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 9
 ---
+To view your account settings, click on your name on Patchstack App (at the bottom left corner of the screen), or click here: https://app.patchstack.com/settings/account
+
 On the **Account** page you can manage your profile data and access different settings related to your account.  
 On the main screen, you can:
 
@@ -18,10 +20,10 @@ On the main screen, you can:
 <li>Change the name of your profile</li>
 <li>Change the account email address</li>
 <li>Change your password</li>
-<li>Request to delete your account</li>
-<li>Enable / disable Patchstack newsletter</li>
+<li>Enable / disable the Patchstack newsletter</li>
 <li>Set up 2 factor authentication for your user</li>
-<li>Change your account timezone</li>
+<li>Subscribe to upgrades for your account</li>
+<li>Request to delete your account</li>
 </ol>
 
-![](@images/patchstack-account-settings.png)
+![](@images/patchstack-account.png)

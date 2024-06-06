@@ -1,0 +1,47 @@
+---
+title: "Alerts"
+
+excerpt: ""
+hidden: false
+metadata: 
+  image: []
+  robots: "index"
+createdAt: "Mon Jul 25 2022 09:07:59 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Wed Sep 20 2023 13:29:48 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 7
+---
+import { Steps } from '@astrojs/starlight/components';
+
+_Alerts feature is accessible for the Community, Developer and Business plan users._ \
+_Community plan users have only one alert trigger, and that cannot be modified._  
+
+To set up or modify your alerts, navigate to **Alerts** in Patchstack App, or click here:
+<a href="https://app.patchstack.com/alerts/" target="_blank">https://app.patchstack.com/alerts/</a>
+
+
+On the **Alerts** page you see an overview of the latest alerts and the alert triggers.  
+Alerts are notifications, which can be delivered to your email or Slack channel.  
+
+_Note that some of the alerts may have a delay time of 15 to 30 minutes, as the data between your site and Patchstack App is synchronized 4 times an hour._
+
+To see the details about the latest alerts, click on the small arrow icon to the left of your domain name.
+
+On the right side of the page, you can see the **Triggers** section.  
+Triggers let you customize and receive relevant alerts, which can be sent to your email or Slack channel.
+Slack integration tutorial can be found [here!](/patchstack-app/account-settings/account-integrations/)
+
+Triggers are used to send alerts about:
+
+<Steps>
+1. Software events - send alerts, when any of your site's plugins or themes are found vulnerable or outdated
+2. WordPress activity events - send alerts about basic WordPress activities - eg. post deleted, post trashed, plugin updated, plugin removed, etc.
+3. Firewall logs events - send alerts when your site visitor matches certain URLs or IPs or traffic matches with your defined payloads
+</Steps>
+
+You can view the built-in trigger rules by clicking on the **Action** and **Edit** buttons of the trigger.
+
+To set up custom notifications, you will have to create a trigger.  
+You can create a trigger by clicking on **+ Create Trigger** on the top right corner and following <a href="/patchstack-app/alerts/creating-a-trigger/" target="_blank">this article</a>.
+
+![](@images/6a5df31-small-Patchstack_Alerts_and_triggers.png)
