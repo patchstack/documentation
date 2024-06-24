@@ -1,5 +1,5 @@
 ---
-title: "Error Code 5529"
+title: "Error code 5529"
 
 excerpt: ""
 hidden: false
@@ -11,17 +11,17 @@ If you are sure, it was a false positive blocking, you may whitelist the payload
 
 We recommend you to check the firewall logs on your site. To open the firewall log:
 
-1. Go to **Patchstack App** > **yourdomain.com**
+1. Go to **Patchstack App** > **Sites** > **yourdomain.com**
 2. Open the **Protection** tab
 3. Scroll to the bottom of this page, to find the **Activity** section
-4. open the log entry which has the IP of the person who got blocked
-5. Copy the part of the payload that should be whitelisted. 
+4. Open the log entry which has the IP of the person who got blocked
+5. Copy the part of the payload that should be whitelisted
 
 Example payload looks like this: `[action] => edit_post`
 
 To whitelist a payload: 
 
-1. Navigate to **Protection** > **Additional Settings** tab of your site on your site page in Patchstack App
+1. Navigate to **Patchstack App** > **Sites** > **yoursite.com** > **Protection** > **Additional Settings**.
 2. Into the Whitelist textbox, type "PAYLOAD:[action] => edit_post"
 3. Click **Save settings**
 

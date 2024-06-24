@@ -1,5 +1,5 @@
 ---
-title: "Error Code 23"
+title: "Error code 23"
 
 excerpt: ""
 hidden: false

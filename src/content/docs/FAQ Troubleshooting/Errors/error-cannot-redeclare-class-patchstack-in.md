@@ -16,8 +16,4 @@ Secondly, if you can still access your WordPress admin panel, go to **Plugins**,
 
 If you cannot access your WordPress admin area at all, we recommend deleting the plugin manually. For that, follow the instructions [here](/faq-troubleshooting/plugin/how-to-delete-the-patchstack-plugin-manually/).
 
-Possible fatal errors:  
-"Fatal error: Cannot redeclare class Patchstack in…"
-
-
 <script>document.querySelector("#launch-intercom").addEventListener("click", ()=>{Intercom("show")});</script>

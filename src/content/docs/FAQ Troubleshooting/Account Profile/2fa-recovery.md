@@ -1,6 +1,5 @@
 ---
 title: "2FA recovery"
-
 excerpt: ""
 hidden: false
 metadata: 
@@ -11,7 +10,7 @@ updatedAt: "Fri Jan 20 2023 11:54:22 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 2.1
 ---
-If you have lost the ability to log in with 2FA (for example you have lost your phone), we can remove the two factor authentication from your account.
+If you have lost the ability to log in with 2FA (two factor authentication), we can remove it from your Patchstack account manually.
 
 To request removing the 2FA from your account: 
 
