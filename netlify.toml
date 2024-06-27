@@ -971,3 +971,11 @@
 [[redirects]]
 	from = "/getting-started/introduction"
 	to =  "/getting-started/welcome/"
+
+[[redirects]]
+	from = "/database-api/vulnerability-api-for-developers/"
+	to = "/database-api/standard-api/"
+
+[[redirects]]
+	from = "/database-api/vulnerability-api-for-hosts/"
+	to = "/database-api/enterprise-api/"
