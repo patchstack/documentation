@@ -91,7 +91,7 @@ Below are the possible matching types.
 - [isset](https://www.php.net/isset)
   - Only determine if the parameter is set
 - ctype_special
-  - Special custom function that removes spaces, dashes and underscores and then determines if it's a ctype_alnum. 
+  - Special custom function that removes commas, spaces, dashes and underscores and then determines if it’s a ctype_alnum.
 - [ctype_digit](https://www.php.net/ctype_digit)
   - If ctype_digit function returns true/false
 - [ctype_alnum](https://www.php.net/ctype_alnum)
