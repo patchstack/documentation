@@ -11,9 +11,7 @@ updatedAt: "Thu May 11 2023 12:00:52 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 7.7
 ---
-In the Patchstack App, this may show up under "improvements" when you view your site.
-
-If you have our WordPress plugin installed, we will automatically try to inject the security headers into the response.
+If you have the Patchstack plugin installed, we will automatically try to inject the security headers into the response.
 
 If this does not work, perhaps due to an aggressive caching plugin or caching/proxy server, you may have to manually add the .htaccess rules below to your .htaccess file. 
 
@@ -21,25 +19,14 @@ If this does not work, perhaps due to an aggressive caching plugin or caching/pr
 
 To automatically add the security headers, you need to navigate to the Patchstack App or Patchstack plugin in your WordPress dashboard. 
 
-<b>How to do it via Patchstack plugin?</b>
-
-<ol><li>
-Navigate to your WordPress dashboard</li>
-<li>On the left side menu find Settings</li>
-<li>Under Settings find Security</li>
-<li>From the Patchstack plugin menu click Firewall </li>
-<li>Scroll down until you see .htaccess Features</li>
-<li>Tick the green box "Add security headers" </li>
-<li>Scroll down and Save settings</li></ol>
-
 <b>How to do it in the Patchstack App? </b>
 
-<ol>
-<li>Click on the application you want to add security headers to from the Patchstack App dashboard</li>
-<li>Click on the Hardening tab </li>
-<li>Click on the .htaccess sub-tab</li>
-<li>Switch on the option "Add security headers"</li>
-<li>Scroll down and click Save settings</li></ol>
+
+1. Navigate to your site from the Patchstack App > Sites
+2. Click on the Hardening tab 
+3. Click on the .htaccess sub-tab
+4. Switch on the option "Add security headers"
+5. Scroll down and click **Save settings**
 
 ## Adding the security headers manually
 
@@ -64,5 +51,3 @@ add_header Strict-Transport-Security "max-age=31536000";
 add_header Referrer-Policy "strict-origin-when-cross-origin";</pre>
 
 Additionally, in order to permanently remove the X-Powered-By header instead of using the above changes, set the expose_php value of your PHP configuration to "Off". You may have to ask your host to make the above changes.
-
-<i>Note that it may take up to 12 hours before the security headers error in the App is resolved.

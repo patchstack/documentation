@@ -11,7 +11,7 @@ updatedAt: "Wed May 24 2023 11:35:20 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 7.5
 ---
-If you run nginx, then the .htaccess functionality wont work.
+If your server runs nginx, then the .htaccess functionality won't work.
 
 Apache has a feature that allows you to use a .htaccess file to easily implement or override rewrite rules on your site, but nginx does not have such a feature. In order for the rewrite rules to work, you must implement the nginx rules manually.
 

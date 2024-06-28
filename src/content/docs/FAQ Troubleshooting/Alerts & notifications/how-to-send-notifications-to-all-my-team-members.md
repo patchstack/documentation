@@ -10,9 +10,11 @@ createdAt: "Tue Aug 09 2022 11:47:43 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 12:50:19 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 4
+slug: "faq-troubleshooting/alerts-notifications/how-to-send-notifications-to-all-my-team-members"
 ---
-Currently, Patchstack sends notifications only to the user, who is the **owner** or **manager** of the site.  
-But in case you would like to get notified to other email addresses, you can set up the custom alerts!
+Currently, Patchstack sends notifications only to the user, who is the **owner** or **manager** of the site. But in case you would like to get notified to other email addresses, you can set up the custom alerts!
+
+Note that custom alerts is a feature for Developer or Business plan accounts only.
 
 ## Setting up an email alert
 

@@ -9,7 +9,14 @@ metadata:
 createdAt: "Mon Aug 22 2022 13:24:13 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu May 11 2023 11:14:04 GMT+0000 (Coordinated Universal Time)"
 ---
-Error code 22 is the internal code we use for \"temporary IP ban\". If you see this error even though you are a legitimate visitor, there can be multiple causes:
+Error code 22 is the internal code we use for \"temporary IP ban\". If you see this error even though you are a legitimate visitor, there can be multiple causes.
+
+Mostly this error is caused by the Generic OWASP firewall module. This provides very aggressive protection and has a higher chance of false positives, so it is only recommended to enable this on sites with a low number of plugins and do not run some sort of e-commerce environment such as WooCommerce. 
+
+You can turn the Generic OWASP module off, when you navigate to **Sites** > **yourdomain.com** > **Protection**.
+
+
+However, if that didn't help, check the next steps:
 <ol>
 <li>The real visitor's IP address is not properly forwarded to your application, either due to a proxy server or another plugin that overrides it. This causes the IP address of the server or proxy to be logged for all visitors which can block all traffic. 
 <br>We have a setting to override the IP header we use to retrieve the IP address. To find it, go to <b>Patchstack App</b> > <b>yoursite.com</b> > <b>Protection</b> > <b>Additional settings</b> > Scroll down to <b>IP address header override</b> setting. 

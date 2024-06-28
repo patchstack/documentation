@@ -1,6 +1,5 @@
 ---
 title: "List of IP addresses, that Patchstack servers use"
-
 excerpt: "Below is a list of most of the IP addresses that we currently use."
 hidden: false
 metadata: 

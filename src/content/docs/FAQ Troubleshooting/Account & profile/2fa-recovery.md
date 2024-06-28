@@ -9,6 +9,7 @@ createdAt: "Fri Jan 20 2023 11:30:41 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Fri Jan 20 2023 11:54:22 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 2.1
+slug: "faq-troubleshooting/account-profile/2fa-recovery"
 ---
 If you have lost the ability to log in with 2FA (two factor authentication), we can remove it from your Patchstack account manually.
 

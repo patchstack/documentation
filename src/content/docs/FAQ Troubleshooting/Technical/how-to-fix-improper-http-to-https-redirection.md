@@ -11,7 +11,7 @@ updatedAt: "Wed May 10 2023 13:13:40 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 7.6
 ---
-When your web application does not properly redirect HTTP requests to HTTPS, a Man-In-The-Middle attack may be possible.
+When your site does not properly redirect HTTP requests to HTTPS, a Man-In-The-Middle attack may be possible.
 
 It must redirect straight from the HTTP to the HTTPS version of your site with no additional HTTP redirects in between.
 
