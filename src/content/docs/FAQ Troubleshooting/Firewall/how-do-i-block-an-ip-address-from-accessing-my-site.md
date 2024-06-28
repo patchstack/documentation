@@ -9,7 +9,7 @@ metadata:
 createdAt: "Fri Aug 26 2022 11:36:26 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 13:47:00 GMT+0000 (Coordinated Universal Time)"
 ---
-We have made it easy for you to block IP addresses.
+With Patchstack, it is easy to block certain IP addresses from accessing your site.
 
 In order to block an IP address, do the following:
 

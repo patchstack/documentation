@@ -9,7 +9,7 @@ metadata:
 createdAt: "Wed Jul 27 2022 11:14:08 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 13:51:25 GMT+0000 (Coordinated Universal Time)"
 ---
-Reviews are a good source for people who are considering trying out Patchstack. When you write a review try to explain your experience, the features you like the most, and how they helped you.
+Reviews are a good source for people who are considering trying out Patchstack. When you write a review, try to explain your experience, the features you like the most, and how they helped you.
 
 This will help us and we really appreciate your help in showing the value we create. 
 

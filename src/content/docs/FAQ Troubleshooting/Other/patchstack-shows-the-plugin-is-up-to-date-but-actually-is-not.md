@@ -28,6 +28,6 @@ A missing or wrong version may also show up if your WordPress site is out of syn
 
 * Make sure your site is publicly accessible (so Patchstack can access it)
 * Check if you have the correct Patchstack API key inserted into the Patchstack plugin. 
-Navigate to wp-admin > Settings > Security.
+Navigate to **wp-admin** > **Settings** > **Security**.
 * Make sure that you don't use the same API key across multiple sites
 * Make sure that the site URL you have entered on Patchstack App is correct

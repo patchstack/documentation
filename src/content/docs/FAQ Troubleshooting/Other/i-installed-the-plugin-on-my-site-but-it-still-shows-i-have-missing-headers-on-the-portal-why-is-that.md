@@ -1,5 +1,5 @@
 ---
-title: "I installed the plugin on my site but it still shows I have missing headers on the app. Why is that?"
+title: "I installed the plugin on my site but it still shows I have missing headers on the App. Why is that?"
 
 excerpt: ""
 hidden: false

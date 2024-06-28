@@ -1,5 +1,5 @@
 ---
-title: "Legitimate visitors or pages are being blocked by the firewall. How do I add this to the whitelist?"
+title: "Legitimate visitors or pages are being blocked by the firewall. How do I add these to the whitelist?"
 
 excerpt: ""
 hidden: false
@@ -11,12 +11,11 @@ updatedAt: "Wed May 10 2023 13:48:10 GMT+0000 (Coordinated Universal Time)"
 ---
 Our whitelist feature makes it easy to whitelist specific requests.
 
-To whitelist:
+To manage the whitelist:
 
-<ol><li>Log in to the Patchstack App</li>
-<li>Go to <b>Sites</b> > <b>yourdomain.com</b> > <b>Hardening</b></li>
-<li>Scroll down to <b>Whitelist text field</b></li>
-</ol>
+1. Log in to the Patchstack App
+2. Go to **Sites** > **yourdomain.com** > **Protection** > **Additional settings**
+3. Scroll down to **Whitelist** text field
 
 This text field supports a specific syntax that you can use to whitelist specific requests. Each definition must be placed on its own line.
 
