@@ -47,7 +47,7 @@ Take immediate action on the **High Priority** vulnerabilities.
 
 [Learn more about vulnerabilities](/patchstack-app/dashboard/)
 
-### Step 4# — Enable real-time protection
+### Step #4 — Enable real-time protection
 
 Hackers only need a few hours to exploit a known vulnerability — before the plugin developers can issue an update. Enable real-time protection with vPatching to protect your site(s) for $5 / month per site.
 
