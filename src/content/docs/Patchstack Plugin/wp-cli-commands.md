@@ -9,7 +9,7 @@ metadata:
 createdAt: "Thu Jun 29 2023 11:28:48 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu Jun 29 2023 12:24:18 GMT+0000 (Coordinated Universal Time)"
 sidebar:
-  order: 6
+  order: 4
 ---
 The Patchstack WordPress plugin provides you access to the following WP CLI command as of version 2.1.25.  
 Before running this command, the Patchstack WordPress plugin should be installed on the site. You can use the WP CLI command below to install it.
