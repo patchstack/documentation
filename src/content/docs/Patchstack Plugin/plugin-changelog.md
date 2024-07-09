@@ -10,6 +10,28 @@ sidebar:
 ---
 
 
+<b>July 9th 2024</b>
+
+<ul>
+
+<li>Version 2.2.13</li>
+<li>Added: some statistics on the plugin dashboard.</li>
+<li>Added: Cloudflare Turnstile captcha support.</li>
+<li>Changed: due to WP core changes, set some options to autoload true.</li>
+<li>Changed: minimum PHP version to 5.6.0.</li>
+<li>Changed: some cron jobs from several times a day to once a day.</li>
+<li>Changed: updated the GEOIP database.</li>
+<li>Fixed: potential caching issue with specific caching plugins.</li>
+<li>Fixed: changed some settings retrieval to get_option instead of get_site_option.</li>
+<li>Fixed: .htaccess error showing on non-Apache environments.</li>
+<li>Fixed: multisite settings inconsistencies.</li>
+<li>Fixed: refresh loop on API key page.</li>
+<li>Removed: unused CSS, JavaScript, images.</li>
+<li>Removed: plugin settings management from WordPress wp-admin. You must now do this through the Patchstack App.</li>
+</ul>
+
+
+
 <b>April 11th 2024</b>
 
 <ul>
@@ -25,24 +47,6 @@ sidebar:
 
 </ul>
 
-<b>July 9th 2024</b>
-
-<ul>
-  
-<li>Added: some statistics on the plugin dashboard.</li>
-<li>Added: Cloudflare Turnstile captcha support.</li>
-<li>Changed: due to WP core changes, set some options to autoload true.</li>
-<li>Changed: minimum PHP version to 5.6.0.</li>
-<li>Changed: some cron jobs from several times a day to once a day.</li>
-<li>Changed: updated the GEOIP database.</li>
-<li>Fixed: potential caching issue with specific caching plugins.</li>
-<li>Fixed: changed some settings retrieval to get_option instead of get_site_option.</li>
-<li>Fixed: .htaccess error showing on non-Apache environments.</li>
-<li>Fixed: multisite settings inconsistencies.</li>
-<li>Fixed: refresh loop on API key page.</li>
-<li>Removed: unused CSS, JavaScript, images.</li>
-<li>Removed: plugin settings management from WordPress wp-admin. You must now do this through the Patchstack App.</li>
-</ul>
 
 <b>March 8th 2024</b>
 
