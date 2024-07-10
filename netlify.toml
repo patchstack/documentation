@@ -979,3 +979,11 @@
 [[redirects]]
 	from = "/database-api/vulnerability-api-for-hosts/"
 	to = "/database-api/enterprise-api/"
+
+[[redirects]]
+	from = "/patchstack-app/site-dashboard/hardening/recaptcha/"
+	to = "/patchstack-app/site-dashboard/hardening/captcha"
+
+[[redirects]]
+	from = "/faq-troubleshooting/integrations/how-to-get-the-site-key-and-secret-key-for-the-recaptcha-feature/"
+	to = "/patchstack-app/site-dashboard/hardening/captcha"
