@@ -20,7 +20,7 @@ Patchstack offers two captcha solutions:
 - Cloudflare Turnstile
 
 
-![](@images/patchstack-hardening-recaptcha.png)
+![](@images/patchstack-captcha-setup.png)
 
 
 Note that our captcha can only be used on the WordPress built-in forms - these are:
