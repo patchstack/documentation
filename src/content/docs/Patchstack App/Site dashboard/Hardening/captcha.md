@@ -24,10 +24,10 @@ Patchstack offers two captcha solutions:
 
 
 Note that our captcha can only be used on the WordPress built-in forms - these are:
-<ul><li>Commenting forms</li>
-<li>Login form</li>
-<li>Registration form</li>
-<li>Password reset form</li></ul>
+* Commenting forms
+* Login form
+* Registration form
+* Password reset form
 
 **NB!** Patchstack does not offer captcha integrations for other third-party plugins or themes (eg. WooCommerce, Contact Form 7).
 
