@@ -42,12 +42,12 @@ export default defineConfig({
 					autogenerate: { directory: 'Getting Started', collapsed: true },
 				},
 				{
-					label: 'Patchstack App',
+					label: 'Patchstack app',
 					collapsed: true,
 					autogenerate: { directory: 'Patchstack App', collapsed: true },
 				},
 				{
-					label: 'Patchstack Plugin',
+					label: 'Patchstack plugin',
 					collapsed: true,
 					autogenerate: { directory: 'Patchstack Plugin', collapsed: true },
 				},
@@ -57,9 +57,19 @@ export default defineConfig({
 					autogenerate: { directory: 'Database API', collapsed: true },
 				},
 				{
-					label: 'FAQ & Troubleshooting',
+					label: 'FAQ & troubleshooting',
 					collapsed: true,
 					autogenerate: { directory: 'FAQ Troubleshooting', collapsed: true },
+				},
+			/*	{
+					label: 'Partners',
+					collapsed: true,
+					autogenerate: { directory: 'Partners', collapsed: true },
+				}, */
+				{
+					label: 'Vulnerability Disclosure Program',
+					collapsed: true,
+					autogenerate: { directory: 'Vulnerability Disclosure Program', collapsed: true },
 				},
 			],
 		}),
