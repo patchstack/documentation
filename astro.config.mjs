@@ -57,6 +57,11 @@ export default defineConfig({
 					autogenerate: { directory: 'Database API', collapsed: true },
 				},
 				{
+					label: 'Vulnerability Disclosure Program',
+					collapsed: true,
+					autogenerate: { directory: 'Vulnerability Disclosure Program', collapsed: true },
+				},
+				{
 					label: 'FAQ & troubleshooting',
 					collapsed: true,
 					autogenerate: { directory: 'FAQ Troubleshooting', collapsed: true },
@@ -66,11 +71,7 @@ export default defineConfig({
 					collapsed: true,
 					autogenerate: { directory: 'Partners', collapsed: true },
 				}, */
-				{
-					label: 'Vulnerability Disclosure Program',
-					collapsed: true,
-					autogenerate: { directory: 'Vulnerability Disclosure Program', collapsed: true },
-				},
+
 			],
 		}),
 
