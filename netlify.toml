@@ -987,3 +987,7 @@
 [[redirects]]
 	from = "/faq-troubleshooting/integrations/how-to-get-the-site-key-and-secret-key-for-the-recaptcha-feature/"
 	to = "/patchstack-app/site-dashboard/hardening/captcha"
+
+[[redirects]]
+	from = "/docs/how-to-fix-the-missing-security-headers-issue"
+	to = "/faq-troubleshooting/technical/how-to-fix-the-missing-security-headers-issue/"
