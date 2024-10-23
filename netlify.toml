@@ -913,10 +913,6 @@
 	to = "/patchstack-plugin/patchstack-plugin-welcome-screen/"
 
 [[redirects]]
-	from = "/en/articles/2155626-how-to-fix-the-missing-security-headers-issue"
-	to = "/faq-troubleshooting/technical/how-to-fix-the-missing-security-headers-issue/"
-
-[[redirects]]
 	from = "/patchstack-app/add-ons/add-ons"
 	to = "/patchstack-app/upgrades/upgrades/"
 
@@ -989,5 +985,9 @@
 	to = "/patchstack-app/site-dashboard/hardening/captcha"
 
 [[redirects]]
+	from = "/en/articles/2155626-how-to-fix-the-missing-security-headers-issue"
+	to = "/faq-troubleshooting/technical/how-to-add-security-headers-with-patchstack/"
+
+[[redirects]]
 	from = "/docs/how-to-fix-the-missing-security-headers-issue"
-	to = "/faq-troubleshooting/technical/how-to-fix-the-missing-security-headers-issue/"
+	to = "/faq-troubleshooting/technical/how-to-add-security-headers-with-patchstack/"

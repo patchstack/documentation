@@ -1,5 +1,5 @@
 ---
-title: "How to fix the missing security headers issue?"
+title: "How to add security headers with Patchstack?"
 
 excerpt: ""
 hidden: false
@@ -51,3 +51,11 @@ add_header Strict-Transport-Security "max-age=31536000";
 add_header Referrer-Policy "strict-origin-when-cross-origin";</pre>
 
 Additionally, in order to permanently remove the X-Powered-By header instead of using the above changes, set the expose_php value of your PHP configuration to "Off". You may have to ask your host to make the above changes.
+
+## More help
+A more detailed guide about security headers can be found in this article:
+https://patchstack.com/articles/wordpress-security-headers/
+
+In case you need help, turn to our support chat - just click the green chat bubble at the bottom right corner!
+
+
