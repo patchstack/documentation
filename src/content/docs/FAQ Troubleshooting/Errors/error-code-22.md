@@ -29,6 +29,8 @@ For example, if your host tells you it's in $_SERVER['IP-Header-X'] then you ent
 <li>Make sure that you have whitelisted the proper user roles for your site. Check the user roles whitelist settings, by navigating to <b>Patchstack App</b> > <b>yoursite.com</b> > <b>Protection</b> > <b>Additional settings</b>.</li>
 </ol>
 
-The temporary IP ban usually lifts within 30 minutes. You can <a href="#" id="launch-intercom">start a chat with us</a> and provide the URL of the site so we can investigate the exact cause and fix it permanently.
+The temporary IP ban usually lifts within 30 minutes. You can <a href="#" id="launch-intercom">start a chat with us</a>, make sure to provide the URL of your site so we can investigate the exact cause and fix it permanently.
+
+
 
 <script>document.querySelector("#launch-intercom").addEventListener("click", ()=>{Intercom("show")});</script>
