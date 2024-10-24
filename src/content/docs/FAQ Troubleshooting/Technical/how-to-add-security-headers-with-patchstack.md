@@ -54,7 +54,7 @@ Additionally, in order to permanently remove the X-Powered-By header instead of 
 
 ## More help
 A more detailed guide about security headers can be found in this article:
-https://patchstack.com/articles/wordpress-security-headers/
+<a href="https://patchstack.com/articles/wordpress-security-headers/" target="_blank">https://patchstack.com/articles/wordpress-security-headers/</a>
 
 In case you need help, turn to our support chat - just click the green chat bubble at the bottom right corner!
 
