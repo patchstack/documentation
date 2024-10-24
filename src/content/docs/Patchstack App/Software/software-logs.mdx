@@ -1,6 +1,5 @@
 ---
 title: "Logs"
-
 excerpt: ""
 hidden: false
 metadata: 
@@ -11,13 +10,18 @@ updatedAt: "Wed Jul 26 2023 11:44:24 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 4.1
 ---
+import { Aside } from '@astrojs/starlight/components';
+
 _Software logs are acessible for the Community, Developer and Business plan users._  
 
-Navigate to the software logs page by visiting **Software** > **Logs**, or click here: 
-<https://app.patchstack.com/software/logs>
+Navigate to the software logs page by visiting **Software** > **Logs**, or <a href="https://app.patchstack.com/software/logs" target="_blank">click here</a>.
 
 On the **Logs** subpage you can see the history of what actions have you taken with different software (themes, plugins and WordPress core) through the Patchstack App.
 
 As seen on the screenshot below, it shows that the user has updated three plugins on three different websites.
 
 ![](@images/patchstack-software-logs.png)
+
+<Aside type="tip">
+PS! Software logs are only showing actions taken manually from Patchstack App. This page does not show data about  auto-updated software, or updates ran from WordPress itself. To view the data about auto-updated software or updates ran from WordPress itself, you can visit your site <a href="/patchstack-app/site-dashboard/activity/" target="_blank">Activity log</a> instead.
+</Aside>
