@@ -22,27 +22,38 @@ To install Patchstack on the multisite network, the easiest way is to do it via 
 1. Navigate to <a href="https://app.patchstack.com/sites" target="_blank">Sites</a> on the Patchstack App and click on **+ Add new** (at the top bar).
 2. Type in your domain and click **Continue to plugin sync**
 3. You are then shown a popup like this: ![](@images/patchstack-checking-sync-status.png)
-4. Click on **Or sync manually** link to get the API key.
+4. Click on **Or sync manually** link and copy the API key
 
 
 ## Step #2 — Install the plugin
-1. Go to your WordPress admin and navigate to **Plugins** > **Add New Plugin**
+1. Go to your WordPress Network Admin and navigate to **Plugins** > **Add New Plugin**
 2. Search for "Patchstack"
 3. Install the "Patchstack – WordPress & Plugins Security" plugin
 4. Once the plugin is installed, click **Activate**
+5. You will then see screen as such:
 ![](@images/patchstack-multisite-installation-screen.png)
+6. Click on the last link in this box, then paste the API key to that field, and click "Sync"
+7. Your main site is now connected and synchronized with Patchstack
+8. You should see a success screen in Patchstack App and in your plugin as well
 
-## Step #3 — Sync the plugin with Patchstack App
-1. In WordPress admin menu, under **Patchstack**, click **Sites**
-2. Click on **Settings Page** of your main network site
-![](@images/patchstack-multisite-plugin-settings.png)
-3. If your site is not automatically synced, paste the API key to the corresponding field and click "Sync"
-4. You should see a success screen in Patchstack App and in your plugin as well
+
+## Step #3 - Connecting the subsites
+
+To connect the subsites, repeat the process in **step 1** - add your site to Patchstack App, and then get the plugin API key.
+1. In your Network Admin, navigate to **Patchstack** > **Sites**
+2. You'll see screen as such: ![](@images/patchstack-multisite-plugin-settings.png)
+3. To add an API key to the corresponding site, click "Settings page" and add the API key the same way as you did for the main site
+
+
+## Rerunning the database migration
+In some certain scenarios, you may encounter database errors on your error logs about Patchstack database tables, when running the multisite environment. For that, you will need to rerun the database migrations. 
+
+This can be done when you navigate to: **Network Admin** > **Patchstack** > **Sites** and click on **Rerun Database Migration** from there for your sites.
 
 
 ## Conclusion
 
-You will have to add every subsite separately to the Patchstack App and insert the API keys to every subsite.
+You will have to add every subsite separately to the Patchstack App and insert the plugin API keys to every subsite.
 After adding a site successfully, you'll see stats of your site on your WordPress admin.
 ![](@images/patchstack-plugin-connected.png)
 
