@@ -1,5 +1,6 @@
 import { defineConfig, passthroughImageService } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi'
 
 const site_url = process.env.URL;
 
@@ -10,8 +11,23 @@ export default defineConfig({
 	image: {
 		service: passthroughImageService(),
 	},
+	banner: {
+		enabled: true,
+		content: 'Black Friday Deal - <a href="https://patchstack.com/black-friday-2024/" target="about:blank">50% off dev plan for 6 months</a>',
+	
+	},
 	integrations: [
 		starlight({
+			plugins: [
+				// Generate the OpenAPI documentation pages.
+				// starlightOpenAPI([
+				// 	{
+				// 		base: 'developer-api',
+				// 		label: 'My API',
+				// 		schema: './schemas/test.yaml',
+				// 	},
+				// ])
+			],
 			title: 'Patchstack Docs',
 			favicon: '/images/psfavicon.svg',
 			editLink: {
@@ -34,6 +50,7 @@ export default defineConfig({
 				//ThemeSelect: './src/components/ThemeSelect.astro',
 				Head: './src/components/Head.astro',
 				SkipLink: './src/components/SkipLink.astro',
+				PageFrame: './src/components/PageFrame.astro',
 			},
 			sidebar: [
 				{
@@ -76,4 +93,5 @@ export default defineConfig({
 		}),
 
 	],
+
 });
