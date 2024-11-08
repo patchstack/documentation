@@ -67,6 +67,8 @@ header button {
 	--sl-color-gray-7: #f5f6f8;
 	--sl-color-black: #ffffff;
 	--sl-color-bg-nav: #24272f;
+	--sl-color-text-invert:#24272f;
+	
 
 	starlight-theme-select select,
 	starlight-theme-select option,
