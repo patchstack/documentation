@@ -2,14 +2,12 @@
 import type { Props } from '@astrojs/starlight/props';
 
 const PAGE_TITLE_ID = '_top';
-const { labels } = Astro.props;
 ---
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZZBNRV"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<a href={`#${PAGE_TITLE_ID}`}>{labels['skipLink.label']}</a>
-
+<a href={`#${PAGE_TITLE_ID}`}>{Astro.locals.t('skipLink.label')}</a>
 <style>
 	a {
 		clip: rect(0, 0, 0, 0);
