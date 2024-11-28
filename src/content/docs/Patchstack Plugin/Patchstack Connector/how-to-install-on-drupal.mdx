@@ -1,0 +1,41 @@
+---
+title: "Drupal Installation"
+
+excerpt: ""
+hidden: false
+metadata: 
+  robots: "index"
+createdAt: "Wed Dec 21 2022 17:45:01 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Wed May 10 2023 12:25:03 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 26
+---
+import { Steps } from '@astrojs/starlight/components';
+
+## Notes
+- At this time, access to (S)FTP is required in order to upload the module manually.
+- The Drupal module will be made available through composer and Drupal.org in 2025.
+
+## Requirements
+- Drupal core version 9.4+
+- PHP 5.6+
+- Access to (S)FTP
+
+## Installation
+Follow these steps to install the Patchstack connector on your Drupal site.
+
+<Steps>
+1. Download the Drupal connector <a href="https://downloads.patchstack.com/patchstack-drupal-connector.zip">here</a>.
+2. Connect to (S)FTP of your Drupal site.
+3. Navigate to **/web/modules/** and unzip the contents of the zip file into this folder.
+4. Confirm that the **/web/modules/patchstack/** folder exists and this folder contains 3 other folders and files. ![](@images/patchstack-connector-drupal-installation-1.png)
+5. Navigate to the administration area (**/admin/**) on your site.
+6. Navigate to Extend and scroll down to the Patchstack Security item.
+7. Check the box, and click on the Install button. ![](@images/patchstack-connector-drupal-installation-2.png)
+8. After module installation, scroll back down and expand the description to see a "Configure" button. Alternatively, navigate to **/admin/config/development/patchstack**  ![](@images/patchstack-connector-drupal-installation-3.png)
+9. On this page, enter the API key found on the page of your site in the Patchstack App.
+10. Click on the "Save configuration" button. ![](@images/patchstack-connector-drupal-installation-4.png)
+11. After it has been saved, note that the API token is still present in the field and the "Bearer token" field will be filled in. Visit your site in the Patchstack App to view its information and note that it connected to Patchstack.
+</Steps>
+
+If you need further help, don't hesitate to reach out to us via live chat at the bottom right corner!
