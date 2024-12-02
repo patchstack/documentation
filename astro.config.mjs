@@ -12,7 +12,7 @@ export default defineConfig({
 		service: passthroughImageService(),
 	},
 	banner: {
-		enabled: true,
+		enabled: false,
 		content: 'Black Friday Deal - <a href="https://patchstack.com/black-friday-2024/" target="about:blank">50% off dev plan for 6 months</a>',
 	
 	},
