@@ -7,9 +7,9 @@ createdAt: "Mon Jul 25 2022 08:58:18 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Sun Jan 14 2024 16:22:28 GMT+0000 (Coordinated Universal Time)"
 sidebar:
     order: 3
-badge:
-    text: New
-    variant: tip
+    badge:
+        text: New
+        variant: tip
 ---
 Patchstack has three different pricing plans available: 
 - [Developer](https://patchstack.com/pricing/)
