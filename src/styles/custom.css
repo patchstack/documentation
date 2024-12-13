@@ -17,6 +17,10 @@
 	src: url('/fonts/_faktum-regular.woff2') format('woff2');
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 h1, h2, h3, span.link-title, p span {
     font-family: "Faktum", sans-serif;
 }

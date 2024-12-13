@@ -21,7 +21,8 @@ Whether you are a security enthusiast, business owner, or a web development agen
 
 ## Developer plan
 
-The Developer plan is ideal for businesses and agencies who manage more than 10 WordPress sites. By default settings, this plan protects your sites with all 4 Patchstack's <a href="/patchstack-app/protection/patchstack-modules/" target="_blank">protection modules</a>, including <a href="https://patchstack.com/articles/virtual-patching" target="_blank">vPatching</a>, which block malicious traffic until security updates become available. The Developer plan has many easy-to-use extra hardening options for keeping your sites secure.  
+The Developer plan is ideal for businesses and agencies who need vulnerability detection & protection for multiple WordPress sites. By default settings, this plan protects your sites with all 4 Patchstack's <a href="/patchstack-app/protection/patchstack-modules/" target="_blank">protection modules</a>, including <a href="https://patchstack.com/articles/virtual-patching" target="_blank">vPatching</a>, which block malicious traffic until security updates become available. The Developer plan has many easy-to-use extra hardening options for keeping your sites secure.  
+
 On this plan, by default you can protect up to 50 sites, but it can be extended with our **Volume Upgrade** feature.
 
 ### Developer plan pricing:
