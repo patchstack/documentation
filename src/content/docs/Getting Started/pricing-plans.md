@@ -11,7 +11,7 @@ sidebar:
         text: New
         variant: tip
 ---
-Patchstack has three different pricing plans available: 
+Patchstack has two pricing plans available:
 - [Developer](https://patchstack.com/pricing/)
 - [Enterprise](https://patchstack.com/pricing/)
 
@@ -28,7 +28,7 @@ On this plan, by default you can protect up to 50 sites, but it can be extended 
 ### Developer plan pricing
 * Monthly payment plan: $99 / mo for 50 sites  
 * Annual payment plan: $89 / mo for 50 sites  
-* Volume Upgrade feature: $99 / mo 
+* Volume Upgrade feature: $99 / mo for **additional 50 sites**
 
 ## Enterprise plan
 
@@ -37,5 +37,8 @@ Best for businesses that require advanced security or maintain high-profile webs
 The Enterprise plan includes unlimited websites and unlimited team seats. It also includes a signed **Service Level Agreement (SLA)**, a **Data Processing Agreement (DPA)**, **custom billing options**, and **Enterprise-level support**.
 
 
-### Business plan pricing
+### Enterprise plan pricing
+- Unlimited sites
+- Unlimited team seats
+- SLA, DPA
 - Custom - [reach out to us for a quote](https://share.hsforms.com/1hiWhAMliSmG0tB7ahthqpwsr3ry)
