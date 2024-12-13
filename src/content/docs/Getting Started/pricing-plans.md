@@ -7,43 +7,38 @@ createdAt: "Mon Jul 25 2022 08:58:18 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Sun Jan 14 2024 16:22:28 GMT+0000 (Coordinated Universal Time)"
 sidebar:
     order: 3
+    badge:
+        text: New
+        variant: tip
 ---
-Patchstack has three different pricing plans available: <ul><li><a href="https://patchstack.com/pricing/" target="_blank">Community</a></li><li><a href="https://patchstack.com/pricing/" target="_blank">Developer</a></li><li><a href="https://patchstack.com/pricing/" target="_blank">Business</a></li></ul>
+Patchstack has two pricing plans available:
+- [Developer](https://patchstack.com/pricing/)
+- [Enterprise](https://patchstack.com/pricing/)
 
-Whether you are a security enthusiast, business owner, or a web development agency, you should find the perfect plan on our <a href="https://patchstack.com/pricing/" target="_blank">pricing page</a>.
+Whether you are a security enthusiast, business owner, or a web development agency, you should find the perfect plan on our [pricing page](https://patchstack.com/pricing/).
 
-**Below you'll find more information about each of Patchstacks' pricing plans.** 
+**Below you'll find more information about each of Patchstack's pricing plans.** 
 
-### Community plan
+## Developer plan
 
-The Community plan is a free plan, which by default lets you manage up to 10 web applications.  
-This free version helps you to find out if any of your WordPress site's components have vulnerabilities. With Community plan, you can manage all the plugins and themes of your sites directly from the Patchstack App.  
-Individual protection costs $5 / month per site. For this price you'll get all 4 <a href="/patchstack-app/protection/patchstack-modules/" target="_blank">protection modules</a> that Patchstack offers - vPatching, Community IP blocklist, Advanced Hardening and Generic OWASP ruleset.
+The Developer plan is ideal for businesses and agencies who need vulnerability detection & protection for multiple WordPress sites. By default settings, this plan protects your sites with all 4 Patchstack's <a href="/patchstack-app/protection/patchstack-modules/" target="_blank">protection modules</a>, including <a href="https://patchstack.com/articles/virtual-patching" target="_blank">vPatching</a>, which block malicious traffic until security updates become available. The Developer plan has many easy-to-use extra hardening options for keeping your sites secure.  
 
-###### Community plan pricing:
-* By default, this plan is free
-* Buy protection for each site separately with $5 per month for site
-* Volume Upgrade feature: $49 / mo
-* The Community plan offers only a monthly payment option
-
-### Developer plan
-
-The Developer plan is ideal for businesses and agencies who manage more than 10 WordPress sites. By default settings, this plan protects your sites with all 4 Patchstack's <a href="/patchstack-app/protection/patchstack-modules/" target="_blank">protection modules</a>, including <a href="https://patchstack.com/articles/virtual-patching" target="_blank">vPatching</a>, which block malicious traffic until security updates become available. The Developer plan has many easy-to-use extra hardening options for keeping your sites secure.  
 On this plan, by default you can protect up to 50 sites, but it can be extended with our **Volume Upgrade** feature.
 
-###### Developer plan pricing:
+### Developer plan pricing
 * Monthly payment plan: $99 / mo for 50 sites  
 * Annual payment plan: $89 / mo for 50 sites  
-* Volume Upgrade feature: $99 / mo 
+* Volume Upgrade feature: $99 / mo for **additional 50 sites**
 
-### Business plan
+## Enterprise plan
 
-The Business plan is suitable for web development agencies whose main focus is on WordPress. If you are offering recurring services to hundreds of clients, Patchstack makes security management much easier for you. With the Business plan, you can generate white-label periodical security reports to your customers. 
+Best for businesses that require advanced security or maintain high-profile websites. The Enterprise plan offers compliance and security at scale.
 
-The Business plan comes with 5 free seats for your account. This means you can grant access for your whole team to manage and secure all the sites from Patchstack App.
-By default, you can protect up to 500 sites, however, the Business plan is expandable with the **Volume Upgrade** feature.
+The Enterprise plan includes unlimited websites and unlimited team seats. It also includes a signed **Service Level Agreement (SLA)**, a **Data Processing Agreement (DPA)**, **custom billing options**, and **Enterprise-level support**.
 
-###### Business plan pricing:
-* Monthly payment plan: $499 / mo for 500 sites  
-* Annual payment plan: $459 / mo for 500 sites  
-* Volume Upgrade feature: $149 / mo for 50 sites
+
+### Enterprise plan pricing
+- Unlimited sites
+- Unlimited team seats
+- SLA, DPA
+- Custom - [reach out to us for a quote](https://share.hsforms.com/1hiWhAMliSmG0tB7ahthqpwsr3ry)
