@@ -1274,7 +1274,6 @@ paths:
       parameters:
         -
           name: id
-          in: null
           description: 'Unique identifier of the rule.'
           required: true
           example: 71
@@ -2469,7 +2468,6 @@ paths:
       parameters:
         -
           name: site
-          in: null
           description: 'The unique identifier of the site'
           required: true
           example: 1
@@ -2640,7 +2638,6 @@ paths:
       parameters:
         -
           name: site
-          in: null
           description: 'The unique identifier of the site'
           required: true
           example: 1
@@ -2748,7 +2745,6 @@ paths:
       parameters:
         -
           name: schedule
-          in: null
           description: 'Schedule id.'
           required: true
           example: 1
@@ -2828,7 +2824,6 @@ paths:
       parameters:
         -
           name: schedule
-          in: null
           description: 'Schedule id.'
           required: true
           example: 1
@@ -2863,7 +2858,6 @@ paths:
       parameters:
         -
           name: schedule
-          in: null
           description: 'Schedule id.'
           required: true
           example: 1
@@ -2953,7 +2947,6 @@ paths:
       parameters:
         -
           name: groups
-          in: null
           description: Groups.
           required: true
           example: '1'

@@ -70,12 +70,7 @@ export default defineConfig({
 				{
 					label: 'Database & API',
 					collapsed: true,
-					items: [
-						'database-api/standard-api',
-						'database-api/enterprise-api',
-						'database-api/api-properties',
-						...openAPISidebarGroups,
-					],
+					autogenerate: { directory: 'Database API', collapsed: true },
 				},
 				{
 					label: 'Vulnerability Disclosure Program',
@@ -87,7 +82,7 @@ export default defineConfig({
 					collapsed: true,
 					autogenerate: { directory: 'FAQ Troubleshooting', collapsed: true },
 				},
-				
+				...openAPISidebarGroups,
 			/*	{
 					label: 'Partners',
 					collapsed: true,
