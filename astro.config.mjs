@@ -19,14 +19,13 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			plugins: [
-				// Generate the OpenAPI documentation pages.
-				// starlightOpenAPI([
-				// 	{
-				// 		base: 'developer-api',
-				// 		label: 'My API',
-				// 		schema: './schemas/test.yaml',
-				// 	},
-				// ])
+				starlightOpenAPI([
+				{
+					base: 'developer-api',
+					label: 'Developer API',
+					schema: './schemas/openapi.yaml',
+				},
+				])
 			],
 			title: 'Patchstack Docs',
 			favicon: '/images/psfavicon.svg',
@@ -83,6 +82,7 @@ export default defineConfig({
 					collapsed: true,
 					autogenerate: { directory: 'FAQ Troubleshooting', collapsed: true },
 				},
+				...openAPISidebarGroups,
 			/*	{
 					label: 'Partners',
 					collapsed: true,
