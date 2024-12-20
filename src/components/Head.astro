@@ -4,7 +4,7 @@ import Default from '@astrojs/starlight/components/Head.astro';
 
 const { isFallback, lang } = Astro.props;
 let path = Astro.url.pathname.replace(/^\//, '').replace(/\/$/, '');
-if ( path === '' ) {
+if ( path === '' || path.includes('developer-api') ) {
 	path = 'index';
 }
 const imageSrc = '/open-graph/' + path + '.png';
