@@ -20,6 +20,6 @@ Patchstack's plan upgrades include:
 
 1. [Volume upgrade](/patchstack-app/upgrades/volume-upgrade/) - extend the amount of sites you can add to your Patchstack account
 2. [Seats](/patchstack-app/upgrades/seats/) - grant access to your Patchstack App sites for another user
-3. [Vulnerability database API](/patchstack-app/upgrades/vulnerability-database-api/) - access our vulnerability database API endpoints
+3. [API](/patchstack-app/upgrades/vulnerability-database-api/) - access Patchstack vulnerability database API endpoints for querying it
 
 ![](@images/patchstack-upgrades.png)
