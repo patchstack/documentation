@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/starlight": "^0.28.3",
+    "@astrojs/markdown-remark": "^5",
     "astro": "^4.16.7",
     "astro-og-canvas": "^0.5.3",
     "js-cookie": "^3.0.5",
