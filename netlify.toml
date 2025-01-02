@@ -991,3 +991,7 @@
 [[redirects]]
 	from = "/docs/how-to-fix-the-missing-security-headers-issue"
 	to = "/faq-troubleshooting/technical/how-to-add-security-headers-with-patchstack/"
+
+[[redirects]]
+	from ="/patchstack-app/upgrades/additional-seat/"
+	to = "/patchstack-app/upgrades/seats/"
