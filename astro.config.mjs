@@ -68,9 +68,9 @@ export default defineConfig({
 					autogenerate: { directory: 'Patchstack Plugin', collapsed: true },
 				},
 				{
-					label: 'Database & API',
+					label: 'API solutions',
 					collapsed: true,
-					autogenerate: { directory: 'Database API', collapsed: true },
+					autogenerate: { directory: 'API solutions', collapsed: true },
 				},
 				{
 					label: 'Vulnerability Disclosure Program',
