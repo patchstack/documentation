@@ -1,7 +1,7 @@
 ---
 title: "Standard API"
 excerpt: ""
-hidden: false
+hidden: true
 metadata: 
   image: []
   robots: "index"
@@ -9,6 +9,7 @@ createdAt: "Mon Jul 25 2022 09:28:24 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 12:26:10 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 1
+  hidden: true
 ---
 
 _If you’re looking for an API that has a complete data coverage and could be used commercially, please look at the commercial API <a href="https://patchstack.com/for-hosts" target="_blank">here</a>._
