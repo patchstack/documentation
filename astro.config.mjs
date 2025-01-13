@@ -1,6 +1,5 @@
 import { defineConfig, passthroughImageService } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi'
 
 const site_url = process.env.URL;
 
@@ -69,9 +68,9 @@ export default defineConfig({
 					autogenerate: { directory: 'Patchstack Plugin', collapsed: true },
 				},
 				{
-					label: 'Database & API',
+					label: 'API solutions',
 					collapsed: true,
-					autogenerate: { directory: 'Database API', collapsed: true },
+					autogenerate: { directory: 'API solutions', collapsed: true },
 				},
 				{
 					label: 'Vulnerability Disclosure Program',
