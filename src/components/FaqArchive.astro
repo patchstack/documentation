@@ -3,14 +3,15 @@ import { getCollection } from 'astro:content';
 
 const { filter } = Astro.props;
 
-const Posts = await getCollection('docs', ({ id }) => {
-    return id.startsWith( filter ) && !id.endsWith('index.mdx');
+const Posts = await getCollection('docs', ({ id, filePath }) => {
+    return id.startsWith( filter ) && !filePath?.endsWith('index.mdx');
 });
+
 ---
 <ul>
 { Posts.map((post) => (
     <li>
-        <a href={ '/' + post.slug}>{post.data.title}</a>
+        <a href={ '/' + post.id}>{post.data.title}</a>
     </li>
 )) }
 </ul>
