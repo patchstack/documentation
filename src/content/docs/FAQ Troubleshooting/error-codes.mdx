@@ -1,0 +1,39 @@
+---
+title: "Error codes"
+---
+import Accordion from '../../../components/Accordion.astro';
+import AccordionItem from '../../../components/AccordionItem.astro';
+
+<Accordion>
+    <AccordionItem header="Blocked as suspected bot">
+        This error might show up if visitors try to leave a comment on your site.
+        
+        It is not caused by Patchstack but by a plugin called “MOJO Marketplace” or “Bluehost” as part of your Bluehost WordPress installation.
+        
+        Either deactivate these plugins or reach out to your hosting company for more information as to why visitors are getting that error when they are trying to submit a comment.
+    </AccordionItem>
+    <AccordionItem header="Cannot activate plugin because of SSL routines">
+        When you see this error when you attempt to activate Patchstack, ask your host to upgrade cURL/OpenSSL on your server to the latest version.
+    </AccordionItem>
+    <AccordionItem header="Cannot redeclare class Patchstack in…">
+        There are many reasons why this can happen, usually, it's because of an .htaccess issue or because the Patchstack plugin does not work properly with one of your other plugins.
+
+First, please copy and paste the PHP error that you are facing and send it to us through our chatbox at the bottom right corner of the page. This will help us to resolve your issue.
+
+Secondly, if you can still access your WordPress admin panel, go to Plugins, find Patchstack Security and click on Deactivate. After that, if your site still shows the fatal error, go back to Plugins and click Delete under Patchstack Security.
+
+If you cannot access your WordPress admin area at all, we recommend deleting the plugin manually. For that, follow the instructions here.
+
+Possible fatal errors:
+“Fatal error: Cannot redeclare class Patchstack in…”
+    </AccordionItem>
+    <AccordionItem header="Error Code 22">
+        1. The real visitor's IP address is not properly forwarded to your application, either due to a proxy server or another plugin that overrides it. This causes the IP address of the server or proxy to be logged for all visitors which can block all traffic. We have a setting to override the IP header we use to retrieve the IP address. To find it, go to Patchstack App > yoursite.com > Protection > Additional settings > Scroll down to IP address header override setting. For example, if your host tells you it's in $_SERVER['IP-Header-X'] then you enter IP-Header-X in the text field.
+        2. You have a plugin installed which sends a suspicious payload behind the scenes which ultimately triggers our temporary IP ban feature.
+        3. The page is cached by a caching plugin. We send error code 403 when this error is shown so this should never really happen unless the cache server is configured incorrectly.
+        4. Make sure that you have whitelisted the proper user roles for your site. Check the user roles whitelist settings, by navigating to Patchstack App > yoursite.com > Protection > Additional settings. The temporary IP ban usually lifts within 30 minutes. You can start a chat with us and provide the URL of the site so we can investigate the exact cause and fix it permanently.
+    </AccordionItem>
+    <AccordionItem header="Error Code 23">
+        This error means that the country you are viewing the website from is blocked by the Patchstack firewall. Please check your country blocking settings, by navigating to Patchstack App > yoursite.com > Protection > Additional settings.
+    </AccordionItem>
+</Accordion>
