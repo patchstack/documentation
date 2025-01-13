@@ -1,0 +1,21 @@
+---
+const faqs = [
+    { title: "Billing & Refunds", url : "/faq-troubleshooting/billing--refunds" },
+    { title: "Others", url: "/faq-troubleshooting/other" },
+    { title: "Account & Profile", url: "/faq-troubleshooting/account--profile" },
+    { title: "Pricing Plans", url: "/faq-troubleshooting/pricing-plans" },
+    { title: "Alerts & Notifications", url: "/faq-troubleshooting/alerts-notifications" },
+    { title: "Reports", url: "/faq-troubleshooting/reports" },
+    { title: "Technical", url: "/faq-troubleshooting/technical" },
+    { title: "Errors", url: "/faq-troubleshooting/errors" },
+    { title: "Firewall", url: "/faq-troubleshooting/firewall" },
+    { title: "Plugin", url: "/faq-troubleshooting/plugin" }
+];
+---
+<ul>
+{ faqs.map((faq) => (
+    <li>
+        <a href={faq.url}>{faq.title}</a>
+    </li>
+)) }
+</ul>
