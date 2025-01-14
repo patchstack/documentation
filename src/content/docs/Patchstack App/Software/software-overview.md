@@ -11,14 +11,14 @@ updatedAt: "Mon Nov 13 2023 15:28:43 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 4
 ---
-_Software overview is accessible for the Community, Developer and Business plan users._  
+_Software overview is accessible for all Patchstack users._  
 
 Navigate to the software overview page by clicking **Software** from the navigation menu, or click here: 
 [https://app.patchstack.com/software/overview](https://app.patchstack.com/software/overview)
 
-On the **Software** overview page, you can see the general overview, that shows all the components (plugins, themes, WordPress core, PHP and MySQL versions) that each of your sites use.  
+On the **Software** overview page, you can see the general overview, that shows all the components (plugins, themes, CMS core version, PHP and MySQL versions) that each of your sites use.  
 The table on this page shows, which of the components are vulnerable and which ones have updates available.
-Plugins and themes that are grayed, are currently deactivated on the website.
+Plugins and themes that are grayed out, are currently deactivated on the website, or cannot be updated via third party apps like Patchstack (like premium licensed software, which use non-standard updating mechanisms).
 
 ![](@images/patchstack-software.png)
 

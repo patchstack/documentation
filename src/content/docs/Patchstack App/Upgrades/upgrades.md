@@ -11,7 +11,7 @@ updatedAt: "Thu May 25 2023 11:58:17 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 8
 ---
-_Upgrades are available for the Developer and Enterprise plan users._  
+_Upgrades are available for the Patchstack Developer plan users._  
 
 To view available plan upgrades, navigate to **Upgrades** in Patchstack App, or click here:
 <a href="https://app.patchstack.com/billing/subscription" target="_blank">https://app.patchstack.com/billing/subscription</a>

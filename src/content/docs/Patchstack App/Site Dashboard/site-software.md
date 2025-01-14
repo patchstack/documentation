@@ -7,7 +7,7 @@ updatedAt: "Wed Jan 24 2024 14:39:28 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.1
 ---
-_Site software page is Accessible for the Community, Developer and Business plan users._
+_Site software page is accessible for all Patchstack users._
 
 To view and manage your WordPress software via Patchstack App, navigate to **Sites** > **yourdomain.com** > **Software** in Patchstack App.
 
@@ -41,6 +41,8 @@ Check the checkboxes of your plugins or themes (at the left side of the table ro
   </ol>
 </li>
 </ol>
+
+Plugins and themes that are grayed out, are currently deactivated on the website, or cannot be updated via third party apps like Patchstack (like premium licensed software, which use non-standard updating mechanisms).
 
 ### Update all your software with one click 
 You can update components altogether by clicking the **Update All** button.  

@@ -8,14 +8,14 @@ updatedAt: "Thu Jan 18 2024 13:52:17 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.4
 ---
-_Activity log is accessible for the Community (paid), Developer and Business plan users only._
+_Activity log is accessible for all Patchstack users._
 
 To view your site's activity log, navigate to **Sites** > **yourdomain.com** > **Activity** in Patchstack App.
 
 
 ![](@images/patchstack-site-activity.png)
 
-Patchstack activity log displays a large number of events that occur on your WordPress application. The logs are stored for 12 months after which they are archived.
+Patchstack activity log displays a large number of events that occur on your WordPress site. The logs are stored for 12 months after which they are archived.
 
 On the **Activity** page, you can:
 
