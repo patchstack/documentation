@@ -9,7 +9,7 @@ sidebar:
   order: 5.21
 ---
 
-_Custom firewall rules (including simple rules) are accessible for the Developer and Business plan users only._  
+_Custom firewall rules (including simple rules) are available for Patchstack Developer and Enterprise plan users._  
 
 Navigate to the simple firewall rules page by visiting **Protection** > **Custom rules** > **+ Create rule**, or click here:
 [https://app.patchstack.com/protection/rules/create](https://app.patchstack.com/protection/rules/create)

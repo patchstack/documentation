@@ -9,7 +9,7 @@ sidebar:
   order: 5.22
 ---
 
-_Custom firewall rules (including advanced rules) are accessible for the Developer and Business plan users only._  
+_Custom firewall rules (including advanced rules) are available for Patchstack Developer and Enterprise plan users._  
 
 Navigate to the advanced firewall rules creation page by visiting **Protection** > **Custom rules** > **Advanced**, or click here:
 [https://app.patchstack.com/protection/rules/create](https://app.patchstack.com/protection/rules/create)

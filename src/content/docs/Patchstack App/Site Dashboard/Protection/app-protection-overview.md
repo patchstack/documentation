@@ -9,7 +9,8 @@ sidebar:
   order: 3.20
 ---
 
-_Site protection overview and general settings are accessible for the Community (paid), Developer and Business plan users._ \
+_Site protection overview and security solutions are available for all Patchstack paid plan users._
+
 The **Protection overview** subpage is found at **Sites** > **yoursite.com** > **Protection** in Patchstack App.
 
 On the **Protection overview** subpage you can:
@@ -26,21 +27,21 @@ Below are the decriptions for all four protection modules:
 
 ### vPatching module
 
-Receive **vPatches** (<a href="https://patchstack.com/articles/virtual-patching/" target="_blank">virtual patches</a>) for known dangerous vulnerabilities in your sites. **vPatches** are highly specific and strict firewall rules that prevent vulnerabilities from being exploited without changing any code.  
+Receive Patchstack's **vPatches** (<a href="https://patchstack.com/articles/virtual-patching/" target="_blank">virtual patches</a>) to protect you sites against attacks targeted for known dangerous vulnerabilities in your sites. **vPatches** are highly specific and strict firewall rules that prevent vulnerabilities from being exploited without changing any of your code.  
 <a href="/patchstack-app/protection/patchstack-modules/#vpatches" target="_blank">📖 Read more </a>
 
-### Advanced Hardening
+### Advanced hardening
 
-The **Advanced Hardening** module applies additional security mechanics to the WordPress application to block common malicious requests against WordPress sites.  
+The **Advanced hardening** module applies additional security mechanics to the WordPress application to block common malicious requests against WordPress sites.  
 <a href="/patchstack-app/protection/patchstack-modules/#advanced-hardening" target="_blank">📖 Read more </a>
 
-### Community IP Blocklist
+### Community IP blocklist
 
 Community IP blocklist blocks access to IP addresses which are known to exploit vulnerabilities. This module contributes threat data back to the Patchstack network.
 
 ### Generic OWASP
 
-Generic firewall rules against OWASP top 10 vulnerability types including XSS, SQLi, RCE and for other known exploitation methods. Note, due to its generic nature this module may cause false-positives for more complex applications.  
+Generic firewall rules against OWASP top 10 vulnerability types including XSS, SQLi, RCE and for other known exploitation methods. Note, due to its generic nature this module may cause false-positives on more complex sites that use a lot of plugins.  
 <a href="/patchstack-app/protection/patchstack-modules/#generic-owasp" target="_blank">📖 Read more </a>
 
 ## Activity section

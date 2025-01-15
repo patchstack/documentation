@@ -11,7 +11,7 @@ updatedAt: "Mon Nov 13 2023 15:30:24 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 4.2
 ---
-_Automatic updates page is accessible for the Community, Developer and Business plan users._  
+_Automatic updates feature is available for all Patchstack users._  
 
 Navigate to the automatic updates page by visiting **Software** > **Automatic updates**, or click here: [https://app.patchstack.com/software/updates](https://app.patchstack.com/software/updates)
 

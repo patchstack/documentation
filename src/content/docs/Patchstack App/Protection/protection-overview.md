@@ -8,7 +8,7 @@ updatedAt: "Thu Jan 18 2024 14:21:19 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 5.00
 ---
-_General protection overview page is accessible for the Community (paid), Developer and Business plan users._  
+_General protection is available for all Patchstack paid plan users._
 
 Navigate to the general protection overview page by visiting **Protection** from the navigation menu, or click here: [https://app.patchstack.com/protection/overview](https://app.patchstack.com/protection/overview)
 

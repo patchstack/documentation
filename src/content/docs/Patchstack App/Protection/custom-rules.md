@@ -8,7 +8,7 @@ updatedAt: "Thu Jan 25 2024 12:31:25 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 5.20
 ---
-_Custom firewall rules are accessible for the Developer and Business plan users only._  
+_Custom firewall rules are available for Patchstack Developer and Enterprise plan users._  
 
 Navigate to the custom firewall rules page by visiting **Protection** > **Custom rules**, or click here:
 [https://app.patchstack.com/protection/rules](https://app.patchstack.com/protection/rules)

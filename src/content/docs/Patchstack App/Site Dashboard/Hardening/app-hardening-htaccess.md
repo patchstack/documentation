@@ -9,7 +9,7 @@ sidebar:
   order: 3.31
   label: ".htaccess"
 ---
-_.htaccess settings are accessible for the Community (paid), Developer and Business plan users._
+_.htaccess settings are available for all Patchstack paid plan users._
 
 Hardening rules are extra firewall settings, that can be tweaked according to your needs.
 To manage your site's .htaccess settings, navigate to **Sites** > **yourdomain.com** > **Hardening** > **.htaccess** in Patchstack App.
