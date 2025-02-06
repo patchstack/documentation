@@ -12,9 +12,9 @@ On the <a href="https://app.patchstack.com/sites" target="_blank">**Sites**</a> 
 
 ![](@images/patchstack-sites-dashboard.png)
 
-## Overview of your WordPress sites
+## Overview of all your sites
 
-You can see the quick overview of each of your WordPress site from the <a href="https://app.patchstack.com/software/overview" target="_blank">**Sites**</a> view in Patchstack App.  
+You can see the quick overview of each of your sites from the <a href="https://app.patchstack.com/software/overview" target="_blank">**Sites**</a> view in Patchstack App.  
 Let's go through some more important table columns to explain the data shown.
 
 1. **Status** column shows whether the site is properly connected. Hover over the circle with your cursor, to view  the status of your site connection. Below is the list of possible color indicators:
@@ -39,12 +39,11 @@ Check [this article](/patchstack-app/sites/site-groups/) for details.
 
 ## Search and display
 
-You can use the search-bar, to look up for the sites you have added. After typing, hit the Enter key.  
-Left from the search-bar, you can choose how many sites to display per page.
+You can use the search-bar, to look up for the sites you have added. After typing, hit the Enter key. Left from the search-bar, you can choose how many sites to display per page.
 
 ## Adding a new site
 
-To add a new WordPress site, click on **+ Add new** and follow the instructions. You can also see a tutorial of adding a new site [in this article](/patchstack-app/sites/adding-a-site/).
+To add a new site, click on **+ Add new** and follow the instructions. You can also see a tutorial of adding a new site [in this article](/patchstack-app/sites/adding-a-site/).
 
 ## Removing a site
 

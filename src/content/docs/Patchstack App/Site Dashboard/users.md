@@ -8,10 +8,11 @@ updatedAt: "Thu Jan 18 2024 14:00:34 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.5
 ---
-_Site users page is accessible for the Community (paid), Developer and Enterprise plan users only._
+_Site users page is accessible for the paid plan users._  
+**This feature is available for WordPress sites only._**
 
 
-To view your WordPress sites' users, navigate to **Sites** > **yourdomain.com** > **Users** in Patchstack App.
+To view your WordPress site users, navigate to **Sites** > **yourdomain.com** > **Users** in Patchstack App.
 
 
 On this **Users** subpage you can see all the regular users that have been registered on your WordPress site.

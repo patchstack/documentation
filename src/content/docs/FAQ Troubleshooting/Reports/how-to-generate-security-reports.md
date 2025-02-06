@@ -19,6 +19,6 @@ Patchstack offers two types of security reports:
 - Snapshot report  
   Snapshot report is a current situational report of the website.
 - Developer report (for Developer and Business plan users)  
-  The developer Report is a periodic PDF security report. It means you will need to pick a time period (for example a month), in which the data about your site is shown on the report.
+  The developer report is a periodic PDF security report. It means you will need to pick a time period (for example a month), in which the data about your site is shown on the report.
 
 [Read more about generating the reports here](/patchstack-app/reports/generating-reports/)

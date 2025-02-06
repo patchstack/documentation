@@ -14,10 +14,10 @@ From there you can sign up two ways.
 ## Registering your account manually:
 
 1. Enter your full name, email address
-2. Add your phone number by selecting the dial code and entering the number. This will be used to send you a confirmation SMS 
-3. Make sure to add a strong password. You can later enable two-factor authentication
-4. Click the sign up button
-5. You will be sent a 6 digit code via SMS. Depending on your location, the SMS message will show up under the name Verigator, our SMS integration partner, or under a regular phone number
+[comment]: <2. Add your phone number by selecting the dial code and entering the number. This will be used to send you a confirmation SMS>
+2. Make sure to add a strong password. You can later enable two-factor authentication
+3. Click the sign up button
+4. You will be sent a 6 digit code via SMS. Depending on your location, the SMS message will show up under the name Verigator, our SMS integration partner, or under a regular phone number
 
 ## Signing up using Google, Github or LinkedIn:
 

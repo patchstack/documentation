@@ -8,7 +8,8 @@ updatedAt: "Wed Jan 17 2024 15:02:41 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.22
 ---
-_Banned IPs page is accessible for all Patchstack users._
+_Banned IPs page is accessible for all Patchstack paid plan users._  
+**_Protection settings and modules are available for WordPress sites only._**
 
 
 The **Banned IPs** subpage is found at **Sites** > **yoursite.com** > **Protection** > **Banned IPs** in Patchstack App.

@@ -1,0 +1,51 @@
+---
+title: "Software"
+excerpt: "Manage all the plugins and themes of your site from one page"
+hidden: false
+createdAt: "Wed Aug 03 2022 12:13:03 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Wed Jan 24 2024 14:39:28 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 3.1
+---
+import { Aside } from '@astrojs/starlight/components';
+
+_Site software page shows an overview of all the software components your site has been built with._
+
+
+To see an overview of all your site's software, navigate to **Sites** > **yourdomain.com** > **Software** in Patchstack App.
+
+![](@images/patchstack-site-software.png)
+
+<Aside type="tip" title="Software management is only for WordPress">
+On the this software subpage, you can also manage the software components of your WordPress site.
+</Aside>
+
+
+The following actions are available only for WordPress CMS:
+
+- Enable auto-updates for:
+  - Only vulnerable software
+  - All core, themes, and plugins
+- Have an overview of software your site is using and see all your software versions
+- See if any of the software is found vulnerable or outdated
+- Update, activate, deactivate, or delete the existing plugins/themes
+- Update all your software with one click
+- Force resynchronization between Patchstack App and your site if something looks out of sync
+
+
+### To perform any actions with specific plugins or themes on your site, follow the steps below:
+
+1. Check the checkboxes of your plugins or themes (at the left side of the table row)
+2. Click on the **Actions** button next to the search bar
+3. You can then pick one of the following actions:
+    - Update
+    - Activate
+    - Deactivate
+    - Delete
+
+Software that is grayed out, is currently either deactivated on the website. 
+If the checkbox is missing for that row, it means this software cannot be updated via third party apps like Patchstack. This goes for some of the premium licensed software, which use non-standard updating mechanisms.
+
+### Update all your software with one click 
+You can update components altogether by clicking the **Update All** button.  
+Just keep in mind to **back up your files and database** before doing that.

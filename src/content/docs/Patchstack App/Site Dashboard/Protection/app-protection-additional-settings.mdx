@@ -10,7 +10,8 @@ sidebar:
 ---
 import { Steps } from '@astrojs/starlight/components';
 
-_Additional protection settings are available for all Patchstack paid plan users._
+_Additional protection settings are available for all Patchstack paid plan users._  
+**_Protection settings and modules are available for WordPress sites only._**
 
 The **Additional settings** subpage is found at **Sites** > **yoursite.com** > **Protection** > **Additional settings** in Patchstack App.
 
@@ -43,20 +44,20 @@ To block any country from viewing your site, do the following:
 5. Scroll down and click on **Save settings**
 </Steps>
 ### Inversed country blocking
-We have also added the **Inversed check** option which works the other way around.  
-When this is checked, the countries which are typed into the country list input, will be the only countries from which the traffic to your site is allowed.
+Patchstack has also added the option which inverses the country blocking.
+When "Turn it into whitelist" is checked, the countries which are typed into the country list input, will be the only countries from which the traffic to your site is allowed.
 
 **Example case:**  
 If you want to allow traffic ONLY from (for example) Germany: 
 
 <Steps>
 1. Type "Germany" into **country input field**
-2. Check **Inversed check**
+2. Check **Turn it into whitelist instead**
 3. Check **Enable country blocking**
 4. Click on **Save settings**
 </Steps>
 
-PS! In some rare occurrences, the country blocking feature can cause false positive blockings. We recommend using country blocking on server level.
+PS! In some rare occurrences, the country blocking feature can cause false positive blockings. We rather recommend using country blocking on a server level.
 
 ### General whitelist settings
 

@@ -13,6 +13,6 @@ Include it in your website price or maintenance fee. Your service will be more p
 
 Patchstack will help you to automate protection, monitor the security, and even lets you know with alerts when maintenance is needed.
 
-<a href="https://patchstack.com/for-agencies/" target="_blank">Check our care plan price calculator here</a>
-
-<a href="https://patchstack.com/articles/how-i-started-selling-wordpress-care-plans-to-my-clients/" target="_blank">Read an article about how to sell care plans with Patchstack</a>
+<a href="https://patchstack.com/for-agencies/" target="_blank">Check out this page</a>
+OR
+<a href="https://patchstack.com/articles/how-i-started-selling-wordpress-care-plans-to-my-clients/" target="_blank">read an article about how to sell care plans with Patchstack</a>

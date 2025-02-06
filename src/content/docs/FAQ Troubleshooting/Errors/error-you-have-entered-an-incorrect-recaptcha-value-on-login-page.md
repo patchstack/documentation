@@ -19,4 +19,4 @@ Go to the /wp-content/plugins folder via FTP (<a href="https://developer.wordpre
 Find and rename “patchstack” folder into something else, like “deactivate_patchstack”;
 </li><li>
 After you log into your dashboard, you can rename the folder back from "deactivate_patchstack" to "patchstack";</li><li>
-Disable reCAPTCHA from the settings in Patchstack App, by navigating to <br> <b>Patchstack App</b> > <b>yoursite.com</b> > <b>Hardening</b> > <b>reCAPTCHA</b></li></ol>
+Disable reCAPTCHA from the settings in Patchstack App, by navigating to <br> <b>Patchstack App</b> > <b>Sites</b> > <b>yoursite.com</b> > <b>Hardening</b> > <b>Captcha</b></li></ol>

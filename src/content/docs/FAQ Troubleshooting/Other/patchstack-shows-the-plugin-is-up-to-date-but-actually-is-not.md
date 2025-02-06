@@ -11,7 +11,7 @@ updatedAt: "Thu May 2 2024 13:47:49 GMT+0000 (Coordinated Universal Time)"
 ---
 
 This can happen due to two reasons:
-* This is a premium or pro plugin and uses its own update server configuration
+* This is a premium or pro plugin and uses its own update servers
 * Your site is out of sync with the Patchstack App
 
 The information we show about the plugin status in Patchstack App, is synced straight from your WordPress site.

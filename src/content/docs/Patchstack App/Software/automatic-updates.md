@@ -12,6 +12,7 @@ sidebar:
   order: 4.2
 ---
 _Automatic updates feature is available for all Patchstack users._  
+**_This feature is available for WordPress sites only._**
 
 Navigate to the automatic updates page by visiting **Software** > **Automatic updates**, or click here: [https://app.patchstack.com/software/updates](https://app.patchstack.com/software/updates)
 
@@ -42,8 +43,8 @@ To activate any of the options, toggle the buttons. (see the image below).
 
 ![](@images/patchstack-software-auto-update-settings.png)
 
+> ❗️ Note that auto-updating won't work for some of the premium plugins or themes as these may not use standard updating mechanisms (for example some software requires a separate licnese checking call)
 
-
-> ❗️ Keep in mind that updating software could potentially break your site, but for security reasons, it is recommended to auto-update at least your vulnerable software components.
+> ‼️ Note that updating software could potentially break your site, but for security reasons, it is recommended to still auto-update at least your vulnerable software components.
 
 After toggling the buttons, click **Update**.

@@ -8,7 +8,8 @@ updatedAt: "Thu Jan 18 2024 13:24:28 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.33
 ---
-_Captcha feature is available for all Patchstack paid plan users._
+_Captcha feature is available for all Patchstack paid plan users._  
+**_Protection is available for WordPress sites only._**
 
 Captcha is a powerful tool for protecting your website against spambots.  
 With Patchstack, you can integrate captcha solutions easily into your WordPress sites.  

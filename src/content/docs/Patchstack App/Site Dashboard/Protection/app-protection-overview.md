@@ -9,7 +9,8 @@ sidebar:
   order: 3.20
 ---
 
-_Site protection overview and security solutions are available for all Patchstack paid plan users._
+_Site protection overview and security solutions are available for all Patchstack paid plan users._  
+**_Protection settings and modules are available for WordPress sites only._**
 
 The **Protection overview** subpage is found at **Sites** > **yoursite.com** > **Protection** in Patchstack App.
 

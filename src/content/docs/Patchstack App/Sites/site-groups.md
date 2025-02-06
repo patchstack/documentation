@@ -8,7 +8,7 @@ updatedAt: "Tue Jan 02 2024 14:19:18 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 2.3
 ---
-_Groups feature is only accessible for the Developer and Business plan users._
+_Groups feature is available for all Patchstack paid plan users._
 
 Grouping makes it easier to distinguish the sites from each other.
 You can attach your sites to multiple groups.  
@@ -24,6 +24,12 @@ You can give this group a name and attach it to your site.
 ## Attaching a group
 
 You can attach an existing group to any site, by clicking the **plus sign**, and start typing the already existing group name. Then, click on the group name to attach it to that site.
+
+## Removing a group
+Once a group has been assigned to a site, it cannot be edited. However, you can remove the existing group and create a new one. To do this, hover over the group name until an "X" appears, then click on it to remove the group.
+
+<img src="/src/assets/images/patchstack-editing-group.png" style="width: 70%;">
+
 
 ## Searching domains by group
 

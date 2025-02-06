@@ -8,7 +8,8 @@ updatedAt: "Thu Jan 18 2024 13:52:17 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.4
 ---
-_Activity log is accessible for all Patchstack users._
+_Activity log is accessible for all Patchstack users._  
+**This feature available for WordPress sites only.**
 
 To view your site's activity log, navigate to **Sites** > **yourdomain.com** > **Activity** in Patchstack App.
 
