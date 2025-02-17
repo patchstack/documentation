@@ -1,5 +1,5 @@
 ---
-title: "Properties & Implementation"
+title: "Enterprise API implementation"
 excerpt: ""
 hidden: false
 metadata: 
