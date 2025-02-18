@@ -23,7 +23,7 @@ The base URL of the API is <https://patchstack.com/database/api/v2>
 All responses are in the JSON format. For performance reasons, responses are cached until we update the database after which the appropriate caches are cleared.
 An API key is required. This API key should be present in the PSKey HTTP request header.
 
-You can request an API key by reaching out to us on this page. <https://patchstack.com/threat-intel-feed/>
+You can request an API key by reaching out to us on this page: <a href="https://patchstack.com/for-hosts/" target="_blank">https:<span></span>//patchstack.com/for-hosts/</a>
 
 ### Latest Vulnerabilities
 
