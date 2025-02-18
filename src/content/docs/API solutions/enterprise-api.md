@@ -13,6 +13,7 @@ sidebar:
 ---
 
 _The purpose of this document is to provide information about the API functionality of the Patchstack vulnerability database._
+_Enterprise API is available for the Enterprise plan customers._
 
 ## API Usage
 
