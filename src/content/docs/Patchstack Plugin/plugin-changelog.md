@@ -10,6 +10,32 @@ sidebar:
 ---
 
 
+<b>March 13th 2025</b>
+
+<ul>
+
+<li>Version 2.3.0</li>
+<li>Added: opt-in auto_prepend firewall (Apache 2.4 support only)</li>
+<li>Added: captcha support for WooCommerce form</li>
+<li>Added: 2FA support for WooCommerce form</li>
+<li>Added: constant to disable .htaccess writing globally</li>
+<li>Added: show error when connection lost due to salts changes</li>
+<li>Added: cronjob to determine if environment changed for proxy IP detection</li>
+<li>Added: ability to reset 2FA of one/all users through App</li>
+<li>Added: ability to remotely reset cache of caching plugins</li>
+<li>Fixed: PHP error on legacy rules processing</li>
+<li>Fixed: potential issue with logs upload hanging</li>
+<li>Changed: small performance improvement when on wp-admin pages</li>
+<li>Changed: trim API key when being entered into API key field</li>
+<li>Changed: default values of firewall block throttle increased to reduce error code 22 instances</li>
+<li>Changed: App -> plugin communication</li>
+<li>Removed: readme.html deletion</li>
+<li>Removed: registration email blacklist feature</li>
+<li>Removed: old reference to api.webarxsecurity.com</li>
+<li>Removed: old unused internal options</li>
+</ul>
+
+
 <b>July 9th 2024</b>
 
 <ul>
