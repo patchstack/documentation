@@ -997,5 +997,9 @@
 	to = "/patchstack-app/upgrades/seats/"
 
 [[redirects]]
-	from ="/database-api/enterprise-api/"
+	from = "/database-api/enterprise-api"
 	to = "/api-solutions/enterprise-api/"
+
+[[redirects]]
+	from = "/developer-api"
+	to = "/api-solutions/patchstack-app-api"
