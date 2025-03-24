@@ -6,10 +6,7 @@ const pages = Object.fromEntries(collectionEntries.map(({ slug, data }) => [slug
 
 export const { getStaticPaths, GET } = OGImageRoute({
     param: 'route',
-    pages: { 
-        pages, 
-        'index': { title: 'Patchstack Docs' }
-    },
+    pages: pages,
     getImageOptions: (path, page) => ({
         title: page.ogtitle ? page.ogtitle : page.title,
         description: 'Detect & patch vulnerabilities in your WordPress apps',
