@@ -9,6 +9,16 @@ sidebar:
   order: 7
 ---
 
+<b>March 24th 2025</b>
+
+<ul>
+
+<li>Version 2.3.1</li>
+<li>Added: constant PS_DISABLE_MU to disable mu-plugin creation</li>
+<li>Fixed: potential fatal PHP error due to recursion</li>
+</ul>
+
+
 
 <b>March 13th 2025</b>
 
@@ -54,6 +64,7 @@ sidebar:
 <li>Fixed: refresh loop on API key page.</li>
 <li>Removed: unused CSS, JavaScript, images.</li>
 <li>Removed: plugin settings management from WordPress wp-admin. You must now do this through the Patchstack App.</li>
+
 </ul>
 
 
