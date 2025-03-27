@@ -9,6 +9,17 @@ sidebar:
   order: 7
 ---
 
+<b>March 27th 2025</b>
+
+<ul>
+
+<li>Version 2.3.2</li>
+<li>Fixed: captcha error with WooCommerce forms</li>
+</ul>
+
+
+
+
 <b>March 24th 2025</b>
 
 <ul>
