@@ -6,7 +6,7 @@ hidden: false
 createdAt: "Mon Jul 25 2022 09:32:00 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Jan 17 2024 10:39:45 GMT+0000 (Coordinated Universal Time)"
 sidebar:
-  order: 7
+  order: 8
 ---
 
 <b>March 27th 2025</b>
@@ -39,7 +39,7 @@ sidebar:
 <li>Added: opt-in auto_prepend firewall (Apache 2.4 support only)</li>
 <li>Added: captcha support for WooCommerce form</li>
 <li>Added: 2FA support for WooCommerce form</li>
-<li>Added: constant to disable .htaccess writing globally</li>
+<li>Added: constant PS_DISABLE_HTACCESS to disable .htaccess writing globally</li>
 <li>Added: show error when connection lost due to salts changes</li>
 <li>Added: cronjob to determine if environment changed for proxy IP detection</li>
 <li>Added: ability to reset 2FA of one/all users through App</li>

@@ -8,7 +8,7 @@ metadata:
 createdAt: "Tue Mar 07 2023 12:59:59 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 12:23:51 GMT+0000 (Coordinated Universal Time)"
 sidebar:
-  order: 6
+  order: 7
 ---
 
 You can set up Patchstack on each of your network sites as easily as you would set it up on regular WordPress sites.

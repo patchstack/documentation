@@ -8,7 +8,7 @@ metadata:
 createdAt: "Wed Dec 21 2022 17:45:01 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 12:25:03 GMT+0000 (Coordinated Universal Time)"
 sidebar:
-  order: 5
+  order: 6
 ---
 You can deactivate and uninstall the Patchstack plugin just like any other WordPress plugin.  
 We recommend uninstalling it from the WordPress admin panel to have the plugin and its data correctly removed from the server (files and database entries).
