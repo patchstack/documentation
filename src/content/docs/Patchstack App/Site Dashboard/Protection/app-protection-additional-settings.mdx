@@ -23,9 +23,9 @@ The **Additional settings** subpage is found at **Sites** > **yoursite.com** > *
 
 ### Protection settings
 
-**Enable firewall** toggle lets you switch Patchstack's firewall on/off. While it's off, your site is not protected with virtual patches or firewall rules. Other hardening settings (IP bans, country blocking, htaccess rules, etc. will still work). This should only be turned off for testing purposes.
+**Enable firewall** - this toggle enables or disables Patchstack's firewall. When turned off, your site won't be protected by virtual patches or firewall rules. However, other security measures (such as IP bans, country blocking, and .htaccess rules) will remain active. We recommend disabling the firewall only for testing purposes.
 
-**Enable auto-prepend firewall** feature is new and currently designated a beta feature. It allows Patchstack to inject the auto_prepend_file variable into the .htaccess file which will let the Patchstack firewall run in all PHP scripts across the entire web-server. This makes it possible to block vulnerabilities in PHP files which are loaded outside WordPress core itself. This feature only works on Apache servers.
+**Enable auto-prepend firewall** - this feature is new and currently designated a beta feature. It allows Patchstack to inject the <a href="https://www.php.net/manual/en/ini.core.php#ini.auto-prepend-file" target="_blank">auto_prepend_file</a> variable into the .htaccess file which will let the Patchstack firewall run in all PHP scripts across the entire web-server. This makes it possible to block vulnerabilities in PHP files which are loaded outside WordPress core itself. This feature only works on Apache servers.
 
 
 
