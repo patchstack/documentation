@@ -1,5 +1,6 @@
 ---
 import type { Props } from '@astrojs/starlight/props';
+
 import Default from '@astrojs/starlight/components/Head.astro';
 
 const { isFallback, lang } = Astro.props;
@@ -58,9 +59,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="google-site-verification" content="EUHJIOL0FDdVtcpY92rKZaoq8IEPafmsafa5oBnrzHs" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 
-<script>
-import '/src/libs/glightbox/js/glightbox.min.js';
-import '/src/libs/glightbox/css/glightbox.min.css';
+<script src="/libs/glightbox/js/glightbox.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/libs/glightbox/css/glightbox.min.css" type="text/css" />
+<script is:inline>
 window.addEventListener("load", function(){
 	const nolb = document.querySelectorAll(".nolb img");
 	nolb.forEach((img) => {
