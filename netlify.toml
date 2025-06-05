@@ -1003,3 +1003,19 @@
 [[redirects]]
 	from = "/developer-api"
 	to = "/api-solutions/patchstack-app-api"
+
+[[redirects]]
+	from = "/api-solutions/standard-api/"
+	to = "/api-solutions/threat-intelligence-api/standard/"
+
+[[redirects]]
+	from = "/api-solutions/enterprise-api/"
+	to = "/api-solutions/threat-intelligence-api/enterprise/"
+
+[[redirects]]
+	from = "/api-solutions/api-properties/"
+	to = "/api-solutions/threat-intelligence-api/api-properties/"
+
+[[redirects]]
+	from = "/api-solutions/patchstack-app-api/"
+	to = "/api-solutions/app-api/patchstack-app-api/"

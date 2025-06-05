@@ -8,14 +8,13 @@ createdAt: "Mon Jul 25 2022 09:28:24 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 10 2023 12:26:10 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 1
-  hidden: true
 ---
 
 _If you’re looking for an API that has a complete data coverage and could be used commercially, please look at the commercial API <a href="https://patchstack.com/for-hosts" target="_blank">here</a>._
 
 ## Introduction
 
-The purpose of this document is to provide information about the API functionality of the Patchstack vulnerability database.
+The purpose of this document is to provide information about the standard API functionality of the Patchstack vulnerability database (Threat Intelligence).
 
 ## API Usage
 
@@ -25,9 +24,9 @@ The base URL of the API is <https://patchstack.com/database/api/v2>
 
 All responses are in JSON format. For performance reasons, responses are cached until we update the database after which the appropriate caches are cleared.
 
-An API key is required. This API key should be present in the _PSKey_ HTTP request header.
+An API key is required. This API key should be present in the _PSKey_ HTTP request header. You can request an API key by logging into your Patchstack App account and then by going to the Upgrades page <https://app.patchstack.com/billing/subscription>.
 
-You can request an API key by logging into your Patchstack App account and then by going to the Upgrades page <https://app.patchstack.com/billing/subscription>. Please enter your use-case scenario and we will review your request.
+Explanation of the API response properties can be found here [here](/api-solutions/threat-intelligence-api/api-properties/).
 
 ## Find Vulnerability
 
