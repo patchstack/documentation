@@ -24,7 +24,7 @@ Go to <b>Patchstack App</b> > <b>Sites</b> > <b>yourdomain.com</b> > <b>Protecti
 This will tell Patchstack to grab the real visitors' IP addresses.
 
 ### Support for TLS 1.2 is required
-Cloudflare servers support only TLS 1.3 by default. You will additionally need to enable TLS 1.2. To do that:
+Cloudflare supports only TLS 1.3 by default. To use Patchstack, additional support for TLS 1.2 is required. To add support for this TLS version in Cloudflare:
 1. Login at Cloudflare, and click on your domain name
 2. In the menu, go to SSL/TLS > Edge Certificates
 3. Scroll down to the "Minimum TLS Version" section
