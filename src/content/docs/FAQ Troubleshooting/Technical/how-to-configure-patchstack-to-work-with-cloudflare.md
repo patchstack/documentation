@@ -13,6 +13,8 @@ sidebar:
 ---
 The following steps should only be taken if your site is properly configured behind a Cloudflare proxy. On misconfigured sites, this could allow for IP address spoofing to exist which could potentially lead to a DoS attack
 
+
+### IP address header
 In order for Patchstack to properly work with Cloudflare, we recommend that you configure the IP address header override option. 
 <ol><li>
 Go to <b>Patchstack App</b> > <b>Sites</b> > <b>yourdomain.com</b> > <b>Protection</b> > <b>Additional settings</b></li>
@@ -21,7 +23,15 @@ Go to <b>Patchstack App</b> > <b>Sites</b> > <b>yourdomain.com</b> > <b>Protecti
 </ol>
 This will tell Patchstack to grab the real visitors' IP addresses.
 
+### Support for TLS 1.2 is required
+Cloudflare servers support only TLS 1.3 by default. You will additionally need to enable TLS 1.2. To do that:
+1. Login at Cloudflare, and click on your domain name
+2. In the menu, go to SSL/TLS > Edge Certificates
+3. Scroll down to the "Minimum TLS Version" section
+4. Ensure that it is set to at least TLS 1.2 or lower
 
+
+### Custom rules
 Sometimes due to specific settings in Cloudflare, you may need to whitelist Patchstack's IP addresses.
 <a href="https://docs.patchstack.com/faq-troubleshooting/technical/list-of-ip-addresses-that-patchstack-uses/" target="_blank">Click here</a> to see all the IP addresses that Patchstack servers use.
 
