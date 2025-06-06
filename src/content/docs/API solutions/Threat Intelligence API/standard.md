@@ -18,9 +18,9 @@ The purpose of this document is to provide information about the standard API fu
 
 ## API Usage
 
-The Patchstack Vulnerability API for Developers is limited to 500 requests per 24 hours.
+The Standard Threat Intelligence API is limited to 5000 requests per 24 hours.
 
-The base URL of the API is <https://patchstack.com/database/api/v2>
+The base URL of the API is <https://patchstack.com/database/api/v2/>
 
 All responses are in JSON format. For performance reasons, responses are cached until we update the database after which the appropriate caches are cleared.
 

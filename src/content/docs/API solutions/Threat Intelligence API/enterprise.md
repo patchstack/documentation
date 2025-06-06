@@ -17,7 +17,7 @@ _The purpose of this document is to provide information about the extended Enter
 
 ### Information
 
-The base URL of the API is <https://patchstack.com/database/api/v2>
+The base URL of the API is <https://patchstack.com/database/api/v2/>
 
 All responses are in the JSON format. For performance reasons, responses are cached until we update the database after which the appropriate caches are cleared.
 
