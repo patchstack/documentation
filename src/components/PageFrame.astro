@@ -3,7 +3,7 @@ import type { Props } from '@astrojs/starlight/props';
 import MobileMenuToggle from '@astrojs/starlight/components/MobileMenuToggle.astro';
 import Banner from './Banner.astro';
 
-const { hasSidebar } = Astro.props;
+const { hasSidebar } = Astro.locals.starlightRoute;
 
 ---
 
