@@ -1,5 +1,7 @@
 import { defineConfig, passthroughImageService } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import starlightLlmsTxt from 'starlight-llms-txt'
+
 
 const site_url = process.env.URL;
 
@@ -18,6 +20,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			plugins: [
+				starlightLlmsTxt()
 				// Generate the OpenAPI documentation pages.
 				// starlightOpenAPI([
 				// 	{
@@ -39,11 +42,11 @@ export default defineConfig({
 				src: './src/assets/logo.svg',
 				replacesTitle: true,
 			},
-			social: {
-				discord: 'https://discord.gg/rkE8yxtNmS',
-				'x.com': 'https://twitter.com/patchstackapp',
-				linkedin: 'https://www.linkedin.com/company/patchstack'
-			},
+			social: [
+				{ icon: 'discord', label: 'discord', href: 'https://discord.gg/rkE8yxtNmS' },
+				{ icon: 'x.com', label: 'x.com', href: 'https://twitter.com/patchstackapp' },
+				{ icon: 'linkedin', label: 'linkedin', href: 'https://www.linkedin.com/company/patchstack' }
+			],
 			components: {
 				//ThemeProvider: './src/components/ThemeProvider.astro',
 				//ThemeSelect: './src/components/ThemeSelect.astro',
