@@ -1019,3 +1019,7 @@
 [[redirects]]
 	from = "/api-solutions/patchstack-app-api/"
 	to = "/api-solutions/app-api/patchstack-app-api/"
+
+[[redirects]]
+	from = "/api-solutions/threat-intelligence-api/enterprise/"
+	to = "/api-solutions/threat-intelligence-api/extended/"

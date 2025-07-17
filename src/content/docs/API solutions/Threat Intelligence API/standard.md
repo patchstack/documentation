@@ -1,5 +1,5 @@
 ---
-title: "Standard API"
+title: "Standard tier"
 excerpt: ""
 metadata: 
   image: []

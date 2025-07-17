@@ -1,5 +1,5 @@
 ---
-title: "Enterprise API"
+title: "Extended tier"
 excerpt: ""
 hidden: false
 metadata: 
@@ -11,7 +11,7 @@ sidebar:
   order: 2
 ---
 
-_The purpose of this document is to provide information about the extended Enterprise API functionality of the Patchstack vulnerability database (Threat Intelligence). Enterprise API is available for the Enterprise plan customers with extended access to the Threat Intelligence API._
+_The purpose of this document is to provide information about the Extended Threat Intelligence API functionality of the Patchstack vulnerability database (Threat Intelligence). Extended Threat Intelligence API is available for the Enterprise plan customers._
 
 ## API Usage
 

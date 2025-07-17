@@ -17,7 +17,7 @@ The standard Threat Intelligence API allows you access to the API endpoint to qu
 
 [Standard Threat Intelligence API Documentation](/api-solutions/threat-intelligence-api/standard/)
 
-### Enterprise Threat Intelligence API
-The Enterprise Threat Intelligence API allows you access to more API endpoints that also return more information on the vulnerabilities. For access to these API endpoints, please [contact us here](https://patchstack.com/for-hosts/).
+### Extended Threat Intelligence API
+The Extended Threat Intelligence API allows you access to more API endpoints that also return more information on the vulnerabilities. For access to these API endpoints, please [contact us here](https://patchstack.com/for-hosts/).
 
-[Enterprise Threat Intelligence API Documentation](/api-solutions/threat-intelligence-api/enterprise/)
+[Extended Threat Intelligence API Documentation](/api-solutions/threat-intelligence-api/extended/)
