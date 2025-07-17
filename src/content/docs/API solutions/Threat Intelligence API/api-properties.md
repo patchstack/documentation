@@ -10,13 +10,12 @@ updatedAt: "Thu Aug 31 2023 07:18:30 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3
 ---
-# Introduction
 
-This document will provide information on the properties of the different endpoints as part of the API of the vulnerability database and will also provide an example on a potential integration to match the result set against WordPress software.
+_This document will provide information on the properties of the different endpoints as part of the API of the vulnerability database and will also provide an example on a potential integration to match the result set against WordPress software._
 
-These examples will be shown using PHP, but can easily be implemented using any programming language. If you have any questions, feel free to send an email to [dave.jong@patchstack.com](mailto:dave.jong@patchstack.com).
+_These examples will be shown using PHP, but can easily be implemented using any programming language. If you have any questions, feel free to send an email to [dave.jong@patchstack.com](mailto:dave.jong@patchstack.com)._
 
-# Data Structure
+## Data Structure
 
 Some of the JSON properties as part of the result set can be null so it is important to handle these properties accordingly. Note that we may speak of “product” in the result set, which is essentially the same as a “component”.
 
@@ -305,7 +304,7 @@ This is JSON example for 1 plugin, 1 theme and 1 WordPress core vulnerability.
     - 2 = Medium → patch within 7 days
     - 3 or higher = High → patch immediately
 
-# Implementation
+## Implementation
 
 Since some of these properties must be kept in mind while determining if a component is vulnerable or not, we have an example PHP script below which will explain the flow. In particular, the following properties must be used: product_slug, product_name_premium, affected_in, patched_in_ranges.
 

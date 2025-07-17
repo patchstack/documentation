@@ -13,7 +13,7 @@ sidebar:
 ---
 
 ### Standard Threat Intelligence API
-The standard Threat Intelligence API allows you access to the API endpoint to query the version of one particular product. For example to get the vulnerability information of 1 plugin of a particular version. Access to this API can be purchased through the [Patchstack App](https://app.patchsatck.com/billing/subscription).
+The Standard Threat Intelligence API allows you access to the API endpoint to query the version of one particular product. For example to get the vulnerability information of 1 plugin of a particular version. Access to this API can be purchased through the [Patchstack App](https://app.patchsatck.com/billing/subscription).
 
 [Standard Threat Intelligence API Documentation](/api-solutions/threat-intelligence-api/standard/)
 

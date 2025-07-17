@@ -1,5 +1,5 @@
 ---
-title: "Standard tier"
+title: "Standard tier API"
 excerpt: ""
 metadata: 
   image: []
@@ -10,11 +10,7 @@ sidebar:
   order: 1
 ---
 
-_If you’re looking for an API that has a complete data coverage and could be used commercially, please look at the commercial API <a href="https://patchstack.com/for-hosts" target="_blank">here</a>._
-
-## Introduction
-
-The purpose of this document is to provide information about the standard API functionality of the Patchstack vulnerability database (Threat Intelligence).
+_If you’re looking for an API that has a complete data coverage and could be used commercially, please look at the Extended Threat Intelligence API <a href="https://patchstack.com/for-hosts" target="_blank">here</a>._
 
 ## API Usage
 

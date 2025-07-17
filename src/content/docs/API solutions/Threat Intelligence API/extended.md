@@ -1,5 +1,5 @@
 ---
-title: "Extended tier"
+title: "Extended tier API"
 excerpt: ""
 hidden: false
 metadata: 
@@ -11,7 +11,7 @@ sidebar:
   order: 2
 ---
 
-_The purpose of this document is to provide information about the Extended Threat Intelligence API functionality of the Patchstack vulnerability database (Threat Intelligence). Extended Threat Intelligence API is available for the Enterprise plan customers._
+_The purpose of this document is to provide information about the Extended Threat Intelligence API functionality._
 
 ## API Usage
 
@@ -25,13 +25,13 @@ An API key is required. This API key should be present in the **PSKey HTTP reque
 
 Explanation of the API response properties can be found here [here](/api-solutions/threat-intelligence-api/api-properties/).
 
-### Latest Vulnerabilities
+### Latest vulnerabilities
 
 **Description:** Retrieve the latest 20 vulnerabilities which have been added to the database.  
 **Endpoint:** /latest  
 **Method:** GET
 
-**Example Response (Trimmed)** <https://patchstack.com/database/api/v2/latest>
+**Example response (trimmed)** <https://patchstack.com/database/api/v2/latest>
 
 ```json
 {
@@ -88,7 +88,7 @@ Explanation of the API response properties can be found here [here](/api-solutio
 }
 ```
 
-### Find Vulnerability
+### Find vulnerability
 
 **Description:** Retrieve vulnerabilities of a specific plugin, theme or WordPress core version.  
 **Endpoint:** /product/TYPE/NAME/VERSION/EXISTS?  
@@ -276,7 +276,7 @@ Explanation of the API response properties can be found here [here](/api-solutio
 }
 ```
 
-### Bulk Find Vulnerability
+### Bulk find vulnerability
 
 **Description:** Retrieve vulnerabilities in bulk of a number of plugins, themes or WordPress versions.  
 **Endpoint:** /batch  
@@ -294,7 +294,7 @@ This payload example will determine if WooCommerce version 3.0.0 has vulnerabili
 ]
 ```
 
-**Example Response 1** <https://patchstack.com/database/api/v2/batch>
+**Example response 1** <https://patchstack.com/database/api/v2/batch>
 
 ```json
 {
@@ -305,7 +305,7 @@ This payload example will determine if WooCommerce version 3.0.0 has vulnerabili
 }
 ```
 
-**Payload Example 2**
+**Payload example 2**
 
 This payload example will determine if WooCommerce version 3.0.0 has vulnerabilities and if WordPress version 3.0.0 has vulnerabilities. For WooCommerce it will return all vulnerabilities and for WordPress if it will return a boolean response.
 
@@ -316,7 +316,7 @@ This payload example will determine if WooCommerce version 3.0.0 has vulnerabili
 ]
 ```
 
-**Example Response 2** <https://patchstack.com/database/api/v2/batch>
+**Example response 2** <https://patchstack.com/database/api/v2/batch>
 
 ```json
 {
@@ -372,7 +372,7 @@ This payload example will determine if WooCommerce version 3.0.0 has vulnerabili
 }
 ```
 
-### Find Specific Vulnerability By Id
+### Find specific vulnerability by ID
 
 **Description:** Find a specific vulnerability by vulnerability id.  
 **Endpoint:** /vulnerability/ID  
@@ -380,7 +380,7 @@ This payload example will determine if WooCommerce version 3.0.0 has vulnerabili
 
 **ID** = Numeric identifier or PSID of the vulnerability.
 
-**Example Response 1** <https://patchstack.com/database/api/v2/vulnerability/4760>
+**Example response 1** <https://patchstack.com/database/api/v2/vulnerability/4760>
 
 ```json
 {
@@ -436,7 +436,7 @@ This payload example will determine if WooCommerce version 3.0.0 has vulnerabili
 }
 ```
 
-**Example Response 2** <https://patchstack.com/database/api/v2/vulnerability/4614>    
+**Example response 2** <https://patchstack.com/database/api/v2/vulnerability/4614>    
 
 ```json
 {
@@ -489,7 +489,7 @@ This payload example will determine if WooCommerce version 3.0.0 has vulnerabili
 }
 ```
 
-**Example Response 3** <https://patchstack.com/database/api/v2/vulnerability/4112>
+**Example response 3** <https://patchstack.com/database/api/v2/vulnerability/4112>
 
 ```json
 {
