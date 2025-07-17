@@ -535,7 +535,7 @@ This payload example will determine if WooCommerce version 3.0.0 has vulnerabili
 }
 ```
 
-## More information about Enterprise API
+## More information about the Threat Intelligence API
 
-You can find more information about Enterprise API here:  
+You can find more information about Threat Intelligence API here:  
 <a href="https://patchstack.com/for-hosts" target="_blank">https://patchstack.com/for-hosts/</a>
