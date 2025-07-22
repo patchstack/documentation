@@ -11,7 +11,7 @@ updatedAt: "Thu May 25 2023 12:36:25 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 9.3
 ---
-_The Slack integration is for the Developer and Business plan users only._  
+_The Slack integration is for the Developer and Enterprise plan users only._  
 
 To view integrations page, click on your name on Patchstack App (at the bottom left corner of the screen), then navigate to the **Integrations** page, or click here: https://app.patchstack.com/settings/integrations
 

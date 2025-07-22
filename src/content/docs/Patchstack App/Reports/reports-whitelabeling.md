@@ -11,12 +11,12 @@ updatedAt: "Thu May 25 2023 11:52:09 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 6.3
 ---
-_Security reports whitelabeling feature is for the Business plan users only._  
+_Security reports whitelabeling feature is for the Enterprise plan users only._  
 
 To view the report whitelabeling settings, navigate to the **Reports** link in Patchstack App menu, or click here:
 [https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)
 
-If you are on a **Business plan**, the reports whitelabeling feature lets you add your custom logo on the Patchstack security reports.  
+If you are on a **Enterprise plan**, the reports whitelabeling feature lets you add your custom logo on the Patchstack security reports.  
 To upload a logo, head to the **Reports** page on the Patchstack App.
 
 ![](@images/patchstack-reports-whitelabeling.png)

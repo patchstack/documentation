@@ -12,7 +12,7 @@ sidebar:
 ---
 
 
-_New triggers can be created on the Developer and Business plan only._
+_New triggers can be created on the Developer and Enterprise plan only._
 
 You can create a trigger by clicking on **+ Create Trigger** on the **Alerts** page in Patchstack App or by navigating here: <a href="https://app.patchstack.com/alerts/create" target="_blank">https://app.patchstack.com/alerts/create</a>.
 

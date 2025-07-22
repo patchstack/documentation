@@ -89,7 +89,7 @@ Get monthly overviews per site for each site in your account. Schedule them to a
 ###  Step #9 — Set up your custom alerts
 
 By default, Patchstack will alert you when we identify and vPatch a vulnerability in your plugins, themes or other software components. However, you can also set up custom alerts for firewall hits, attempted logins, and more.
-On a Developer and Business plan, you can also integrate Slack to send notifications to your Slack channel.
+On a Developer and Enterprise plan, you can also integrate Slack to send notifications to your Slack channel.
 
 [Creating alert triggers tutorial](/patchstack-app/alerts/creating-a-trigger/)
 

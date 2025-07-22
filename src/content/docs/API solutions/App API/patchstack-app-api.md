@@ -7,7 +7,7 @@ sidebar:
   order: 1
 ---
 
-_Patchstack App API is available for the Developer and Business plan users_
+_Patchstack App API is available for the Developer and Enterprise plan users_
 
 Patchstack App API enables users to run all the Patchstack App account actions remotely over an API. It allows you to access protection logs, generate security reports, manage site settings, add new sites, create custom rules, and much more.
 

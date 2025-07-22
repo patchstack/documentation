@@ -8,7 +8,7 @@ updatedAt: "Thu Nov 23 2023 12:53:02 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 6.5
 ---
-_The Developer report feature is available for the Developer and Business plan users._  
+_The Developer report feature is available for the Developer and Enterprise plan users._  
 
 To generate a Developer report, navigate to **Reports** page in Patchstack App, or click here:
 [https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)

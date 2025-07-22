@@ -11,7 +11,7 @@ updatedAt: "Thu May 25 2023 12:55:11 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 9.4
 ---
-_Seats and team features are available on the Developer and Business plan users only._  
+_Seats and team features are available on the Developer and Enterprise plan users only._  
 
 To manage your seats and team settings, click on your name on Patchstack App (at the bottom left corner of the screen), then navigate to the **Seats** page, or click here: https://app.patchstack.com/team
 
