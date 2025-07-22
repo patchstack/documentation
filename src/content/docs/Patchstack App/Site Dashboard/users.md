@@ -9,7 +9,7 @@ sidebar:
   order: 3.5
 ---
 _Site users page is accessible for the paid plan users._  
-**This feature is available for WordPress sites only._**
+**This feature is available for WordPress sites only.**
 
 
 To view your WordPress site users, navigate to **Sites** > **yourdomain.com** > **Users** in Patchstack App.

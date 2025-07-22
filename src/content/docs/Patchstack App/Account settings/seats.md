@@ -1,5 +1,5 @@
 ---
-title: "Team"
+title: "Seats"
 
 excerpt: ""
 hidden: false
@@ -13,9 +13,9 @@ sidebar:
 ---
 _Seats and team features are available on the Developer and Business plan users only._  
 
-To manage your seats and team settings, click on your name on Patchstack App (at the bottom left corner of the screen), then navigate to the **Team** page, or click here: https://app.patchstack.com/team
+To manage your seats and team settings, click on your name on Patchstack App (at the bottom left corner of the screen), then navigate to the **Seats** page, or click here: https://app.patchstack.com/team
 
-On the **Team** page you can manage the seats. The seat management feature allows you to add sub-users to your account to which you can assign specific permissions and/or sites.  
+On the **Seats** page you can manage the seats. The seat management feature allows you to add sub-users to your account to which you can assign specific permissions and/or sites.  
 When you add a new user, they will receive an email with a link to activate their account.
 
 <b>Available roles</b>
