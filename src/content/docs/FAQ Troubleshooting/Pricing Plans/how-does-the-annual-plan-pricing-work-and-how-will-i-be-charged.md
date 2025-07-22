@@ -11,7 +11,7 @@ sidebar:
   order: 3
 ---
 <b>How does it work?</b>  
-Once you start an annual plan with us, you will be charged for the entire amount right away and you will be charged every year for that amount unless you add more sites or activate different upgrades
+Once you start an annual plan with us, you will be charged for the entire amount right away and you will be charged every year for that amount unless you add more sites or activate different upgrades.
 
 <b>What if I add more sites to my account?</b>  
 If you add more WordPress sites to your account after you already paid, we will charge you at the end of the day depending on how many sites you added and how many days are left until the next invoice. For example, if you started your plan on January 1st and add 1 site on July 1st, we will charge you 50% of the amount. Once it's January 1st again, you will be charged 100% for all sites and other services you have added to your account.
