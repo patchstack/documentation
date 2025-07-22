@@ -11,9 +11,9 @@ updatedAt: "Wed Jun 28 2023 12:35:06 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.1
 ---
-Patchstack has a free version available. Free version of Patchstack detects vulnerable software on your websites, and notifies you about these. Free plan comes with 10 site slots, and protection can be applied individually for each site for $5 / month per site.
+Patchstack has a free version available. Free version of Patchstack detects vulnerable software on your websites, and notifies you about these. Personal (free) plan comes with 3 site slots, and protection can be applied individually for each site for $5 / month per site.
 
-**With the Community (free) version:**
+**With the Personal (free) version:**
 
 <ul><li>You will be the first to know about new vulnerabilities.</li>
 <li>You will save time by monitoring all your websites from a single dashboard.</li>
@@ -22,12 +22,12 @@ Patchstack has a free version available. Free version of Patchstack detects vuln
 <li>You will spend fewer resources fixing WordPress security issues (avoid expensive clean-ups).</li>
 <li>You can worry less about your website’s security and focus on your work.</li></ul>
 
-**What does Patchstack Community (Free) version include?**  
+**What does Patchstack Personal (Free) version include?**  
 **Detect security issues before hackers take over your website:**
 
 <ul><li>Detect the latest security vulnerabilities in your WordPress, Drupal or Joomla sites.</li>
 <li>Receive real-time alerts to email if any security vulnerabilities are found.</li>
-<li>Have a central security dashboard for up to 10 websites (via the Patchstack App).</li></ul>
+<li>Have a central security dashboard for up to 3 websites (via the Patchstack App).</li></ul>
 
 **What's the difference between a free version and paid version?**
 The free version of Patchstack only detects and notifies you about the vulnerabilities in the software versions your sites use. The paid version of Patchstack will also protect against malicious traffic and attacks exploiting known serious vulnerabilities on your site. The pricing for Patchstack protection starts from $5 / month per site.
@@ -43,7 +43,7 @@ To use a free version of Patchstack with Drupal, you'll need to sign up for the 
 
 ### Add protection to your sites
 If you are interested in protection, you can either:
-- Add up to 10 sites to the Community plan, and activate protection for each site individually for $5 / site per month
-- Sign up for the Developer plan to get more features with 50+ site slots
+- Add up to 3 sites to the Personal plan, and activate protection for each site individually for $5 / site per month
+- Sign up for the Developer plan to get more features with 25+ site slots
 
 Check out Patchstack's <a href="https://patchstack.com/pricing/" target="_blank">pricing page here</a>.  

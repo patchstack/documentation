@@ -19,7 +19,7 @@ To view available plan upgrades, navigate to **Upgrades** in Patchstack App, or 
 
 Volume upgrade is an addon for the Developer plan users for increasing the number of site slots for your Patchstack account.
 
-- On the Developer plan, you will get 50 extra site slots for $99 / month.
+- On the Developer plan, you will get +5 extra site slots for $12.50 / month.
 
 Go to the <a href="https://app.patchstack.com/billing/subscription" target="_blank">Upgrades page</a> in Patchstack App to activate **Volume upgrade**.
 
