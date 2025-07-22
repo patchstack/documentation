@@ -13,7 +13,7 @@ sidebar:
 ---
 Patchstack has a free version available. Free version of Patchstack detects vulnerable software on your websites, and notifies you about these. Personal (Free) plan comes with 3 site slots, and protection can be applied individually for each site for $5 / month per site.
 
-**With the Personal (Free) version:**
+**With the Personal (free) version:**
 
 <ul><li>You will be the first to know about new vulnerabilities.</li>
 <li>You will save time by monitoring all your websites from a single dashboard.</li>
