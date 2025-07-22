@@ -11,7 +11,7 @@ updatedAt: "Wed Jun 28 2023 12:35:06 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.1
 ---
-Patchstack has a free version available. Free version of Patchstack detects vulnerable software on your websites, and notifies you about these. Personal (free) plan comes with 3 site slots, and protection can be applied individually for each site for $5 / month per site.
+Patchstack has a free version available. Free version of Patchstack detects vulnerable software on your websites, and notifies you about these. Personal (Free) plan comes with 3 site slots, and protection can be applied individually for each site for $5 / month per site.
 
 **With the Personal (Free) version:**
 
@@ -36,10 +36,10 @@ The free version of Patchstack only detects and notifies you about the vulnerabi
 To use a free version of Patchstack with WordPress, install the <a href="https://wordpress.org/plugins/patchstack/" target="_blank">Patchstack plugin</a> on your site first, and start the user registration flow from the plugin itself, after activating it on your WordPress.
 
 ### For Joomla
-To use a free version of Patchstack with Joomla, you'll need to sign up for the Developer plan trial first. After that, you can downgrade your subscription from Developer plan to Community plan (Free). Add your site to Patchstack App, and go through <a href="https://docs.patchstack.com/patchstack-plugin/patchstack-connector/how-to-install-on-joomla/" target="_blank">this tutorial</a> to install the Patchstack connector to your Joomla site.
+To use a free version of Patchstack with Joomla, you'll need to sign up for the Developer plan trial first. After that, you can downgrade your subscription from Developer plan to Personal plan (Free). Add your site to Patchstack App, and go through <a href="https://docs.patchstack.com/patchstack-plugin/patchstack-connector/how-to-install-on-joomla/" target="_blank">this tutorial</a> to install the Patchstack connector to your Joomla site.
 
 ### For Drupal
-To use a free version of Patchstack with Drupal, you'll need to sign up for the Developer plan trial first. After that, you can downgrade your subscription from Developer plan to Community plan (Free). Add your site to Patchstack App, and go through <a href="https://docs.patchstack.com/patchstack-plugin/patchstack-connector/how-to-install-on-drupal/" target="_blank">this tutorial</a> to install the Patchstack connector to your Drupal site.
+To use a free version of Patchstack with Drupal, you'll need to sign up for the Developer plan trial first. After that, you can downgrade your subscription from Developer plan to Personal plan (Free). Add your site to Patchstack App, and go through <a href="https://docs.patchstack.com/patchstack-plugin/patchstack-connector/how-to-install-on-drupal/" target="_blank">this tutorial</a> to install the Patchstack connector to your Drupal site.
 
 ### Add protection to your sites
 If you are interested in protection, you can either:
