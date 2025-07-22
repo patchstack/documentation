@@ -27,7 +27,7 @@ Patchstack has a free version available. Free version of Patchstack detects vuln
 
 <ul><li>Detect the latest security vulnerabilities in your WordPress, Drupal or Joomla sites.</li>
 <li>Receive real-time alerts to email if any security vulnerabilities are found.</li>
-<li>Have a central security dashboard for up to 3 websites (via the Patchstack App).</li></ul>
+<li>Have a central security dashboard for up to 3 websites (via the Patchstack App).</li></ul> 
 
 **What's the difference between a free version and paid version?**
 The free version of Patchstack only detects and notifies you about the vulnerabilities in the software versions your sites use. The paid version of Patchstack will also protect against malicious traffic and attacks exploiting known serious vulnerabilities on your site. The pricing for Patchstack protection starts from $5 / month per site.
