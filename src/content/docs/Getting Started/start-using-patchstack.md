@@ -25,7 +25,7 @@ This guide will walk you through the whole product, showing you how to set up Pa
 Sign up for Patchstack App to manage and protect your WordPress sites.\
 <a href="https://app.patchstack.com/register" target="_blank">Click here to sign up and start your trial</a>
 
-![](@images/Sign-up.png)
+![](@images/patchstack-sign-up.png)
 
 
 ### Step #2 — Add & connect your site(s) to Patchstack
