@@ -30,5 +30,5 @@ To enter billing information, choose the plan, after which, you will be taken to
 
 ## Upgrading / downgrading your plan
 
-If you have already subscribed to a Developer or a Business plan, you can manage your plans from the same page.  
+If you have already subscribed to a Developer or Enterprise plan, you can manage your plans from the same page.  
 Just change your pricing plan by selecting one first.
