@@ -28,7 +28,7 @@ On this plan, by default you can protect up to 25 sites, but it can be extended 
 ### Developer plan pricing
 * Monthly payment plan: $79 / mo for 25 sites  
 * Annual payment plan: $69 / mo for 25 sites  
-* Volume Upgrade feature: $12.50 / mo for **additional 5 sites**
+* Volume Upgrade feature: $12.50 / mo for an **additional 5 sites**
 
 ## Enterprise plan
 
