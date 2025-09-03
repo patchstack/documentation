@@ -29,8 +29,6 @@ Settings you can manage on this page:
 <li>Prevent default WordPress file access - this feature blocks access to such files as license.txt, readme.html and wp-config-sample.php files</li>
 <li>Block access to debug.log file - check this if you want to block access to debug.log file that WordPress creates when debug logging is enabled</li>
 <li>Disable index views - disables directory indexing and file listings</li>
-<li>Forbid proxy comment posting</li>
-<li>Prevent image hotlinking</li>
 </ul>
 
 ## Writing custom .htaccess rules
