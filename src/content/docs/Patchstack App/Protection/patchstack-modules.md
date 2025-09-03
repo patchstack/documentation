@@ -48,9 +48,3 @@ These protection rules could cause false positives with remote WordPress managem
 ### Community IP Blocklist
 
 Community IP blocklist blocks access to IP addresses which are known to exploit vulnerabilities. This module contributes threat data back to the Patchstack network.
-
-### Generic OWASP
-
-This module contains protection rules that protect you against requests that contain certain patterns that match the <a href="https://owasp.org/www-project-top-ten/" target="_blank">OWASP top 10</a> ruleset.
-
-This provides very aggressive protection and has a higher chance of false positives, so it is only recommended to enable this on sites with a low number of plugins and do not run some sort of e-commerce environment such as WooCommerce.
