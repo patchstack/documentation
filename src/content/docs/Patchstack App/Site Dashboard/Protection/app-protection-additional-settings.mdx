@@ -23,7 +23,7 @@ The **Additional settings** subpage is found at **Sites** > **yoursite.com** > *
 
 ### Protection settings
 
-**Enable firewall** - this toggle enables or disables Patchstack's firewall. When turned off, your site won't be protected by virtual patches or firewall rules. However, other security measures (such as IP bans, country blocking, and .htaccess rules) will remain active. We recommend disabling the firewall only for testing purposes.
+**Enable firewall** - this toggle enables or disables Patchstack's firewall. When turned off, your site won't be protected by virtual patches or firewall rules. However, other security measures (such as IP bans and .htaccess rules) will remain active. We recommend disabling the firewall only for testing purposes.
 
 **Enable auto-prepend firewall** - this feature is new and currently designated a beta feature. It allows Patchstack to inject the <a href="https://www.php.net/manual/en/ini.core.php#ini.auto-prepend-file" target="_blank">auto_prepend_file</a> variable into the .htaccess file which will let the Patchstack firewall run in all PHP scripts across the entire web-server. This makes it possible to block vulnerabilities in PHP files which are loaded outside WordPress core itself. This feature only works on Apache servers.
 
@@ -38,34 +38,6 @@ You can whitelist user types from the Patchstack firewall engine. This means tha
 3. Toggle the roles, that you wish to whitelist
 4. Click **Save settings** once the changes have been done.
 </Steps>
-### Country blocking
-
-In case you want to block traffic to your site from certain countries, you can do so in the **Country blocking** section. 
-![](@images/patchstack-country-blocking.png)
-To block any country from viewing your site, do the following:
-<Steps>
-1. Navigate to your sites' **Protection** > **Additional settings** page in Patchstack App
-2. Look for the **Country blocking** section
-3. Toggle the **Enable country blocking** switch
-3. Start typing the name of the country into the country list field
-4. Click on the country name
-5. Scroll down and click on **Save settings**
-</Steps>
-### Inversed country blocking
-Patchstack has also added the option which inverses the country blocking.
-When "Turn it into whitelist" is checked, the countries which are typed into the country list input, will be the only countries from which the traffic to your site is allowed.
-
-**Example case:**  
-If you want to allow traffic ONLY from (for example) Germany: 
-
-<Steps>
-1. Type "Germany" into **country input field**
-2. Check **Turn it into whitelist instead**
-3. Check **Enable country blocking**
-4. Click on **Save settings**
-</Steps>
-
-PS! In some rare occurrences, the country blocking feature can cause false positive blockings. We rather recommend using country blocking on a server level.
 
 ### General whitelist settings
 
