@@ -40,11 +40,6 @@ The **Advanced hardening** module applies additional security mechanics to the W
 
 Community IP blocklist blocks access to IP addresses which are known to exploit vulnerabilities. This module contributes threat data back to the Patchstack network.
 
-### Generic OWASP
-
-Generic firewall rules against OWASP top 10 vulnerability types including XSS, SQLi, RCE and for other known exploitation methods. Note, due to its generic nature this module may cause false-positives on more complex sites that use a lot of plugins.  
-<a href="/patchstack-app/protection/patchstack-modules/#generic-owasp" target="_blank">📖 Read more </a>
-
 ## Activity section
 
 From the **Activity** section of the **Protection overview** page, you see how many times did Patchstack firewall block the traffic for potential threats.  
