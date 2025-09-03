@@ -26,7 +26,6 @@ Let's go through some more important table columns to explain the data shown.
     - VP - <a href="/patchstack-app/protection/patchstack-modules/#vpatches" target="_blank">vPatching module</a>
     - AH - <a href="/patchstack-app/protection/patchstack-modules/#advanced-hardening" target="_blank">Advanced hardening module</a>
     - IP - <a href="/patchstack-app/protection/patchstack-modules/#community-ip-blocklist" target="_blank">Community IP blocklist module</a>
-    - OW - <a href="/patchstack-app/protection/patchstack-modules/#generic-owasp" target="_blank">Generic OWASP module</a>
 4. **Threats blocked** - this graph is a visual representation of the firewall activity in the last 7 days
 5. **Software** column shows how many third party software is installed on this particular site (like plugins, themes or WordPress core)
     - **Vulnerabilities** - how many vulnerabilities are currently present on your website
