@@ -27,7 +27,7 @@ You can attach an existing group to any site, by clicking the **plus sign**, and
 
 ## Removing a group
 Once a group has been assigned to a site, it cannot be edited. However, you can remove the existing group and create a new one. To do this, hover over the group name until an "X" appears, then click on it to remove the group.
-![](@images/patchstack-editing-group.png)
+![](/images/patchstack-editing-group.png)
 
 ## Searching domains by group
 
