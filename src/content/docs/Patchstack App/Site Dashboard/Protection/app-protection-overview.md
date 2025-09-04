@@ -24,7 +24,7 @@ On the **Protection overview** subpage you can:
 ## Protection modules
 
 Patchstack firewall consists of four types of protection modules, which can be toggled on and off for any protected site. These protection modules also show the number of your sites are attached to each module.
-Below are the decriptions for all four protection modules:
+Below are the decriptions for all three protection modules:
 
 ### vPatching module
 
