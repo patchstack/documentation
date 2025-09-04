@@ -9,6 +9,18 @@ sidebar:
   order: 8
 ---
 
+<b>September 9th 2025</b>
+
+<ul>
+
+<li>Version 2.3.3</li>
+<li>Removed: login hours restriction feature</li>
+<li>Removed: country blocking feature</li>
+<li>Fixed: undefined tippy error</li>
+</ul>
+
+
+
 <b>March 27th 2025</b>
 
 <ul>
