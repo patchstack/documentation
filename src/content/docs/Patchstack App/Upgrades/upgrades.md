@@ -20,6 +20,6 @@ Patchstack's plan upgrades include:
 
 1. [Volume upgrade](/patchstack-app/upgrades/volume-upgrade/) - extend the amount of sites you can add to your Patchstack account
 2. [Seats](/patchstack-app/upgrades/seats/) - grant access to your Patchstack App sites for another user
-3. [Threat Intelligence API](/patchstack-app/api-solutions/threat-intelligence-api/standard/) - fetch the latest vulnerability information for a single version of a particular plugin, theme or WordPress core
+3. [Threat Intelligence API](/api-solutions/threat-intelligence-api/standard/) - fetch the latest vulnerability information for a single version of a particular plugin, theme or WordPress core
 
 ![](@images/patchstack-upgrades.png)
