@@ -1,0 +1,11 @@
+*.json
+src/assets/*
+src/components/*
+src/styles/*
+src/pages/*
+*.ts
+*.toml
+*.mjs
+schemas/*
+public/*
+
