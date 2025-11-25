@@ -23,7 +23,8 @@ When you add a new user, they will receive an email with a link to activate thei
 <ol><li>Owner: Full control of all users and sites of all users, only 1 owner can exist.</li>
 <li>Admin: Full control of all users and sites of all users, but cannot alter owners or other admins.</li>
 <li>Manager: Full control of all sites of all users, cannot modify users.</li>
-<li>Member: Read and write access to sites assigned to this user, cannot modify users or delete sites.</li></ol>
+<li>Member: Read and write access to sites assigned to this user, cannot modify users or delete sites.</li>
+<li>Independent: An account that is isolated from the others, only the owner can access its sites. This role can be useful in case you want to have a Patchstack account that inherits the subscription type of the owner but needs to be completely protected from other isolated accounts.</li></ol>
 
 In order to attach a site to a user, go to **Site** > **Action button** > **Attach To User**.
 
@@ -41,9 +42,9 @@ Note that you can **only add email addresses** that have **not yet registered** 
 After adding the user, you can see the added user in the table below.  
 An invitation will be sent to that email asking to register an account on Patchstack App.
 
-### Attaching a seat user to the site
+### Attaching a "Member" seat user to sites
 
-After the user has been added to Patchstack App, you can then choose to which sites would you want to attach this user.
+If you assigned a user the "Member" role, you can choose which sites you want to attach this user.
 For that, scroll down to the **Sites** table.
 You can see all your sites in this view.  
 Click on **Action** and **Attach to user** on the corresponding site.
