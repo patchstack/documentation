@@ -9,6 +9,19 @@ sidebar:
   order: 8
 ---
 
+<b>December 3rd 2025</b>
+
+<ul>
+
+<li>Version 2.3.4</li>
+<li>Changed: WordPress version stable tag</li>
+<li>Fixed: plugin redirect if more than one plugin is being activated</li>
+<li>Fixed: plugin redirect if the plugin is already connected to the API</li>
+<li>Fixed: some .htaccess rules</li>
+<li>Removed: unused cron job</li>
+<li>Removed: old multisite activation code</li>
+</ul>
+
 <b>September 9th 2025</b>
 
 <ul>
