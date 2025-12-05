@@ -30,9 +30,9 @@ The Patchstack plugin writes, by default, to the .htaccess file to apply basic p
 2. Set the `patchstack_disable_htaccess` WordPress option to 1, e.g. WP-CLI command: `wp option update patchstack_disable_htaccess 1`
 
 #### IP address header
-The Patchstack plugin tries to guess in which HTTP header the web-server is storing the real IP address of the visitor. This HTTP header varies a lot between hosting providers and also depends on if services such as Cloudflare are used. 
+The Patchstack plugin tries to guess in which HTTP header the web-server is storing the real IP address of the visitor and sets it to that permanently until we refresh it when we detect an environment change. This HTTP header varies a lot between hosting providers and also depends on if services such as Cloudflare are used. 
 
-If necessary, this can be set through the WordPress option `patchstack_firewall_ip_header`. This must contain the fill PHP-based HTTP header. For example for Cloudflare it would be HTTP_CF_CONNECTING_IP:
+If necessary, this can be set through the WordPress option `patchstack_firewall_ip_header`. This must contain the full PHP-based HTTP header. For example for Cloudflare it would be HTTP_CF_CONNECTING_IP:
 `wp option update patchstack_firewall_ip_header HTTP_CF_CONNECTING_IP`
 
 If the IP address header is invalid, we fallback to REMOTE_ADDR. Note that setting it to an invalid HTTP header could make it possible for malicious users to spoof their IP address.
@@ -70,10 +70,10 @@ Once the API key has been acquired, it can be used to communicate with the [Patc
 It's also important to set the `Content-Type` HTTP header to `application/json` when sending request data through the body.
 
 ### Step 2: Site provisioning
-When the site should be added to Patchstack depend on your use-case scenario. If they require protection immediately then you can execute this flow the moment the website environment (the WordPress site) has been created on the infrastructure. If you upsell Patchstack then this flow can be launched upon purchase or opt-in.
+When the site should be added to Patchstack depends on your use-case scenario. If they require protection immediately then you can execute this flow the moment the website environment (the WordPress site) has been created on the infrastructure. If you upsell Patchstack then this flow can be launched upon purchase or opt-in.
 
 ###### 1. Determine if the site already exists in Patchstack
-This step is essential as it's possible that a site may be protected already or added to Patchstack. For this, the `/site/exists` API endpoint can be utilized; it will check if a site with given URL has already been added to Patchstack before you attempt to add the site to Patchstack.
+This step is essential as it's possible that a site may be protected already or added to Patchstack. For this, the `/site/exists` API endpoint can be utilized; it will check if a site with the given URL has already been added to Patchstack before you attempt to actually add the site to Patchstack.
 
 The strict parameter dictates whether to do a strict check of the exact URL; avoids checking if different variants of the domain name (with and without www) and protocol (with and without http/https) is added.
 
@@ -127,7 +127,7 @@ The response will look something like below.
 ```
 
 ###### 3. Store in local datastore
-It is now important to store the lastid and oauth properties into a datastore on your infrastructure. This allows you to know the site identifier of the website of the customers without having to query the Patchstack App API. This can then be used for most of our other API endpoints to fetch information for the site.
+It is now important to store the lastid and oauth properties into a datastore on your infrastructure. This allows you to know the site identifier of the website of the customer without having to query the Patchstack App API each time. This can then be used for most of our other API endpoints to fetch information for the site.
 
 The API key that is used in the plugin, contains the format `oauth.secret-oauth.id`, for example in above response it would be `DOOs9DIyv2FMcURFtkB0eXOHMRhH7I2EsaNUb4aR-12345`.
 
@@ -188,8 +188,8 @@ Another way to install the Patchstack plugin is from WordPress itself.
 Once Patchstack has been activated on a site, it will upload the software list to the Patchstack API and fetch the mitigation rules for any vulnerabilities present on the website which need protection.
 
 Now it is important to show value to the customer, and this can be done through 2 ways:
-1. You fetch data from the Patchstack App API and display this in the environment
-2. You embed our pre-made iframe widget
+1. You fetch data from the Patchstack App API and display this in your environment
+2. You embed our iframe widget
 
 ###### Fetching data
 We have a large list of API endpoints to use where you can fetch information of a site.
