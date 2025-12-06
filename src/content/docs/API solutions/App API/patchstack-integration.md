@@ -187,7 +187,7 @@ Another way to install the Patchstack plugin is from WordPress itself.
 ### Step 4: Management & reporting
 Once Patchstack has been activated on a site, it will upload the software list to the Patchstack API and fetch the mitigation rules for any vulnerabilities present on the website which need protection.
 
-Now it is important to show value to the customer, and this can be done through 2 ways:
+Now it is important to show the value of Patchstack to the customer, and this can be done through 2 ways:
 1. You fetch data from the Patchstack App API and display this in your environment
 2. You embed our iframe widget
 
@@ -196,13 +196,13 @@ We have a large list of API endpoints to use where you can fetch information of 
 Some noteworthy ones are [listed below](/api-solutions/app-api/patchstack-integration/#noteworthy-api-endpoints) as well as here:
 
 - [Fetch basic information](https://api.patchstack.com/app-api/documentation#/Sites/d246365f4afc2083b225e4cf2ae84632)
-  - Vulnerability counter, total threats blocked, total software counter and how many are vulnerable/outdated
+  - Vulnerability counters (how many present, mitigated and resolved), total threats blocked, total software counters and how many are vulnerable/outdated
   - Attacks blocked over past 7 days
 - [Fetch vulnerabilities present](https://api.patchstack.com/app-api/documentation#/Dashboard/8a6e3f514edd9f267812dc853398e716)
   - All vulnerabilities of a site
-  - Information about each individual vulnerability
+  - Information about each individual vulnerability such as: is it fixed, is it exploited, does it have protection, what is the severity
 - [Fetch firewall statistics](https://api.patchstack.com/app-api/documentation#/Firewall/edd0582b9e216543afc1ebe7c70f3526)
-  - Fetch the threats blocked over a given period of days or timeframe
+  - Fetch the total threats blocked (grouped by day) over a given period of days or timeframe
 
 
 ###### Embedding iframe widget
