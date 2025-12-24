@@ -1,0 +1,178 @@
+---
+title: "WP options"
+
+excerpt: ""
+hidden: false
+metadata: 
+  image: []
+  robots: "index"
+createdAt: "Thu Jun 29 2023 11:28:48 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Thu Jun 29 2023 12:24:18 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 5
+head:
+  - tag: style
+    content: ":root { --sl-content-width: 75rem !important; }"
+
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+The list below are all WordPress related options that are being registered by Patchstack in its WordPress plugin.  
+Also refer to the section on this page on how to disable all features of Patchstack except the firewall engine.
+
+<Aside type="caution">
+  The option names below have its "patchstack_" prefix removed.  
+  It is important you prefix them with "patchstack_" before updating or adding them.
+</Aside>
+<br />
+<details>
+<summary>Patchstack WordPress Options</summary>
+
+| Option Name                 | Value Type         | Default | Description |
+| --------------------------- | ------------------ | ------- | ----------- |
+| disable_htaccess | boolean | 0 | Disable .htaccess features |
+| basicscanblock | boolean | 1 | Block readme.txt access (.htaccess) |
+| prevent_default_file_access | boolean | 1 | Prevent default wordpress file access (.htaccess) |
+| index_views | boolean | 1 | Disable index views (.htaccess) |
+| block_debug_log_access | boolean | 1 | Block access to debug.log file (.htaccess) |
+| pluginedit | boolean | 1 | Disable plugin/theme editor |
+| userenum | boolean | 1 | Disable user enumeration to block users from identifying your usernames |
+| hidewpversion | boolean | 1 | Hide WordPress version in the meta tag of the HTML output |
+| application_passwords_disabled | boolean | 1 | Block WordPress application password feature |
+| xmlrpc_is_disabled | boolean | 1 | Restrict XML-RPC access to authenticated users only |
+| json_is_disabled | boolean | 0 | Restrict WP REST API access to authenticated users only |
+| add_security_headers | boolean | 1 | Add security headers |
+| mv_wp_login | boolean | 0 | Whether or not to rename the WordPress login page |
+| rename_wp_login | string |  | String slug to rename the WordPress login page to |
+| login_2fa | boolean | 0 | Turn on two factor authentication |
+| captcha_type | string | v2 | v2 = checkbox v2, invisible = invisible v2, v3 = invisible v3, turnstile = Cloudflare turnstile |
+| captcha_public_key | string | | If captcha_type == v2, this must be set |
+| captcha_private_key | string | | If captcha_type == v2, this must be set |
+| captcha_public_key_v3 | string | | If captcha_type == invisible, this must be set |
+| captcha_private_key_v3 | string | | If captcha_type == invisible, this must be set |
+| captcha_public_key_v3_new | string | | If captcha_type == v3, this must be set |
+| captcha_private_key_v3_new | string | | If captcha_type == v3, this must be set |
+| captcha_public_key_turnstile | string | | If captcha_type == turnstile, this must be set |
+| captcha_private_key_turnstile | string | | If captcha_type == turnstile, this must be set |
+| captcha_on_comments | boolean | 0 | Captcha on post comments form |
+| captcha_login_form | boolean | 0 | Captcha on user login form |
+| captcha_registration_form | boolean | 0 | Captcha on registration form |
+| captcha_reset_pwd_form | boolean | 0 | Captcha on password reset form |
+| activity_log_is_enabled | boolean | 1 | Activity logs enabled |
+| activity_log_failed_logins | boolean | 1 | Log failed logins locally, for use in login ban feature |
+| activity_log_failed_logins_db | boolean | 0 | Log failed logins to Patchstack App |
+| activity_log_posts | boolean | 0 | Log post related activity |
+| activity_log_comments | boolean | 0 | Log comments related activity |
+| basic_firewall | boolean | 1 | Firewall enabled |
+| block_bruteforce_ips | boolean | 0 | Whether or not to enable login brute-force ban options below |
+| anti_bruteforce_blocktime | int | 60 | Number of minutes to block user after X blocked LOGIN requests. |
+| anti_bruteforce_attempts | int | 10 | Number of attempts to look for before blocking user from logging in. |
+| anti_bruteforce_minutes | int | 5 | Number of minutes timeframe to look for to determine the number of attempts of failed logins. |
+| autoblock_blocktime | int | 1 | Number of minutes to block user after X blocked firewall requests. |
+| autoblock_attempts | int | 60 | Number of attempts to look for before blocking user from accessing site. |
+| autoblock_minutes | int | 1 | Number of minutes timeframe to look for to determine the number of attempts of blocked requests. |
+| firewall_ip_header | string | REMOTE_ADDR | String of the firewall IP address header to use. E.g. HTTP_X_FORWARDED_FOR |
+| ip_block_list | string | | Newline separated list of IP addresses to block |
+
+</details>
+
+<details>
+<summary>Patchstack WordPress Options For Internal Use</summary>
+
+These internal use options are generally not be touched by the user and are either auto-computed, dynamically fetched from the Patchstack API or deprecated.
+
+| Option Name                 | Value Type         | Default | Description |
+| --------------------------- | ------------------ | ------- | ----------- |
+| hits_last_30 | array | [] | Array of hits of past 30 days |
+| hits_all_time | int | 0 | All time hits counter |
+| non_vpatches_present | int | 0 | Number of non-vPatches running on the site |
+| vpatches_present | int | 0 | Number of vPatches running on the site |
+| fixes_present | int | 0 | Number of vulns which have a fix available through an update |
+| vulns_present | int | 0 | Number of vulnerabilities present |
+| auto_update | array | [] | Array of auto update settings for the site |
+| db_version | float | | Database migration version |
+| firewall_rules_v3 | string | [] | vPatches JSON|
+| firewall_rules_v3_ap | string | [] | vPatches Auto-Prepend JSON |
+| whitelist_rules_v3 | string | [] | Whitelist vPatches JSON |
+| firewall_rules | string | []| Legacy vPatches JSON |
+| whitelist_rules | string | [] | Legacy Whitelist vPatches JSON |
+| whitelist_keys_rules | string | [] | Legacy Whitelist Payload Keys JSON |
+| firewall_ap_error | string | | Error of auto-prepend activation failure |
+| ip_header_computed | bool | 0 | Indiciation if we computed the proxy IP header |
+| ip_header_force_compute | bool | 0 | Whether or not to force a new IP header compution |
+| firewall_custom_rules | string | | Custom .htaccess rules to inject |
+| firewall_custom_rules_loc | string | 'bottom' or 'top' | Location of where to inject the .htaccess rules |
+| login_whitelist | array | [] | Array of temporarily whitelisted IP's to access login page |
+| rename_wp_login_whitelist | array | [] | Array of temporarily whitelisted IP's to access login page |
+| environment_hash | string | | Computed hash of web-server values |
+| software_data_hash | string | | Hash of software data |
+| software_upload_attempted | bool | 0 | Whether or not we attempted a software sync yet |
+| license_expiry | int | | Timestamp of license expiration |
+| license_activated | int | | Whether or not the subscription is active |
+| clientid | int | | Integer of the client identifier (part of API key) |
+| secretkey | string | | String of the client secret (part of API key) |
+| secretkey_nonce | string | | Nonce used for encrypting the API key |
+| license_free | bool | 0 | Whether or not the subscription is a free user or not |
+| api_token | array | [] | The bearer token and its expiration |
+| subscription_class | integer | 0 | The class code of the subscription |
+| last_license_check | integer | 0 | The last time we checked the subscription of the site |
+| whitelist | string | | Legacy whitelist rules |
+| show_settings | bool | 0 | Unused |
+| firewall_log_lastid | int | 0 | Last identifier of sync, temporary value |
+| eventlog_lastid | int | 0 | Last identifier of sync, temporary value |
+| ott_action | string | | Hash used for a one-time-token action |
+| managed | bool | 0 | Whether or not this site is third-party managed |
+| managed_text | string | | Text to show on Patchstack settings page if it is third-party managed |
+| latest_vulnerable | array | [] | Array of vulnerability identifiers to determine if we need to sync firewall rules |
+| site_id | int | 0 | Site identifier of the site on Patchstack SaaS |
+| activation_secret | string | | Activation secret used for instant site activation |
+| activation_time | int | | Time for when activation secret through instant site activation is invalid |
+| firewall_ap_enabled | bool | 0 | Whether or not auto prepend functionality is enabled |
+| firewall_log_processing | bool | 0 | Whether or not firewall logs are currently being synced |
+| firewall_log_ap_processing | bool | 0 | Whether or not auto prepend firewall logs are currently being synced |
+| eventlog_log_processing | bool | 0 | Whether or not activity logs are currently being synced |
+| cron_offset | array | [] | Array of Patchstack crons and their unique offets |
+| basic_firewall_roles | array | [ 'administrator', 'editor', 'author', 'contributor' ] | Default whitelisted roles for legacy vPatch rules |
+</details>
+
+
+## Minimal Mode
+
+In order to run the Patchstack WordPress plugin in a minimal mode with minimal interference with other code and plugins, you can refer to the list below and which options we recommend you to change. It is recommended to apply these options before activating Patchstack, as some triggers may occur during Patchstack plugin activation.
+
+This will set Patchstack to strictly run its firewall engine without any additional hardening features.
+
+| Option Name                 | Set To             | Explanation |
+| --------------------------- | ------------------ | ----------- |
+| disable_htaccess | 1 | Disables .htaccess functionality |
+| basicscanblock | 0 | Disable .htaccess option |
+| prevent_default_file_access | 0 | Disable .htaccess option |
+| index_views | 0 | Disable .htaccess option |
+| block_debug_log_access | 0 | Disable .htaccess option |
+| pluginedit | 0 | Enables the theme/plugin editor |
+| userenum | 0 | Allows username/author name enumaration through WP-JSON |
+| hidewpversion | 0 | Show WordPress core version |
+| application_passwords_disabled | 0 | Allow application passwords feature |
+| xmlrpc_is_disabled | 0 | Enable XML-RPC |
+| add_security_headers | 0 | Do not add security headers to the HTTP response |
+| activity_log_is_enabled | 0 | Do not log activity related events |
+| activity_log_failed_logins | 0 | Do not log failed logins |
+
+These options can also be set with the [WP-CLI](https://developer.wordpress.org/cli/commands/option/) commands below:
+
+```bash
+wp option update patchstack_disable_htaccess 1
+wp option update patchstack_basicscanblock 0
+wp option update patchstack_prevent_default_file_access 0
+wp option update patchstack_index_views 0
+wp option update patchstack_block_debug_log_access 0
+wp option update patchstack_pluginedit 0
+wp option update patchstack_userenum 0
+wp option update patchstack_hidewpversion 0
+wp option update patchstack_application_passwords_disabled 0
+wp option update patchstack_xmlrpc_is_disabled 0
+wp option update patchstack_add_security_headers 0
+wp option update patchstack_activity_log_is_enabled 0
+wp option update patchstack_activity_log_failed_logins 0
+```

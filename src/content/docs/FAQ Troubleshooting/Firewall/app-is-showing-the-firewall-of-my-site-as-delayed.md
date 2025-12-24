@@ -21,7 +21,7 @@ One potential solution to reason 1 is to use a server-based scheduled task that 
 
 <ol><li>Disable the default WordPress cronjob by adding the following to your wp-config.php file in the root folder of your site:
 
-```
+```php
 define('DISABLE_WP_CRON', true);
 ```
 </li>
@@ -29,7 +29,7 @@ define('DISABLE_WP_CRON', true);
 <li>Set the interval to something between 5 and 15 minutes.</li>
 <li>Set the cron command to the following (change the URL to your own):
 
-``` 
+```bash
 wget -q -O - https://yoursite.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1 
 ```
 </li>

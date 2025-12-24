@@ -14,13 +14,13 @@ sidebar:
 The Patchstack WordPress plugin provides you access to the following WP CLI command as of version 2.1.25.  
 Before running this command, the Patchstack WordPress plugin should be installed on the site. You can use the WP CLI command below to install it.
 
-```
+```bash
 wp plugin install patchstack --activate
 ```
 
 ### wp patchstack activate
 
-```
+```bash
 wp patchstack activate <id> <secret>
   
 Example: wp patchstack activate 123456 2b072e8b60402e30d481df351fc08183906254e0
