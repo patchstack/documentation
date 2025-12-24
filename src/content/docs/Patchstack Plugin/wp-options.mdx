@@ -99,39 +99,39 @@ These internal use options are generally not be touched by the user and are eith
 | whitelist_rules | string | [] | Legacy Whitelist vPatches JSON |
 | whitelist_keys_rules | string | [] | Legacy Whitelist Payload Keys JSON |
 | firewall_ap_error | string | | Error of auto-prepend activation failure |
-| ip_header_computed | bool | 0 | Indiciation if we computed the proxy IP header |
-| ip_header_force_compute | bool | 0 | Whether or not to force a new IP header compution |
+| ip_header_computed | boolean | 0 | Indiciation if we computed the proxy IP header |
+| ip_header_force_compute | boolean | 0 | Whether or not to force a new IP header compution |
 | firewall_custom_rules | string | | Custom .htaccess rules to inject |
 | firewall_custom_rules_loc | string | 'bottom' or 'top' | Location of where to inject the .htaccess rules |
 | login_whitelist | array | [] | Array of temporarily whitelisted IP's to access login page |
 | rename_wp_login_whitelist | array | [] | Array of temporarily whitelisted IP's to access login page |
 | environment_hash | string | | Computed hash of web-server values |
 | software_data_hash | string | | Hash of software data |
-| software_upload_attempted | bool | 0 | Whether or not we attempted a software sync yet |
+| software_upload_attempted | boolean | 0 | Whether or not we attempted a software sync yet |
 | license_expiry | int | | Timestamp of license expiration |
 | license_activated | int | | Whether or not the subscription is active |
 | clientid | int | | Integer of the client identifier (part of API key) |
 | secretkey | string | | String of the client secret (part of API key) |
 | secretkey_nonce | string | | Nonce used for encrypting the API key |
-| license_free | bool | 0 | Whether or not the subscription is a free user or not |
+| license_free | boolean | 0 | Whether or not the subscription is a free user or not |
 | api_token | array | [] | The bearer token and its expiration |
 | subscription_class | integer | 0 | The class code of the subscription |
 | last_license_check | integer | 0 | The last time we checked the subscription of the site |
 | whitelist | string | | Legacy whitelist rules |
-| show_settings | bool | 0 | Unused |
+| show_settings | boolean | 0 | Unused |
 | firewall_log_lastid | int | 0 | Last identifier of sync, temporary value |
 | eventlog_lastid | int | 0 | Last identifier of sync, temporary value |
 | ott_action | string | | Hash used for a one-time-token action |
-| managed | bool | 0 | Whether or not this site is third-party managed |
+| managed | boolean | 0 | Whether or not this site is third-party managed |
 | managed_text | string | | Text to show on Patchstack settings page if it is third-party managed |
 | latest_vulnerable | array | [] | Array of vulnerability identifiers to determine if we need to sync firewall rules |
 | site_id | int | 0 | Site identifier of the site on Patchstack SaaS |
 | activation_secret | string | | Activation secret used for instant site activation |
 | activation_time | int | | Time for when activation secret through instant site activation is invalid |
-| firewall_ap_enabled | bool | 0 | Whether or not auto prepend functionality is enabled |
-| firewall_log_processing | bool | 0 | Whether or not firewall logs are currently being synced |
-| firewall_log_ap_processing | bool | 0 | Whether or not auto prepend firewall logs are currently being synced |
-| eventlog_log_processing | bool | 0 | Whether or not activity logs are currently being synced |
+| firewall_ap_enabled | boolean | 0 | Whether or not auto prepend functionality is enabled |
+| firewall_log_processing | boolean | 0 | Whether or not firewall logs are currently being synced |
+| firewall_log_ap_processing | boolean | 0 | Whether or not auto prepend firewall logs are currently being synced |
+| eventlog_log_processing | boolean | 0 | Whether or not activity logs are currently being synced |
 | cron_offset | array | [] | Array of Patchstack crons and their unique offets |
 | basic_firewall_roles | array | [ 'administrator', 'editor', 'author', 'contributor' ] | Default whitelisted roles for legacy vPatch rules |
 </details>
