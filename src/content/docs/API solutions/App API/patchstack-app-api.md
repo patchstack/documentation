@@ -24,7 +24,11 @@ Some example use cases for Patchstack App API are listed below:
 - Build any kind of automations with Zapier, IFTTT, etc.
 
 ### How to get Patchstack App API key?
-To get the API key, log in to your Patchstack account, go to account settings and navigate to the <a href="https://app.patchstack.com/settings/integrations" target="_blank">**Integrations**</a> page.
+To get the API key, log in to your Patchstack account, go to account settings and navigate to the <a href="https://app.patchstack.com/settings/integrations" target="_blank">**Integrations**</a> page. On this page, you are able to generate multiple App API keys for your account with the optional ability to:
+- Bind an API key to IP addresses
+- Make an API key read-only
+- Set an expiration
+- Rotate the API key
 
 ![](@images/patchstack-integration-settings-api-key.png)
 

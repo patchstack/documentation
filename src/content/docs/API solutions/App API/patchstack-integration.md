@@ -55,11 +55,12 @@ The plugin takes cares of a few things, but these are most important to know:
 - Fetches mitigation rules that will run in the plugin on each request
   - We only ship the mitigation rules that the site needs for optimal performance
 
-A possible integration can be split into 4 phases:
+A possible integration can be split into 5 phases:
 1. Account setup & authentication
 2. Site provisioning
 3. Plugin deployment
-4. Management & reporting
+4. Default Policy & Managed By Mode
+5. Management & reporting
 
 ## Integration phases
 ### Step 1: Account setup & authentication
@@ -184,7 +185,17 @@ Another way to install the Patchstack plugin is from WordPress itself.
 3. Copy the API key from there
 4. Go to your WordPress admin, navigate to <b>Settings</b> > <b>Security</b> and insert the API key there
 
-### Step 4: Management & reporting
+### Step 4: Default Policy & Managed By Mode
+As an enterprise customer, you will have access to some features that allows you to customize some functionality of Patchstack.
+
+###### Default Policy
+It is possible that you may want certain options in Patchstack disabled, or enabled, by default upon activation of the Patchstack plugin on the website. This is possible with a default policy.
+To read more about default policy functionality, please head to [this documentation page](/patchstack-app/sites/policy/).
+
+###### Managed By Mode
+The managed by mode allows you to set text (HTML) that is shown to your customers when they access the Patchstack settings page on /wp-admin/ → Settings → Security. This can be used to show who manages or maintains the Patchstack security integration or who they should contact/email for any support. For more information on the managed by mode, head to the [this documentation page](/patchstack-app/account-settings/managed-mode/).
+
+### Step 5: Management & reporting
 Once Patchstack has been activated on a site, it will upload the software list to the Patchstack API and fetch the mitigation rules for any vulnerabilities present on the website which need protection.
 
 Now it is important to show the value of Patchstack to the customer, and this can be done through 2 ways:

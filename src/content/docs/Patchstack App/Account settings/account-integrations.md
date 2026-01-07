@@ -1,5 +1,5 @@
 ---
-title: "Integrations"
+title: "Slack Integration"
 
 excerpt: "Get real-time alerts to your Slack channel!"
 hidden: false

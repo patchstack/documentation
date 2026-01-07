@@ -1,0 +1,55 @@
+---
+title: "Policy"
+excerpt: "Default site policy"
+hidden: false
+createdAt: "Mon Jul 25 2022 09:03:10 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Wed Dec 20 2023 13:36:16 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 4
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside type="note">
+	This feature is only available to WordPress.  
+	It is available in Patchstack plugin versions starting from and including 2.3.5.
+</Aside>
+<br />
+It is possible to set a default site policy for all your sites. The default site policy consists of a JSON array of settings that will be applied to the WordPress site upon the initial activation of the Patchstack plugin.
+
+## Setting up a default policy
+1. Head to [https://app.patchstack.com/settings/integrations](https://app.patchstack.com/settings/integrations)
+2. Scroll down to the "Default Site Policy" section.
+3. Modify the JSON list and add or adjust the list per your needs.
+4. Click the "Save Policy" button.
+
+All of the options that can be set can be found [here](/patchstack-plugin/wp-options/) under "Patchstack WordPress Options".  
+Note that some options cannot be set, in particular dynamic options which change often.
+
+## Example policy
+An example policy, to strictly run the Patchstack firewall engine, can be seen below.
+By default, a lot of the Patchstack hardening features are opt-in which means we only have to adjust few settings.
+
+```json
+{
+	"patchstack_disable_htaccess": 1,
+	"patchstack_basicscanblock": 0,
+	"patchstack_prevent_default_file_access": 0,
+	"patchstack_index_views": 0,
+	"patchstack_block_debug_log_access": 0,
+	"patchstack_pluginedit": 0,
+	"patchstack_userenum": 0,
+	"patchstack_hidewpversion": 0,
+	"patchstack_application_passwords_disabled": 0,
+	"patchstack_xmlrpc_is_disabled": 0,
+	"patchstack_add_security_headers": 0,
+	"patchstack_activity_log_is_enabled": 0,
+	"patchstack_activity_log_failed_logins": 0
+}
+```
+
+## Considerations
+- For team accounts, the leader's policy will always apply, except for "independent" seats as their policy will be applied instead.
+- The policy can also be programmatically set through the [Patchstack App API](/api-solutions/app-api/patchstack-app-api/).
+- The policy will only be applied during the first activation of the WordPress plugin.
+	- This avoids overwriting settings that were manually configured in the past.

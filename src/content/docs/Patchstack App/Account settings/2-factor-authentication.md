@@ -1,5 +1,5 @@
 ---
-title: "Setting up 2FA for your Patchstack account"
+title: "Setting up 2FA"
 
 excerpt: ""
 hidden: false

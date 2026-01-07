@@ -176,3 +176,25 @@ wp option update patchstack_add_security_headers 0
 wp option update patchstack_activity_log_is_enabled 0
 wp option update patchstack_activity_log_failed_logins 0
 ```
+
+It is also possible to apply these settings through a default site policy on the Patchstack App. An example of this policy is shown below.  
+Read more about default site policies [here](/patchstack-app/sites/policy/).
+
+```json
+{
+	"patchstack_disable_htaccess": 1,
+	"patchstack_basicscanblock": 0,
+	"patchstack_prevent_default_file_access": 0,
+	"patchstack_index_views": 0,
+	"patchstack_block_debug_log_access": 0,
+	"patchstack_pluginedit": 0,
+	"patchstack_userenum": 0,
+	"patchstack_hidewpversion": 0,
+	"patchstack_application_passwords_disabled": 0,
+	"patchstack_xmlrpc_is_disabled": 0,
+	"patchstack_add_security_headers": 0,
+	"patchstack_activity_log_is_enabled": 0,
+	"patchstack_activity_log_failed_logins": 0
+}
+```
+

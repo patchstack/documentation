@@ -8,6 +8,16 @@ updatedAt: "Wed Jan 17 2024 10:39:45 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 8
 ---
+<b>January 6th, 2026</b>
+
+<ul>
+
+<li>Version 2.3.5</li>
+<li>Added: default policy for license activation</li>
+<li>Added: clause to avoid HTTP call if htaccess feature is disabled</li>
+<li>Fixed: the woocommerce_process_registration_errors filter by moving it to the correct location</li>
+<li>Removed: third argument to update_option to avoid overwriting autoload setting</li>
+</ul>
 
 <b>December 3rd 2025</b>
 
@@ -74,7 +84,7 @@ sidebar:
 <li>Changed: small performance improvement when on wp-admin pages</li>
 <li>Changed: trim API key when being entered into API key field</li>
 <li>Changed: default values of firewall block throttle increased to reduce error code 22 instances</li>
-<li>Changed: App -> plugin communication</li>
+<li>Changed: App → plugin communication</li>
 <li>Removed: readme.html deletion</li>
 <li>Removed: registration email blacklist feature</li>
 <li>Removed: old reference to api.webarxsecurity.com</li>

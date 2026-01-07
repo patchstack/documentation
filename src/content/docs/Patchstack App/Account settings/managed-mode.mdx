@@ -1,0 +1,104 @@
+---
+title: "Managed By Text"
+
+excerpt: ""
+hidden: false
+metadata: 
+  image: []
+  robots: "index"
+createdAt: "Tue Aug 16 2022 15:08:31 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Thu May 25 2023 12:36:25 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 9.3
+---
+
+_The managed by text feature is for the Enterprise plan only and applies to WordPress sites._  
+
+As an enterprise user, you will have the ability to set a custom message that will be shown to your customers when they visit the /wp-admin/ page and head to Settings → Security.
+
+## Setting up managed by text
+1. Head to the [integrations page](https://app.patchstack.com/settings/integrations).
+2. Locate the "Site Managed By Text" section.
+3. Enter the HTML which you want to display to your users.
+
+It can take up to 24 hours before the managed by text and mode is activated if applied for the first time. By clicking the API key resync button on Settings → Security at /wp-admin/, it will instantly refresh on the website.
+
+## Allowed HTML
+There are some limitations on what HTML is allowed to be inserted into this textarea. The HTML is passed through WordPress' wp_kses function with the allowed HTML and attributes in the list below.
+
+<details>
+<summary>Allowed HTML tags and attributes</summary>
+```php
+[
+	'a' => [
+		'href' => [],
+		'title' => [],
+		'target' => []
+	],
+	'p' => [
+		'style' => []
+	],
+	'span' => [
+		'style' => []
+	],
+	'br' => [],
+	'strong' => [],
+	'b' => [],
+	'i' => [
+		'style' => []
+	],
+	'label' => [
+		'for' => [],
+		'style' => []
+	],
+	'input' => [
+		'type' => [],
+		'class' => [],
+		'name' => [],
+		'id' => [],
+		'value' => [],
+		'checked' => [],
+		'style' => []
+	],
+	'textarea' => [
+		'rows' => [],
+		'id' => [],
+		'name' => []
+	],
+	'select' => [
+		'name' => [],
+		'id' => [],
+		'data-selected' => []
+	],
+	'option' => [
+		'value' => [],
+		'selected' => []
+	],
+	'table' => [
+		'class' => [],
+		'style' => []
+	],
+	'thead' => [],
+	'th' => [
+		'style' => []
+	],
+	'tr' => [],
+	'td' => [],
+	'div' => [
+		'class' => [],
+		'style' => []
+	]
+];
+```
+</details>
+
+## Example
+Below is an example of what this looks like on the /wp-admin/ → Settings → Security page if we were to set the message to the following:
+
+```html
+The security of this website is managed by <span style="color: #fff;">SomeCompany</span>.<br>
+If you have any questions or need assistance, reach out to us at <a href="mailto:our@company.com">our@company.com</a>.
+```
+
+This results in the following:
+![](@images/patchstack-managed-text.png)
