@@ -22,3 +22,8 @@ Access everything included in the Standard tier, bulk-request data for multiple 
 
 
 [Extended Threat Intelligence API Documentation](/api-solutions/threat-intelligence-api/extended/)
+
+### Beta Threat Intelligence API
+Adds npm ecosystem coverage, an opt-in full advisory body (`?include=details`), a consistent nested response shape, and cursor-based pagination alongside the existing offset pagination. These are the recommended endpoints for new integrations.
+
+[Beta Threat Intelligence API Documentation](/api-solutions/threat-intelligence-api/beta/)
