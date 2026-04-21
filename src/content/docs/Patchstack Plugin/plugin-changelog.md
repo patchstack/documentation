@@ -38,7 +38,6 @@ sidebar:
 
 <li>Version 2.3.3</li>
 <li>Removed: login hours restriction feature</li>
-<li>Removed: country blocking feature</li>
 <li>Fixed: undefined tippy error</li>
 </ul>
 
@@ -278,7 +277,6 @@ sidebar:
 <li>Added: patchstack activate command to activate through WP CLI.</li>
 <li>Fixed: Selectize library not loading.</li>
 <li>Fixed: Fatal error due to wp-config.php salts not present on some environments.</li>
-<li>Fixed: Execution order of country blocking feature.</li>
 <li>Fixed: PHP version truncated in software sync.</li>
 
 </ul>
@@ -525,7 +523,6 @@ sidebar:
 <ul>
 <li>Version 2.0.9</li>
 <li>Fixed: The option to disable plugin/theme edit will no longer write to (or create) the wp-config.php file which could potentially cause fatal errors.</li>
-<li>Fixed: Country blocking feature will no longer block Patchstack if USA is blocked as country.</li>
 </ul>
 
 <b>November 19th 2019</b>
@@ -534,7 +531,6 @@ sidebar:
 <li>Version 2.0.8</li>
 <li>Fixed: Fatal error in plugin update checker library.</li>
 <li>Version 2.0.7</li>
-<li>Added: Country blocking functionality. You can find this on the firewall settings page. It also has an option to inverse block, which means the selected countries will only be able to visit your site.</li>
 <li>Fixed: Minor optimization to the firewall engine.</li>
 <li>Fixed: Rare condition in whitelist rules handling that would throw an error.</li>
 <li>Fixed: Error with PHP 7.3 in the plugin update checker library.</li>
