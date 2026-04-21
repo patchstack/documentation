@@ -19,7 +19,7 @@ _The Beta endpoints live alongside the v2 API and add npm coverage, an optional 
 ### Base URL
 
 ```
-https://patchstack.com/database/api/beta/
+https://vdp-api.patchstack.com/database/api/beta/
 ```
 
 ### Authentication
