@@ -18,6 +18,23 @@ const postmanCollections = [
 	},
 ];
 
+// Recursively drop `id` and `_postman_id` keys so the output is deterministic.
+// openapi-to-postmanv2 inserts fresh UUIDs on every run, which would cause
+// churn in git. Both fields are optional in Collection v2.1 — Postman assigns
+// new ids on import.
+function stripIds(value) {
+	if (Array.isArray(value)) return value.map(stripIds);
+	if (value && typeof value === 'object') {
+		const out = {};
+		for (const [key, val] of Object.entries(value)) {
+			if (key === 'id' || key === '_postman_id') continue;
+			out[key] = stripIds(val);
+		}
+		return out;
+	}
+	return value;
+}
+
 function postmanFromOpenAPI() {
 	return {
 		name: 'postman-from-openapi',
@@ -35,7 +52,7 @@ function postmanFromOpenAPI() {
 								}
 								await writeFile(
 									fileURLToPath(new URL(output, import.meta.url)),
-									JSON.stringify(result.output[0].data, null, 2),
+									JSON.stringify(stripIds(result.output[0].data), null, 2),
 								);
 								logger.info(`generated ${output}`);
 								resolve();

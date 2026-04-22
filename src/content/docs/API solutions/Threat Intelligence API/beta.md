@@ -21,7 +21,9 @@ This page covers the concepts you need to use the API effectively — authentica
 
 We publish the API as an [OpenAPI 3.1 spec](https://docs.patchstack.com/schemas/threat-intel-beta.yaml) and a pre-built [Postman collection](https://docs.patchstack.com/schemas/threat-intel-beta.postman_collection.json). Every endpoint, parameter, request body and example is preconfigured — set your `PSKey` once and the whole collection authenticates.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/import?collection=https%3A%2F%2Fdocs.patchstack.com%2Fschemas%2Fthreat-intel-beta.postman_collection.json)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/?collection=https%3A%2F%2Fraw.githubusercontent.com%2Fpatchstack%2Fdocumentation%2Frefs%2Fheads%2Fmain%2Fpublic%2Fschemas%2Fthreat-intel-beta.postman_collection.json)
+
+Or [download the collection](/schemas/threat-intel-beta.postman_collection.json) directly and drag it into Postman/Insomnia/Bruno/Hoppscotch.
 
 | Tool | How to import |
 |---|---|

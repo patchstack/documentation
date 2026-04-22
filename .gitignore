@@ -2,8 +2,6 @@
 dist/
 # generated types
 .astro/
-# generated Postman collections (built from schemas/*.yaml on every build)
-public/schemas/*.postman_collection.json
 
 # dependencies
 node_modules/

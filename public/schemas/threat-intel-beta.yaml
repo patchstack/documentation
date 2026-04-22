@@ -381,6 +381,7 @@ components:
       schema:
         type: string
         enum: [npm, plugin, theme, wordpress]
+        example: npm
     ProductName:
       name: name
       in: path
@@ -388,6 +389,7 @@ components:
       description: npm package slug or WordPress plugin/theme slug. Use `wordpress` when `type=wordpress`.
       schema:
         type: string
+        example: axios
     ProductVersion:
       name: version
       in: path
@@ -395,6 +397,7 @@ components:
       description: Concrete version (e.g. `0.21.4`) or `*` to return every advisory for the product.
       schema:
         type: string
+        example: 0.21.4
 
   responses:
     Unauthorized:
@@ -578,20 +581,22 @@ components:
         - from
         - to
       properties:
-        current_page:       { type: integer }
-        per_page:           { type: integer }
-        total:              { type: integer }
-        total_pages:        { type: integer }
-        has_next_page:      { type: boolean }
-        has_previous_page:  { type: boolean }
+        current_page:       { type: integer, example: 1 }
+        per_page:           { type: integer, example: 25 }
+        total:              { type: integer, example: 6115 }
+        total_pages:        { type: integer, example: 245 }
+        has_next_page:      { type: boolean, example: true }
+        has_previous_page:  { type: boolean, example: false }
         next_page:
           type: integer
           nullable: true
+          example: 2
         previous_page:
           type: integer
           nullable: true
-        from:               { type: integer }
-        to:                 { type: integer }
+          example: null
+        from:               { type: integer, example: 1 }
+        to:                 { type: integer, example: 25 }
 
     CursorPagination:
       type: object
@@ -601,10 +606,13 @@ components:
           type: string
           nullable: true
           description: Opaque cursor for the next page. `null` when there are no more pages.
+          example: djE6NDYzMzk
         has_more:
           type: boolean
+          example: true
         per_page:
           type: integer
+          example: 25
 
     OffsetVulnerabilityList:
       type: object
