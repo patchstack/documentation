@@ -65,7 +65,8 @@ info:
     ## Related pages
 
     - Narrative guide with code samples: [Beta tier API](/api-solutions/threat-intelligence-api/beta/)
-    - OpenAPI spec (import into Postman / Insomnia / Bruno / Hoppscotch): [`schemas/threat-intel-beta.yaml`](https://github.com/patchstack/documentation/blob/main/schemas/threat-intel-beta.yaml)
+    - OpenAPI spec (import into Postman / Insomnia / Bruno / Hoppscotch): <https://docs.patchstack.com/schemas/threat-intel-beta.yaml>
+    - Postman collection (pre-imported): <https://docs.patchstack.com/schemas/threat-intel-beta.postman_collection.json>
 
     Integration questions: <dave.jong@patchstack.com>.
   contact:

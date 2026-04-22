@@ -1,12 +1,52 @@
+import { readFile, writeFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
 import { defineConfig, passthroughImageService } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLlmsTxt from 'starlight-llms-txt'
 import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi'
+import Converter from 'openapi-to-postmanv2'
 
 
 const site_url = process.env.URL;
 
 const site = site_url || 'http://localhost:4321';
+
+const postmanCollections = [
+	{
+		openapi: './public/schemas/threat-intel-beta.yaml',
+		output:  './public/schemas/threat-intel-beta.postman_collection.json',
+	},
+];
+
+function postmanFromOpenAPI() {
+	return {
+		name: 'postman-from-openapi',
+		hooks: {
+			'astro:config:setup': async ({ logger }) => {
+				for (const { openapi, output } of postmanCollections) {
+					const spec = await readFile(fileURLToPath(new URL(openapi, import.meta.url)), 'utf8');
+					await new Promise((resolve, reject) => {
+						Converter.convert(
+							{ type: 'string', data: spec },
+							{ requestParametersResolution: 'Example' },
+							async (err, result) => {
+								if (err || !result.result) {
+									return reject(err ?? new Error(result.reason ?? 'Postman conversion failed'));
+								}
+								await writeFile(
+									fileURLToPath(new URL(output, import.meta.url)),
+									JSON.stringify(result.output[0].data, null, 2),
+								);
+								logger.info(`generated ${output}`);
+								resolve();
+							},
+						);
+					});
+				}
+			},
+		},
+	};
+}
 // https://astro.build/config
 export default defineConfig({
 	site: site,
@@ -19,6 +59,7 @@ export default defineConfig({
 	
 	},
 	integrations: [
+		postmanFromOpenAPI(),
 		starlight({
 			plugins: [
 				starlightLlmsTxt(),
@@ -26,7 +67,7 @@ export default defineConfig({
 					{
 						base: 'api-reference/threat-intelligence-beta',
 						label: 'Threat Intelligence API (Beta)',
-						schema: './schemas/threat-intel-beta.yaml',
+						schema: './public/schemas/threat-intel-beta.yaml',
 					},
 				]),
 			],
