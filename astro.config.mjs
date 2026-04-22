@@ -66,7 +66,7 @@ export default defineConfig({
 				starlightOpenAPI([
 					{
 						base: 'api-reference/threat-intelligence-beta',
-						label: 'Interactive reference (Beta)',
+						label: 'Reference',
 						schema: './public/schemas/threat-intel-beta.yaml',
 					},
 				]),
@@ -125,12 +125,19 @@ export default defineConfig({
 							label: 'Threat Intelligence API',
 							collapsed: true,
 							items: [
-								{ slug: 'api-solutions/threat-intelligence-api/beta' },
-								...openAPISidebarGroups,
 								{ slug: 'api-solutions/threat-intelligence-api/overview' },
 								{ slug: 'api-solutions/threat-intelligence-api/standard' },
 								{ slug: 'api-solutions/threat-intelligence-api/extended' },
 								{ slug: 'api-solutions/threat-intelligence-api/api-properties' },
+								{
+									label: 'Beta tier API',
+									badge: { text: 'New', variant: 'tip' },
+									collapsed: true,
+									items: [
+										{ slug: 'api-solutions/threat-intelligence-api/beta' },
+										...openAPISidebarGroups,
+									],
+								},
 							],
 						},
 					],

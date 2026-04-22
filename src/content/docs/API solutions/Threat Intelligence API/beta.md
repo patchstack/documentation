@@ -8,11 +8,7 @@ metadata:
 createdAt: "Tue Apr 21 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Apr 21 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
-  order: 0
-  label: "Beta tier API"
-  badge:
-    text: New
-    variant: tip
+  label: "Guide"
 ---
 
 _The Beta endpoints live alongside the v2 API and add npm coverage, an optional full advisory body, a consistent nested response shape, and cursor pagination. They are the recommended endpoints for new integrations; v2 remains available for backwards compatibility._
