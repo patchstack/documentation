@@ -115,6 +115,7 @@ export default defineConfig({
 					label: 'API solutions',
 					collapsed: true,
 					items: [
+						{ slug: 'api-solutions' },
 						{
 							label: 'App API',
 							collapsed: true,
