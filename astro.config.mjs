@@ -66,7 +66,7 @@ export default defineConfig({
 				starlightOpenAPI([
 					{
 						base: 'api-reference/threat-intelligence-beta',
-						label: 'Threat Intelligence API (Beta)',
+						label: 'Interactive reference (Beta)',
 						schema: './public/schemas/threat-intel-beta.yaml',
 					},
 				]),
@@ -114,12 +114,25 @@ export default defineConfig({
 				{
 					label: 'API solutions',
 					collapsed: true,
-					autogenerate: { directory: 'API solutions', collapsed: true },
-				},
-				{
-					label: 'API reference',
-					collapsed: true,
-					items: openAPISidebarGroups,
+					items: [
+						{
+							label: 'App API',
+							collapsed: true,
+							autogenerate: { directory: 'API solutions/App API', collapsed: true },
+						},
+						{
+							label: 'Threat Intelligence API',
+							collapsed: true,
+							items: [
+								{ slug: 'api-solutions/threat-intelligence-api/beta' },
+								...openAPISidebarGroups,
+								{ slug: 'api-solutions/threat-intelligence-api/overview' },
+								{ slug: 'api-solutions/threat-intelligence-api/standard' },
+								{ slug: 'api-solutions/threat-intelligence-api/extended' },
+								{ slug: 'api-solutions/threat-intelligence-api/api-properties' },
+							],
+						},
+					],
 				},
 				{
 					label: 'Vulnerability Disclosure Program',
