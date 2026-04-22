@@ -1,6 +1,7 @@
 import { defineConfig, passthroughImageService } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLlmsTxt from 'starlight-llms-txt'
+import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi'
 
 
 const site_url = process.env.URL;
@@ -20,15 +21,14 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			plugins: [
-				starlightLlmsTxt()
-				// Generate the OpenAPI documentation pages.
-				// starlightOpenAPI([
-				// 	{
-				// 		base: 'developer-api',
-				// 		label: 'My API',
-				// 		schema: './schemas/test.yaml',
-				// 	},
-				// ])
+				starlightLlmsTxt(),
+				starlightOpenAPI([
+					{
+						base: 'api-reference/threat-intelligence-beta',
+						label: 'Threat Intelligence API (Beta)',
+						schema: './schemas/threat-intel-beta.yaml',
+					},
+				]),
 			],
 			title: 'Patchstack Docs',
 			favicon: '/images/psfavicon.svg',
@@ -74,6 +74,11 @@ export default defineConfig({
 					label: 'API solutions',
 					collapsed: true,
 					autogenerate: { directory: 'API solutions', collapsed: true },
+				},
+				{
+					label: 'API reference',
+					collapsed: true,
+					items: openAPISidebarGroups,
 				},
 				{
 					label: 'Vulnerability Disclosure Program',
