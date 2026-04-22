@@ -21,13 +21,11 @@ This page covers the concepts you need to use the API effectively — authentica
 
 We publish the API as an [OpenAPI 3.1 spec](https://docs.patchstack.com/schemas/threat-intel-beta.yaml) and a pre-built [Postman collection](https://docs.patchstack.com/schemas/threat-intel-beta.postman_collection.json). Every endpoint, parameter, request body and example is preconfigured — set your `PSKey` once and the whole collection authenticates.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/?collection=https%3A%2F%2Fraw.githubusercontent.com%2Fpatchstack%2Fdocumentation%2Frefs%2Fheads%2Fmain%2Fpublic%2Fschemas%2Fthreat-intel-beta.postman_collection.json)
-
-Or [download the collection](/schemas/threat-intel-beta.postman_collection.json) directly and drag it into Postman/Insomnia/Bruno/Hoppscotch.
+[Download the collection](/schemas/threat-intel-beta.postman_collection.json) and drag it into Postman/Insomnia/Bruno/Hoppscotch, or import it by URL from inside the tool.
 
 | Tool | How to import |
 |---|---|
-| **Postman** | Click the button above, or `File → Import → URL` and paste the collection URL. |
+| **Postman** | `File → Import → Link` and paste the collection URL. |
 | **Insomnia** | `Create → Import From → URL` → paste the OpenAPI URL. |
 | **Bruno** | `Collection → Import → OpenAPI V3 Spec` → paste the OpenAPI URL. |
 | **Hoppscotch** | `Collections → Import/Export → OpenAPI` → paste the OpenAPI URL. |
