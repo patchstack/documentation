@@ -1,0 +1,643 @@
+openapi: 3.1.0
+info:
+  title: Patchstack Threat Intelligence API — Extended
+  version: v2
+  summary: WordPress vulnerability intelligence with bulk lookups, latest-24h feed, and advisory-by-id details.
+  description: |
+    The Extended Threat Intelligence API is a superset of the
+    [Standard tier](/api-solutions/threat-intelligence-api/standard/). It adds
+    bulk product checks, the `/latest` rolling feed, advisory-by-id lookups,
+    and a richer per-item payload (`description`, `cvss_score`, `cve`,
+    `patch_priority`, `patched_in_ranges`, …).
+
+    Extended has **custom pricing and is activated on request** — contact us
+    at <https://patchstack.com/for-hosts/>.
+
+    ## Authentication
+
+    Every request must include your API key in the `PSKey` HTTP request header.
+
+    ## Rate limiting
+
+    Custom, set per contract. Contact <https://patchstack.com/for-hosts/> if
+    you need a quota change.
+
+    ## Caching
+
+    Responses are JSON and cached until the Patchstack database updates, at
+    which point the appropriate caches are cleared.
+
+    ## Errors
+
+    | Status | Meaning |
+    |---|---|
+    | `401` | Missing or invalid `PSKey` header. |
+    | `403` | API key not authorised for the requested endpoint. |
+    | `404` | Unknown product/version/vulnerability id. |
+    | `422` | Invalid request payload (e.g. batch with more than 50 items). |
+    | `429` | Rate limit exceeded. |
+    | `500` | Server error — include the request id in any bug report. |
+
+    ## Related pages
+
+    - Narrative guide with code samples: [Extended tier API](/api-solutions/threat-intelligence-api/extended/)
+    - Field glossary: [API properties](/api-solutions/threat-intelligence-api/api-properties/)
+    - OpenAPI spec (import into Postman / Insomnia / Bruno / Hoppscotch): <https://docs.patchstack.com/schemas/threat-intel-extended.yaml>
+    - Postman collection (pre-imported): <https://docs.patchstack.com/schemas/threat-intel-extended.postman_collection.json>
+
+    Integration questions: <dave.jong@patchstack.com>.
+  contact:
+    name: Patchstack
+    url: https://patchstack.com/for-hosts/
+    email: dave.jong@patchstack.com
+
+servers:
+  - url: https://patchstack.com/database/api/v2
+    description: Production
+
+security:
+  - PSKey: []
+
+tags:
+  - name: Vulnerabilities
+    description: |
+      Feed and advisory-by-id lookups.
+
+      - [`GET /latest`](/api-reference/threat-intelligence-extended/operations/listlatestvulnerabilities/)
+        — the 20 most recently added vulnerabilities.
+      - [`GET /vulnerability/{id}`](/api-reference/threat-intelligence-extended/operations/getvulnerabilitybyid/)
+        — detailed advisory payload for a single Patchstack id or PSID.
+  - name: Products
+    description: |
+      Match a single WordPress plugin, theme or core version against the
+      vulnerability database.
+
+      - [`GET /product/{type}/{name}/{version}`](/api-reference/threat-intelligence-extended/operations/findproductvulnerabilities/)
+        — full advisory list for the product.
+      - [`GET /product/{type}/{name}/{version}/exists`](/api-reference/threat-intelligence-extended/operations/productvulnerabilityexists/)
+        — boolean-only variant for fast "is this vulnerable?" checks.
+  - name: Batch
+    description: |
+      Bulk endpoint for checking up to 50 products in a single request. Use
+      this when walking a list of installed plugins/themes — it's significantly
+      cheaper than issuing one request per product.
+
+      - [`POST /batch`](/api-reference/threat-intelligence-extended/operations/batchproductcheck/)
+        — payload is a JSON array of up to 50 `{type, name, version, exists?}`
+        objects. Results are keyed by slug.
+
+paths:
+  /latest:
+    get:
+      tags: [Vulnerabilities]
+      summary: Latest vulnerabilities
+      description: |
+        Return the 20 most recently added vulnerabilities, ordered by
+        descending `created_at` (insertion time, not `disclosure_date`).
+      operationId: listLatestVulnerabilities
+      responses:
+        '200':
+          description: The 20 most recent vulnerabilities.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [vulnerabilities]
+                properties:
+                  vulnerabilities:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ExtendedVulnerability'
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+  /product/{type}/{name}/{version}:
+    get:
+      tags: [Products]
+      summary: Find vulnerabilities for a product
+      description: |
+        Match a specific WordPress plugin, theme or core version and return
+        every applicable advisory with the full Extended payload.
+      operationId: findProductVulnerabilities
+      parameters:
+        - $ref: '#/components/parameters/ProductType'
+        - $ref: '#/components/parameters/ProductName'
+        - $ref: '#/components/parameters/ProductVersion'
+      responses:
+        '200':
+          description: Matched advisories (possibly empty).
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [vulnerabilities]
+                properties:
+                  vulnerabilities:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ExtendedVulnerability'
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+  /product/{type}/{name}/{version}/exists:
+    get:
+      tags: [Products]
+      summary: Boolean exists check for a product
+      description: |
+        Boolean-only variant of the product lookup. Returns
+        `{ "vulnerable": true }` or `{ "vulnerable": false }` — cheap when you
+        only need to know whether an installed version is affected.
+      operationId: productVulnerabilityExists
+      parameters:
+        - $ref: '#/components/parameters/ProductType'
+        - $ref: '#/components/parameters/ProductName'
+        - $ref: '#/components/parameters/ProductVersion'
+      responses:
+        '200':
+          description: Boolean result.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [vulnerable]
+                properties:
+                  vulnerable:
+                    type: boolean
+              example:
+                vulnerable: true
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+  /batch:
+    post:
+      tags: [Batch]
+      summary: Bulk product check
+      description: |
+        Check up to 50 products in a single request. Items with `exists: true`
+        return a boolean per slug; items with `exists: false` return the full
+        advisory list per slug.
+
+        The response is keyed by `product_slug`, **not** by array index —
+        duplicate slugs in the request collapse.
+      operationId: batchProductCheck
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              maxItems: 50
+              items:
+                $ref: '#/components/schemas/BatchItem'
+            examples:
+              existsOnly:
+                summary: Boolean-only across all items
+                value:
+                  - { name: easy-digital-downloads1, version: "1.0.0", type: plugin, exists: true }
+                  - { name: wordpress,               version: "3.0.0", type: wordpress, exists: true }
+              mixed:
+                summary: Mix of full advisory list and boolean
+                value:
+                  - { name: easy-digital-downloads1, version: "1.0.0", type: plugin, exists: false }
+                  - { name: wordpress,               version: "3.0.0", type: wordpress, exists: true }
+      responses:
+        '200':
+          description: Per-slug results.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [vulnerabilities]
+                properties:
+                  vulnerabilities:
+                    type: object
+                    additionalProperties:
+                      oneOf:
+                        - type: boolean
+                        - type: array
+                          items:
+                            $ref: '#/components/schemas/ExtendedVulnerability'
+              examples:
+                existsOnly:
+                  summary: Boolean-only response
+                  value:
+                    vulnerabilities:
+                      easy-digital-downloads1: true
+                      wordpress: true
+                mixed:
+                  summary: Mixed response
+                  value:
+                    vulnerabilities:
+                      easy-digital-downloads1:
+                        - id: 4532
+                          product_id: 1572
+                          title: "WordPress Easy Digital Downloads plugin <= 2.10.2 - Cross-Site Request Forgery (CSRF) vulnerability"
+                          description: "Cross-Site Request Forgery (CSRF) vulnerability discovered by WPScan team in WordPress Easy Digital Downloads plugin (versions <= 2.10.2)."
+                          disclosure_date: "2021-04-16 00:00:00"
+                          disclosed_at: "2021-04-16T00:00:00+00:00"
+                          created_at: "2021-04-19T04:43:04+00:00"
+                          url: wordpress-easy-digital-downloads-plugin-2-10-2-cross-site-request-forgery-csrf-vulnerability
+                          product_slug: easy-digital-downloads1
+                          product_name: "Easy Digital Downloads"
+                          product_name_premium: null
+                          product_type: Plugin
+                          vuln_type: "Cross Site Request Forgery (CSRF)"
+                          cvss_score: 6.5
+                          cve: []
+                          is_exploited: false
+                          affected_in: "<= 2.10.2"
+                          fixed_in: "2.10.3"
+                          direct_url: "https://patchstack.com/database/vulnerability/easy-digital-downloads1/wordpress-easy-digital-downloads-plugin-2-10-2-cross-site-request-forgery-csrf-vulnerability"
+                      wordpress: true
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '422': { $ref: '#/components/responses/UnprocessableEntity' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+  /vulnerability/{id}:
+    get:
+      tags: [Vulnerabilities]
+      summary: Find a vulnerability by id
+      description: |
+        Look up a single advisory by its numeric id or PSID. Returns a richer
+        shape than the list endpoints — includes CVSS vector, OWASP category,
+        external references, credits, and submitter info.
+      operationId: getVulnerabilityById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Numeric Patchstack id or PSID.
+          schema:
+            type: string
+            example: "4760"
+      responses:
+        '200':
+          description: Detailed advisory payload.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VulnerabilityDetail'
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+components:
+  securitySchemes:
+    PSKey:
+      type: apiKey
+      in: header
+      name: PSKey
+      description: |
+        API key issued by Patchstack. Extended access is activated on request
+        — contact <https://patchstack.com/for-hosts/>.
+
+  parameters:
+    ProductType:
+      name: type
+      in: path
+      required: true
+      description: Product ecosystem.
+      schema:
+        type: string
+        enum: [plugin, theme, wordpress]
+        example: plugin
+    ProductName:
+      name: name
+      in: path
+      required: true
+      description: |
+        WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.
+        Slugs are lowercase — normalize your own data before comparison.
+      schema:
+        type: string
+        example: tutor
+    ProductVersion:
+      name: version
+      in: path
+      required: true
+      description: Concrete version (e.g. `1.5.2`).
+      schema:
+        type: string
+        example: "1.5.2"
+
+  responses:
+    Unauthorized:
+      description: Missing or invalid `PSKey` header.
+    Forbidden:
+      description: API key not authorised for the requested endpoint.
+    NotFound:
+      description: Unknown product/version/vulnerability id.
+    UnprocessableEntity:
+      description: Invalid request payload (e.g. batch with more than 50 items).
+    TooManyRequests:
+      description: Rate limit exceeded.
+
+  schemas:
+    ExtendedVulnerability:
+      type: object
+      description: |
+        Flat per-item shape returned by the Extended tier. Superset of the
+        Standard shape — adds `description`, `vuln_type`, `cvss_score`, `cve`,
+        `is_exploited`, `patch_priority`, `affected_in`, and
+        `patched_in_ranges`.
+      required:
+        - id
+        - product_id
+        - title
+        - description
+        - disclosed_at
+        - created_at
+        - url
+        - product_slug
+        - product_name
+        - product_type
+        - vuln_type
+        - cve
+        - affected_in
+        - fixed_in
+        - direct_url
+      properties:
+        id:
+          type: integer
+          description: Stable Patchstack vulnerability id.
+          example: 7976
+        product_id:
+          type: integer
+          description: Stable Patchstack product id.
+          example: 2175
+        title:
+          type: string
+          description: Human-readable title including product name, affected version, and vulnerability type.
+          example: "WordPress File Upload plugin <= 4.16.2 - Contributor+ Path Traversal vulnerability leading to Remote Code Execution (RCE)"
+        description:
+          type: string
+          description: Short narrative summary of the advisory.
+          example: "Contributor+ Path Traversal vulnerability leading to Remote Code Execution (RCE) discovered by apple502j in WordPress File Upload plugin (versions <= 4.16.2)."
+        disclosure_date:
+          type: string
+          description: Disclosure date in `YYYY-MM-DD HH:MM:SS` form (legacy).
+          example: "2022-03-01 00:00:00"
+        disclosed_at:
+          type: string
+          format: date-time
+          description: Disclosure date in ISO 8601.
+          example: "2022-03-01T00:00:00+00:00"
+        created_at:
+          type: string
+          format: date-time
+          description: When the row was inserted into the Patchstack database (ISO 8601). Drives `/latest` windowing.
+          example: "2022-03-07T11:17:05+00:00"
+        url:
+          type: string
+          description: URL slug for the advisory.
+          example: wordpress-file-upload-plugin-4-16-2-contributor-path-traversal-vulnerability-leading-to-remote-code-execution-rce
+        product_slug:
+          type: string
+          description: Lowercase slug of the product.
+          example: wp-file-upload
+        product_name:
+          type: string
+          description: Display name of the product.
+          example: "WordPress File Upload"
+        product_name_premium:
+          type: string
+          nullable: true
+          description: Premium variant name when the author ships two plugins under the same slug. `null` in the common case.
+          example: null
+        product_type:
+          type: string
+          enum: [Plugin, Theme, WordPress]
+          description: Product ecosystem.
+          example: Plugin
+        vuln_type:
+          type: string
+          description: High-level vulnerability category (e.g. `SQL Injection`, `Cross Site Scripting (XSS)`).
+          example: Directory Traversal
+        cvss_score:
+          type: number
+          format: float
+          nullable: true
+          description: CVSS base score, 1.0–10.0. `null` for unclassified advisories.
+          example: 8.8
+        cve:
+          type: array
+          description: CVE identifiers. An advisory can have zero, one, or multiple.
+          items:
+            type: string
+          example: ["2021-24962"]
+        is_exploited:
+          type: boolean
+          description: Whether exploitation has been observed in the wild.
+          example: false
+        patch_priority:
+          type: integer
+          nullable: true
+          minimum: 1
+          description: |
+            Recommended patch urgency.
+
+            - `1` — Low → patch within 30 days
+            - `2` — Medium → patch within 7 days
+            - `3+` — High → patch immediately
+            - `null` — unknown
+          example: 3
+        affected_in:
+          type: string
+          description: |
+            Affected version range. Formats include `<= x.x.x`, `< x.x.x`,
+            `x.x.x-x.x.x`, `x.x.x,x.x.x`, or a single `x.x.x`.
+          example: "<= 4.16.2"
+        fixed_in:
+          type: string
+          description: First fixed version. Empty string when Patchstack has not yet recorded one.
+          example: "4.16.3"
+        patched_in_ranges:
+          type: array
+          description: |
+            For products that ship patches across multiple minor lines
+            (WordPress core, WooCommerce, Ninja Forms, …), each entry
+            describes a `from_version`–`to_version` range and its fix.
+          items:
+            type: object
+            required: [from_version, to_version, fixed_in]
+            properties:
+              from_version:
+                type: string
+                description: Starting version, inclusive.
+                example: "3.0"
+              to_version:
+                type: string
+                description: Ending version, inclusive.
+                example: "3.0.34.1"
+              fixed_in:
+                type: string
+                description: Version that contains the patch for this range.
+                example: "3.0.34.2"
+        direct_url:
+          type: string
+          format: uri
+          description: Public Patchstack vulnerability page.
+          example: "https://patchstack.com/database/vulnerability/wp-file-upload/wordpress-file-upload-plugin-4-16-2-contributor-path-traversal-vulnerability-leading-to-remote-code-execution-rce"
+
+    BatchItem:
+      type: object
+      required: [name, version, type]
+      properties:
+        name:
+          type: string
+          description: Product slug (plugin/theme slug, or `wordpress`).
+          example: easy-digital-downloads1
+        version:
+          type: string
+          description: Concrete version.
+          example: "1.0.0"
+        type:
+          type: string
+          enum: [plugin, theme, wordpress]
+          example: plugin
+        exists:
+          type: boolean
+          description: When `true`, return a boolean-only result for this item.
+          example: true
+
+    VulnerabilityDetail:
+      type: object
+      description: Response shape for `GET /vulnerability/{id}`.
+      required: [vulnerability, product, type, cve, versions]
+      properties:
+        vulnerability:
+          type: object
+          required: [title, description, disclosed_at, created_at, is_exploited, url, direct_url]
+          properties:
+            title:
+              type: string
+              example: "WordPress Spam protection, AntiSpam, FireWall by CleanTalk plugin <= 5.153.3 - Unauthenticated Time-Based Blind SQL Injection (SQLi) vulnerability"
+            description:
+              type: string
+              example: "Unauthenticated Time-Based Blind SQL Injection (SQLi) vulnerability discovered by WordFence in WordPress Spam protection, AntiSpam, FireWall by CleanTalk plugin (versions <= 5.153.3)."
+            disclosure_date:
+              type: string
+              description: Disclosure date in `YYYY-MM-DD HH:MM:SS` form (legacy).
+              example: "2021-05-03 00:00:00"
+            disclosed_at:
+              type: string
+              format: date-time
+              example: "2021-05-03T00:00:00+00:00"
+            created_at:
+              type: string
+              format: date-time
+              example: "2021-09-28T14:17:02+00:00"
+            is_exploited:
+              type: boolean
+              example: true
+            url:
+              type: string
+              description: URL slug for the advisory.
+              example: wordpress-spam-protection-antispam-firewall-by-cleantalk-plugin-5-153-3-unauthenticated-time-based-blind-sql-injection-sqli-vulnerability
+            direct_url:
+              type: string
+              format: uri
+              example: "https://patchstack.com/database/vulnerability/cleantalk-spam-protect/wordpress-spam-protection-antispam-firewall-by-cleantalk-plugin-5-153-3-unauthenticated-time-based-blind-sql-injection-sqli-vulnerability"
+        product:
+          type: object
+          required: [name, slug, type]
+          properties:
+            name:
+              type: string
+              example: "Spam protection, AntiSpam, FireWall by CleanTalk"
+            slug:
+              type: string
+              example: cleantalk-spam-protect
+            type:
+              type: string
+              enum: [Plugin, Theme, WordPress]
+              example: Plugin
+        type:
+          type: string
+          description: Vulnerability category (e.g. `SQL Injection`).
+          example: SQL Injection
+        cvss:
+          type: object
+          nullable: true
+          properties:
+            score:
+              type: number
+              format: float
+              nullable: true
+              example: 7.5
+            vector:
+              type: string
+              nullable: true
+              example: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+            description:
+              type: string
+              nullable: true
+              example: ""
+        owasp:
+          type: string
+          description: "OWASP category (e.g. `A1: Injection`)."
+          example: "A1: Injection"
+        references_url:
+          type: array
+          description: External reference URLs with display titles.
+          items:
+            type: object
+            required: [url, title]
+            properties:
+              url:
+                type: string
+                format: uri
+                example: "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24295"
+              title:
+                type: string
+                example: CVE
+        cve:
+          type: array
+          items:
+            type: string
+          example: ["2021-24295"]
+        versions:
+          type: object
+          required: [affected_in, fixed_in]
+          properties:
+            affected_in:
+              type: string
+              example: "<= 5.153.3"
+            fixed_in:
+              type: string
+              example: "5.153.4"
+        versions_list:
+          type: string
+          nullable: true
+          description: Comma-separated list of specific affected versions, when applicable.
+          example: null
+        credit:
+          type: object
+          nullable: true
+          description: Discoverer of the vulnerability.
+          properties:
+            name:
+              type: string
+              example: WordFence
+            url:
+              type: string
+              format: uri
+              example: "https://twitter.com/wordfence"
+        submitter:
+          type: object
+          nullable: true
+          description: Submitter, when distinct from `credit`.
+          properties:
+            name:
+              type: string
+              example: h00die
+            url:
+              type: string
+              format: uri
+              example: "https://packetstormsecurity.com/files/author/7166/"

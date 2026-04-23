@@ -1,0 +1,741 @@
+{
+  "item": [
+    {
+      "name": "product/{type}/{name}/{version}",
+      "item": [
+        {
+          "name": "Find vulnerabilities for a product",
+          "request": {
+            "name": "Find vulnerabilities for a product",
+            "description": {
+              "content": "Return every advisory that applies to a specific WordPress plugin,\ntheme or core version.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "product",
+                ":type",
+                ":name",
+                ":version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "plugin",
+                  "key": "type",
+                  "description": "(Required) Product ecosystem."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "tutor",
+                  "key": "name",
+                  "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "1.5.2",
+                  "key": "version",
+                  "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "name": "Matched advisories (possibly empty).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vulnerabilities\": [\n    {\n      \"id\": 4253,\n      \"title\": \"WordPress Tutor LMS plugin <= 1.5.2 - Cross-Site Request Forgery (CSRF) vulnerability\",\n      \"disclosed_at\": \"2020-02-04T00:00:00+00:00\",\n      \"created_at\": \"2022-05-27T10:23:01+00:00\",\n      \"product_slug\": \"tutor\",\n      \"product_name\": \"Tutor LMS\",\n      \"product_name_premium\": null,\n      \"product_type\": \"Plugin\",\n      \"fixed_in\": \"1.5.3\",\n      \"direct_url\": \"https://patchstack.com/database/vulnerability/tutor/wordpress-tutor-lms-plugin-1-5-2-cross-site-request-forgery-csrf-vulnerability\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "name": "Missing or invalid `PSKey` header.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "name": "API key not authorised for the requested endpoint.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "name": "Unknown product/version combination.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "name": "Rate limit exceeded (5,000 requests / 24 hours).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "name": "Boolean exists check for a product",
+          "request": {
+            "name": "Boolean exists check for a product",
+            "description": {
+              "content": "Boolean-only variant of the product lookup. Returns\n`{ \"vulnerable\": true }` or `{ \"vulnerable\": false }` without the\nadvisory payload — useful for lightweight checks and dashboard tiles\nwhere the advisory body isn't needed.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "product",
+                ":type",
+                ":name",
+                ":version",
+                "exists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "plugin",
+                  "key": "type",
+                  "description": "(Required) Product ecosystem."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "tutor",
+                  "key": "name",
+                  "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "1.5.2",
+                  "key": "version",
+                  "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "name": "Boolean result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version",
+                    "exists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vulnerable\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "name": "Missing or invalid `PSKey` header.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version",
+                    "exists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "name": "API key not authorised for the requested endpoint.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version",
+                    "exists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "name": "Rate limit exceeded (5,000 requests / 24 hours).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version",
+                    "exists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://patchstack.com/database/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "PSKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "name": "Patchstack Threat Intelligence API — Standard",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Standard Threat Intelligence API returns vulnerability information for\na single WordPress plugin, theme or core version. It's the entry-level tier\nof the v2 API — if you need bulk lookups, the latest-24h feed, or by-id\nadvisory lookup, use the [Extended tier](/api-solutions/threat-intelligence-api/extended/)\ninstead.\n\n## Authentication\n\nEvery request must include your API key in the `PSKey` HTTP request header.\nRequest a key via your [Patchstack App billing page](https://app.patchstack.com/billing/subscription).\n\n## Rate limiting\n\nStandard is limited to **5,000 requests per 24 hours**. Contact\n<https://patchstack.com/for-hosts/> if you need an elevated quota or the\nExtended tier.\n\n## Caching\n\nResponses are JSON and cached until the Patchstack database updates, at\nwhich point the appropriate caches are cleared.\n\n## Errors\n\n| Status | Meaning |\n|---|---|\n| `401` | Missing or invalid `PSKey` header. |\n| `403` | API key not authorised for the requested endpoint. |\n| `404` | Unknown product/version combination. |\n| `429` | Rate limit exceeded. |\n| `500` | Server error — include the request id in any bug report. |\n\n## Related pages\n\n- Narrative guide with code samples: [Standard tier API](/api-solutions/threat-intelligence-api/standard/)\n- Field glossary: [API properties](/api-solutions/threat-intelligence-api/api-properties/)\n- OpenAPI spec (import into Postman / Insomnia / Bruno / Hoppscotch): <https://docs.patchstack.com/schemas/threat-intel-standard.yaml>\n- Postman collection (pre-imported): <https://docs.patchstack.com/schemas/threat-intel-standard.postman_collection.json>\n\nIntegration questions: <dave.jong@patchstack.com>.\n\n\nContact Support:\n Name: Patchstack\n Email: dave.jong@patchstack.com",
+      "type": "text/plain"
+    }
+  }
+}

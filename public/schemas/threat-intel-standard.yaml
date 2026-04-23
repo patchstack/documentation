@@ -1,0 +1,261 @@
+openapi: 3.1.0
+info:
+  title: Patchstack Threat Intelligence API — Standard
+  version: v2
+  summary: WordPress plugin, theme and core vulnerability lookups for a single product + version.
+  description: |
+    The Standard Threat Intelligence API returns vulnerability information for
+    a single WordPress plugin, theme or core version. It's the entry-level tier
+    of the v2 API — if you need bulk lookups, the latest-24h feed, or by-id
+    advisory lookup, use the [Extended tier](/api-solutions/threat-intelligence-api/extended/)
+    instead.
+
+    ## Authentication
+
+    Every request must include your API key in the `PSKey` HTTP request header.
+    Request a key via your [Patchstack App billing page](https://app.patchstack.com/billing/subscription).
+
+    ## Rate limiting
+
+    Standard is limited to **5,000 requests per 24 hours**. Contact
+    <https://patchstack.com/for-hosts/> if you need an elevated quota or the
+    Extended tier.
+
+    ## Caching
+
+    Responses are JSON and cached until the Patchstack database updates, at
+    which point the appropriate caches are cleared.
+
+    ## Errors
+
+    | Status | Meaning |
+    |---|---|
+    | `401` | Missing or invalid `PSKey` header. |
+    | `403` | API key not authorised for the requested endpoint. |
+    | `404` | Unknown product/version combination. |
+    | `429` | Rate limit exceeded. |
+    | `500` | Server error — include the request id in any bug report. |
+
+    ## Related pages
+
+    - Narrative guide with code samples: [Standard tier API](/api-solutions/threat-intelligence-api/standard/)
+    - Field glossary: [API properties](/api-solutions/threat-intelligence-api/api-properties/)
+    - OpenAPI spec (import into Postman / Insomnia / Bruno / Hoppscotch): <https://docs.patchstack.com/schemas/threat-intel-standard.yaml>
+    - Postman collection (pre-imported): <https://docs.patchstack.com/schemas/threat-intel-standard.postman_collection.json>
+
+    Integration questions: <dave.jong@patchstack.com>.
+  contact:
+    name: Patchstack
+    url: https://patchstack.com/for-hosts/
+    email: dave.jong@patchstack.com
+
+servers:
+  - url: https://patchstack.com/database/api/v2
+    description: Production
+
+security:
+  - PSKey: []
+
+tags:
+  - name: Products
+    description: |
+      Match a specific WordPress plugin, theme or core version against the
+      vulnerability database and return every applicable advisory.
+
+      - [`GET /product/{type}/{name}/{version}`](/api-reference/threat-intelligence-standard/operations/findproductvulnerabilities/)
+        — full advisory list for the product.
+      - [`GET /product/{type}/{name}/{version}/exists`](/api-reference/threat-intelligence-standard/operations/productvulnerabilityexists/)
+        — boolean-only variant for fast "is this vulnerable?" checks.
+
+      `type` accepts `plugin`, `theme`, or `wordpress`. When `type=wordpress`
+      pass `wordpress` as the `name`.
+
+paths:
+  /product/{type}/{name}/{version}:
+    get:
+      tags: [Products]
+      summary: Find vulnerabilities for a product
+      description: |
+        Return every advisory that applies to a specific WordPress plugin,
+        theme or core version.
+      operationId: findProductVulnerabilities
+      parameters:
+        - $ref: '#/components/parameters/ProductType'
+        - $ref: '#/components/parameters/ProductName'
+        - $ref: '#/components/parameters/ProductVersion'
+      responses:
+        '200':
+          description: Matched advisories (possibly empty).
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [vulnerabilities]
+                properties:
+                  vulnerabilities:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/StandardVulnerability'
+              example:
+                vulnerabilities:
+                  - id: 4253
+                    title: "WordPress Tutor LMS plugin <= 1.5.2 - Cross-Site Request Forgery (CSRF) vulnerability"
+                    disclosed_at: "2020-02-04T00:00:00+00:00"
+                    created_at: "2022-05-27T10:23:01+00:00"
+                    product_slug: tutor
+                    product_name: "Tutor LMS"
+                    product_name_premium: null
+                    product_type: Plugin
+                    fixed_in: "1.5.3"
+                    direct_url: "https://patchstack.com/database/vulnerability/tutor/wordpress-tutor-lms-plugin-1-5-2-cross-site-request-forgery-csrf-vulnerability"
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+  /product/{type}/{name}/{version}/exists:
+    get:
+      tags: [Products]
+      summary: Boolean exists check for a product
+      description: |
+        Boolean-only variant of the product lookup. Returns
+        `{ "vulnerable": true }` or `{ "vulnerable": false }` without the
+        advisory payload — useful for lightweight checks and dashboard tiles
+        where the advisory body isn't needed.
+      operationId: productVulnerabilityExists
+      parameters:
+        - $ref: '#/components/parameters/ProductType'
+        - $ref: '#/components/parameters/ProductName'
+        - $ref: '#/components/parameters/ProductVersion'
+      responses:
+        '200':
+          description: Boolean result.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [vulnerable]
+                properties:
+                  vulnerable:
+                    type: boolean
+              example:
+                vulnerable: true
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+components:
+  securitySchemes:
+    PSKey:
+      type: apiKey
+      in: header
+      name: PSKey
+      description: |
+        API key issued by Patchstack. Request one from your
+        [Patchstack App billing page](https://app.patchstack.com/billing/subscription).
+
+  parameters:
+    ProductType:
+      name: type
+      in: path
+      required: true
+      description: Product ecosystem.
+      schema:
+        type: string
+        enum: [plugin, theme, wordpress]
+        example: plugin
+    ProductName:
+      name: name
+      in: path
+      required: true
+      description: |
+        WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.
+        Slugs are lowercase — normalize your own data before comparison.
+      schema:
+        type: string
+        example: tutor
+    ProductVersion:
+      name: version
+      in: path
+      required: true
+      description: Concrete version (e.g. `1.5.2`).
+      schema:
+        type: string
+        example: "1.5.2"
+
+  responses:
+    Unauthorized:
+      description: Missing or invalid `PSKey` header.
+    Forbidden:
+      description: API key not authorised for the requested endpoint.
+    NotFound:
+      description: Unknown product/version combination.
+    TooManyRequests:
+      description: Rate limit exceeded (5,000 requests / 24 hours).
+
+  schemas:
+    StandardVulnerability:
+      type: object
+      description: |
+        Flat per-item shape returned by the Standard tier. For the richer shape
+        (with `description`, `cvss_score`, `cve`, `patched_in_ranges`, etc.),
+        see the [Extended tier](/api-reference/threat-intelligence-extended/).
+      required:
+        - id
+        - title
+        - disclosed_at
+        - created_at
+        - product_slug
+        - product_name
+        - product_type
+        - fixed_in
+        - direct_url
+      properties:
+        id:
+          type: integer
+          description: Stable Patchstack vulnerability id.
+          example: 4253
+        title:
+          type: string
+          description: Human-readable title including product name, affected version, and vulnerability type.
+          example: "WordPress Tutor LMS plugin <= 1.5.2 - Cross-Site Request Forgery (CSRF) vulnerability"
+        disclosed_at:
+          type: string
+          format: date-time
+          description: When the vulnerability was publicly disclosed (ISO 8601).
+          example: "2020-02-04T00:00:00+00:00"
+        created_at:
+          type: string
+          format: date-time
+          description: When the row was inserted into the Patchstack database (ISO 8601).
+          example: "2022-05-27T10:23:01+00:00"
+        product_slug:
+          type: string
+          description: Lowercase slug of the product.
+          example: tutor
+        product_name:
+          type: string
+          description: Display name of the product.
+          example: "Tutor LMS"
+        product_name_premium:
+          type: string
+          nullable: true
+          description: |
+            Premium variant name when a plugin author ships two plugins under
+            the same slug. `null` in the common case.
+        product_type:
+          type: string
+          enum: [Plugin, Theme, WordPress]
+          description: Product ecosystem.
+          example: Plugin
+        fixed_in:
+          type: string
+          description: |
+            First version that contains the patch. Empty string when Patchstack
+            has not yet recorded a fixed version.
+          example: "1.5.3"
+        direct_url:
+          type: string
+          format: uri
+          description: Public Patchstack vulnerability page.
+          example: "https://patchstack.com/database/vulnerability/tutor/wordpress-tutor-lms-plugin-1-5-2-cross-site-request-forgery-csrf-vulnerability"
