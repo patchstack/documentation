@@ -1,11 +1,69 @@
+import { readFile, writeFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
 import { defineConfig, passthroughImageService } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLlmsTxt from 'starlight-llms-txt'
+import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi'
+import Converter from 'openapi-to-postmanv2'
 
 
 const site_url = process.env.URL;
 
 const site = site_url || 'http://localhost:4321';
+
+const postmanCollections = [
+	{
+		openapi: './public/schemas/threat-intel-beta.yaml',
+		output:  './public/schemas/threat-intel-beta.postman_collection.json',
+	},
+];
+
+// Recursively drop `id` and `_postman_id` keys so the output is deterministic.
+// openapi-to-postmanv2 inserts fresh UUIDs on every run, which would cause
+// churn in git. Both fields are optional in Collection v2.1 — Postman assigns
+// new ids on import.
+function stripIds(value) {
+	if (Array.isArray(value)) return value.map(stripIds);
+	if (value && typeof value === 'object') {
+		const out = {};
+		for (const [key, val] of Object.entries(value)) {
+			if (key === 'id' || key === '_postman_id') continue;
+			out[key] = stripIds(val);
+		}
+		return out;
+	}
+	return value;
+}
+
+function postmanFromOpenAPI() {
+	return {
+		name: 'postman-from-openapi',
+		hooks: {
+			'astro:config:setup': async ({ logger }) => {
+				for (const { openapi, output } of postmanCollections) {
+					const spec = await readFile(fileURLToPath(new URL(openapi, import.meta.url)), 'utf8');
+					await new Promise((resolve, reject) => {
+						Converter.convert(
+							{ type: 'string', data: spec },
+							{ requestParametersResolution: 'Example' },
+							async (err, result) => {
+								if (err || !result.result) {
+									return reject(err ?? new Error(result.reason ?? 'Postman conversion failed'));
+								}
+								await writeFile(
+									fileURLToPath(new URL(output, import.meta.url)),
+									JSON.stringify(stripIds(result.output[0].data), null, 2),
+								);
+								logger.info(`generated ${output}`);
+								resolve();
+							},
+						);
+					});
+				}
+			},
+		},
+	};
+}
 // https://astro.build/config
 export default defineConfig({
 	site: site,
@@ -18,17 +76,17 @@ export default defineConfig({
 	
 	},
 	integrations: [
+		postmanFromOpenAPI(),
 		starlight({
 			plugins: [
-				starlightLlmsTxt()
-				// Generate the OpenAPI documentation pages.
-				// starlightOpenAPI([
-				// 	{
-				// 		base: 'developer-api',
-				// 		label: 'My API',
-				// 		schema: './schemas/test.yaml',
-				// 	},
-				// ])
+				starlightLlmsTxt(),
+				starlightOpenAPI([
+					{
+						base: 'api-reference/threat-intelligence-beta',
+						label: 'Reference',
+						schema: './public/schemas/threat-intel-beta.yaml',
+					},
+				]),
 			],
 			title: 'Patchstack Docs',
 			favicon: '/images/psfavicon.svg',
@@ -73,7 +131,33 @@ export default defineConfig({
 				{
 					label: 'API solutions',
 					collapsed: true,
-					autogenerate: { directory: 'API solutions', collapsed: true },
+					items: [
+						{ slug: 'api-solutions' },
+						{
+							label: 'App API',
+							collapsed: true,
+							autogenerate: { directory: 'API solutions/App API', collapsed: true },
+						},
+						{
+							label: 'Threat Intelligence API',
+							collapsed: true,
+							items: [
+								{ slug: 'api-solutions/threat-intelligence-api/overview' },
+								{ slug: 'api-solutions/threat-intelligence-api/standard' },
+								{ slug: 'api-solutions/threat-intelligence-api/extended' },
+								{ slug: 'api-solutions/threat-intelligence-api/api-properties' },
+								{
+									label: 'Beta API',
+									badge: { text: 'New', variant: 'tip' },
+									collapsed: true,
+									items: [
+										{ slug: 'api-solutions/threat-intelligence-api/beta' },
+										...openAPISidebarGroups,
+									],
+								},
+							],
+						},
+					],
 				},
 				{
 					label: 'Vulnerability Disclosure Program',

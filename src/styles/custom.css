@@ -136,3 +136,11 @@ header button {
 .main-frame {
 	margin-bottom: 30px;
 }
+
+/* Match sidebar group labels that carry a badge (e.g. Beta API [New]) to the
+   weight/size of sibling leaf links, so the badge carries the emphasis
+   instead of the label doubling up. */
+.group-label .large:has(+ .sl-badge) {
+	font-size: var(--sl-text-sm);
+	font-weight: normal;
+}

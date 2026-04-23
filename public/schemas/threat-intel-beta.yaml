@@ -1,0 +1,652 @@
+openapi: 3.1.0
+info:
+  title: Patchstack Threat Intelligence API — Beta
+  version: beta
+  summary: npm + WordPress vulnerability intelligence with nested response shape and cursor pagination.
+  description: |
+    The Beta endpoints live alongside the v2 API and add npm coverage, an optional
+    full advisory body, a consistent nested response shape, and cursor pagination.
+    They are the recommended endpoints for new integrations; v2 remains available
+    for backwards compatibility.
+
+    ## Authentication
+
+    Every request must include your API key in the `PSKey` HTTP request header.
+    Request a key via <https://patchstack.com/for-hosts/>.
+
+    ## Platforms
+
+    Pass `?platform=npm` (or `?platform=wordpress` — the default) on list
+    endpoints. Platform names are case-insensitive.
+
+    ## Pagination
+
+    `/all` and `/latest` support two independent strategies, selected by which
+    query parameter you pass:
+
+    - **Offset** (`?page=&per_page=`) — returns totals; easy to jump to a
+      specific page; susceptible to row-shift when new rows land while paging.
+    - **Cursor** (`?cursor=`) — stable under concurrent inserts, faster at
+      depth, no `total` count. Bootstrap with an empty value: `?cursor=`.
+
+    `cursor` and `page` are mutually exclusive; passing both returns `422`.
+
+    ## Including full advisory bodies
+
+    Pass `?include=details` on any list endpoint to add an `advisory_details`
+    markdown field to each item.
+
+    ## Scoped npm packages
+
+    npm package slugs that include a `/` (e.g. `@scope/pkg`) conflict with the
+    route separator. URL-encode the `/` as `%2F`.
+
+    ## Rate limiting
+
+    Same policy as the Extended Threat Intelligence API. Contact
+    <https://patchstack.com/for-hosts/> if you need an elevated quota.
+
+    ## Errors
+
+    | Status | Meaning |
+    |---|---|
+    | `401` | Missing or invalid `PSKey` header. |
+    | `403` | API key not authorised for the requested endpoint. |
+    | `422` | Invalid parameter combination or value (e.g. `cursor` + `page`, invalid `platform`, `per_page > 500`). |
+    | `429` | Rate limit exceeded. |
+    | `500` | Server error — include the request id in any bug report. |
+
+    A malformed cursor returns `200` with an empty page rather than an error:
+
+    ```json
+    { "vulnerabilities": [], "cursor": { "next_cursor": null, "has_more": false, "per_page": 100 } }
+    ```
+
+    ## Related pages
+
+    - Narrative guide with code samples: [Beta tier API](/api-solutions/threat-intelligence-api/beta/)
+    - OpenAPI spec (import into Postman / Insomnia / Bruno / Hoppscotch): <https://docs.patchstack.com/schemas/threat-intel-beta.yaml>
+    - Postman collection (pre-imported): <https://docs.patchstack.com/schemas/threat-intel-beta.postman_collection.json>
+
+    Integration questions: <dave.jong@patchstack.com>.
+  contact:
+    name: Patchstack
+    url: https://patchstack.com/for-hosts/
+    email: dave.jong@patchstack.com
+
+servers:
+  - url: https://patchstack.com/database/api/beta
+    description: Production
+
+security:
+  - PSKey: []
+
+tags:
+  - name: Vulnerabilities
+    description: |
+      Listing endpoints that return published vulnerabilities for a platform,
+      ordered by descending `id`.
+
+      - [`GET /all`](/api-reference/threat-intelligence-beta/operations/listallvulnerabilities/)
+        — every published vulnerability for the platform, paginated.
+      - [`GET /latest`](/api-reference/threat-intelligence-beta/operations/listlatestvulnerabilities/)
+        — vulnerabilities whose row was inserted in the last 24 hours (filter
+        is on `created_at`, not `disclosure_date`).
+
+      Both endpoints share the same response shape and support offset and
+      cursor pagination — see the overview for details.
+  - name: Products
+    description: |
+      Match a specific product + version against the vulnerability database
+      and return every applicable advisory.
+
+      - [`GET /product/{type}/{name}/{version}`](/api-reference/threat-intelligence-beta/operations/findproductvulnerabilities/)
+        — full advisory list for the product. Use `version=*` to return every
+        advisory for the product regardless of version.
+      - [`GET /product/{type}/{name}/{version}/exists`](/api-reference/threat-intelligence-beta/operations/productvulnerabilityexists/)
+        — boolean-only variant for fast "is this vulnerable?" checks.
+
+      `type` accepts `npm`, `plugin`, `theme`, or `wordpress`. For scoped npm
+      packages, URL-encode the `/` as `%2F`.
+  - name: Batch
+    description: |
+      Bulk endpoint for checking up to 50 products in a single request. Use
+      this when walking a dependency manifest (e.g. `package.json` or a list
+      of installed WordPress plugins) — it's significantly cheaper than
+      issuing one request per product.
+
+      - [`POST /batch`](/api-reference/threat-intelligence-beta/operations/batchproductcheck/)
+        — payload is a JSON array of up to 50 `{type, name, version, exists?}`
+        objects. Per-item results are returned in request order.
+
+paths:
+  /all:
+    get:
+      tags: [Vulnerabilities]
+      summary: List all vulnerabilities
+      description: |
+        Paginated listing of every published vulnerability for the given
+        platform, ordered by descending `id`.
+
+        Supports **two independent pagination strategies**:
+
+        - **Offset** (`?page=&per_page=`) — returns a `pagination` block with
+          totals. Easy to jump to a specific page; slower at depth and
+          susceptible to row-shift when new vulnerabilities land while paging.
+        - **Cursor** (`?cursor=`) — returns a `cursor` block with `next_cursor`,
+          `has_more`, `per_page`. Stable under concurrent inserts and faster at
+          any depth. No `total` count.
+
+        `cursor` and `page` are mutually exclusive; passing both returns
+        `422 Unprocessable Entity`.
+      operationId: listAllVulnerabilities
+      parameters:
+        - $ref: '#/components/parameters/Platform'
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Paginated vulnerability listing.
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/OffsetVulnerabilityList'
+                  - $ref: '#/components/schemas/CursorVulnerabilityList'
+              examples:
+                offset:
+                  summary: Offset mode
+                  value:
+                    vulnerabilities: []
+                    pagination:
+                      current_page: 1
+                      per_page: 25
+                      total: 6115
+                      total_pages: 245
+                      has_next_page: true
+                      has_previous_page: false
+                      next_page: 2
+                      previous_page: null
+                      from: 1
+                      to: 25
+                cursor:
+                  summary: Cursor mode
+                  value:
+                    vulnerabilities: []
+                    cursor:
+                      next_cursor: djE6NDYzMzk
+                      has_more: true
+                      per_page: 25
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '422': { $ref: '#/components/responses/UnprocessableEntity' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+  /latest:
+    get:
+      tags: [Vulnerabilities]
+      summary: Latest vulnerabilities (last 24 hours)
+      description: |
+        Returns vulnerabilities whose row was inserted into the Patchstack
+        database in the last 24 hours. The filter is on `created_at`
+        (insertion time), **not** `disclosure_date`.
+
+        Accepts the same query parameters as `/all`.
+      operationId: listLatestVulnerabilities
+      parameters:
+        - $ref: '#/components/parameters/Platform'
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Paginated 24h vulnerability listing.
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/OffsetVulnerabilityList'
+                  - $ref: '#/components/schemas/CursorVulnerabilityList'
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '422': { $ref: '#/components/responses/UnprocessableEntity' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+  /product/{type}/{name}/{version}:
+    get:
+      tags: [Products]
+      summary: Find vulnerabilities for a product
+      description: |
+        Match a specific product + version against the vulnerability database
+        and return every applicable advisory.
+
+        npm package slugs that include a `/` (e.g. `@scope/pkg`) conflict with
+        the route separator. URL-encode the `/` as `%2F`.
+      operationId: findProductVulnerabilities
+      parameters:
+        - $ref: '#/components/parameters/ProductType'
+        - $ref: '#/components/parameters/ProductName'
+        - $ref: '#/components/parameters/ProductVersion'
+        - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Matched advisories (possibly empty).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  vulnerabilities:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Vulnerability'
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '422': { $ref: '#/components/responses/UnprocessableEntity' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+  /product/{type}/{name}/{version}/exists:
+    get:
+      tags: [Products]
+      summary: Boolean exists check for a product
+      description: |
+        Boolean-only variant of the product lookup. Returns `{ "vulnerable": true }`
+        or `{ "vulnerable": false }` without the advisory payload — useful for
+        lightweight health checks and dashboard tiles where the advisory body
+        isn't needed.
+      operationId: productVulnerabilityExists
+      parameters:
+        - $ref: '#/components/parameters/ProductType'
+        - $ref: '#/components/parameters/ProductName'
+        - $ref: '#/components/parameters/ProductVersion'
+      responses:
+        '200':
+          description: Boolean result.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [vulnerable]
+                properties:
+                  vulnerable:
+                    type: boolean
+              example:
+                vulnerable: true
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+  /batch:
+    post:
+      tags: [Batch]
+      summary: Bulk product check
+      description: |
+        Check up to 50 products in a single request. Mirrors the format
+        documented for the Extended tier's `/batch` endpoint.
+
+        The payload is a raw JSON array (not wrapped in an object). Each item
+        is `{ "type", "name", "version", "exists"? }` — when `exists: true`
+        the result for that item is boolean-only; otherwise it's the full
+        advisory list for the product.
+      operationId: batchProductCheck
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              maxItems: 50
+              items:
+                $ref: '#/components/schemas/BatchItem'
+            example:
+              - { type: npm,       name: axios,     version: 0.21.4, exists: false }
+              - { type: plugin,    name: tutor,     version: 1.5.2,  exists: true  }
+              - { type: wordpress, name: wordpress, version: 6.0.0,  exists: true  }
+      responses:
+        '200':
+          description: Per-item results, in request order.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '422': { $ref: '#/components/responses/UnprocessableEntity' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+components:
+  securitySchemes:
+    PSKey:
+      type: apiKey
+      in: header
+      name: PSKey
+      description: API key issued by Patchstack. Request one via <https://patchstack.com/for-hosts/>.
+
+  parameters:
+    Platform:
+      name: platform
+      in: query
+      description: Platform to query. Case-insensitive.
+      required: false
+      schema:
+        type: string
+        enum: [wordpress, npm]
+        default: wordpress
+    Page:
+      name: page
+      in: query
+      description: Offset-pagination page (1-indexed). Mutually exclusive with `cursor`.
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    PerPage:
+      name: per_page
+      in: query
+      description: Page size.
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 500
+        default: 100
+    Cursor:
+      name: cursor
+      in: query
+      description: |
+        Opaque cursor. Presence of the param switches to cursor mode (send an
+        empty value to bootstrap). Mutually exclusive with `page`.
+      required: false
+      schema:
+        type: string
+    Include:
+      name: include
+      in: query
+      description: Pass `details` to include the full advisory body (`advisory_details`) per item.
+      required: false
+      schema:
+        type: string
+        enum: [details]
+    ProductType:
+      name: type
+      in: path
+      required: true
+      description: Product ecosystem.
+      schema:
+        type: string
+        enum: [npm, plugin, theme, wordpress]
+        example: npm
+    ProductName:
+      name: name
+      in: path
+      required: true
+      description: npm package slug or WordPress plugin/theme slug. Use `wordpress` when `type=wordpress`.
+      schema:
+        type: string
+        example: axios
+    ProductVersion:
+      name: version
+      in: path
+      required: true
+      description: Concrete version (e.g. `0.21.4`) or `*` to return every advisory for the product.
+      schema:
+        type: string
+        example: 0.21.4
+
+  responses:
+    Unauthorized:
+      description: Missing or invalid `PSKey` header.
+    Forbidden:
+      description: API key not authorised for the requested endpoint.
+    UnprocessableEntity:
+      description: Invalid parameter combination (e.g. `cursor` + `page`), invalid `platform`, or `per_page > 500`.
+    TooManyRequests:
+      description: Rate limit exceeded.
+
+  schemas:
+    Vulnerability:
+      type: object
+      description: Per-item shape shared across list endpoints when `platform=npm`.
+      required:
+        - id
+        - title
+        - disclosed_at
+        - created_at
+        - url
+        - vuln_type
+        - cve
+        - is_exploited
+        - patch_priority
+        - product
+        - cvss
+        - cwe
+        - capec
+        - references
+        - ghsa
+        - version_info
+      properties:
+        id:
+          type: integer
+          description: Stable Patchstack vulnerability id.
+          example: 46500
+        title:
+          type: string
+          description: Human-readable title (prefixed with `NPM:` for npm advisories).
+          example: "NPM: OpenClaw: ..."
+        disclosed_at:
+          type: string
+          format: date-time
+          description: When the vulnerability was publicly disclosed.
+        created_at:
+          type: string
+          format: date-time
+          description: When the row was inserted into the Patchstack DB. Drives `/latest` windowing.
+        url:
+          type: string
+          format: uri
+          description: Public Patchstack vulnerability page (token-tagged).
+        vuln_type:
+          type: string
+          description: High-level vulnerability category.
+          example: Other Vulnerability Type
+        cve:
+          type: string
+          description: First CVE identifier, or empty string when none is assigned.
+          example: "2026-41331"
+        is_exploited:
+          type: boolean
+          description: Whether exploitation has been observed in the wild.
+        patch_priority:
+          type: integer
+          minimum: 1
+          maximum: 3
+          description: 1 (low) to 3 (high).
+        advisory_details:
+          type: string
+          description: Full advisory body (markdown). Only present when `?include=details` was passed.
+        product:
+          type: object
+          required: [id, name, slug]
+          properties:
+            id:   { type: integer }
+            name: { type: string }
+            slug: { type: string }
+        cvss:
+          type: object
+          nullable: true
+          properties:
+            score:
+              type: number
+              format: float
+              nullable: true
+            vector:
+              type: string
+              nullable: true
+        cwe:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+        capec:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+        references:
+          type: array
+          description: External reference URLs (advisories, commits, tags).
+          items:
+            type: string
+            format: uri
+        ghsa:
+          type: string
+          description: GHSA identifier when the advisory came from the GitHub Advisory Database.
+        version_info:
+          type: object
+          required: [affected, fixed, patched_ranges]
+          properties:
+            affected:
+              type: string
+              description: Affected version range (e.g. `<= 2026.3.28`).
+            fixed:
+              type: string
+              description: First fixed version.
+            patched_ranges:
+              type: array
+              description: Structured list of patch ranges for advisories with multiple patch ranges.
+              items:
+                type: object
+                properties:
+                  from_version: { type: string }
+                  to_version:   { type: string }
+                  fixed_in:     { type: string }
+      example:
+        id: 46500
+        title: "NPM: OpenClaw: ..."
+        disclosed_at: "2026-04-03T03:15:56+00:00"
+        created_at: "2026-04-21T08:38:34+00:00"
+        url: "https://patchstack.com/database/npm/npm/openclaw/vulnerability/..."
+        vuln_type: Other Vulnerability Type
+        cve: "2026-41331"
+        is_exploited: false
+        patch_priority: 2
+        advisory_details: "## Summary\n..."
+        product:
+          id: 23595
+          name: openclaw
+          slug: openclaw
+        cvss:
+          score: 6.9
+          vector: "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N"
+        cwe:
+          id: 770
+          name: Allocation of Resources Without Limits or Throttling
+        capec:
+          id: null
+          name: null
+        references:
+          - "https://github.com/openclaw/openclaw/security/advisories/GHSA-m6fx-m8hc-572m"
+          - "https://github.com/openclaw/openclaw/releases/tag/v2026.3.31"
+        ghsa: GHSA-m6fx-m8hc-572m
+        version_info:
+          affected: "<= 2026.3.28"
+          fixed: "2026.3.31"
+          patched_ranges: []
+
+    OffsetPagination:
+      type: object
+      required:
+        - current_page
+        - per_page
+        - total
+        - total_pages
+        - has_next_page
+        - has_previous_page
+        - from
+        - to
+      properties:
+        current_page:       { type: integer, example: 1 }
+        per_page:           { type: integer, example: 25 }
+        total:              { type: integer, example: 6115 }
+        total_pages:        { type: integer, example: 245 }
+        has_next_page:      { type: boolean, example: true }
+        has_previous_page:  { type: boolean, example: false }
+        next_page:
+          type: integer
+          nullable: true
+          example: 2
+        previous_page:
+          type: integer
+          nullable: true
+          example: null
+        from:               { type: integer, example: 1 }
+        to:                 { type: integer, example: 25 }
+
+    CursorPagination:
+      type: object
+      required: [next_cursor, has_more, per_page]
+      properties:
+        next_cursor:
+          type: string
+          nullable: true
+          description: Opaque cursor for the next page. `null` when there are no more pages.
+          example: djE6NDYzMzk
+        has_more:
+          type: boolean
+          example: true
+        per_page:
+          type: integer
+          example: 25
+
+    OffsetVulnerabilityList:
+      type: object
+      required: [vulnerabilities, pagination]
+      properties:
+        vulnerabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Vulnerability'
+        pagination:
+          $ref: '#/components/schemas/OffsetPagination'
+
+    CursorVulnerabilityList:
+      type: object
+      required: [vulnerabilities, cursor]
+      properties:
+        vulnerabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Vulnerability'
+        cursor:
+          $ref: '#/components/schemas/CursorPagination'
+
+    BatchItem:
+      type: object
+      required: [type, name, version]
+      properties:
+        type:
+          type: string
+          enum: [npm, plugin, theme, wordpress]
+        name:
+          type: string
+        version:
+          type: string
+        exists:
+          type: boolean
+          description: When `true`, return a boolean-only result for this item.
