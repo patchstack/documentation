@@ -1,5 +1,5 @@
 ---
-title: "Beta API"
+title: "Npm Dataset API (Beta)"
 excerpt: "Beta vulnerability endpoints — npm support, Resource-based shape, offset and cursor pagination, include=details."
 hidden: false
 metadata:
@@ -11,7 +11,7 @@ sidebar:
   label: "Guide"
 ---
 
-_The Beta API is a new generation of the Threat Intelligence API, currently available to **selected partners working directly with Patchstack**. It lives alongside the v2 API (Standard / Extended) and adds npm coverage, an optional full advisory body, a consistent nested response shape, and cursor pagination. If you'd like access to run an integration on Beta, [contact us](https://patchstack.com/for-hosts/)._
+_The Npm Dataset API (Beta) is a new generation of the Threat Intelligence API, currently available to **selected partners working directly with Patchstack**. It lives alongside the v2 API (Standard / Extended) and adds npm coverage, an optional full advisory body, a consistent nested response shape, and cursor pagination. If you'd like access to run an integration on Beta, [contact us](https://patchstack.com/for-hosts/)._
 
 > **Interactive reference:** Every endpoint, parameter, request body and response shape is documented in the [Threat Intelligence API (Beta) reference](/api-reference/threat-intelligence-beta/).
 
