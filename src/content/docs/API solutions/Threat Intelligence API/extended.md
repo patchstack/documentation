@@ -15,6 +15,8 @@ sidebar:
 _The Extended Threat Intelligence API is a superset of the [Standard tier](/api-solutions/threat-intelligence-api/standard/). Extended has **custom pricing and is activated on request** — [contact us](https://patchstack.com/for-hosts/)._
 
 > **Interactive reference:** Every endpoint, parameter, request body and response shape is documented in the [Threat Intelligence API (Extended) reference](/api-reference/threat-intelligence-extended/).
+>
+> **Tooling (Postman, SDK, LLM):** spec URLs and import instructions for all three tiers live on [Overview → Using the APIs with your tools](/api-solutions/threat-intelligence-api/overview/#using-the-apis-with-your-tools).
 
 This page covers the concepts you need to use the API effectively — authentication, rate limiting, errors, and code samples. Use it alongside the interactive reference.
 
@@ -29,47 +31,6 @@ This page covers the concepts you need to use the API effectively — authentica
 | `POST /batch` — up to 50 products per request | — | ✓ |
 | `GET /vulnerability/{id}` — advisory detail (CVSS vector, OWASP, references, credit) | — | ✓ |
 | Rate limit | 5,000 / 24h | Custom, set per contract |
-
-## Use with Postman, Insomnia, Bruno or Hoppscotch
-
-We publish the API as an [OpenAPI 3.1 spec](https://docs.patchstack.com/schemas/threat-intel-extended.yaml) and a pre-built [Postman collection](https://docs.patchstack.com/schemas/threat-intel-extended.postman_collection.json). Every endpoint, parameter, request body and example is preconfigured — set your `PSKey` once and the whole collection authenticates.
-
-[Download the collection](/schemas/threat-intel-extended.postman_collection.json) and drag it into Postman/Insomnia/Bruno/Hoppscotch, or import it by URL from inside the tool.
-
-| Tool | How to import |
-|---|---|
-| **Postman** | `File → Import → Link` and paste the collection URL. |
-| **Insomnia** | `Create → Import From → URL` → paste the OpenAPI URL. |
-| **Bruno** | `Collection → Import → OpenAPI V3 Spec` → paste the OpenAPI URL. |
-| **Hoppscotch** | `Collections → Import/Export → OpenAPI` → paste the OpenAPI URL. |
-
-**Authentication:** in Postman set the collection `Authorization` to **API Key**, key `PSKey`, value `{{PSKEY}}`, and add `PSKEY` as a collection variable with your real key as the **Current value** (leave Initial blank so it doesn't sync to teammates). Other tools work the same way — set `PSKey` as a collection header once.
-
-## Use with Claude Code or other LLM coding assistants
-
-Point your assistant at the spec. LLMs parse OpenAPI cleanly and will generate clients that match the real field names instead of hallucinating.
-
-- **Ad hoc:** paste the spec URL into your prompt. Example: *"Write a Node script that walks `POST /batch` over a `package.json`-style list of plugins using `https://docs.patchstack.com/schemas/threat-intel-extended.yaml`."*
-- **In your repo:** download the spec to `docs/vendor/patchstack-threat-intel-extended.yaml` and reference it from your `CLAUDE.md` / `AGENTS.md`. Your assistant can then grep the YAML for specific fields without refetching.
-- **Plain-text fallback:** for tools that don't parse YAML, our [`llms-full.txt`](/llms-full.txt) contains the full reference as flat markdown.
-
-## SDK generation
-
-Generate a client in any language from the same spec:
-
-```bash
-# TypeScript
-npx @openapitools/openapi-generator-cli generate \
-  -i https://docs.patchstack.com/schemas/threat-intel-extended.yaml \
-  -g typescript-fetch -o ./patchstack-client
-
-# Python
-npx @openapitools/openapi-generator-cli generate \
-  -i https://docs.patchstack.com/schemas/threat-intel-extended.yaml \
-  -g python -o ./patchstack-client-py
-```
-
-Speakeasy and Fern also consume the same spec and produce more idiomatic SDKs if you need a polished client library.
 
 ## Base URL
 
@@ -112,9 +73,7 @@ Custom, set per contract. Contact <https://patchstack.com/for-hosts/> if you nee
 
 ---
 
-## Testing
-
-### curl — one-liners
+## Testing — curl one-liners
 
 ```bash
 # Latest 20 vulnerabilities
@@ -129,7 +88,7 @@ curl 'https://patchstack.com/database/api/v2/product/plugin/tutor/1.5.2' \
 curl 'https://patchstack.com/database/api/v2/product/plugin/tutor/1.5.2/exists' \
   -H 'PSKey: <your-api-key>'
 
-# Batch — boolean-only across three products
+# Batch — boolean-only across two products
 curl -X POST 'https://patchstack.com/database/api/v2/batch' \
   -H 'PSKey: <your-api-key>' \
   -H 'Content-Type: application/json' \
@@ -143,7 +102,7 @@ curl 'https://patchstack.com/database/api/v2/vulnerability/4760' \
   -H 'PSKey: <your-api-key>'
 ```
 
-### Batch walk (PHP)
+## Batch walk (PHP)
 
 ```php
 <?php
@@ -172,10 +131,6 @@ foreach ($response['vulnerabilities'] as $slug => $result) {
     }
 }
 ```
-
-### Postman / Insomnia / Bruno / Hoppscotch
-
-Import the OpenAPI spec directly from [`threat-intel-extended.yaml`](https://docs.patchstack.com/schemas/threat-intel-extended.yaml) — authentication, parameters and example payloads are preconfigured. Set the `PSKey` security value to your API key once and every request in the collection will use it.
 
 ## More information
 

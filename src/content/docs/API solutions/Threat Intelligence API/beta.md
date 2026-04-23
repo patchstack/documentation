@@ -14,49 +14,10 @@ sidebar:
 _The Npm Dataset API (Beta) is a new generation of the Threat Intelligence API, currently available to **selected partners working directly with Patchstack**. It lives alongside the v2 API (Standard / Extended) and adds npm coverage, an optional full advisory body, a consistent nested response shape, and cursor pagination. If you'd like access to run an integration on Beta, [contact us](https://patchstack.com/for-hosts/)._
 
 > **Interactive reference:** Every endpoint, parameter, request body and response shape is documented in the [Threat Intelligence API (Beta) reference](/api-reference/threat-intelligence-beta/).
+>
+> **Tooling (Postman, SDK, LLM):** spec URLs and import instructions for all three tiers live on [Overview → Using the APIs with your tools](/api-solutions/threat-intelligence-api/overview/#using-the-apis-with-your-tools).
 
 This page covers the concepts you need to use the API effectively — authentication, platforms, pagination, rate limiting, and migration from v2. Use it alongside the interactive reference.
-
-## Use with Postman, Insomnia, Bruno or Hoppscotch
-
-We publish the API as an [OpenAPI 3.1 spec](https://docs.patchstack.com/schemas/threat-intel-beta.yaml) and a pre-built [Postman collection](https://docs.patchstack.com/schemas/threat-intel-beta.postman_collection.json). Every endpoint, parameter, request body and example is preconfigured — set your `PSKey` once and the whole collection authenticates.
-
-[Download the collection](/schemas/threat-intel-beta.postman_collection.json) and drag it into Postman/Insomnia/Bruno/Hoppscotch, or import it by URL from inside the tool.
-
-| Tool | How to import |
-|---|---|
-| **Postman** | `File → Import → Link` and paste the collection URL. |
-| **Insomnia** | `Create → Import From → URL` → paste the OpenAPI URL. |
-| **Bruno** | `Collection → Import → OpenAPI V3 Spec` → paste the OpenAPI URL. |
-| **Hoppscotch** | `Collections → Import/Export → OpenAPI` → paste the OpenAPI URL. |
-
-**Authentication:** in Postman set the collection `Authorization` to **API Key**, key `PSKey`, value `{{PSKEY}}`, and add `PSKEY` as a collection variable with your real key as the **Current value** (leave Initial blank so it doesn't sync to teammates). Other tools work the same way — set `PSKey` as a collection header once.
-
-## Use with Claude Code or other LLM coding assistants
-
-Point your assistant at the spec. LLMs parse OpenAPI cleanly and will generate clients that match the real field names instead of hallucinating.
-
-- **Ad hoc:** paste the spec URL into your prompt. Example: *"Write a Python client for `https://docs.patchstack.com/schemas/threat-intel-beta.yaml`. I need cursor-mode iteration over `/all` for npm."*
-- **In your repo:** download the spec to `docs/vendor/patchstack-threat-intel-beta.yaml` and reference it from your `CLAUDE.md` / `AGENTS.md`. Your assistant can then grep the YAML for specific fields without refetching.
-- **Plain-text fallback:** for tools that don't parse YAML, our [`llms-full.txt`](/llms-full.txt) contains the full reference as flat markdown.
-
-## SDK generation
-
-Generate a client in any language from the same spec:
-
-```bash
-# TypeScript
-npx @openapitools/openapi-generator-cli generate \
-  -i https://docs.patchstack.com/schemas/threat-intel-beta.yaml \
-  -g typescript-fetch -o ./patchstack-client
-
-# Python
-npx @openapitools/openapi-generator-cli generate \
-  -i https://docs.patchstack.com/schemas/threat-intel-beta.yaml \
-  -g python -o ./patchstack-client-py
-```
-
-Speakeasy and Fern also consume the same spec and produce more idiomatic SDKs if you need a polished client library.
 
 > **Spec stability:** the Beta spec may change without a version bump while the API is in beta. Pin a commit of the YAML in production integrations, or wait for the GA release when we'll publish versioned URLs.
 
@@ -145,10 +106,6 @@ curl 'https://patchstack.com/database/api/beta/product/npm/axios/0.21.4?include=
 curl 'https://patchstack.com/database/api/beta/product/npm/axios/0.21.4/exists' \
   -H 'PSKey: <your-api-key>'
 ```
-
-### Postman / Insomnia / Bruno / Hoppscotch
-
-Import the OpenAPI spec directly from [`threat-intel-beta.yaml`](https://docs.patchstack.com/schemas/threat-intel-beta.yaml) — authentication, parameters and example payloads are preconfigured. Set the `PSKey` security value to your API key once and every request in the collection will use it.
 
 ### Cursor iteration (JavaScript / Node)
 
