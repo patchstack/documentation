@@ -666,7 +666,11 @@
 
 [[redirects]]
 	from = "/docs/will-patchstack-plugin-help-my-site-pass-pci-dss-soc2-iso-127001-or-other-security-checks"
-	to = "/faq-troubleshooting/technical/will-patchstack-plugin-help-my-site-pass-pci-dss-soc2-iso-127001-or-other-security-checks/"
+	to = "/faq-troubleshooting/technical/will-patchstack-plugin-help-my-site-pass-pci-dss-soc2-iso-27001-or-other-security-checks/"
+
+[[redirects]]
+	from = "/faq-troubleshooting/technical/will-patchstack-plugin-help-my-site-pass-pci-dss-soc2-iso-127001-or-other-security-checks"
+	to = "/faq-troubleshooting/technical/will-patchstack-plugin-help-my-site-pass-pci-dss-soc2-iso-27001-or-other-security-checks/"
 
 [[redirects]]
 	from = "/docs/updating-patchstack-from-2020"

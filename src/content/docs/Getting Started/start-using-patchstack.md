@@ -41,7 +41,7 @@ To add the first site:
 
 ### Step #3 — Review vulnerabilities
 
-Patchstack shows your site for existing plugin & theme vulnerabilities. After that, check your dashboard to see a detailed breakdown of vulnerabilities by patch prioriy and severiy score.
+Patchstack shows your site for existing plugin & theme vulnerabilities. After that, check your dashboard to see a detailed breakdown of vulnerabilities by patch priority and severity score.
 
 Take immediate action on the **High Priority** vulnerabilities.
 
