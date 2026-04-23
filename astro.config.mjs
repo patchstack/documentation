@@ -147,7 +147,7 @@ export default defineConfig({
 								{ slug: 'api-solutions/threat-intelligence-api/extended' },
 								{ slug: 'api-solutions/threat-intelligence-api/api-properties' },
 								{
-									label: 'Beta tier API',
+									label: 'Beta API',
 									badge: { text: 'New', variant: 'tip' },
 									collapsed: true,
 									items: [
