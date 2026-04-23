@@ -8,10 +8,20 @@ updatedAt: "Wed Jan 17 2024 10:39:45 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 8
 ---
+<b>April 22nd, 2026</b>
+
+<ul>
+<li>Version 2.3.6</li>
+<li>Added: 2 new CLI commands (deactivate and status)</li>
+<li>Added: a filter to the software gathering function</li>
+<li>Added: constant to be able to disable the admin menu actions</li>
+<li>Changed: prevent Patchstack init from running multiple times in case it has been invoked already</li>
+<li>Changed: mu-plugin.php stub file to support mu-plugins directory for skipping execution</li>
+</ul>
+
 <b>January 6th, 2026</b>
 
 <ul>
-
 <li>Version 2.3.5</li>
 <li>Added: default policy for license activation</li>
 <li>Added: clause to avoid HTTP call if htaccess feature is disabled</li>
@@ -22,7 +32,6 @@ sidebar:
 <b>December 3rd 2025</b>
 
 <ul>
-
 <li>Version 2.3.4</li>
 <li>Changed: WordPress version stable tag</li>
 <li>Fixed: plugin redirect if more than one plugin is being activated</li>
