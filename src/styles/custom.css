@@ -72,7 +72,7 @@ header button {
 	--sl-color-black: #ffffff;
 	--sl-color-bg-nav: #24272f;
 	--sl-color-text-invert:#24272f;
-	
+
 
 	starlight-theme-select select,
 	starlight-theme-select option,
@@ -111,7 +111,7 @@ header button {
 	border: 0;
 }
 .tagline {
-	font-family: Faktum Regular, sans-serif;	
+	font-family: Faktum Regular, sans-serif;
 	font-size: 1rem;
 	line-height: var(--sl-line-height);
 }
@@ -137,7 +137,7 @@ header button {
 	margin-bottom: 30px;
 }
 
-/* Match sidebar group labels that carry a badge (e.g. Beta API [New]) to the
+/* Match sidebar group labels that carry a badge (e.g. Npm Dataset API (Beta) [New]) to the
    weight/size of sibling leaf links, so the badge carries the emphasis
    instead of the label doubling up. */
 .group-label .large:has(+ .sl-badge) {

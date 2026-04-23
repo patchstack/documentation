@@ -1,7 +1,7 @@
 ---
 title: "Overview"
 excerpt: ""
-metadata: 
+metadata:
   image: []
   robots: "index"
 createdAt: "Thu Jun 01 2023 12:04:17 GMT+0000 (Coordinated Universal Time)"
@@ -12,7 +12,7 @@ sidebar:
   hidden: false
 ---
 
-Patchstack publishes three ways to consume its vulnerability database. Standard and Extended are the stable tiers of the v2 API; the Beta API is a new generation available to selected partners only.
+Patchstack publishes three ways to consume its vulnerability database. Standard and Extended are the stable tiers of the v2 API; the Npm Dataset API (Beta) is a new generation available to selected partners only.
 
 ## Which API should I use?
 
