@@ -3,8 +3,12 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig, passthroughImageService } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLlmsTxt from 'starlight-llms-txt'
-import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi'
+import starlightOpenAPI, { createOpenAPISidebarGroup } from 'starlight-openapi'
 import Converter from 'openapi-to-postmanv2'
+
+const threatIntelStandardSidebarGroup = createOpenAPISidebarGroup();
+const threatIntelExtendedSidebarGroup = createOpenAPISidebarGroup();
+const threatIntelBetaSidebarGroup     = createOpenAPISidebarGroup();
 
 
 const site_url = process.env.URL;
@@ -12,6 +16,14 @@ const site_url = process.env.URL;
 const site = site_url || 'http://localhost:4321';
 
 const postmanCollections = [
+	{
+		openapi: './public/schemas/threat-intel-standard.yaml',
+		output:  './public/schemas/threat-intel-standard.postman_collection.json',
+	},
+	{
+		openapi: './public/schemas/threat-intel-extended.yaml',
+		output:  './public/schemas/threat-intel-extended.postman_collection.json',
+	},
 	{
 		openapi: './public/schemas/threat-intel-beta.yaml',
 		output:  './public/schemas/threat-intel-beta.postman_collection.json',
@@ -82,9 +94,19 @@ export default defineConfig({
 				starlightLlmsTxt(),
 				starlightOpenAPI([
 					{
+						base: 'api-reference/threat-intelligence-standard',
+						schema: './public/schemas/threat-intel-standard.yaml',
+						sidebar: { label: 'Reference', group: threatIntelStandardSidebarGroup },
+					},
+					{
+						base: 'api-reference/threat-intelligence-extended',
+						schema: './public/schemas/threat-intel-extended.yaml',
+						sidebar: { label: 'Reference', group: threatIntelExtendedSidebarGroup },
+					},
+					{
 						base: 'api-reference/threat-intelligence-beta',
-						label: 'Reference',
 						schema: './public/schemas/threat-intel-beta.yaml',
+						sidebar: { label: 'Reference', group: threatIntelBetaSidebarGroup },
 					},
 				]),
 			],
@@ -143,18 +165,32 @@ export default defineConfig({
 							collapsed: true,
 							items: [
 								{ slug: 'api-solutions/threat-intelligence-api/overview' },
-								{ slug: 'api-solutions/threat-intelligence-api/standard' },
-								{ slug: 'api-solutions/threat-intelligence-api/extended' },
-								{ slug: 'api-solutions/threat-intelligence-api/api-properties' },
+								{
+									label: 'Standard API',
+									collapsed: true,
+									items: [
+										{ slug: 'api-solutions/threat-intelligence-api/standard' },
+										threatIntelStandardSidebarGroup,
+									],
+								},
+								{
+									label: 'Extended API',
+									collapsed: true,
+									items: [
+										{ slug: 'api-solutions/threat-intelligence-api/extended' },
+										threatIntelExtendedSidebarGroup,
+									],
+								},
 								{
 									label: 'NPM standard API',
 									badge: { text: 'Beta', variant: 'tip' },
 									collapsed: true,
 									items: [
 										{ slug: 'api-solutions/threat-intelligence-api/beta' },
-										...openAPISidebarGroups,
+										threatIntelBetaSidebarGroup,
 									],
 								},
+								{ slug: 'api-solutions/threat-intelligence-api/api-properties' },
 							],
 						},
 					],

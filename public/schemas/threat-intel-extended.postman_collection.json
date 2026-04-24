@@ -1,0 +1,1494 @@
+{
+  "item": [
+    {
+      "name": "Latest vulnerabilities",
+      "request": {
+        "name": "Latest vulnerabilities",
+        "description": {
+          "content": "Return the 20 most recently added vulnerabilities, ordered by\ndescending `created_at` (insertion time, not `disclosure_date`).\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "latest"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "name": "The 20 most recent vulnerabilities.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "PSKey",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"vulnerabilities\": [\n    {\n      \"id\": 7976,\n      \"product_id\": 2175,\n      \"title\": \"WordPress File Upload plugin <= 4.16.2 - Contributor+ Path Traversal vulnerability leading to Remote Code Execution (RCE)\",\n      \"description\": \"Contributor+ Path Traversal vulnerability leading to Remote Code Execution (RCE) discovered by apple502j in WordPress File Upload plugin (versions <= 4.16.2).\",\n      \"disclosed_at\": \"2022-03-01T00:00:00+00:00\",\n      \"created_at\": \"2022-03-07T11:17:05+00:00\",\n      \"url\": \"wordpress-file-upload-plugin-4-16-2-contributor-path-traversal-vulnerability-leading-to-remote-code-execution-rce\",\n      \"product_slug\": \"wp-file-upload\",\n      \"product_name\": \"WordPress File Upload\",\n      \"product_type\": \"Plugin\",\n      \"vuln_type\": \"Directory Traversal\",\n      \"cve\": [\n        \"2021-24962\"\n      ],\n      \"affected_in\": \"<= 4.16.2\",\n      \"fixed_in\": \"4.16.3\",\n      \"direct_url\": \"https://patchstack.com/database/vulnerability/wp-file-upload/wordpress-file-upload-plugin-4-16-2-contributor-path-traversal-vulnerability-leading-to-remote-code-execution-rce\",\n      \"disclosure_date\": \"2022-03-01 00:00:00\",\n      \"product_name_premium\": null,\n      \"cvss_score\": 8.8,\n      \"is_exploited\": false,\n      \"patch_priority\": 3,\n      \"patched_in_ranges\": [\n        {\n          \"from_version\": \"3.0\",\n          \"to_version\": \"3.0.34.1\",\n          \"fixed_in\": \"3.0.34.2\"\n        },\n        {\n          \"from_version\": \"3.0\",\n          \"to_version\": \"3.0.34.1\",\n          \"fixed_in\": \"3.0.34.2\"\n        }\n      ]\n    },\n    {\n      \"id\": 7976,\n      \"product_id\": 2175,\n      \"title\": \"WordPress File Upload plugin <= 4.16.2 - Contributor+ Path Traversal vulnerability leading to Remote Code Execution (RCE)\",\n      \"description\": \"Contributor+ Path Traversal vulnerability leading to Remote Code Execution (RCE) discovered by apple502j in WordPress File Upload plugin (versions <= 4.16.2).\",\n      \"disclosed_at\": \"2022-03-01T00:00:00+00:00\",\n      \"created_at\": \"2022-03-07T11:17:05+00:00\",\n      \"url\": \"wordpress-file-upload-plugin-4-16-2-contributor-path-traversal-vulnerability-leading-to-remote-code-execution-rce\",\n      \"product_slug\": \"wp-file-upload\",\n      \"product_name\": \"WordPress File Upload\",\n      \"product_type\": \"Plugin\",\n      \"vuln_type\": \"Directory Traversal\",\n      \"cve\": [\n        \"2021-24962\"\n      ],\n      \"affected_in\": \"<= 4.16.2\",\n      \"fixed_in\": \"4.16.3\",\n      \"direct_url\": \"https://patchstack.com/database/vulnerability/wp-file-upload/wordpress-file-upload-plugin-4-16-2-contributor-path-traversal-vulnerability-leading-to-remote-code-execution-rce\",\n      \"disclosure_date\": \"2022-03-01 00:00:00\",\n      \"product_name_premium\": null,\n      \"cvss_score\": 8.8,\n      \"is_exploited\": false,\n      \"patch_priority\": 3,\n      \"patched_in_ranges\": [\n        {\n          \"from_version\": \"3.0\",\n          \"to_version\": \"3.0.34.1\",\n          \"fixed_in\": \"3.0.34.2\"\n        },\n        {\n          \"from_version\": \"3.0\",\n          \"to_version\": \"3.0.34.1\",\n          \"fixed_in\": \"3.0.34.2\"\n        }\n      ]\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "name": "Missing or invalid `PSKey` header.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "PSKey",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "name": "API key not authorised for the requested endpoint.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "PSKey",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "name": "Rate limit exceeded.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "PSKey",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Too Many Requests",
+          "code": 429,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "name": "product/{type}/{name}/{version}",
+      "item": [
+        {
+          "name": "Find vulnerabilities for a product",
+          "request": {
+            "name": "Find vulnerabilities for a product",
+            "description": {
+              "content": "Match a specific WordPress plugin, theme or core version and return\nevery applicable advisory with the full Extended payload.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "product",
+                ":type",
+                ":name",
+                ":version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "plugin",
+                  "key": "type",
+                  "description": "(Required) Product ecosystem."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "tutor",
+                  "key": "name",
+                  "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "1.5.2",
+                  "key": "version",
+                  "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "name": "Matched advisories (possibly empty).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vulnerabilities\": [\n    {\n      \"id\": 7976,\n      \"product_id\": 2175,\n      \"title\": \"WordPress File Upload plugin <= 4.16.2 - Contributor+ Path Traversal vulnerability leading to Remote Code Execution (RCE)\",\n      \"description\": \"Contributor+ Path Traversal vulnerability leading to Remote Code Execution (RCE) discovered by apple502j in WordPress File Upload plugin (versions <= 4.16.2).\",\n      \"disclosed_at\": \"2022-03-01T00:00:00+00:00\",\n      \"created_at\": \"2022-03-07T11:17:05+00:00\",\n      \"url\": \"wordpress-file-upload-plugin-4-16-2-contributor-path-traversal-vulnerability-leading-to-remote-code-execution-rce\",\n      \"product_slug\": \"wp-file-upload\",\n      \"product_name\": \"WordPress File Upload\",\n      \"product_type\": \"Plugin\",\n      \"vuln_type\": \"Directory Traversal\",\n      \"cve\": [\n        \"2021-24962\"\n      ],\n      \"affected_in\": \"<= 4.16.2\",\n      \"fixed_in\": \"4.16.3\",\n      \"direct_url\": \"https://patchstack.com/database/vulnerability/wp-file-upload/wordpress-file-upload-plugin-4-16-2-contributor-path-traversal-vulnerability-leading-to-remote-code-execution-rce\",\n      \"disclosure_date\": \"2022-03-01 00:00:00\",\n      \"product_name_premium\": null,\n      \"cvss_score\": 8.8,\n      \"is_exploited\": false,\n      \"patch_priority\": 3,\n      \"patched_in_ranges\": [\n        {\n          \"from_version\": \"3.0\",\n          \"to_version\": \"3.0.34.1\",\n          \"fixed_in\": \"3.0.34.2\"\n        },\n        {\n          \"from_version\": \"3.0\",\n          \"to_version\": \"3.0.34.1\",\n          \"fixed_in\": \"3.0.34.2\"\n        }\n      ]\n    },\n    {\n      \"id\": 7976,\n      \"product_id\": 2175,\n      \"title\": \"WordPress File Upload plugin <= 4.16.2 - Contributor+ Path Traversal vulnerability leading to Remote Code Execution (RCE)\",\n      \"description\": \"Contributor+ Path Traversal vulnerability leading to Remote Code Execution (RCE) discovered by apple502j in WordPress File Upload plugin (versions <= 4.16.2).\",\n      \"disclosed_at\": \"2022-03-01T00:00:00+00:00\",\n      \"created_at\": \"2022-03-07T11:17:05+00:00\",\n      \"url\": \"wordpress-file-upload-plugin-4-16-2-contributor-path-traversal-vulnerability-leading-to-remote-code-execution-rce\",\n      \"product_slug\": \"wp-file-upload\",\n      \"product_name\": \"WordPress File Upload\",\n      \"product_type\": \"Plugin\",\n      \"vuln_type\": \"Directory Traversal\",\n      \"cve\": [\n        \"2021-24962\"\n      ],\n      \"affected_in\": \"<= 4.16.2\",\n      \"fixed_in\": \"4.16.3\",\n      \"direct_url\": \"https://patchstack.com/database/vulnerability/wp-file-upload/wordpress-file-upload-plugin-4-16-2-contributor-path-traversal-vulnerability-leading-to-remote-code-execution-rce\",\n      \"disclosure_date\": \"2022-03-01 00:00:00\",\n      \"product_name_premium\": null,\n      \"cvss_score\": 8.8,\n      \"is_exploited\": false,\n      \"patch_priority\": 3,\n      \"patched_in_ranges\": [\n        {\n          \"from_version\": \"3.0\",\n          \"to_version\": \"3.0.34.1\",\n          \"fixed_in\": \"3.0.34.2\"\n        },\n        {\n          \"from_version\": \"3.0\",\n          \"to_version\": \"3.0.34.1\",\n          \"fixed_in\": \"3.0.34.2\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "name": "Missing or invalid `PSKey` header.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "name": "API key not authorised for the requested endpoint.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "name": "Unknown product/version/vulnerability id.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "name": "Boolean exists check for a product",
+          "request": {
+            "name": "Boolean exists check for a product",
+            "description": {
+              "content": "Boolean-only variant of the product lookup. Returns\n`{ \"vulnerable\": true }` or `{ \"vulnerable\": false }` — cheap when you\nonly need to know whether an installed version is affected.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "product",
+                ":type",
+                ":name",
+                ":version",
+                "exists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "plugin",
+                  "key": "type",
+                  "description": "(Required) Product ecosystem."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "tutor",
+                  "key": "name",
+                  "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "1.5.2",
+                  "key": "version",
+                  "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "name": "Boolean result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version",
+                    "exists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vulnerable\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "name": "Missing or invalid `PSKey` header.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version",
+                    "exists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "name": "API key not authorised for the requested endpoint.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version",
+                    "exists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":type",
+                    ":name",
+                    ":version",
+                    "exists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "plugin",
+                      "key": "type",
+                      "description": "(Required) Product ecosystem."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "tutor",
+                      "key": "name",
+                      "description": "(Required) WordPress plugin or theme slug. Use `wordpress` when `type=wordpress`.\nSlugs are lowercase — normalize your own data before comparison.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1.5.2",
+                      "key": "version",
+                      "description": "(Required) Concrete version (e.g. `1.5.2`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "PSKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "name": "Bulk product check",
+      "request": {
+        "name": "Bulk product check",
+        "description": {
+          "content": "Check up to 50 products in a single request. Items with `exists: true`\nreturn a boolean per slug; items with `exists: false` return the full\nadvisory list per slug.\n\nThe response is keyed by `product_slug`, **not** by array index —\nduplicate slugs in the request collapse.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "batch"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"name\": \"easy-digital-downloads1\",\n    \"version\": \"1.0.0\",\n    \"type\": \"plugin\",\n    \"exists\": true\n  },\n  {\n    \"name\": \"wordpress\",\n    \"version\": \"3.0.0\",\n    \"type\": \"wordpress\",\n    \"exists\": true\n  }\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Per-slug results.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "PSKey",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"easy-digital-downloads1\",\n    \"version\": \"1.0.0\",\n    \"type\": \"plugin\",\n    \"exists\": true\n  },\n  {\n    \"name\": \"wordpress\",\n    \"version\": \"3.0.0\",\n    \"type\": \"wordpress\",\n    \"exists\": true\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"vulnerabilities\": {\n    \"easy-digital-downloads1\": true,\n    \"wordpress\": true\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "name": "Missing or invalid `PSKey` header.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "PSKey",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"easy-digital-downloads1\",\n    \"version\": \"1.0.0\",\n    \"type\": \"plugin\",\n    \"exists\": true\n  },\n  {\n    \"name\": \"wordpress\",\n    \"version\": \"3.0.0\",\n    \"type\": \"wordpress\",\n    \"exists\": true\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "name": "API key not authorised for the requested endpoint.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "PSKey",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"easy-digital-downloads1\",\n    \"version\": \"1.0.0\",\n    \"type\": \"plugin\",\n    \"exists\": true\n  },\n  {\n    \"name\": \"wordpress\",\n    \"version\": \"3.0.0\",\n    \"type\": \"wordpress\",\n    \"exists\": true\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "name": "Invalid request payload (e.g. batch with more than 50 items).",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "PSKey",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"easy-digital-downloads1\",\n    \"version\": \"1.0.0\",\n    \"type\": \"plugin\",\n    \"exists\": true\n  },\n  {\n    \"name\": \"wordpress\",\n    \"version\": \"3.0.0\",\n    \"type\": \"wordpress\",\n    \"exists\": true\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "name": "Rate limit exceeded.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "PSKey",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"easy-digital-downloads1\",\n    \"version\": \"1.0.0\",\n    \"type\": \"plugin\",\n    \"exists\": true\n  },\n  {\n    \"name\": \"wordpress\",\n    \"version\": \"3.0.0\",\n    \"type\": \"wordpress\",\n    \"exists\": true\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Too Many Requests",
+          "code": 429,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "name": "Find a vulnerability by id",
+      "request": {
+        "name": "Find a vulnerability by id",
+        "description": {
+          "content": "Look up a single advisory by its numeric id or PSID. Returns a richer\nshape than the list endpoints — includes CVSS vector, OWASP category,\nexternal references, credits, and submitter info.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "vulnerability",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "4760",
+              "key": "id",
+              "description": "(Required) Numeric Patchstack id or PSID."
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "name": "Detailed advisory payload.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "vulnerability",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "4760",
+                  "key": "id",
+                  "description": "(Required) Numeric Patchstack id or PSID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "PSKey",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"vulnerability\": {\n    \"title\": \"WordPress Spam protection, AntiSpam, FireWall by CleanTalk plugin <= 5.153.3 - Unauthenticated Time-Based Blind SQL Injection (SQLi) vulnerability\",\n    \"description\": \"Unauthenticated Time-Based Blind SQL Injection (SQLi) vulnerability discovered by WordFence in WordPress Spam protection, AntiSpam, FireWall by CleanTalk plugin (versions <= 5.153.3).\",\n    \"disclosed_at\": \"2021-05-03T00:00:00+00:00\",\n    \"created_at\": \"2021-09-28T14:17:02+00:00\",\n    \"is_exploited\": true,\n    \"url\": \"wordpress-spam-protection-antispam-firewall-by-cleantalk-plugin-5-153-3-unauthenticated-time-based-blind-sql-injection-sqli-vulnerability\",\n    \"direct_url\": \"https://patchstack.com/database/vulnerability/cleantalk-spam-protect/wordpress-spam-protection-antispam-firewall-by-cleantalk-plugin-5-153-3-unauthenticated-time-based-blind-sql-injection-sqli-vulnerability\",\n    \"disclosure_date\": \"2021-05-03 00:00:00\"\n  },\n  \"product\": {\n    \"name\": \"Spam protection, AntiSpam, FireWall by CleanTalk\",\n    \"slug\": \"cleantalk-spam-protect\",\n    \"type\": \"Plugin\"\n  },\n  \"type\": \"SQL Injection\",\n  \"cve\": [\n    \"2021-24295\"\n  ],\n  \"versions\": {\n    \"affected_in\": \"<= 5.153.3\",\n    \"fixed_in\": \"5.153.4\"\n  },\n  \"cvss\": {\n    \"score\": 7.5,\n    \"vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N\",\n    \"description\": \"\"\n  },\n  \"owasp\": \"A1: Injection\",\n  \"references_url\": [\n    {\n      \"url\": \"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24295\",\n      \"title\": \"CVE\"\n    },\n    {\n      \"url\": \"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24295\",\n      \"title\": \"CVE\"\n    }\n  ],\n  \"versions_list\": null,\n  \"credit\": {\n    \"name\": \"WordFence\",\n    \"url\": \"https://twitter.com/wordfence\"\n  },\n  \"submitter\": {\n    \"name\": \"h00die\",\n    \"url\": \"https://packetstormsecurity.com/files/author/7166/\"\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "name": "Missing or invalid `PSKey` header.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "vulnerability",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "4760",
+                  "key": "id",
+                  "description": "(Required) Numeric Patchstack id or PSID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "PSKey",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "name": "API key not authorised for the requested endpoint.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "vulnerability",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "4760",
+                  "key": "id",
+                  "description": "(Required) Numeric Patchstack id or PSID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "PSKey",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "name": "Unknown product/version/vulnerability id.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "vulnerability",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "4760",
+                  "key": "id",
+                  "description": "(Required) Numeric Patchstack id or PSID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "PSKey",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "name": "Rate limit exceeded.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "vulnerability",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "4760",
+                  "key": "id",
+                  "description": "(Required) Numeric Patchstack id or PSID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "PSKey",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Too Many Requests",
+          "code": 429,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://patchstack.com/database/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "PSKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "name": "Patchstack Threat Intelligence API — Extended",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Extended Threat Intelligence API is a superset of the\n[Standard tier](/api-solutions/threat-intelligence-api/standard/). It adds\nbulk product checks, the `/latest` rolling feed, advisory-by-id lookups,\nand a richer per-item payload (`description`, `cvss_score`, `cve`,\n`patch_priority`, `patched_in_ranges`, …).\n\nExtended has **custom pricing and is activated on request** — contact us\nat <https://patchstack.com/for-hosts/>.\n\n## Authentication\n\nEvery request must include your API key in the `PSKey` HTTP request header.\n\n## Rate limiting\n\nCustom, set per contract. Contact <https://patchstack.com/for-hosts/> if\nyou need a quota change.\n\n## Caching\n\nResponses are JSON and cached until the Patchstack database updates, at\nwhich point the appropriate caches are cleared.\n\n## Errors\n\n| Status | Meaning |\n|---|---|\n| `401` | Missing or invalid `PSKey` header. |\n| `403` | API key not authorised for the requested endpoint. |\n| `404` | Unknown product/version/vulnerability id. |\n| `422` | Invalid request payload (e.g. batch with more than 50 items). |\n| `429` | Rate limit exceeded. |\n| `500` | Server error — include the request id in any bug report. |\n\n## Related pages\n\n- Narrative guide with code samples: [Extended tier API](/api-solutions/threat-intelligence-api/extended/)\n- Field glossary: [API properties](/api-solutions/threat-intelligence-api/api-properties/)\n- OpenAPI spec (import into Postman / Insomnia / Bruno / Hoppscotch): <https://docs.patchstack.com/schemas/threat-intel-extended.yaml>\n- Postman collection (pre-imported): <https://docs.patchstack.com/schemas/threat-intel-extended.postman_collection.json>\n\nIntegration questions: <dave.jong@patchstack.com>.\n\n\nContact Support:\n Name: Patchstack\n Email: dave.jong@patchstack.com",
+      "type": "text/plain"
+    }
+  }
+}

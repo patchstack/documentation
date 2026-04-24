@@ -1,5 +1,5 @@
 ---
-title: "Will Patchstack plugin help my site pass PCI-DSS, SOC2, ISO 127001 or other security checks?"
+title: "Will Patchstack plugin help my site pass PCI-DSS, SOC2, ISO 27001 or other security checks?"
 excerpt: ""
 hidden: false
 metadata: 

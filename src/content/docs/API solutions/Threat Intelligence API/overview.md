@@ -12,39 +12,81 @@ sidebar:
   hidden: false
 ---
 
-Patchstack publishes three ways to consume its vulnerability database. Standard and Extended are the stable tiers of the v2 API; the Npm Dataset API (Beta) is a new generation available to selected partners only.
+Patchstack publishes three tiers of the Threat Intelligence API. Each tier has a narrative **Guide** and an interactive **Reference** generated from its OpenAPI spec. All three specs use the same tooling for import, SDK generation, and LLM-assisted client writing — covered once in [Using the APIs with your tools](#using-the-apis-with-your-tools) below.
 
-## Which API should I use?
+## Standard Threat Intelligence API
 
-| | **Standard** | **Extended** | **Beta** |
-|---|---|---|---|
-| **Status** | Stable (v2) | Stable (v2) | Beta — selected partners only |
-| **Access** | Purchase via [Patchstack App](https://app.patchstack.com/billing/subscription) | Custom pricing, activated on request — [contact us](https://patchstack.com/for-hosts/) | By invitation. If you're working with Patchstack on an integration, [get in touch](https://patchstack.com/for-hosts/) |
-| **Rate limit** | 5,000 calls / 24 hours | Custom | Custom |
-| **Ecosystems** | WordPress plugins, themes, core | WordPress plugins, themes, core | WordPress + **npm** |
-| **Lookups** | Single plugin/theme/version | Single + bulk | Single + bulk |
-| **Pagination** | Offset | Offset | Offset **and** cursor |
-| **Response shape** | Flat | Flat | Nested (`product`, `cvss`, `cwe`, `version_info`…) |
-| **Full advisory body** | No | Yes | Opt-in via `?include=details` |
-| **OpenAPI spec / Postman collection** | — | — | [Yes](/api-solutions/threat-intelligence-api/beta/#use-with-postman-insomnia-bruno-or-hoppscotch) |
+WordPress plugin, theme and core lookups for a single product + version. Flat per-item shape, 5,000 requests / 24 hours. Purchase access from the [Patchstack App](https://app.patchstack.com/billing/subscription).
 
-**New integration?** If you have Beta access, use Beta — it's the direction we're heading, and Standard/Extended will eventually adopt the same shape. If not, start with Standard or Extended depending on your data needs.
+- [Guide](/api-solutions/threat-intelligence-api/standard/) · [Reference](/api-reference/threat-intelligence-standard/) · [OpenAPI](/schemas/threat-intel-standard.yaml) · [Postman](/schemas/threat-intel-standard.postman_collection.json)
 
-**Existing integration?** Standard and Extended remain supported; no migration is required.
+## Extended Threat Intelligence API
+
+Everything in Standard, plus bulk lookups (`POST /batch`, up to 50 products per request), the `/latest` rolling feed, advisory-by-id detail, and a richer per-item payload (`cvss_score`, `cve`, `is_exploited`, `patch_priority`, `patched_in_ranges`…). Custom pricing, activated on request — [contact us](https://patchstack.com/for-hosts/).
+
+- [Guide](/api-solutions/threat-intelligence-api/extended/) · [Reference](/api-reference/threat-intelligence-extended/) · [OpenAPI](/schemas/threat-intel-extended.yaml) · [Postman](/schemas/threat-intel-extended.postman_collection.json)
+
+## Npm Dataset API (Beta)
+
+A new generation of the API, currently available to **selected partners working directly with Patchstack**. Adds npm ecosystem coverage, an opt-in full advisory body (`?include=details`), a consistent nested response shape (`product`, `cvss`, `cwe`, `version_info`…), and cursor-based pagination alongside offset. If you're already working with us on an integration and would like access, [contact us](https://patchstack.com/for-hosts/).
+
+- [Guide](/api-solutions/threat-intelligence-api/beta/) · [Reference](/api-reference/threat-intelligence-beta/) · [OpenAPI](/schemas/threat-intel-beta.yaml) · [Postman](/schemas/threat-intel-beta.postman_collection.json)
 
 ---
 
-### Standard Threat Intelligence API
-Fetch the latest vulnerability information for a single version of a particular plugin, theme or WordPress core. API is limited for 5000 calls / 24 hours. Access to this API can be purchased through the [Patchstack App](https://app.patchstack.com/billing/subscription).
+**New integration?** If you have Beta access, use Beta — it's the direction we're heading, and Standard/Extended will eventually adopt the same nested shape. Otherwise start with Standard or Extended depending on your data needs.
 
-[Standard Threat Intelligence API Documentation](/api-solutions/threat-intelligence-api/standard/)
+**Existing integration?** Standard and Extended remain supported; no migration is required. See [API properties](/api-solutions/threat-intelligence-api/api-properties/) for v2 field definitions.
 
-### Extended Threat Intelligence API
-Access everything included in the Standard tier, bulk-request data for multiple plugins with one API call, and have additional endpoints with more information about vulnerabilities. Extended tier has custom pricing and is activated on request only. For access to these API endpoints, please [contact us here](https://patchstack.com/for-hosts/).
+---
 
-[Extended Threat Intelligence API Documentation](/api-solutions/threat-intelligence-api/extended/)
+## Using the APIs with your tools
 
-### Beta Threat Intelligence API
-A new generation of the Threat Intelligence API, currently available to **selected partners working directly with Patchstack**. Adds npm ecosystem coverage, an opt-in full advisory body (`?include=details`), a consistent nested response shape, and cursor-based pagination alongside the existing offset pagination. If you're already working with us on an integration and would like access, [contact us](https://patchstack.com/for-hosts/).
+All three tiers ship the same three artefacts — pick whichever URL matches the tier you're integrating:
 
-[Beta Threat Intelligence API Documentation](/api-solutions/threat-intelligence-api/beta/)
+| Tier | OpenAPI spec | Postman collection |
+|---|---|---|
+| Standard | [`threat-intel-standard.yaml`](/schemas/threat-intel-standard.yaml) | [`threat-intel-standard.postman_collection.json`](/schemas/threat-intel-standard.postman_collection.json) |
+| Extended | [`threat-intel-extended.yaml`](/schemas/threat-intel-extended.yaml) | [`threat-intel-extended.postman_collection.json`](/schemas/threat-intel-extended.postman_collection.json) |
+| Beta | [`threat-intel-beta.yaml`](/schemas/threat-intel-beta.yaml) | [`threat-intel-beta.postman_collection.json`](/schemas/threat-intel-beta.postman_collection.json) |
+
+### Postman, Insomnia, Bruno or Hoppscotch
+
+Every endpoint, parameter, request body and example is preconfigured. Download the Postman collection and drag it into your tool, or import by URL from inside the tool:
+
+| Tool | How to import |
+|---|---|
+| **Postman** | `File → Import → Link` and paste the collection URL. |
+| **Insomnia** | `Create → Import From → URL` → paste the OpenAPI URL. |
+| **Bruno** | `Collection → Import → OpenAPI V3 Spec` → paste the OpenAPI URL. |
+| **Hoppscotch** | `Collections → Import/Export → OpenAPI` → paste the OpenAPI URL. |
+
+**Authentication:** in Postman set the collection `Authorization` to **API Key**, key `PSKey`, value `{{PSKEY}}`, and add `PSKEY` as a collection variable with your real key as the **Current value** (leave Initial blank so it doesn't sync to teammates). Other tools work the same way — set `PSKey` as a collection header once.
+
+### Claude Code and other LLM coding assistants
+
+Point your assistant at the spec. LLMs parse OpenAPI cleanly and will generate clients that match the real field names instead of hallucinating.
+
+- **Ad hoc:** paste the spec URL into your prompt. Example: *"Write a Python client for `https://docs.patchstack.com/schemas/threat-intel-extended.yaml`. I need a batch walker over a `package.json`-style list."*
+- **In your repo:** download the spec to `docs/vendor/patchstack-threat-intel-<tier>.yaml` and reference it from your `CLAUDE.md` / `AGENTS.md`. Your assistant can then grep the YAML for specific fields without refetching.
+- **Plain-text fallback:** for tools that don't parse YAML, our [`llms-full.txt`](/llms-full.txt) contains the full reference as flat markdown.
+
+### SDK generation
+
+Generate a client in any language from the same spec — swap the spec URL for the tier you want:
+
+```bash
+# TypeScript (Extended tier shown)
+npx @openapitools/openapi-generator-cli generate \
+  -i https://docs.patchstack.com/schemas/threat-intel-extended.yaml \
+  -g typescript-fetch -o ./patchstack-client
+
+# Python
+npx @openapitools/openapi-generator-cli generate \
+  -i https://docs.patchstack.com/schemas/threat-intel-extended.yaml \
+  -g python -o ./patchstack-client-py
+```
+
+Speakeasy and Fern also consume the same spec and produce more idiomatic SDKs if you need a polished client library.
+
+> **Spec stability:** the Beta spec may change without a version bump while the API is in beta. Pin a commit of the YAML in production integrations, or wait for the GA release when we'll publish versioned URLs. Standard and Extended specs track the stable v2 surface.
