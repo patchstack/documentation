@@ -17,7 +17,7 @@ _The Beta surface extends the Threat Intelligence API ahead of GA. It runs at a 
 ## Base URL
 
 ```
-https://vdp-api.patchstack.com/database/api/beta/
+https://patchstack.com/database/api/beta/
 ```
 
 ## What's new
