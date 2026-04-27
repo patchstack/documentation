@@ -11,7 +11,7 @@ sidebar:
   label: "Guide"
 ---
 
-_The Standard Threat Intelligence API is **no longer offered to new customers**. New integrations should use the [Extended tier](/api-solutions/threat-intelligence-api/extended/), which is a strict superset — every endpoint and field documented here is available in Extended. This page is preserved for existing Standard integrations._
+_The Standard Threat Intelligence API is **no longer offered to new customers**. New integrations should use the [Threat Intelligence API](/api-solutions/threat-intelligence-api/extended/), which is a strict superset — every endpoint and field documented here is available there. This page is preserved for existing Standard integrations._
 
 > **Interactive reference:** Every endpoint, parameter and response shape is documented in the [Threat Intelligence API (Standard) reference](/api-reference/threat-intelligence-standard/).
 >

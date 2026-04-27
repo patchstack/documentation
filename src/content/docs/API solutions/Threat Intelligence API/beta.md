@@ -1,6 +1,6 @@
 ---
-title: "Npm Dataset API (Beta)"
-excerpt: "Beta vulnerability endpoints — npm support, Resource-based shape, offset and cursor pagination, include=details."
+title: "Beta features"
+excerpt: "Beta endpoints layered on the Threat Intelligence API — npm coverage, nested response shape, cursor pagination, include=details."
 hidden: false
 metadata:
   image: []
@@ -11,11 +11,11 @@ sidebar:
   label: "Guide"
 ---
 
-_The Npm Dataset API (Beta) is a new generation of the Threat Intelligence API, currently available to **selected partners working directly with Patchstack**. It lives alongside the v2 API (Standard / Extended) and adds npm coverage, an optional full advisory body, a consistent nested response shape, and cursor pagination. If you'd like access to run an integration on Beta, [contact us](https://patchstack.com/for-hosts/)._
+_The Beta features extend the Threat Intelligence API ahead of GA. They run on a separate base URL and OpenAPI spec, are currently available to **selected partners working directly with Patchstack**, and are the direction the stable API is heading — the v2 surface will eventually adopt the same nested shape. They add npm ecosystem coverage, an optional full advisory body, a consistent nested response shape, and cursor pagination. If you'd like access to run an integration on Beta, [contact us](https://patchstack.com/for-hosts/)._
 
-> **Interactive reference:** Every endpoint, parameter, request body and response shape is documented in the [Threat Intelligence API (Beta) reference](/api-reference/threat-intelligence-beta/).
+> **Interactive reference:** Every endpoint, parameter, request body and response shape is documented in the [Beta features reference](/api-reference/threat-intelligence-beta/).
 >
-> **Tooling (Postman, SDK, LLM):** spec URLs and import instructions for all three tiers live on [Overview → Using the APIs with your tools](/api-solutions/threat-intelligence-api/overview/#using-the-apis-with-your-tools).
+> **Tooling (Postman, SDK, LLM):** spec URLs and import instructions live on [Overview → Using the API with your tools](/api-solutions/threat-intelligence-api/overview/#using-the-api-with-your-tools).
 
 This page covers the concepts you need to use the API effectively — authentication, platforms, pagination, rate limiting, and migration from v2. Use it alongside the interactive reference.
 
@@ -62,7 +62,7 @@ npm package slugs that include a `/` (e.g. `@scope/pkg`) conflict with the route
 
 ## Rate limiting
 
-Same policy as the Extended Threat Intelligence API — please contact <https://patchstack.com/for-hosts/> if you need an elevated quota.
+Same policy as the stable Threat Intelligence API — please contact <https://patchstack.com/for-hosts/> if you need an elevated quota.
 
 ## Errors
 
@@ -163,9 +163,9 @@ do {
 
 ---
 
-## Migration notes (v2 → beta)
+## Migration notes (stable → beta)
 
-- Beta npm responses use **nested objects** (`product`, `cvss`, `cwe`, `capec`, `version_info`) whereas the v2 shape is flat. Update parsers accordingly.
+- Beta npm responses use **nested objects** (`product`, `cvss`, `cwe`, `capec`, `version_info`) whereas the stable v2 shape is flat. Update parsers accordingly.
 - `ghsa_id` was renamed to `ghsa` at the top level.
 - `direct_url` was renamed to `url` (the npm-flavoured shape exposes a single URL only).
 - The `description` field was dropped for npm (the title already includes it).

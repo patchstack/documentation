@@ -165,16 +165,11 @@ export default defineConfig({
 							collapsed: true,
 							items: [
 								{ slug: 'api-solutions/threat-intelligence-api/overview' },
+								{ slug: 'api-solutions/threat-intelligence-api/extended' },
+								threatIntelExtendedSidebarGroup,
+								{ slug: 'api-solutions/threat-intelligence-api/api-properties' },
 								{
-									label: 'Extended API',
-									collapsed: true,
-									items: [
-										{ slug: 'api-solutions/threat-intelligence-api/extended' },
-										threatIntelExtendedSidebarGroup,
-									],
-								},
-								{
-									label: 'NPM standard API',
+									label: 'Beta features',
 									badge: { text: 'Beta', variant: 'tip' },
 									collapsed: true,
 									items: [
@@ -182,7 +177,6 @@ export default defineConfig({
 										threatIntelBetaSidebarGroup,
 									],
 								},
-								{ slug: 'api-solutions/threat-intelligence-api/api-properties' },
 							],
 						},
 					],
