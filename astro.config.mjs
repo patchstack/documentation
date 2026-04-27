@@ -106,7 +106,7 @@ export default defineConfig({
 					{
 						base: 'api-reference/threat-intelligence-beta',
 						schema: './public/schemas/threat-intel-beta.yaml',
-						sidebar: { label: 'NPM (Beta)', group: threatIntelBetaSidebarGroup, collapsed: true },
+						sidebar: { label: 'NPM features (Beta)', group: threatIntelBetaSidebarGroup, collapsed: true },
 					},
 				]),
 			],
@@ -168,7 +168,7 @@ export default defineConfig({
 								{ slug: 'api-solutions/threat-intelligence-api/extended' },
 								threatIntelExtendedSidebarGroup,
 								{
-									label: 'Beta API',
+									label: 'NPM features (Beta)',
 									collapsed: true,
 									items: [
 										{ slug: 'api-solutions/threat-intelligence-api/beta' },

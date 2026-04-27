@@ -1,6 +1,6 @@
 ---
-title: "Beta API"
-excerpt: "The Beta surface of the Threat Intelligence API — the /all endpoint, npm coverage, cursor pagination, ?include=details, and the nested response shape."
+title: "NPM features (Beta)"
+excerpt: "npm-ecosystem coverage and the supporting additions on top of the Threat Intelligence API — the /all endpoint, cursor pagination, ?include=details, and the nested response shape."
 hidden: false
 metadata:
   image: []
