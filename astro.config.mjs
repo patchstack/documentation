@@ -166,14 +166,6 @@ export default defineConfig({
 							items: [
 								{ slug: 'api-solutions/threat-intelligence-api/overview' },
 								{
-									label: 'Standard API',
-									collapsed: true,
-									items: [
-										{ slug: 'api-solutions/threat-intelligence-api/standard' },
-										threatIntelStandardSidebarGroup,
-									],
-								},
-								{
 									label: 'Extended API',
 									collapsed: true,
 									items: [

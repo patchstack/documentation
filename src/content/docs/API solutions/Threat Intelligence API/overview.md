@@ -12,17 +12,11 @@ sidebar:
   hidden: false
 ---
 
-Patchstack publishes three tiers of the Threat Intelligence API. Each tier has a narrative **Guide** and an interactive **Reference** generated from its OpenAPI spec. All three specs use the same tooling for import, SDK generation, and LLM-assisted client writing — covered once in [Using the APIs with your tools](#using-the-apis-with-your-tools) below.
-
-## Standard Threat Intelligence API
-
-WordPress plugin, theme and core lookups for a single product + version. Flat per-item shape, 5,000 requests / 24 hours. Purchase access from the [Patchstack App](https://app.patchstack.com/billing/subscription).
-
-- [Guide](/api-solutions/threat-intelligence-api/standard/) · [Reference](/api-reference/threat-intelligence-standard/) · [OpenAPI](/schemas/threat-intel-standard.yaml) · [Postman](/schemas/threat-intel-standard.postman_collection.json)
+Patchstack publishes the Threat Intelligence API in two flavours — a stable v2 surface (**Extended**) and a forward-looking **Beta**. Each has a narrative **Guide** and an interactive **Reference** generated from its OpenAPI spec. Both specs use the same tooling for import, SDK generation, and LLM-assisted client writing — covered once in [Using the APIs with your tools](#using-the-apis-with-your-tools) below.
 
 ## Extended Threat Intelligence API
 
-Everything in Standard, plus bulk lookups (`POST /batch`, up to 50 products per request), the `/latest` rolling feed, advisory-by-id detail, and a richer per-item payload (`cvss_score`, `cve`, `is_exploited`, `patch_priority`, `patched_in_ranges`…). Custom pricing, activated on request — [contact us](https://patchstack.com/for-hosts/).
+WordPress plugin, theme and core vulnerability intelligence: single-product lookups, bulk lookups (`POST /batch`, up to 50 products per request), the `/latest` rolling feed, advisory-by-id detail, and a per-item payload that includes `cvss_score`, `cve`, `is_exploited`, `patch_priority`, `patched_in_ranges`. Custom pricing, activated on request — [contact us](https://patchstack.com/for-hosts/).
 
 - [Guide](/api-solutions/threat-intelligence-api/extended/) · [Reference](/api-reference/threat-intelligence-extended/) · [OpenAPI](/schemas/threat-intel-extended.yaml) · [Postman](/schemas/threat-intel-extended.postman_collection.json)
 
@@ -34,21 +28,21 @@ A new generation of the API, currently available to **selected partners working 
 
 ---
 
-**New integration?** If you have Beta access, use Beta — it's the direction we're heading, and Standard/Extended will eventually adopt the same nested shape. Otherwise start with Standard or Extended depending on your data needs.
+**New integration?** If you have Beta access, use Beta — it's the direction we're heading, and Extended will eventually adopt the same nested shape. Otherwise use Extended.
 
-**Existing integration?** Standard and Extended remain supported; no migration is required. See [API properties](/api-solutions/threat-intelligence-api/api-properties/) for v2 field definitions.
+**Existing integration?** Extended remains the supported v2 tier; no migration is required. See [API properties](/api-solutions/threat-intelligence-api/api-properties/) for v2 field definitions. The legacy [Standard tier](/api-solutions/threat-intelligence-api/standard/) is no longer offered to new customers but remains documented for existing integrations — its endpoints are a strict subset of Extended.
 
 ---
 
 ## Using the APIs with your tools
 
-All three tiers ship the same three artefacts — pick whichever URL matches the tier you're integrating:
+Each tier ships the same set of artefacts — pick whichever URL matches the tier you're integrating:
 
 | Tier | OpenAPI spec | Postman collection |
 |---|---|---|
-| Standard | [`threat-intel-standard.yaml`](/schemas/threat-intel-standard.yaml) | [`threat-intel-standard.postman_collection.json`](/schemas/threat-intel-standard.postman_collection.json) |
 | Extended | [`threat-intel-extended.yaml`](/schemas/threat-intel-extended.yaml) | [`threat-intel-extended.postman_collection.json`](/schemas/threat-intel-extended.postman_collection.json) |
 | Beta | [`threat-intel-beta.yaml`](/schemas/threat-intel-beta.yaml) | [`threat-intel-beta.postman_collection.json`](/schemas/threat-intel-beta.postman_collection.json) |
+| Standard *(legacy)* | [`threat-intel-standard.yaml`](/schemas/threat-intel-standard.yaml) | [`threat-intel-standard.postman_collection.json`](/schemas/threat-intel-standard.postman_collection.json) |
 
 ### Postman, Insomnia, Bruno or Hoppscotch
 
