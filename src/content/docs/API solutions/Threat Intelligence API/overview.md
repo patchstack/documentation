@@ -16,22 +16,13 @@ The Patchstack Threat Intelligence API exposes our vulnerability database for Wo
 
 Custom pricing, activated on request — [contact us](https://patchstack.com/for-hosts/).
 
-- [Guide](/api-solutions/threat-intelligence-api/extended/) · [Reference (WordPress)](/api-reference/threat-intelligence-extended/) · [OpenAPI](/schemas/threat-intel-extended.yaml) · [Postman](/schemas/threat-intel-extended.postman_collection.json) · [API properties](/api-solutions/threat-intelligence-api/api-properties/)
+- [Guide](/api-solutions/threat-intelligence-api/extended/) · [Reference](/api-reference/threat-intelligence-extended/) · [OpenAPI](/schemas/threat-intel-extended.yaml) · [Postman](/schemas/threat-intel-extended.postman_collection.json) · [API properties](/api-solutions/threat-intelligence-api/api-properties/)
 
-## NPM (Beta)
+## Beta additions
 
-For partners covering JavaScript components, the API has an **NPM (Beta)** flavour available to **selected partners working directly with Patchstack**. It lives at a separate base URL, ships its own OpenAPI spec, and is documented in the sidebar under **Reference → NPM (Beta)**.
+A separate Beta surface, available to **selected partners working directly with Patchstack**, layers a few additions on top: the new `GET /all` endpoint, npm coverage via `?platform=npm`, cursor pagination, `?include=details` for full advisory bodies, and a nested response shape that the stable API will eventually adopt. Everything else (`/latest`, `/product/{type}/{name}/{version}`, `/batch`) is the same surface as the stable API.
 
-The npm flavour is the direction the API is heading — the stable WordPress surface will eventually adopt the same response shape. Beyond npm coverage itself, it adds:
-
-- **A nested response shape** (`product`, `cvss`, `cwe`, `version_info`…) instead of the v2 flat shape
-- **`/all`** — cursor-paginated full listing
-- **`?include=details`** — opt-in full advisory body on list endpoints
-- **Cursor pagination** alongside offset on `/all` and `/latest`
-
-If you're already working with us on an integration and would like access, [contact us](https://patchstack.com/for-hosts/). Integration notes live in the [NPM (Beta) integration guide](/api-solutions/threat-intelligence-api/beta/) — base URL, platforms, pagination, errors, and v2 → beta migration.
-
-- [Reference (NPM)](/api-reference/threat-intelligence-beta/) · [OpenAPI](/schemas/threat-intel-beta.yaml) · [Postman](/schemas/threat-intel-beta.postman_collection.json)
+See [Beta additions](/api-solutions/threat-intelligence-api/beta/) for the full delta — base URL, parameters, pagination, errors, and migration notes — and the [auto-generated reference](/api-reference/threat-intelligence-beta/) for the full schema. [Contact us](https://patchstack.com/for-hosts/) for access.
 
 ---
 
@@ -46,7 +37,7 @@ The API ships with an OpenAPI spec and a generated Postman collection. Beta has 
 | | OpenAPI spec | Postman collection |
 |---|---|---|
 | Threat Intelligence API | [`threat-intel-extended.yaml`](/schemas/threat-intel-extended.yaml) | [`threat-intel-extended.postman_collection.json`](/schemas/threat-intel-extended.postman_collection.json) |
-| NPM (Beta) | [`threat-intel-beta.yaml`](/schemas/threat-intel-beta.yaml) | [`threat-intel-beta.postman_collection.json`](/schemas/threat-intel-beta.postman_collection.json) |
+| Beta additions | [`threat-intel-beta.yaml`](/schemas/threat-intel-beta.yaml) | [`threat-intel-beta.postman_collection.json`](/schemas/threat-intel-beta.postman_collection.json) |
 | Standard *(legacy)* | [`threat-intel-standard.yaml`](/schemas/threat-intel-standard.yaml) | [`threat-intel-standard.postman_collection.json`](/schemas/threat-intel-standard.postman_collection.json) |
 
 ### Postman, Insomnia, Bruno or Hoppscotch
