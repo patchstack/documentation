@@ -8,8 +8,8 @@ metadata:
 createdAt: "Tue Apr 21 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Apr 22 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
-  order: 4
-  label: "Beta API"
+  order: 1
+  label: "Overview"
 ---
 
 _The Beta surface extends the Threat Intelligence API ahead of GA. It runs at a separate base URL, ships its own OpenAPI spec, and is available to **selected partners working directly with Patchstack**. The shared endpoints (`/latest`, `/product/{type}/{name}/{version}`, `/product/{type}/{name}/{version}/exists`, `/batch`) behave the same as the stable API but accept extra parameters and return a nested response shape. This page documents only what's new — for the full spec including npm-flavour examples, see the [auto-generated reference](/api-reference/threat-intelligence-beta/). [Contact us](https://patchstack.com/for-hosts/) if you'd like access._
@@ -24,11 +24,13 @@ https://vdp-api.patchstack.com/database/api/beta/
 
 | Addition | Where it applies |
 |---|---|
-| `GET /all` | New endpoint — cursor-paginated full listing of every advisory, scoped by `?platform=`. |
+| [`GET /all`](/api-reference/threat-intelligence-beta/operations/listallvulnerabilities/) | New endpoint — cursor-paginated full listing of every advisory, scoped by `?platform=`. |
 | `?platform=npm` | List endpoints (`/all`, `/latest`, `/product/...`). Default is `wordpress`; case-insensitive. |
 | `?cursor=` | `/all` and `/latest` — cursor pagination alongside the existing `?page=&per_page=`. |
 | `?include=details` | List endpoints — adds an `advisory_details` markdown field to each item (npm). |
 | Nested response shape | All list endpoints — `product`, `cvss`, `cwe`, `version_info` objects in place of the v2 flat shape. |
+
+The full Beta schema (every endpoint, parameter, response example) lives in the [auto-generated reference](/api-reference/threat-intelligence-beta/).
 
 > **Spec stability:** the Beta spec may change without a version bump while the API is in beta. Pin a commit of the YAML in production integrations, or wait for the GA release when versioned URLs ship.
 

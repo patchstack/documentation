@@ -167,7 +167,15 @@ export default defineConfig({
 								{ slug: 'api-solutions/threat-intelligence-api/overview' },
 								{ slug: 'api-solutions/threat-intelligence-api/extended' },
 								threatIntelExtendedSidebarGroup,
-								{ slug: 'api-solutions/threat-intelligence-api/beta' },
+								{
+									label: 'Beta API',
+									collapsed: true,
+									items: [
+										{ slug: 'api-solutions/threat-intelligence-api/beta' },
+										{ label: 'GET /all (new)', link: '/api-reference/threat-intelligence-beta/operations/listallvulnerabilities/' },
+										{ label: 'Full reference', link: '/api-reference/threat-intelligence-beta/' },
+									],
+								},
 								{ slug: 'api-solutions/threat-intelligence-api/api-properties' },
 							],
 						},
