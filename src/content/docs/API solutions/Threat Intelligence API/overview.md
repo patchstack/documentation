@@ -18,11 +18,11 @@ Custom pricing, activated on request — [contact us](https://patchstack.com/for
 
 - [Guide](/api-solutions/threat-intelligence-api/extended/) · [Reference](/api-reference/threat-intelligence-extended/) · [OpenAPI](/schemas/threat-intel-extended.yaml) · [Postman](/schemas/threat-intel-extended.postman_collection.json) · [API properties](/api-solutions/threat-intelligence-api/api-properties/)
 
-## Beta additions
+## Beta API
 
 A separate Beta surface, available to **selected partners working directly with Patchstack**, layers a few additions on top: the new `GET /all` endpoint, npm coverage via `?platform=npm`, cursor pagination, `?include=details` for full advisory bodies, and a nested response shape that the stable API will eventually adopt. Everything else (`/latest`, `/product/{type}/{name}/{version}`, `/batch`) is the same surface as the stable API.
 
-See [Beta additions](/api-solutions/threat-intelligence-api/beta/) for the full delta — base URL, parameters, pagination, errors, and migration notes — and the [auto-generated reference](/api-reference/threat-intelligence-beta/) for the full schema. [Contact us](https://patchstack.com/for-hosts/) for access.
+See the [Beta API](/api-solutions/threat-intelligence-api/beta/) page for the full delta — base URL, parameters, pagination, errors, and migration notes — and the [auto-generated reference](/api-reference/threat-intelligence-beta/) for the full schema. [Contact us](https://patchstack.com/for-hosts/) for access.
 
 ---
 
@@ -37,7 +37,7 @@ The API ships with an OpenAPI spec and a generated Postman collection. Beta has 
 | | OpenAPI spec | Postman collection |
 |---|---|---|
 | Threat Intelligence API | [`threat-intel-extended.yaml`](/schemas/threat-intel-extended.yaml) | [`threat-intel-extended.postman_collection.json`](/schemas/threat-intel-extended.postman_collection.json) |
-| Beta additions | [`threat-intel-beta.yaml`](/schemas/threat-intel-beta.yaml) | [`threat-intel-beta.postman_collection.json`](/schemas/threat-intel-beta.postman_collection.json) |
+| Beta API | [`threat-intel-beta.yaml`](/schemas/threat-intel-beta.yaml) | [`threat-intel-beta.postman_collection.json`](/schemas/threat-intel-beta.postman_collection.json) |
 | Standard *(legacy)* | [`threat-intel-standard.yaml`](/schemas/threat-intel-standard.yaml) | [`threat-intel-standard.postman_collection.json`](/schemas/threat-intel-standard.postman_collection.json) |
 
 ### Postman, Insomnia, Bruno or Hoppscotch

@@ -1,6 +1,6 @@
 ---
-title: "Beta additions"
-excerpt: "What the Beta surface adds on top of the Threat Intelligence API — the /all endpoint, npm coverage, cursor pagination, ?include=details, and the nested response shape."
+title: "Beta API"
+excerpt: "The Beta surface of the Threat Intelligence API — the /all endpoint, npm coverage, cursor pagination, ?include=details, and the nested response shape."
 hidden: false
 metadata:
   image: []
@@ -9,10 +9,7 @@ createdAt: "Tue Apr 21 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Apr 22 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 4
-  label: "Beta additions"
-  badge:
-    text: "Beta"
-    variant: "tip"
+  label: "Beta API"
 ---
 
 _The Beta surface extends the Threat Intelligence API ahead of GA. It runs at a separate base URL, ships its own OpenAPI spec, and is available to **selected partners working directly with Patchstack**. The shared endpoints (`/latest`, `/product/{type}/{name}/{version}`, `/product/{type}/{name}/{version}/exists`, `/batch`) behave the same as the stable API but accept extra parameters and return a nested response shape. This page documents only what's new — for the full spec including npm-flavour examples, see the [auto-generated reference](/api-reference/threat-intelligence-beta/). [Contact us](https://patchstack.com/for-hosts/) if you'd like access._
