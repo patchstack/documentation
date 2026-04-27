@@ -101,12 +101,12 @@ export default defineConfig({
 					{
 						base: 'api-reference/threat-intelligence-extended',
 						schema: './public/schemas/threat-intel-extended.yaml',
-						sidebar: { label: 'Reference', group: threatIntelExtendedSidebarGroup },
+						sidebar: { label: 'WordPress', group: threatIntelExtendedSidebarGroup },
 					},
 					{
 						base: 'api-reference/threat-intelligence-beta',
 						schema: './public/schemas/threat-intel-beta.yaml',
-						sidebar: { label: 'Reference', group: threatIntelBetaSidebarGroup },
+						sidebar: { label: 'NPM (Beta)', group: threatIntelBetaSidebarGroup },
 					},
 				]),
 			],
@@ -166,17 +166,15 @@ export default defineConfig({
 							items: [
 								{ slug: 'api-solutions/threat-intelligence-api/overview' },
 								{ slug: 'api-solutions/threat-intelligence-api/extended' },
-								threatIntelExtendedSidebarGroup,
-								{ slug: 'api-solutions/threat-intelligence-api/api-properties' },
 								{
-									label: 'Beta features',
-									badge: { text: 'Beta', variant: 'tip' },
-									collapsed: true,
+									label: 'Reference',
+									collapsed: false,
 									items: [
-										{ slug: 'api-solutions/threat-intelligence-api/beta' },
+										threatIntelExtendedSidebarGroup,
 										threatIntelBetaSidebarGroup,
 									],
 								},
+								{ slug: 'api-solutions/threat-intelligence-api/api-properties' },
 							],
 						},
 					],

@@ -1,6 +1,6 @@
 ---
-title: "Beta features"
-excerpt: "Beta endpoints layered on the Threat Intelligence API — npm coverage, nested response shape, cursor pagination, include=details."
+title: "NPM (Beta) integration guide"
+excerpt: "Notes for partners integrating against the npm Beta endpoints — base URL, platforms, pagination, include=details, and v2 → beta migration."
 hidden: false
 metadata:
   image: []
@@ -8,12 +8,12 @@ metadata:
 createdAt: "Tue Apr 21 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Apr 22 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
-  label: "Guide"
+  hidden: true
 ---
 
-_The Beta features extend the Threat Intelligence API ahead of GA. They run on a separate base URL and OpenAPI spec, are currently available to **selected partners working directly with Patchstack**, and are the direction the stable API is heading — the v2 surface will eventually adopt the same nested shape. They add npm ecosystem coverage, an optional full advisory body, a consistent nested response shape, and cursor pagination. If you'd like access to run an integration on Beta, [contact us](https://patchstack.com/for-hosts/)._
+_The npm endpoints are a Beta extension of the Threat Intelligence API, available to **selected partners working directly with Patchstack**. They run on a separate base URL and OpenAPI spec, add npm ecosystem coverage alongside WordPress, and ship the response shape the stable API will eventually adopt (nested objects, cursor pagination, opt-in advisory body). If you'd like access to run an integration, [contact us](https://patchstack.com/for-hosts/)._
 
-> **Interactive reference:** Every endpoint, parameter, request body and response shape is documented in the [Beta features reference](/api-reference/threat-intelligence-beta/).
+> **Interactive reference:** every endpoint, parameter, request body and response shape lives under [Reference → NPM (Beta)](/api-reference/threat-intelligence-beta/).
 >
 > **Tooling (Postman, SDK, LLM):** spec URLs and import instructions live on [Overview → Using the API with your tools](/api-solutions/threat-intelligence-api/overview/#using-the-api-with-your-tools).
 
