@@ -168,7 +168,8 @@ export default defineConfig({
 								{ slug: 'api-solutions/threat-intelligence-api/extended' },
 								threatIntelExtendedSidebarGroup,
 								{
-									label: 'NPM features (Beta)',
+									label: 'NPM features',
+									badge: { text: 'Beta', variant: 'tip' },
 									collapsed: true,
 									items: [
 										{ slug: 'api-solutions/threat-intelligence-api/beta' },
