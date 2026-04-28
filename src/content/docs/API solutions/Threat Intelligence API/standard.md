@@ -11,7 +11,7 @@ sidebar:
   label: "Guide"
 ---
 
-_The Standard Threat Intelligence API is the entry-level tier of the v2 API. It returns every advisory that applies to a single WordPress plugin, theme or core version. If you need bulk lookups, the latest-24h feed, or advisory-by-id details, see the [Extended tier](/api-solutions/threat-intelligence-api/extended/)._
+_The Standard Threat Intelligence API is **no longer offered to new customers**. New integrations should use the [Threat Intelligence API](/api-solutions/threat-intelligence-api/extended/), which is a strict superset — every endpoint and field documented here is available there. This page is preserved for existing Standard integrations._
 
 > **Interactive reference:** Every endpoint, parameter and response shape is documented in the [Threat Intelligence API (Standard) reference](/api-reference/threat-intelligence-standard/).
 >
@@ -27,7 +27,7 @@ https://patchstack.com/database/api/v2/
 
 ## Authentication
 
-Every request must include your API key in the **`PSKey`** HTTP request header. You can request an API key from your [Patchstack App billing page](https://app.patchstack.com/billing/subscription).
+Every request must include your API key in the **`PSKey`** HTTP request header. Standard keys remain valid for existing customers. New keys are not issued — [contact us](https://patchstack.com/for-hosts/) about Extended.
 
 ```
 PSKey: <your-api-key>
@@ -41,7 +41,7 @@ The Standard tier returns a **flat** per-item shape. For the richer shape with `
 
 ## Rate limiting
 
-Standard is limited to **5,000 requests per 24 hours**. Contact <https://patchstack.com/for-hosts/> if you need a higher quota or the Extended tier.
+Standard is limited to **5,000 requests per 24 hours**. Contact <https://patchstack.com/for-hosts/> to move to Extended for a higher quota and additional endpoints.
 
 ## Errors
 

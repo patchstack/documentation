@@ -1,6 +1,6 @@
 ---
-title: "Extended tier API"
-excerpt: "WordPress vulnerability intelligence with bulk lookups, latest-24h feed, and advisory-by-id details."
+title: "Threat Intelligence API"
+excerpt: "WordPress vulnerability intelligence — single-product and bulk lookups, latest-24h feed, and advisory-by-id detail."
 hidden: false
 metadata:
   image: []
@@ -12,25 +12,25 @@ sidebar:
   label: "Guide"
 ---
 
-_The Extended Threat Intelligence API is a superset of the [Standard tier](/api-solutions/threat-intelligence-api/standard/). Extended has **custom pricing and is activated on request** — [contact us](https://patchstack.com/for-hosts/)._
+_The Threat Intelligence API has **custom pricing and is activated on request** — [contact us](https://patchstack.com/for-hosts/)._
 
-> **Interactive reference:** Every endpoint, parameter, request body and response shape is documented in the [Threat Intelligence API (Extended) reference](/api-reference/threat-intelligence-extended/).
+> **Interactive reference:** Every endpoint, parameter, request body and response shape is documented in the [Threat Intelligence API reference](/api-reference/threat-intelligence-extended/).
 >
-> **Tooling (Postman, SDK, LLM):** spec URLs and import instructions for all three tiers live on [Overview → Using the APIs with your tools](/api-solutions/threat-intelligence-api/overview/#using-the-apis-with-your-tools).
+> **Tooling (Postman, SDK, LLM):** spec URLs and import instructions live on [Overview → Using the API with your tools](/api-solutions/threat-intelligence-api/overview/#using-the-api-with-your-tools).
 
 This page covers the concepts you need to use the API effectively — authentication, rate limiting, errors, and code samples. Use it alongside the interactive reference.
 
-## What Extended adds over Standard
+## Endpoints at a glance
 
-| | Standard | Extended |
-|---|---|---|
-| Per-item payload | Flat, minimal | Flat, includes `description`, `vuln_type`, `cvss_score`, `cve`, `is_exploited`, `patch_priority`, `affected_in`, `patched_in_ranges` |
-| `GET /product/{type}/{name}/{version}` | ✓ | ✓ |
-| `GET /product/{type}/{name}/{version}/exists` | ✓ | ✓ |
-| `GET /latest` — 20 most recent | — | ✓ |
-| `POST /batch` — up to 50 products per request | — | ✓ |
-| `GET /vulnerability/{id}` — advisory detail (CVSS vector, OWASP, references, credit) | — | ✓ |
-| Rate limit | 5,000 / 24h | Custom, set per contract |
+| Endpoint | Purpose |
+|---|---|
+| `GET /product/{type}/{name}/{version}` | Advisory list for a single product + version. |
+| `GET /product/{type}/{name}/{version}/exists` | Boolean-only exists check (faster). |
+| `GET /latest` | The 20 most recent vulnerabilities. |
+| `POST /batch` | Bulk lookup — up to 50 products per request. |
+| `GET /vulnerability/{id}` | Advisory detail (CVSS vector, OWASP, references, credit). |
+
+Each per-item payload includes `description`, `vuln_type`, `cvss_score`, `cve`, `is_exploited`, `patch_priority`, `affected_in`, and `patched_in_ranges`. See [API properties](/api-solutions/threat-intelligence-api/api-properties/) for full field definitions.
 
 ## Base URL
 
@@ -40,7 +40,7 @@ https://patchstack.com/database/api/v2/
 
 ## Authentication
 
-Every request must include your API key in the **`PSKey`** HTTP request header. Extended access is activated on request — [contact us](https://patchstack.com/for-hosts/) to request a key.
+Every request must include your API key in the **`PSKey`** HTTP request header. Access is activated on request — [contact us](https://patchstack.com/for-hosts/) to request a key.
 
 ```
 PSKey: <your-api-key>
@@ -48,9 +48,7 @@ PSKey: <your-api-key>
 
 ## Response format
 
-All responses are JSON. Responses are cached until the Patchstack database updates, at which point the cache is cleared.
-
-Extended returns a **flat** per-item shape with more fields than Standard — see the [API properties](/api-solutions/threat-intelligence-api/api-properties/) glossary for field definitions. `GET /vulnerability/{id}` returns a richer, differently-shaped payload documented in the [reference](/api-reference/threat-intelligence-extended/).
+All responses are JSON. Responses are cached until the Patchstack database updates, at which point the cache is cleared. `GET /vulnerability/{id}` returns a richer, differently-shaped payload documented in the [reference](/api-reference/threat-intelligence-extended/).
 
 ## Batch lookups
 

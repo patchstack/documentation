@@ -1,6 +1,6 @@
 ---
-title: "Npm Dataset API (Beta)"
-excerpt: "Beta vulnerability endpoints — npm support, Resource-based shape, offset and cursor pagination, include=details."
+title: "NPM features (Beta)"
+excerpt: "npm-ecosystem coverage and the supporting additions on top of the Threat Intelligence API — the /all endpoint, cursor pagination, ?include=details, and the nested response shape."
 hidden: false
 metadata:
   image: []
@@ -8,71 +8,40 @@ metadata:
 createdAt: "Tue Apr 21 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Apr 22 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
-  label: "Guide"
+  order: 1
+  label: "Overview"
 ---
 
-_The Npm Dataset API (Beta) is a new generation of the Threat Intelligence API, currently available to **selected partners working directly with Patchstack**. It lives alongside the v2 API (Standard / Extended) and adds npm coverage, an optional full advisory body, a consistent nested response shape, and cursor pagination. If you'd like access to run an integration on Beta, [contact us](https://patchstack.com/for-hosts/)._
-
-> **Interactive reference:** Every endpoint, parameter, request body and response shape is documented in the [Threat Intelligence API (Beta) reference](/api-reference/threat-intelligence-beta/).
->
-> **Tooling (Postman, SDK, LLM):** spec URLs and import instructions for all three tiers live on [Overview → Using the APIs with your tools](/api-solutions/threat-intelligence-api/overview/#using-the-apis-with-your-tools).
-
-This page covers the concepts you need to use the API effectively — authentication, platforms, pagination, rate limiting, and migration from v2. Use it alongside the interactive reference.
-
-> **Spec stability:** the Beta spec may change without a version bump while the API is in beta. Pin a commit of the YAML in production integrations, or wait for the GA release when we'll publish versioned URLs.
+_The Beta surface extends the Threat Intelligence API ahead of GA. It runs at a separate base URL, ships its own OpenAPI spec, and is available to **selected partners working directly with Patchstack**. The shared endpoints (`/latest`, `/product/{type}/{name}/{version}`, `/product/{type}/{name}/{version}/exists`, `/batch`) behave the same as the stable API but accept extra parameters and return a nested response shape. This page documents only what's new — for the full spec including npm-flavour examples, see the [auto-generated reference](/api-reference/threat-intelligence-beta/). [Contact us](https://patchstack.com/for-hosts/) if you'd like access._
 
 ## Base URL
 
 ```
-https://vdp-api.patchstack.com/database/api/beta/
+https://patchstack.com/database/api/beta/
 ```
 
-## Authentication
+## What's new
 
-Every request must include your API key in the **`PSKey`** HTTP request header. You can request an API key by reaching out on <https://patchstack.com/for-hosts/>.
+| Addition | Where it applies |
+|---|---|
+| [`GET /all`](/api-reference/threat-intelligence-beta/operations/listallvulnerabilities/) | New endpoint — cursor-paginated full listing of every advisory, scoped by `?platform=`. |
+| `?platform=npm` | List endpoints (`/all`, `/latest`, `/product/...`). Default is `wordpress`; case-insensitive. |
+| `?cursor=` | `/all` and `/latest` — cursor pagination alongside the existing `?page=&per_page=`. |
+| `?include=details` | List endpoints — adds an `advisory_details` markdown field to each item (npm). |
+| Nested response shape | All list endpoints — `product`, `cvss`, `cwe`, `version_info` objects in place of the v2 flat shape. |
 
-```
-PSKey: <your-api-key>
-```
+The full Beta schema (every endpoint, parameter, response example) lives in the [auto-generated reference](/api-reference/threat-intelligence-beta/).
 
-## Platforms
-
-Pass `?platform=npm` (or `?platform=wordpress` — the default) on list endpoints. Platform names are case-insensitive.
-
-## Response format
-
-All responses are JSON. Beta responses are cached until the database updates, at which point the cache is cleared. A single response shape is shared across all three list endpoints (`/all`, `/latest`, `/product/npm/...`) so clients can parse them interchangeably.
+> **Spec stability:** the Beta spec may change without a version bump while the API is in beta. Pin a commit of the YAML in production integrations, or wait for the GA release when versioned URLs ship.
 
 ## Pagination
 
-`/all` and `/latest` support **two independent pagination strategies**. Use whichever fits your client:
+`/all` and `/latest` support **two independent strategies**. Use whichever fits your client:
 
-- **Offset (`?page=&per_page=`)** — returns a `pagination` block with totals, `has_next_page`, `has_previous_page`, etc. Easy to jump to a specific page; slower at depth and susceptible to row-shift when new vulnerabilities land while you're paging.
+- **Offset (`?page=&per_page=`)** — returns a `pagination` block with totals, `has_next_page`, `has_previous_page`, etc. Easy to jump to a specific page; slower at depth and susceptible to row-shift when new advisories land while you're paging.
 - **Cursor (`?cursor=`)** — returns a `cursor` block with `next_cursor`, `has_more`, `per_page`. Stable under concurrent inserts and faster at any depth. No `total` count (deliberately skipped to keep cursor mode fast).
 
 `cursor` and `page` are mutually exclusive; passing both returns `422 Unprocessable Entity`. To bootstrap cursor mode, send `?cursor=` with an empty value.
-
-## Including full advisory bodies
-
-Pass `?include=details` on any list endpoint to add an `advisory_details` markdown field to each item. Applies to npm results.
-
-## Scoped npm packages
-
-npm package slugs that include a `/` (e.g. `@scope/pkg`) conflict with the route separator. URL-encode the `/` as `%2F` or contact us for guidance on the encoding helper.
-
-## Rate limiting
-
-Same policy as the Extended Threat Intelligence API — please contact <https://patchstack.com/for-hosts/> if you need an elevated quota.
-
-## Errors
-
-| Status | Meaning |
-|---|---|
-| `401 Unauthorized` | Missing or invalid `PSKey` header. |
-| `403 Forbidden` | API key not authorised for the requested endpoint. |
-| `422 Unprocessable Entity` | Invalid parameter combination (e.g. `cursor` + `page`), invalid `platform`, or `per_page > 500`. |
-| `429 Too Many Requests` | Rate limit exceeded. |
-| `500` | Server error — please include the request id in any bug report. |
 
 When a cursor is malformed (invalid base64 or missing the `v1:` prefix), the endpoint returns `200` with an empty page:
 
@@ -82,6 +51,26 @@ When a cursor is malformed (invalid base64 or missing the `v1:` prefix), the end
   "cursor": { "next_cursor": null, "has_more": false, "per_page": 100 }
 }
 ```
+
+## Scoped npm packages
+
+npm package slugs that include a `/` (e.g. `@scope/pkg`) conflict with the route separator. URL-encode the `/` as `%2F` or contact us for guidance on the encoding helper.
+
+## Errors
+
+In addition to the [stable error codes](/api-solutions/threat-intelligence-api/extended/#errors), Beta returns:
+
+| Status | Meaning |
+|---|---|
+| `422 Unprocessable Entity` | Invalid parameter combination (e.g. `cursor` + `page`), invalid `platform`, or `per_page > 500`. |
+
+## Migration notes (stable v2 → beta)
+
+- Beta npm responses use **nested objects** (`product`, `cvss`, `cwe`, `capec`, `version_info`) whereas the v2 shape is flat. Update parsers accordingly.
+- `ghsa_id` was renamed to `ghsa` at the top level.
+- `direct_url` was renamed to `url` (the npm-flavoured shape exposes a single URL only).
+- The `description` field was dropped for npm (the title already includes it).
+- The response body always contains a `vulnerabilities` array, plus either `pagination` (offset mode) or `cursor` (cursor mode).
 
 ---
 
@@ -160,16 +149,6 @@ do {
     $cursor = $response['cursor']['next_cursor'] ?? null;
 } while ($response['cursor']['has_more'] ?? false);
 ```
-
----
-
-## Migration notes (v2 → beta)
-
-- Beta npm responses use **nested objects** (`product`, `cvss`, `cwe`, `capec`, `version_info`) whereas the v2 shape is flat. Update parsers accordingly.
-- `ghsa_id` was renamed to `ghsa` at the top level.
-- `direct_url` was renamed to `url` (the npm-flavoured shape exposes a single URL only).
-- The `description` field was dropped for npm (the title already includes it).
-- The response body always contains a `vulnerabilities` array, plus either `pagination` (offset mode) or `cursor` (cursor mode).
 
 ## More information
 

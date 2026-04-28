@@ -106,7 +106,7 @@ export default defineConfig({
 					{
 						base: 'api-reference/threat-intelligence-beta',
 						schema: './public/schemas/threat-intel-beta.yaml',
-						sidebar: { label: 'Reference', group: threatIntelBetaSidebarGroup },
+						sidebar: { label: 'NPM features (Beta)', group: threatIntelBetaSidebarGroup, collapsed: true },
 					},
 				]),
 			],
@@ -165,29 +165,16 @@ export default defineConfig({
 							collapsed: true,
 							items: [
 								{ slug: 'api-solutions/threat-intelligence-api/overview' },
+								{ slug: 'api-solutions/threat-intelligence-api/extended' },
+								threatIntelExtendedSidebarGroup,
 								{
-									label: 'Standard API',
-									collapsed: true,
-									items: [
-										{ slug: 'api-solutions/threat-intelligence-api/standard' },
-										threatIntelStandardSidebarGroup,
-									],
-								},
-								{
-									label: 'Extended API',
-									collapsed: true,
-									items: [
-										{ slug: 'api-solutions/threat-intelligence-api/extended' },
-										threatIntelExtendedSidebarGroup,
-									],
-								},
-								{
-									label: 'NPM standard API',
+									label: 'NPM features',
 									badge: { text: 'Beta', variant: 'tip' },
 									collapsed: true,
 									items: [
 										{ slug: 'api-solutions/threat-intelligence-api/beta' },
-										threatIntelBetaSidebarGroup,
+										{ label: 'GET /all (new)', link: '/api-reference/threat-intelligence-beta/operations/listallvulnerabilities/' },
+										{ label: 'Full reference', link: '/api-reference/threat-intelligence-beta/' },
 									],
 								},
 								{ slug: 'api-solutions/threat-intelligence-api/api-properties' },
