@@ -1750,7 +1750,7 @@
   "variable": [
     {
       "type": "string",
-      "value": "https://patchstack.com/database/api/beta",
+      "value": "https://vdp-api.patchstack.com/database/api/beta",
       "key": "baseUrl"
     }
   ],
