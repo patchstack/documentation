@@ -17,7 +17,7 @@ _The Beta surface extends the Threat Intelligence API ahead of GA. It runs at a 
 ## Base URL
 
 ```
-https://patchstack.com/database/api/beta/
+https://vdp-api.patchstack.com/database/api/beta/
 ```
 
 ## What's new
@@ -80,19 +80,19 @@ In addition to the [stable error codes](/api-solutions/threat-intelligence-api/e
 
 ```bash
 # Latest 24h, npm
-curl 'https://patchstack.com/database/api/beta/latest?platform=npm&per_page=10' \
+curl 'https://vdp-api.patchstack.com/database/api/beta/latest?platform=npm&per_page=10' \
   -H 'PSKey: <your-api-key>'
 
 # Cursor pagination walk (bootstrap + follow)
-curl 'https://patchstack.com/database/api/beta/all?platform=npm&per_page=50&cursor=' \
+curl 'https://vdp-api.patchstack.com/database/api/beta/all?platform=npm&per_page=50&cursor=' \
   -H 'PSKey: <your-api-key>'
 
 # Check a specific npm package/version with full advisory text
-curl 'https://patchstack.com/database/api/beta/product/npm/axios/0.21.4?include=details' \
+curl 'https://vdp-api.patchstack.com/database/api/beta/product/npm/axios/0.21.4?include=details' \
   -H 'PSKey: <your-api-key>'
 
 # Boolean-only exists check
-curl 'https://patchstack.com/database/api/beta/product/npm/axios/0.21.4/exists' \
+curl 'https://vdp-api.patchstack.com/database/api/beta/product/npm/axios/0.21.4/exists' \
   -H 'PSKey: <your-api-key>'
 ```
 
@@ -100,7 +100,7 @@ curl 'https://patchstack.com/database/api/beta/product/npm/axios/0.21.4/exists' 
 
 ```javascript
 async function* allVulnerabilities(apiKey, platform = 'npm', perPage = 100) {
-  const base = 'https://patchstack.com/database/api/beta/all';
+  const base = 'https://vdp-api.patchstack.com/database/api/beta/all';
   let cursor = '';            // empty = bootstrap cursor mode
 
   while (true) {
@@ -131,7 +131,7 @@ $apiKey = getenv('PATCHSTACK_KEY');
 $cursor = '';
 
 do {
-    $url = 'https://patchstack.com/database/api/beta/all'
+    $url = 'https://vdp-api.patchstack.com/database/api/beta/all'
         .'?platform=npm&per_page=100&cursor='.urlencode($cursor);
 
     $ch = curl_init($url);

@@ -75,7 +75,7 @@ info:
     email: dave.jong@patchstack.com
 
 servers:
-  - url: https://patchstack.com/database/api/beta
+  - url: https://vdp-api.patchstack.com/database/api/beta
     description: Beta
 
 security:
