@@ -17,30 +17,32 @@ This month we laid down the foundations for **Pulse**, our new application-manif
 
 ### API & integrator changes
 
-- **New endpoint** — `POST /pulse/manifest/{uuid}` ingests Pulse application manifests for a known site UUID.
-- **Behaviour change** — `POST /pulse/manifest` without a UUID auto-provisions an unclaimed site to receive the manifest.
-- **Behaviour change** — Site add endpoint now accepts an `app_type` parameter so integrations can register Pulse applications alongside WordPress sites.
-- **Behaviour change** — App API token validation endpoint now accepts MCP OAuth tokens in addition to App API keys.
-- **Deprecation** — Top-level `lastid` and `oauth` fields on add-site responses are deprecated in favour of the per-URL `sites` entries. Update parsers that read these top-level fields.
-- **Docs** — OpenAPI now covers new endpoints: `/billing/invoices/{id}/collect`, `/firewall/module/{id}/attach-state`, `/pulse/manifest/{uuid}`.
+**Behaviour changes**
+- `POST /pulse/manifest` without a UUID auto-provisions an unclaimed site to receive the manifest.
+- App API token validation endpoint now accepts MCP OAuth tokens in addition to App API keys.
+
+**Additive**
+- `POST /pulse/manifest/{uuid}` ingests Pulse application manifests for a known site UUID.
+- Site add endpoint accepts an `app_type` parameter so integrations can register Pulse applications alongside WordPress sites.
+- OpenAPI now covers new endpoints: `/billing/invoices/{id}/collect`, `/firewall/module/{id}/attach-state`, `/pulse/manifest/{uuid}`.
+
+**Deprecations**
+- Top-level `lastid` and `oauth` fields on add-site responses are deprecated in favour of the per-URL `sites` entries. Update parsers that read these top-level fields.
 
 **Highlights**
 - **SaaS** — Okta SSO is now available.
 - **SaaS** — Pulse foundation: npm packages now appear on the Software tab with vulnerability status driven by the Threat Intelligence API.
-- **API** — New Pulse manifest ingest endpoint accepts app manifests by site UUID, with provisioning for unclaimed sites.
-- **API** — Site add endpoint accepts an `app_type` parameter for Pulse applications.
 - **SaaS** — New pages for creating and editing alert triggers.
-- **SaaS** — Dashboard vulnerability search now matches product name, type, and rebranded titles.
-- **SaaS** — Billing flow shows a full-screen polling overlay while verifying payment.
 - **Hub** — Vulnerability export now includes validation, vendor contact, patched, and finished dates.
 - **Hub** — Reference links on vulnerability pages are deduplicated and use a cleaner layout.
-- **SaaS** — `Load more` on the dashboard now appends vulnerabilities instead of replacing the list.
 
 <details>
 <summary>Other changes</summary>
 
 **Improved**
-- **API** — OpenAPI documentation expanded with new endpoints for invoices, firewall modules, Pulse manifest, and updated schemas.
+- **SaaS** — Dashboard vulnerability search now matches product name, type, and rebranded titles.
+- **SaaS** — Billing flow shows a full-screen polling overlay while verifying payment.
+- **SaaS** — `Load more` on the dashboard now appends vulnerabilities instead of replacing the list.
 - **SaaS** — Claim flow accepts an optional URL to pre-fill the site during registration and login.
 - **SaaS** — `Save` button on hardening pages moves below all cards so it stays reachable while editing.
 - **SaaS** — Registration form surfaces specific validation errors instead of a generic failure message.
