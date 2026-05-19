@@ -119,18 +119,38 @@ The response will look something like below.
 {
   "success": "Successfully added the site(s).",
   "count": 1,
+  "sites": {
+    "https://mywebsite.com": {
+      "siteid": 12345,
+      "oauth": {
+        "id": 12333,
+        "secret": "DOOs9DIyv2FMcURFtkB0eXOHMRhH7I2EsaNUb4aR",
+        "apikey": "DOOs9DIyv2FMcURFtkB0eXOHMRhH7I2EsaNUb4aR-12333"
+      }
+    }
+  },
   "lastid": 12345,
   "oauth": {
-    "id": 12345,
-    "secret": "DOOs9DIyv2FMcURFtkB0eXOHMRhH7I2EsaNUb4aR"
+    "id": 12333,
+    "secret": "DOOs9DIyv2FMcURFtkB0eXOHMRhH7I2EsaNUb4aR",
+    "apikey": "DOOs9DIyv2FMcURFtkB0eXOHMRhH7I2EsaNUb4aR-12333"
   }
 }
 ```
 
-###### 3. Store in local datastore
-It is now important to store the lastid and oauth properties into a datastore on your infrastructure. This allows you to know the site identifier of the website of the customer without having to query the Patchstack App API each time. This can then be used for most of our other API endpoints to fetch information for the site.
+The top-level `lastid` and `oauth` fields refer to the **last** site in the batch and are kept for backwards compatibility. New integrations should read from the per-URL `sites` map.
 
-The API key that is used in the plugin, contains the format `oauth.secret-oauth.id`, for example in above response it would be `DOOs9DIyv2FMcURFtkB0eXOHMRhH7I2EsaNUb4aR-12345`.
+###### 3. Store in local datastore
+Store the `siteid` and `apikey` for each URL in a datastore on your infrastructure. This avoids having to query the Patchstack App API each time you need to identify a customer's site.
+
+- **`siteid`** is the canonical Patchstack site identifier. It is what the portal displays and what every per-site API endpoint expects in the URL (`/site/view/{siteid}`, `/site/{siteid}/delete`, `/download/wordpress/{siteid}`, etc.). Store this if you ever need to cross-reference your records against the Patchstack portal.
+- **`apikey`** is the pre-formatted plugin license key (`<oauth.secret>-<oauth.id>`). Pass it directly to the WordPress plugin during activation — you do not need to assemble it yourself.
+
+:::note[`siteid` and `oauth.id` are independent fields]
+`siteid` identifies the site, `oauth.id` identifies the OAuth credential embedded in the plugin license key. They have always been independent fields with different purposes. Do not assume they are equal — for sites provisioned before 13 May 2026 the two values often coincided as a side-effect of how rows were inserted, but they may differ for any site provisioned since.
+
+If you previously stored `oauth.id` under the assumption it equalled the site identifier, call [`POST /monitor/sites/list/basic`](https://api.patchstack.com/app-api/documentation) to fetch `[{id, url}, …]` for every site on your account, match by URL, and update your stored values to the current `siteid`.
+:::
 
 ### Step 3: Plugin deployment
 Now that you have the site identifier and plugin API key stored in your local datastore, you can start the flow of installing and activating the Patchstack plugin on the website.
@@ -153,9 +173,9 @@ First we execute the command below to install and activate the Patchstack plugin
 
 `wp plugin install patchstack --activate`
 
-Then we execute the command below to activate the connection to Patchstack. It is important to inject the plugin API key here we retrieved from step 2:
+Then we execute the command below to activate the connection to Patchstack. It is important to inject the plugin API key (`apikey` from step 2) here:
 
-`wp patchstack activate DOOs9DIyv2FMcURFtkB0eXOHMRhH7I2EsaNUb4aR-12345`
+`wp patchstack activate DOOs9DIyv2FMcURFtkB0eXOHMRhH7I2EsaNUb4aR-12333`
 
 This command will return `The Patchstack plugin has been successfully connected.` if it succeeded.
 
@@ -285,4 +305,21 @@ Which outputs the following:
 {
   "activated": true
 }
+```
+
+### What's the difference between `siteid` and `oauth.id`? Can I assume they're equal?
+They are two independent fields with different purposes — do not assume they are equal.
+
+- **`siteid`** is the canonical Patchstack site identifier. It is what the portal displays and what every per-site API endpoint expects (e.g. `/site/view/{siteid}`, `/site/{siteid}/delete`, `/download/wordpress/{siteid}`). Store this for cross-referencing your records against the Patchstack portal.
+- **`oauth.id`** is the OAuth credential identifier. Its only purpose is to form the plugin license key, which the `/site/add` response already returns pre-formatted as `apikey` (`<oauth.secret>-<oauth.id>`). You never need to read `oauth.id` as a standalone value — just pass `apikey` to the plugin.
+
+For sites provisioned before 13 May 2026, `siteid` and `oauth.id` coincidentally held the same value because of how rows were inserted in our database. They may differ for any site provisioned since. If you previously stored `oauth.id` under the assumption it equalled the site identifier, see the [callout in step 2 of integration](#3-store-in-local-datastore) for how to reconcile your stored values.
+
+### How can I reconcile site IDs in my datastore against the Patchstack portal?
+Call [`POST /monitor/sites/list/basic`](https://api.patchstack.com/app-api/documentation) with the same `UserToken` you use for `/site/add`. It returns `[{id, url}, …]` for every site on your account, where `id` is the current `siteid`. Match by URL and update your stored values.
+
+```bash
+curl -X 'POST' \
+  'https://api.patchstack.com/monitor/sites/list/basic' \
+  -H 'UserToken: <token>' \
 ```
