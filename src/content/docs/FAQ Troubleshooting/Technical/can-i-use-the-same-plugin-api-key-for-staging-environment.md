@@ -34,7 +34,10 @@ Patchstack allows you to use the same plugin API key for the staging environment
 'wpengine.com',
 'wp-dv',
 'optiserver.co.uk',
-'azurewebsites.net'
+'azurewebsites.net',
+'.myftpupload.com',
+'.mwp.accessdomain.com',
+'store.godaddy.com'
 ```
 
 ### How the staging and production site work with Patchstack?
