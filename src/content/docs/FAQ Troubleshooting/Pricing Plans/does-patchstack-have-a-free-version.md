@@ -25,7 +25,7 @@ Patchstack has a free version available. Free version of Patchstack detects vuln
 **What does Patchstack Personal (Free) version include?**  
 **Detect security issues before hackers take over your website:**
 
-<ul><li>Detect the latest security vulnerabilities in your WordPress, Drupal or Joomla sites.</li>
+<ul><li>Detect the latest security vulnerabilities in your WordPress or Drupal sites.</li>
 <li>Receive real-time alerts to email if any security vulnerabilities are found.</li>
 <li>Have a central security dashboard for up to 3 websites (via the Patchstack App).</li></ul> 
 
@@ -34,9 +34,6 @@ The free version of Patchstack only detects and notifies you about the vulnerabi
 
 ### For WordPress
 To use a free version of Patchstack with WordPress, install the <a href="https://wordpress.org/plugins/patchstack/" target="_blank">Patchstack plugin</a> on your site first, and start the user registration flow from the plugin itself, after activating it on your WordPress.
-
-### For Joomla
-To use a free version of Patchstack with Joomla, you'll need to sign up for the Developer plan trial first. After that, you can downgrade your subscription from Developer plan to Personal plan (Free). Add your site to Patchstack App, and go through <a href="https://docs.patchstack.com/patchstack-plugin/patchstack-connector/how-to-install-on-joomla/" target="_blank">this tutorial</a> to install the Patchstack connector to your Joomla site.
 
 ### For Drupal
 To use a free version of Patchstack with Drupal, you'll need to sign up for the Developer plan trial first. After that, you can downgrade your subscription from Developer plan to Personal plan (Free). Add your site to Patchstack App, and go through <a href="https://docs.patchstack.com/patchstack-plugin/patchstack-connector/how-to-install-on-drupal/" target="_blank">this tutorial</a> to install the Patchstack connector to your Drupal site.
