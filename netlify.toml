@@ -1032,3 +1032,8 @@
 [[redirects]]
 	from = "/patchstack-app/account-settings/team/"
 	to = "/patchstack-app/account-settings/seats/"
+
+[[redirects]]
+	from = "/patchstack-plugin/patchstack-connector/how-to-install-on-joomla/"
+	to = "/patchstack-plugin/patchstack-connector/joomla-support-deprecated/"
+	status = 301
