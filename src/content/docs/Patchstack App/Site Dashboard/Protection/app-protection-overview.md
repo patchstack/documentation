@@ -38,7 +38,8 @@ The **Advanced hardening** module applies additional security mechanics to the W
 
 ### Community IP blocklist
 
-Community IP blocklist blocks access to IP addresses which are known to exploit vulnerabilities. This module contributes threat data back to the Patchstack network.
+Community IP blocklist blocks access to IP addresses which are known to exploit vulnerabilities. This module contributes threat data back to the Patchstack network.  
+<a href="/patchstack-app/protection/patchstack-modules/#community-ip-blocklist" target="_blank">📖 Read more </a>
 
 ## Activity section
 
