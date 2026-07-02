@@ -48,3 +48,20 @@ These protection rules could cause false positives with remote WordPress managem
 ### Community IP Blocklist
 
 Community IP blocklist blocks access to IP addresses which are known to exploit vulnerabilities. This module contributes threat data back to the Patchstack network.
+
+**When an IP is added**
+
+The blocklist is built from firewall activity across the entire Patchstack network, not from any single site. An IP address is added when it triggers Patchstack's firewall rules **25 or more times within the past month** across all protected sites. Because the list is shared, once an IP passes that threshold it is blocked on every site that has the Community IP blocklist module enabled.
+
+**Safeguards against false positives**
+
+To avoid blocking legitimate traffic, several categories of IP address are automatically excluded from the blocklist, including:
+
+- Private and reserved IP ranges
+- Patchstack's own infrastructure and scanning IPs
+- Major search engine crawlers (such as Google and Bing)
+- Well-known content delivery networks and monitoring services
+
+**How long an IP stays on the list**
+
+Entries are not permanent. The blocklist is rebuilt regularly from recent activity, so an IP that stops triggering firewall rules automatically drops off once it no longer meets the threshold within the trailing one-month window — roughly **30 days** after its last malicious activity.
