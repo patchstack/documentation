@@ -24,13 +24,15 @@ Patchstack offers two captcha solutions:
 ![](@images/patchstack-captcha-setup.png)
 
 
-Note that our captcha can only be used on the WordPress built-in forms - these are:
+Our captcha can be used on the WordPress built-in forms as well as WooCommerce forms. The WordPress built-in forms are:
 * Commenting forms
 * Login form
 * Registration form
 * Password reset form
 
-**NB!** Patchstack does not offer captcha integrations for other third-party plugins or themes (eg. WooCommerce, Contact Form 7).
+In addition, captcha is supported on WooCommerce forms.
+
+**NB!** Patchstack does not offer captcha integrations for other third-party plugins or themes (eg. Contact Form 7).
 
 To activate captcha on your site, you will have to generate a public key and secret key first.
 The tutorials for creating captcha keys and integrating them with Patchstack can be found below.
