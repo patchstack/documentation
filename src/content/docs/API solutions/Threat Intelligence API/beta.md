@@ -1,5 +1,5 @@
 ---
-title: "NPM features (Beta)"
+title: "NPM features"
 excerpt: "npm-ecosystem coverage and the supporting additions on top of the Threat Intelligence API — the /all endpoint, cursor pagination, ?include=details, and the nested response shape."
 hidden: false
 metadata:
@@ -12,7 +12,7 @@ sidebar:
   label: "Overview"
 ---
 
-_The Beta surface extends the Threat Intelligence API ahead of GA. It runs at a separate base URL, ships its own OpenAPI spec, and is available to **selected partners working directly with Patchstack**. The shared endpoints (`/latest`, `/product/{type}/{name}/{version}`, `/product/{type}/{name}/{version}/exists`, `/batch`) behave the same as the stable API but accept extra parameters and return a nested response shape. This page documents only what's new — for the full spec including npm-flavour examples, see the [auto-generated reference](/api-reference/threat-intelligence-beta/). [Contact us](https://patchstack.com/for-hosts/) if you'd like access._
+_The npm features extend the Threat Intelligence API with npm-ecosystem coverage. They run at a separate base URL, ship their own OpenAPI spec, and are available to **selected partners working directly with Patchstack**. The shared endpoints (`/latest`, `/product/{type}/{name}/{version}`, `/product/{type}/{name}/{version}/exists`, `/batch`) behave the same as the stable API but accept extra parameters and return a nested response shape. This page documents only what's new — for the full spec including npm-flavour examples, see the [auto-generated reference](/api-reference/threat-intelligence-beta/). [Contact us](https://patchstack.com/for-hosts/) if you'd like access._
 
 ## Base URL
 
@@ -30,9 +30,7 @@ https://vdp-api.patchstack.com/database/api/beta/
 | `?include=details` | List endpoints — adds an `advisory_details` markdown field to each item (npm). |
 | Nested response shape | All list endpoints — `product`, `cvss`, `cwe`, `version_info` objects in place of the v2 flat shape. |
 
-The full Beta schema (every endpoint, parameter, response example) lives in the [auto-generated reference](/api-reference/threat-intelligence-beta/).
-
-> **Spec stability:** the Beta spec may change without a version bump while the API is in beta. Pin a commit of the YAML in production integrations, or wait for the GA release when versioned URLs ship.
+The full npm-features schema (every endpoint, parameter, response example) lives in the [auto-generated reference](/api-reference/threat-intelligence-beta/).
 
 ## Pagination
 
@@ -58,15 +56,15 @@ npm package slugs that include a `/` (e.g. `@scope/pkg`) conflict with the route
 
 ## Errors
 
-In addition to the [stable error codes](/api-solutions/threat-intelligence-api/extended/#errors), Beta returns:
+In addition to the [stable error codes](/api-solutions/threat-intelligence-api/extended/#errors), the npm endpoints return:
 
 | Status | Meaning |
 |---|---|
 | `422 Unprocessable Entity` | Invalid parameter combination (e.g. `cursor` + `page`), invalid `platform`, or `per_page > 500`. |
 
-## Migration notes (stable v2 → beta)
+## Migration notes (stable v2 → npm endpoints)
 
-- Beta npm responses use **nested objects** (`product`, `cvss`, `cwe`, `capec`, `version_info`) whereas the v2 shape is flat. Update parsers accordingly.
+- npm responses use **nested objects** (`product`, `cvss`, `cwe`, `capec`, `version_info`) whereas the v2 shape is flat. Update parsers accordingly.
 - `ghsa_id` was renamed to `ghsa` at the top level.
 - `direct_url` was renamed to `url` (the npm-flavoured shape exposes a single URL only).
 - The `description` field was dropped for npm (the title already includes it).
