@@ -44,6 +44,18 @@ To minimize API calls and reduce latency when displaying site information to you
 
 All Patchstack API endpoints return standard HTTP status codes. Your integration should handle these appropriately to ensure reliability and provide meaningful feedback to users. E.g. handle status codes 200, 401, 422, 500.
 
+#### Rate limits & quotas
+- **Sites per request** — `POST /site/add` and `POST /site/exists` accept between 1 and **100 URLs** per call in the `urls` array. Split larger batches across multiple requests.
+- **Listing sites** — `POST /sites/list` is paginated (`page`, `per_page`, default 20 per page); page through it when rendering large accounts. `POST /sites/list/basic` is *not* paginated — it returns the full `[{id, url}, …]` array for the account in one response, which is what makes it convenient for reconciliation.
+
+<!--
+  Note for reviewers (Patchstack API team): please confirm whether there is a
+  request-rate limit / quota on the authenticated App API endpoints (e.g. requests
+  per minute per API key). No such limit is defined in the routing layer, so no
+  number is stated here on purpose. If a real limit exists, add it above; do not
+  publish a guessed value.
+-->
+
 ## Flow of integration & plugin
 Patchstack works by assigning an API key to a site that has been added to the Patchstack App. This API key is then used in the WordPress plugin to activate the connection to Patchstack.
 
@@ -140,10 +152,48 @@ The response will look something like below.
 
 The top-level `lastid` and `oauth` fields refer to the **last** site in the batch and are kept for backwards compatibility. New integrations should read from the per-URL `sites` map.
 
+###### Bulk provisioning
+The `urls` parameter is an **array**, so you can provision up to **100 sites in a single `/site/add` call** rather than looping one request per site. Pass every URL in the array and the response returns one entry per URL under the `sites` map, keyed by the exact URL you sent:
+
+```bash
+curl -X 'POST' \
+  'https://api.patchstack.com/monitor/site/add' \
+  -H 'UserToken: <token>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "urls": [
+    "https://site1.com",
+    "https://site2.com"
+  ],
+  "cms_id": 1
+}'
+```
+
+```json
+{
+  "success": "Successfully added the site(s).",
+  "count": 2,
+  "sites": {
+    "https://site1.com": {
+      "siteid": 12345,
+      "oauth": { "id": 12333, "secret": "…", "apikey": "…-12333" }
+    },
+    "https://site2.com": {
+      "siteid": 12346,
+      "oauth": { "id": 12334, "secret": "…", "apikey": "…-12334" }
+    }
+  },
+  "lastid": 12346,
+  "oauth": { "id": 12334, "secret": "…", "apikey": "…-12334" }
+}
+```
+
+Reconcile the results **by URL**: iterate the `sites` map and match each key back to the record on your side, rather than relying on array order or the top-level `lastid`. The `/site/exists` endpoint accepts the same `urls` array (up to 100) so you can pre-check a whole batch in one call before adding it. If you need to re-fetch the `{siteid, url}` mapping for every site on the account later, call [`POST /monitor/sites/list/basic`](https://api.patchstack.com/app-api/documentation) and match by URL.
+
 ###### 3. Store in local datastore
 Store the `siteid` and `apikey` for each URL in a datastore on your infrastructure. This avoids having to query the Patchstack App API each time you need to identify a customer's site.
 
-- **`siteid`** is the canonical Patchstack site identifier. It is what the portal displays and what every per-site API endpoint expects in the URL (`/site/view/{siteid}`, `/site/{siteid}/delete`, `/download/wordpress/{siteid}`, etc.). Store this if you ever need to cross-reference your records against the Patchstack portal.
+- **`siteid`** is the canonical Patchstack site identifier. It is what the portal displays and what every per-site API endpoint expects in the URL (`/site/view/{siteid}`, `/site/delete/{siteid}`, `/download/wordpress/{siteid}`, etc.). Store this if you ever need to cross-reference your records against the Patchstack portal.
 - **`apikey`** is the pre-formatted plugin license key (`<oauth.secret>-<oauth.id>`). Pass it directly to the WordPress plugin during activation — you do not need to assemble it yourself.
 
 :::note[`siteid` and `oauth.id` are independent fields]
@@ -243,6 +293,33 @@ Simply plug it in your own environment and give customers deeper insights into t
 
 [Click here for integration and more information](/api-solutions/app-api/patchstack-iframe/)
 
+## Site lifecycle: removing & re-adding sites
+
+###### Removing a site
+To remove a site from the account — for example when a customer cancels or you clean up a never-activated site — call the delete endpoint with the `siteid` you stored in step 2. The path is `/site/delete/{siteid}` and it accepts both `DELETE` and `POST`.
+
+```bash
+curl -X 'DELETE' \
+  'https://api.patchstack.com/monitor/site/delete/12345' \
+  -H 'UserToken: <token>' \
+  -H 'Content-Type: application/json'
+```
+
+```json
+{
+  "success": "Successfully deleted the site."
+}
+```
+
+To also uninstall the Patchstack plugin from the remote WordPress site as part of the deletion, send `{"delete": true}` in the request body. To remove several sites at once, call `DELETE /site/delete` with a body of `{"sites": [12345, 12346]}`.
+
+:::caution[Deleting a site is destructive and permanent]
+There is **no paused or suspended state** in Patchstack. Deleting a site removes it and its data, and it stops counting toward your plan. If you later re-add the same URL with `/site/add`, Patchstack provisions a **brand-new site** with **new `siteid` and new OAuth credentials** (a new plugin `apikey`) — the previous credentials are not restored. Any integration that "suspends" and "resumes" a site must therefore delete on suspend and re-provision + re-activate the plugin on resume, then overwrite the stored `siteid`/`apikey` with the new values.
+:::
+
+###### Cleaning up never-activated sites
+A site that was provisioned but whose plugin never connected will report `{"activated": false}` from [`GET /site/plugin/installed/{siteid}`](https://api.patchstack.com/app-api/documentation#/Sites/d932033c445ab06e5fd2dcb6ea8eead3). Combine that check with the delete endpoint above to periodically prune sites that were added but never came online. See the [FAQ](#how-to-determine-if-a-site-has-been-activated-and-is-connected) for the difference between the `plugin/installed` and `state` checks.
+
 ## Noteworthy API endpoints
 The list below are noteworthy API endpoints that might be interesting to our partners.
 
@@ -310,7 +387,7 @@ Which outputs the following:
 ### What's the difference between `siteid` and `oauth.id`? Can I assume they're equal?
 They are two independent fields with different purposes — do not assume they are equal.
 
-- **`siteid`** is the canonical Patchstack site identifier. It is what the portal displays and what every per-site API endpoint expects (e.g. `/site/view/{siteid}`, `/site/{siteid}/delete`, `/download/wordpress/{siteid}`). Store this for cross-referencing your records against the Patchstack portal.
+- **`siteid`** is the canonical Patchstack site identifier. It is what the portal displays and what every per-site API endpoint expects (e.g. `/site/view/{siteid}`, `/site/delete/{siteid}`, `/download/wordpress/{siteid}`). Store this for cross-referencing your records against the Patchstack portal.
 - **`oauth.id`** is the OAuth credential identifier. Its only purpose is to form the plugin license key, which the `/site/add` response already returns pre-formatted as `apikey` (`<oauth.secret>-<oauth.id>`). You never need to read `oauth.id` as a standalone value — just pass `apikey` to the plugin.
 
 For sites provisioned before 13 May 2026, `siteid` and `oauth.id` coincidentally held the same value because of how rows were inserted in our database. They may differ for any site provisioned since. If you previously stored `oauth.id` under the assumption it equalled the site identifier, see the [callout in step 2 of integration](#3-store-in-local-datastore) for how to reconcile your stored values.
