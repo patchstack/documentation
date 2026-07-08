@@ -81,6 +81,10 @@ It's also important to set the `Content-Type` HTTP header to `application/json` 
 ### Step 2: Site provisioning
 When the site should be added to Patchstack depends on your use-case scenario. If they require protection immediately then you can execute this flow the moment the website environment (the WordPress site) has been created on the infrastructure. If you upsell Patchstack then this flow can be launched upon purchase or opt-in.
 
+:::tip[Using WHMCS?]
+If you provision Patchstack through WHMCS, the Patchstack WHMCS module handles this flow for you. See the [WHMCS setup guide](/partners/whmcs-setup/).
+:::
+
 ###### 1. Determine if the site already exists in Patchstack
 This step is essential as it's possible that a site may be protected already or added to Patchstack. For this, the `/site/exists` API endpoint can be utilized; it will check if a site with the given URL has already been added to Patchstack before you attempt to actually add the site to Patchstack.
 
