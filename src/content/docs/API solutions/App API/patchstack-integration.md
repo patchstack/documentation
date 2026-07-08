@@ -309,6 +309,10 @@ curl -X 'DELETE' \
 
 To also uninstall the Patchstack plugin from the remote WordPress site as part of the deletion, send `{"delete": true}` in the request body. To remove several sites at once, call `DELETE /site/delete` with a body of `{"sites": [12345, 12346]}`.
 
+:::caution[Plugin removal on site deletion]
+Deleting a site with the `delete` flag also attempts to remove the Patchstack plugin from the connected WordPress site. This remote removal is best-effort and may not complete if the site connection is unstable, or if the plugin has already been deactivated or disconnected (but not deleted). For reliable removal, manage the plugin directly on the site with WP-CLI (for example `wp plugin delete patchstack`) rather than relying on the remote deletion.
+:::
+
 :::caution[Deleting a site is destructive and permanent]
 There is **no paused or suspended state** in Patchstack. Deleting a site removes it and its data, and it stops counting toward your plan. If you later re-add the same URL with `/site/add`, Patchstack provisions a **brand-new site** with **new `siteid` and new OAuth credentials** (a new plugin `apikey`) — the previous credentials are not restored. Any integration that "suspends" and "resumes" a site must therefore delete on suspend and re-provision + re-activate the plugin on resume, then overwrite the stored `siteid`/`apikey` with the new values.
 :::
