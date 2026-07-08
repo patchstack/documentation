@@ -11,6 +11,10 @@ _Patchstack App API is available for the Developer and Enterprise plan users_
 
 Patchstack App API enables users to run all the Patchstack App account actions remotely over an API. It allows you to access protection logs, generate security reports, manage site settings, add new sites, create custom rules, and much more.
 
+:::note[What the App API does not manage]
+The App API manages **sites and their security** on your Patchstack account — provisioning, plugin connection, protection, reporting and site settings. It does **not** manage trials, subscriptions, plan changes or billing for your own end customers. If you are reselling Patchstack (for example through WHMCS), run trials, subscriptions and invoicing in your own billing system and use the App API purely to provision and manage the underlying sites. Your Patchstack account's own subscription is handled separately in the Patchstack app UI.
+:::
+
 ### Documentation and endpoints
 Find all the Patchstack App API endpoints with examples from the documentation here:
 <a href="https://api.patchstack.com/app-api/documentation" target="_blank">https<span></span>://api.patchstack.com/app-api/documentation</a>

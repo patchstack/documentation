@@ -11,6 +11,10 @@ updatedAt: "Mon Jul 31 2023 12:13:26 GMT+0000 (Coordinated Universal Time)"
 ---
 # Hosting API Documentation
 
+:::caution[Legacy API — use the App API instead]
+The Hosting API (`api.patchstack.com/hosting/`, `HostToken` authentication) is a legacy integration and is no longer the recommended way to integrate with Patchstack. New integrations should use the [Patchstack App API](/api-solutions/app-api/patchstack-app-api/) (`api.patchstack.com/monitor/`, `UserToken` authentication), which is actively maintained and documented. This page is kept for reference for existing Hosting API integrations only.
+:::
+
 ## Introduction
 
 The information below describes the API URL’s, payloads and authentication necessary to communicate with our API. A special authentication key will have to be supplied in each request (that will be created specifically for the hosting provider) against an endpoint.
