@@ -1,10 +1,10 @@
 openapi: 3.1.0
 info:
   title: Patchstack Threat Intelligence API — NPM features
-  version: beta
+  version: '1.0'
   summary: npm + WordPress vulnerability intelligence with nested response shape and cursor pagination.
   description: |
-    The Beta endpoints live alongside the v2 API and add npm coverage, an optional
+    The npm endpoints live alongside the v2 API and add npm coverage, an optional
     full advisory body, a consistent nested response shape, and cursor pagination.
     They are the recommended endpoints for new integrations; v2 remains available
     for backwards compatibility.
@@ -64,7 +64,7 @@ info:
 
     ## Related pages
 
-    - Narrative guide with code samples: [NPM features (Beta)](/api-solutions/threat-intelligence-api/beta/)
+    - Narrative guide with code samples: [NPM features](/api-solutions/threat-intelligence-api/beta/)
     - OpenAPI spec (import into Postman / Insomnia / Bruno / Hoppscotch): <https://docs.patchstack.com/schemas/threat-intel-beta.yaml>
     - Postman collection (pre-imported): <https://docs.patchstack.com/schemas/threat-intel-beta.postman_collection.json>
 
@@ -76,7 +76,7 @@ info:
 
 servers:
   - url: https://vdp-api.patchstack.com/database/api/beta
-    description: Beta
+    description: NPM features
 
 security:
   - PSKey: []
