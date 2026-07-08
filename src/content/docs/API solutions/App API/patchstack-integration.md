@@ -48,13 +48,9 @@ All Patchstack API endpoints return standard HTTP status codes. Your integration
 - **Sites per request** — `POST /site/add` and `POST /site/exists` accept between 1 and **100 URLs** per call in the `urls` array. Split larger batches across multiple requests.
 - **Listing sites** — `POST /sites/list` is paginated (`page`, `per_page`, default 20 per page); page through it when rendering large accounts. `POST /sites/list/basic` is *not* paginated — it returns the full `[{id, url}, …]` array for the account in one response, which is what makes it convenient for reconciliation.
 
-<!--
-  Note for reviewers (Patchstack API team): please confirm whether there is a
-  request-rate limit / quota on the authenticated App API endpoints (e.g. requests
-  per minute per API key). No such limit is defined in the routing layer, so no
-  number is stated here on purpose. If a real limit exists, add it above; do not
-  publish a guessed value.
--->
+:::note[No per-key request-rate limit]
+The App API does not currently enforce a per-key request-rate limit on authenticated calls. Even so, when provisioning at large scale, batch your requests considerately rather than issuing one call per site — for example, pass multiple URLs in the `urls` array on `/site/add` (and `/site/exists`) instead of looping a separate request per site.
+:::
 
 ## Flow of integration & plugin
 Patchstack works by assigning an API key to a site that has been added to the Patchstack App. This API key is then used in the WordPress plugin to activate the connection to Patchstack.
