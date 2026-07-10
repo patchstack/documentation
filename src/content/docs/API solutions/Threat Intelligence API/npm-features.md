@@ -12,25 +12,29 @@ sidebar:
   label: "Overview"
 ---
 
-_The npm features extend the Threat Intelligence API with npm-ecosystem coverage. They run at a separate base URL, ship their own OpenAPI spec, and are available to **selected partners working directly with Patchstack**. The shared endpoints (`/latest`, `/product/{type}/{name}/{version}`, `/product/{type}/{name}/{version}/exists`, `/batch`) behave the same as the stable API but accept extra parameters and return a nested response shape. This page documents only what's new — for the full spec including npm-flavour examples, see the [auto-generated reference](/api-reference/threat-intelligence-beta/). [Contact us](https://patchstack.com/for-hosts/) if you'd like access._
+_The npm features extend the Threat Intelligence API with npm-ecosystem coverage. They run at a separate base URL, ship their own OpenAPI spec, and are available to **selected partners working directly with Patchstack**. The shared endpoints (`/latest`, `/product/{type}/{name}/{version}`, `/product/{type}/{name}/{version}/exists`, `/batch`) behave the same as the stable API but accept extra parameters and return a nested response shape. This page documents only what's new — for the full spec including npm-flavour examples, see the [auto-generated reference](/api-reference/threat-intelligence-npm/). [Contact us](https://patchstack.com/for-hosts/) if you'd like access._
 
 ## Base URL
 
 ```
-https://vdp-api.patchstack.com/database/api/beta/
+https://vdp-api.patchstack.com/database/api/npm/
 ```
+
+:::note
+The previous base URL `https://vdp-api.patchstack.com/database/api/beta/` remains supported as a permanent legacy alias and returns identical responses, so existing integrations don't need to change immediately.
+:::
 
 ## What's new
 
 | Addition | Where it applies |
 |---|---|
-| [`GET /all`](/api-reference/threat-intelligence-beta/operations/listallvulnerabilities/) | New endpoint — cursor-paginated full listing of every advisory, scoped by `?platform=`. |
+| [`GET /all`](/api-reference/threat-intelligence-npm/operations/listallvulnerabilities/) | New endpoint — cursor-paginated full listing of every advisory, scoped by `?platform=`. |
 | `?platform=npm` | List endpoints (`/all`, `/latest`, `/product/...`). Default is `wordpress`; case-insensitive. |
 | `?cursor=` | `/all` and `/latest` — cursor pagination alongside the existing `?page=&per_page=`. |
 | `?include=details` | List endpoints — adds an `advisory_details` markdown field to each item (npm). |
 | Nested response shape | All list endpoints — `product`, `cvss`, `cwe`, `version_info` objects in place of the v2 flat shape. |
 
-The full npm-features schema (every endpoint, parameter, response example) lives in the [auto-generated reference](/api-reference/threat-intelligence-beta/).
+The full npm-features schema (every endpoint, parameter, response example) lives in the [auto-generated reference](/api-reference/threat-intelligence-npm/).
 
 ## Pagination
 
@@ -78,19 +82,19 @@ In addition to the [stable error codes](/api-solutions/threat-intelligence-api/e
 
 ```bash
 # Latest 24h, npm
-curl 'https://vdp-api.patchstack.com/database/api/beta/latest?platform=npm&per_page=10' \
+curl 'https://vdp-api.patchstack.com/database/api/npm/latest?platform=npm&per_page=10' \
   -H 'PSKey: <your-api-key>'
 
 # Cursor pagination walk (bootstrap + follow)
-curl 'https://vdp-api.patchstack.com/database/api/beta/all?platform=npm&per_page=50&cursor=' \
+curl 'https://vdp-api.patchstack.com/database/api/npm/all?platform=npm&per_page=50&cursor=' \
   -H 'PSKey: <your-api-key>'
 
 # Check a specific npm package/version with full advisory text
-curl 'https://vdp-api.patchstack.com/database/api/beta/product/npm/axios/0.21.4?include=details' \
+curl 'https://vdp-api.patchstack.com/database/api/npm/product/npm/axios/0.21.4?include=details' \
   -H 'PSKey: <your-api-key>'
 
 # Boolean-only exists check
-curl 'https://vdp-api.patchstack.com/database/api/beta/product/npm/axios/0.21.4/exists' \
+curl 'https://vdp-api.patchstack.com/database/api/npm/product/npm/axios/0.21.4/exists' \
   -H 'PSKey: <your-api-key>'
 ```
 
@@ -98,7 +102,7 @@ curl 'https://vdp-api.patchstack.com/database/api/beta/product/npm/axios/0.21.4/
 
 ```javascript
 async function* allVulnerabilities(apiKey, platform = 'npm', perPage = 100) {
-  const base = 'https://vdp-api.patchstack.com/database/api/beta/all';
+  const base = 'https://vdp-api.patchstack.com/database/api/npm/all';
   let cursor = '';            // empty = bootstrap cursor mode
 
   while (true) {
@@ -129,7 +133,7 @@ $apiKey = getenv('PATCHSTACK_KEY');
 $cursor = '';
 
 do {
-    $url = 'https://vdp-api.patchstack.com/database/api/beta/all'
+    $url = 'https://vdp-api.patchstack.com/database/api/npm/all'
         .'?platform=npm&per_page=100&cursor='.urlencode($cursor);
 
     $ch = curl_init($url);
