@@ -75,8 +75,8 @@ info:
     email: dave.jong@patchstack.com
 
 servers:
-  - url: https://vdp-api.patchstack.com/database/api/beta
-    description: NPM features
+  - url: https://vdp-api.patchstack.com/database/api/npm
+    description: NPM features. The previous base URL https://vdp-api.patchstack.com/database/api/beta continues to work as a permanent legacy alias and returns identical responses.
 
 security:
   - PSKey: []
