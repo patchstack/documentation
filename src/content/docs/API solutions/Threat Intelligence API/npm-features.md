@@ -12,7 +12,7 @@ sidebar:
   label: "Overview"
 ---
 
-_The npm features extend the Threat Intelligence API with npm-ecosystem coverage. They run at a separate base URL, ship their own OpenAPI spec, and are available to **selected partners working directly with Patchstack**. The shared endpoints (`/latest`, `/product/{type}/{name}/{version}`, `/product/{type}/{name}/{version}/exists`, `/batch`) behave the same as the stable API but accept extra parameters and return a nested response shape. This page documents only what's new — for the full spec including npm-flavour examples, see the [auto-generated reference](/api-reference/threat-intelligence-beta/). [Contact us](https://patchstack.com/for-hosts/) if you'd like access._
+_The npm features extend the Threat Intelligence API with npm-ecosystem coverage. They run at a separate base URL, ship their own OpenAPI spec, and are available to **selected partners working directly with Patchstack**. The shared endpoints (`/latest`, `/product/{type}/{name}/{version}`, `/product/{type}/{name}/{version}/exists`, `/batch`) behave the same as the stable API but accept extra parameters and return a nested response shape. This page documents only what's new — for the full spec including npm-flavour examples, see the [auto-generated reference](/api-reference/threat-intelligence-npm/). [Contact us](https://patchstack.com/for-hosts/) if you'd like access._
 
 ## Base URL
 
@@ -24,13 +24,13 @@ https://vdp-api.patchstack.com/database/api/beta/
 
 | Addition | Where it applies |
 |---|---|
-| [`GET /all`](/api-reference/threat-intelligence-beta/operations/listallvulnerabilities/) | New endpoint — cursor-paginated full listing of every advisory, scoped by `?platform=`. |
+| [`GET /all`](/api-reference/threat-intelligence-npm/operations/listallvulnerabilities/) | New endpoint — cursor-paginated full listing of every advisory, scoped by `?platform=`. |
 | `?platform=npm` | List endpoints (`/all`, `/latest`, `/product/...`). Default is `wordpress`; case-insensitive. |
 | `?cursor=` | `/all` and `/latest` — cursor pagination alongside the existing `?page=&per_page=`. |
 | `?include=details` | List endpoints — adds an `advisory_details` markdown field to each item (npm). |
 | Nested response shape | All list endpoints — `product`, `cvss`, `cwe`, `version_info` objects in place of the v2 flat shape. |
 
-The full npm-features schema (every endpoint, parameter, response example) lives in the [auto-generated reference](/api-reference/threat-intelligence-beta/).
+The full npm-features schema (every endpoint, parameter, response example) lives in the [auto-generated reference](/api-reference/threat-intelligence-npm/).
 
 ## Pagination
 

@@ -1028,6 +1028,21 @@
 	from = "/api-solutions/threat-intelligence-api/enterprise/"
 	to = "/api-solutions/threat-intelligence-api/extended/"
 
+[[redirects]]
+	from = "/api-solutions/threat-intelligence-api/beta/"
+	to = "/api-solutions/threat-intelligence-api/npm-features/"
+	status = 301
+
+[[redirects]]
+	from = "/api-reference/threat-intelligence-beta/"
+	to = "/api-reference/threat-intelligence-npm/"
+	status = 301
+
+[[redirects]]
+	from = "/api-reference/threat-intelligence-beta/*"
+	to = "/api-reference/threat-intelligence-npm/:splat"
+	status = 301
+
 
 [[redirects]]
 	from = "/patchstack-app/account-settings/team/"

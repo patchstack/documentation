@@ -8,7 +8,7 @@ import Converter from 'openapi-to-postmanv2'
 
 const threatIntelStandardSidebarGroup = createOpenAPISidebarGroup();
 const threatIntelExtendedSidebarGroup = createOpenAPISidebarGroup();
-const threatIntelBetaSidebarGroup     = createOpenAPISidebarGroup();
+const threatIntelNpmSidebarGroup      = createOpenAPISidebarGroup();
 
 
 const site_url = process.env.URL;
@@ -25,8 +25,8 @@ const postmanCollections = [
 		output:  './public/schemas/threat-intel-extended.postman_collection.json',
 	},
 	{
-		openapi: './public/schemas/threat-intel-beta.yaml',
-		output:  './public/schemas/threat-intel-beta.postman_collection.json',
+		openapi: './public/schemas/threat-intel-npm.yaml',
+		output:  './public/schemas/threat-intel-npm.postman_collection.json',
 	},
 ];
 
@@ -104,9 +104,9 @@ export default defineConfig({
 						sidebar: { label: 'Reference', group: threatIntelExtendedSidebarGroup },
 					},
 					{
-						base: 'api-reference/threat-intelligence-beta',
-						schema: './public/schemas/threat-intel-beta.yaml',
-						sidebar: { label: 'NPM features', group: threatIntelBetaSidebarGroup, collapsed: true },
+						base: 'api-reference/threat-intelligence-npm',
+						schema: './public/schemas/threat-intel-npm.yaml',
+						sidebar: { label: 'NPM features', group: threatIntelNpmSidebarGroup, collapsed: true },
 					},
 				]),
 			],
@@ -171,9 +171,9 @@ export default defineConfig({
 									label: 'NPM features',
 									collapsed: true,
 									items: [
-										{ slug: 'api-solutions/threat-intelligence-api/beta' },
-										{ label: 'GET /all (new)', link: '/api-reference/threat-intelligence-beta/operations/listallvulnerabilities/' },
-										{ label: 'Full reference', link: '/api-reference/threat-intelligence-beta/' },
+										{ slug: 'api-solutions/threat-intelligence-api/npm-features' },
+										{ label: 'GET /all (new)', link: '/api-reference/threat-intelligence-npm/operations/listallvulnerabilities/' },
+										{ label: 'Full reference', link: '/api-reference/threat-intelligence-npm/' },
 									],
 								},
 								{ slug: 'api-solutions/threat-intelligence-api/api-properties' },

@@ -64,9 +64,9 @@ info:
 
     ## Related pages
 
-    - Narrative guide with code samples: [NPM features](/api-solutions/threat-intelligence-api/beta/)
-    - OpenAPI spec (import into Postman / Insomnia / Bruno / Hoppscotch): <https://docs.patchstack.com/schemas/threat-intel-beta.yaml>
-    - Postman collection (pre-imported): <https://docs.patchstack.com/schemas/threat-intel-beta.postman_collection.json>
+    - Narrative guide with code samples: [NPM features](/api-solutions/threat-intelligence-api/npm-features/)
+    - OpenAPI spec (import into Postman / Insomnia / Bruno / Hoppscotch): <https://docs.patchstack.com/schemas/threat-intel-npm.yaml>
+    - Postman collection (pre-imported): <https://docs.patchstack.com/schemas/threat-intel-npm.postman_collection.json>
 
     Integration questions: <dave.jong@patchstack.com>.
   contact:
@@ -87,9 +87,9 @@ tags:
       Listing endpoints that return published vulnerabilities for a platform,
       ordered by descending `id`.
 
-      - [`GET /all`](/api-reference/threat-intelligence-beta/operations/listallvulnerabilities/)
+      - [`GET /all`](/api-reference/threat-intelligence-npm/operations/listallvulnerabilities/)
         — every published vulnerability for the platform, paginated.
-      - [`GET /latest`](/api-reference/threat-intelligence-beta/operations/listlatestvulnerabilities/)
+      - [`GET /latest`](/api-reference/threat-intelligence-npm/operations/listlatestvulnerabilities/)
         — vulnerabilities whose row was inserted in the last 24 hours (filter
         is on `created_at`, not `disclosure_date`).
 
@@ -100,10 +100,10 @@ tags:
       Match a specific product + version against the vulnerability database
       and return every applicable advisory.
 
-      - [`GET /product/{type}/{name}/{version}`](/api-reference/threat-intelligence-beta/operations/findproductvulnerabilities/)
+      - [`GET /product/{type}/{name}/{version}`](/api-reference/threat-intelligence-npm/operations/findproductvulnerabilities/)
         — full advisory list for the product. Use `version=*` to return every
         advisory for the product regardless of version.
-      - [`GET /product/{type}/{name}/{version}/exists`](/api-reference/threat-intelligence-beta/operations/productvulnerabilityexists/)
+      - [`GET /product/{type}/{name}/{version}/exists`](/api-reference/threat-intelligence-npm/operations/productvulnerabilityexists/)
         — boolean-only variant for fast "is this vulnerable?" checks.
 
       `type` accepts `npm`, `plugin`, `theme`, or `wordpress`. For scoped npm
@@ -115,7 +115,7 @@ tags:
       of installed WordPress plugins) — it's significantly cheaper than
       issuing one request per product.
 
-      - [`POST /batch`](/api-reference/threat-intelligence-beta/operations/batchproductcheck/)
+      - [`POST /batch`](/api-reference/threat-intelligence-npm/operations/batchproductcheck/)
         — payload is a JSON array of up to 50 `{type, name, version, exists?}`
         objects. Per-item results are returned in request order.
 
