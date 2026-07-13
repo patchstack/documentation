@@ -50,9 +50,11 @@ Take immediate action on the **High Priority** vulnerabilities.
 
 ### Step #4 — Check your software for updates
 
-Check the status of your plugins and themes. Apply the necessary updates, and decide whether you’d like to: 
-1. Auto-update only vulnerable software; or
-2. Auto-update all software (plugins, themes and/or WordPress core versions)
+Check the status of your plugins and themes and apply the necessary updates.
+
+:::caution[Automatic updates deprecated]
+The automatic updates feature has been deprecated and is no longer available in the Patchstack app.
+:::
 
 [Learn more](/patchstack-app/site-dashboard/site-software/)
 

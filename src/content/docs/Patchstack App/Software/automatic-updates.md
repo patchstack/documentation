@@ -11,15 +11,21 @@ updatedAt: "Mon Nov 13 2023 15:30:24 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 4.2
 ---
-_Automatic updates feature is available for all Patchstack users._  
-**_This feature is available for WordPress sites only._**
+:::danger[Deprecated]
+The automatic updates feature has been deprecated and is no longer available in the Patchstack app. The **Software** > **Automatic updates** page has been removed. If automatic updates were previously turned off, they can no longer be re-enabled.
 
-Navigate to the automatic updates page by visiting **Software** > **Automatic updates**, or click here: [https://app.patchstack.com/software/updates](https://app.patchstack.com/software/updates)
+The information below is kept for historical reference only and no longer describes functionality available in the app.
+:::
 
-On the **Automatic updates** subpage, you can see which of your sites have auto-updates enabled. You can turn automatic updates for each of your sites on / off.  
-Patchstack also has an option to only auto-update such software that has any vulnerabilities detected.
+_The automatic updates feature was previously available for all Patchstack users._  
+**_This feature was available for WordPress sites only._**
 
-For each site, you have the following options:
+The automatic updates page was previously found under **Software** > **Automatic updates**. This page has since been removed and is no longer accessible.
+
+On the **Automatic updates** subpage, you could see which of your sites had auto-updates enabled, and turn automatic updates for each of your sites on / off.  
+Patchstack also had an option to only auto-update such software that had any vulnerabilities detected.
+
+For each site, the following options were available:
 
 <ol><li>Auto-update only vulnerable components (recommended)
  - this option includes core versions, plugins and themes</li>
@@ -32,8 +38,10 @@ For each site, you have the following options:
 
 ## Turning on the auto-updates
 
-To turn on the **auto-updates** feature, click the **Change** button of the corresponding site in the table.  
-You will be shown a popup, which lets you toggle auto-updates for:
+The steps below describe how the (now removed) auto-updates feature previously worked and are no longer actionable.
+
+To turn on the **auto-updates** feature, you would click the **Change** button of the corresponding site in the table.  
+You would then be shown a popup, which let you toggle auto-updates for:
 * Only vulnerable software versions
 * For all WordPress core versions (whenever update is available)
 * For all plugin versions (whenever update is available)
