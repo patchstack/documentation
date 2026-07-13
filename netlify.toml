@@ -454,7 +454,17 @@
 
 [[redirects]]
 	from = "/docs/automatic-updates"
-	to = "/patchstack-app/software/automatic-updates/"
+	to = "/patchstack-app/software/software-overview/"
+
+[[redirects]]
+	from = "/patchstack-app/software/automatic-updates/"
+	to = "/patchstack-app/software/software-overview/"
+	status = 301
+
+[[redirects]]
+	from = "/patchstack-app/software/automatic-updates"
+	to = "/patchstack-app/software/software-overview/"
+	status = 301
 
 [[redirects]]
 	from = "/docs/protection-overview"

@@ -52,10 +52,6 @@ Take immediate action on the **High Priority** vulnerabilities.
 
 Check the status of your plugins and themes and apply the necessary updates.
 
-:::caution[Automatic updates deprecated]
-The automatic updates feature has been deprecated and is no longer available in the Patchstack app.
-:::
-
 [Learn more](/patchstack-app/site-dashboard/site-software/)
 
 ### Step #5 — Check the protection modules
