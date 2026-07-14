@@ -13,6 +13,8 @@ sidebar:
 ---
 If you have the Patchstack plugin installed, we will automatically try to inject the security headers into the response.
 
+Because these headers can be injected into the HTTP response at runtime, they may not appear in your `.htaccess` file even when they are active. To confirm which headers are being sent, check the live response (for example with [securityheaders.com](https://securityheaders.com/)) instead of reading `.htaccess`. Avoid adding the same headers both automatically and manually, or you may end up with duplicate headers. For how these settings relate to each other, see [How hardening and security headers work](/patchstack-app/site-dashboard/hardening/hardening-and-security-headers-explained/).
+
 If this does not work, perhaps due to an aggressive caching plugin or caching/proxy server, you may have to manually add the .htaccess rules below to your .htaccess file. 
 
 ## Adding the security headers automatically

@@ -25,7 +25,7 @@ On the **.htaccess features** block you can modify some of your site settings an
 Settings you can manage on this page:
 
 <ul>
-<li>Add security headers - toggle this, and Patchstack adds basic security headers to your .htaccess file</li>
+<li>Add security headers - toggle this, and Patchstack adds a standard set of security headers to your site. Depending on your environment these may be written to your .htaccess file or injected into the HTTP response, so they will not always appear in .htaccess. See <a href="/patchstack-app/site-dashboard/hardening/hardening-and-security-headers-explained/">How hardening and security headers work</a> for details.</li>
 <li>Prevent default WordPress file access - this feature blocks access to such files as license.txt, readme.html and wp-config-sample.php files</li>
 <li>Block access to debug.log file - check this if you want to block access to debug.log file that WordPress creates when debug logging is enabled</li>
 <li>Disable index views - disables directory indexing and file listings</li>
