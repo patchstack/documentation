@@ -13,7 +13,7 @@ Patchstack monitors JavaScript and Node.js applications — not only WordPress s
 
 - **npm:** https://www.npmjs.com/package/@patchstack/connect
 - **Source (MIT-licensed):** https://github.com/patchstack/connect
-- **Full install reference:** https://patchstack.com/install.txt
+- **Setup guide:** https://github.com/patchstack/connect/blob/main/GETTING-STARTED.md
 
 ## What it does
 
@@ -43,7 +43,7 @@ To report on every build, add the hooks to `package.json`:
 }
 ```
 
-The connector also installs Patchstack's **vulnerability disclosure widget** — a floating "Report a vulnerability" button — into the site's root HTML shell, so anyone who spots an issue can report it straight to you. See the [full install reference](https://patchstack.com/install.txt) for framework-specific widget placement and troubleshooting.
+The connector also installs Patchstack's **vulnerability disclosure widget** — a floating "Report a vulnerability" button — into the site's root HTML shell, so anyone who spots an issue can report it straight to you. Run `npx @patchstack/connect guide` for a project-aware checklist of anything still missing, with framework-specific widget placement; the [widget reference](https://cdn.patchstack.com/llm.html) covers additional CMS patterns.
 
 ## How this relates to host-level npm protection
 
