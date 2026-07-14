@@ -14,6 +14,10 @@ sidebar:
 
 _The npm features extend the Threat Intelligence API with npm-ecosystem coverage. They run at a separate base URL, ship their own OpenAPI spec, and are available to **selected partners working directly with Patchstack**. The shared endpoints (`/latest`, `/product/{type}/{name}/{version}`, `/product/{type}/{name}/{version}/exists`, `/batch`) behave the same as the stable API but accept extra parameters and return a nested response shape. This page documents only what's new — for the full spec including npm-flavour examples, see the [auto-generated reference](/api-reference/threat-intelligence-npm/). [Contact us](https://patchstack.com/for-hosts/) if you'd like access._
 
+:::note
+This partner API is not the only way to get npm vulnerability coverage. Developers can monitor their own JS/Node projects directly with [`@patchstack/connect`](/getting-started/installing-patchstack/installing-on-javascript-node-projects/), Patchstack's official self-install npm connector — no partner agreement needed.
+:::
+
 ## Base URL
 
 ```
