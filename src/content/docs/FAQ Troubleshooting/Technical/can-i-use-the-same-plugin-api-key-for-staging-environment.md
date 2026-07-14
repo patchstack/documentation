@@ -45,7 +45,7 @@ Patchstack will work normally with your live site, if you share the same API key
 Some things to keep in mind:
 - Your production (live) site receives all the real-time protection rules
 - All custom hardening rules set in Patchstack App are also synced normally
-- All the features that Patchstack offers, will work on your live site (like auto-updates, custom rules, etc)
+- All the features that Patchstack offers, will work on your live site (like custom rules, etc)
 - On the staging site however, only the API key license check will work. Other features and firewall rules are not synced to the staging site
 - We recommend turning on the server level protection for your staging site (e.g. htaccess and htpasswd)
 
