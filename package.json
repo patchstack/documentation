@@ -10,14 +10,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.4.1",
-    "@astrojs/starlight": "^0.34.3",
-    "astro": "^5.9.2",
-    "astro-og-canvas": "^0.5.3",
+    "@astrojs/compiler-rs": "^0.1.9",
+    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/starlight": "^0.38.4",
+    "astro": "^6.0.0",
+    "astro-og-canvas": "^0.11.1",
     "js-cookie": "^3.0.5",
     "sharp": "^0.33.4",
-    "starlight-llms-txt": "^0.5.1",
-    "starlight-openapi": "^0.22.1"
+    "starlight-llms-txt": "^0.8.1",
+    "starlight-openapi": "^0.25.0"
   },
   "devDependencies": {
     "openapi-to-postmanv2": "^6.0.1"
