@@ -8,6 +8,16 @@ updatedAt: "Wed Jan 17 2024 10:39:45 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 8
 ---
+<b>July 28th, 2026</b>
+
+<ul>
+<li>Version 2.3.7</li>
+<li>Added: Last sync timestamp to plugin settings page</li>
+<li>Fixed: Normalize stored option value types</li>
+<li>Fixed: Several PHP 8 related errors</li>
+<li>Fixed: About a dozen edge-case scenario bugs</li>
+</ul>
+
 <b>April 22nd, 2026</b>
 
 <ul>
