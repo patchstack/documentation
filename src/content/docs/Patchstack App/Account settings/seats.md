@@ -7,7 +7,7 @@ metadata:
   image: []
   robots: "index"
 createdAt: "Mon Jul 25 2022 09:21:53 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Thu May 25 2023 12:55:11 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Mon Aug 24 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 9.4
 ---
@@ -18,13 +18,26 @@ To manage your seats and team settings, click on your name on Patchstack App (at
 On the **Seats** page you can manage the seats. The seat management feature allows you to add sub-users to your account to which you can assign specific permissions and/or sites.  
 When you add a new user, they will receive an email with a link to activate their account.
 
-<b>Available roles</b>
+Enterprise plans include **unlimited team seats** (there is no invite cap).
 
-<ol><li>Owner: Full control of all users and sites of all users, only 1 owner can exist.</li>
-<li>Admin: Full control of all users and sites of all users, but cannot alter owners or other admins.</li>
-<li>Manager: Full control of all sites of all users, cannot modify users.</li>
-<li>Member: Read and write access to sites assigned to this user, cannot modify users or delete sites.</li>
-<li>Independent: An account that is isolated from the others, only the owner can access its sites. This role can be useful in case you want to have a Patchstack account that inherits the subscription type of the owner but needs to be completely protected from other isolated accounts.</li></ol>
+## Available roles
+
+Roles are **two groups, not one ladder**. Owner / Admin / Manager / Operator are positions *within* your account. Customer is a separate, isolated account that sits under yours.
+
+**Roles in this account**
+
+1. **Owner** — Full control of all sites and users. Only one owner can exist.
+2. **Admin** — Full control of sites and lower-level users. Cannot alter the owner or other admins.
+3. **Manager** — Full control of all sites. Cannot modify users.
+4. **Operator** — Editing access only to sites assigned to them. Cannot modify users, cannot delete sites, and cannot add new sites.
+
+**Separate accounts**
+
+5. **Customer** — An isolated account that inherits your subscription type. The Customer owns and manages their own site(s). Sites you **assign** to a Customer are view-only for them. Customers cannot add sites on your plan.
+
+:::note[API / stored values]
+Integrations that call the team API still send the historical stored values: `member` for Operator and `independent` for Customer. The Patchstack App UI shows the labels above.
+:::
 
 In order to attach a site to a user, go to **Site** > **Action button** > **Attach To User**.
 
@@ -42,9 +55,9 @@ Note that you can **only add email addresses** that have **not yet registered** 
 After adding the user, you can see the added user in the table below.  
 An invitation will be sent to that email asking to register an account on Patchstack App.
 
-### Attaching a "Member" seat user to sites
+### Attaching an Operator seat user to sites
 
-If you assigned a user the "Member" role, you can choose which sites you want to attach this user.
+If you assigned a user the **Operator** role, you can choose which sites you want to attach this user.
 For that, scroll down to the **Sites** table.
 You can see all your sites in this view.  
 Click on **Action** and **Attach to user** on the corresponding site.

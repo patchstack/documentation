@@ -221,7 +221,11 @@ paths:
       summary: Find vulnerabilities for a product
       description: |
         Match a specific product + version against the vulnerability database
-        and return every applicable advisory.
+        and return every applicable advisory. For npm advisories with multiple
+        affected spans, every span is considered (not only the lowest). Each
+        matched advisory includes `matched_range` with the span that matched
+        the installed version and that span's own `fixed_in` — prefer this over
+        the collapsed top-level `fixed_in` when advising an upgrade.
 
         npm package slugs that include a `/` (e.g. `@scope/pkg`) conflict with
         the route separator. URL-encode the `/` as `%2F`.
@@ -526,7 +530,7 @@ components:
               description: Affected version range (e.g. `<= 2026.3.28`).
             fixed:
               type: string
-              description: First fixed version.
+              description: Highest fixed version across every affected span (compatibility field — prefer `matched_range.fixed_in` on product lookups).
             patched_ranges:
               type: array
               description: Structured list of patch ranges for advisories with multiple patch ranges.
@@ -536,6 +540,29 @@ components:
                   from_version: { type: string }
                   to_version:   { type: string }
                   fixed_in:     { type: string }
+        matched_range:
+          type: object
+          description: |
+            Present on product/`batch` lookups when the installed version matched an affected span.
+            Prefer `matched_range.fixed_in` for user-facing upgrade advice; top-level `fixed_in` is the highest fix across all spans.
+          properties:
+            from_version:
+              type: string
+              nullable: true
+              description: Lower bound of the matched span.
+            to_version:
+              type: string
+              nullable: true
+              description: Upper bound of the matched span.
+            to_bound:
+              type: string
+              nullable: true
+              description: How to read `to_version` — `exclusive`, `inclusive`, `last-affected`, or null when unrecorded.
+              enum: [exclusive, inclusive, last-affected]
+            fixed_in:
+              type: string
+              nullable: true
+              description: Fix for this span only. Null when the advisory never fixed this line.
       example:
         id: 46500
         title: "NPM: OpenClaw: ..."

@@ -4,7 +4,7 @@ title: "Pricing plans"
 excerpt: ""
 hidden: false
 createdAt: "Mon Jul 25 2022 08:58:18 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Sun Jan 14 2024 16:22:28 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Mon Aug 24 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
     order: 3
     badge:
@@ -34,7 +34,7 @@ On this plan, by default you can protect up to 25 sites, but it can be extended 
 
 Best for businesses that require advanced security or maintain high-profile websites. The Enterprise plan offers compliance and security at scale.
 
-The Enterprise plan includes unlimited websites and unlimited team seats. It also includes a signed **Service Level Agreement (SLA)**, a **Data Processing Agreement (DPA)**, **custom billing options**, and **Enterprise-level support**.
+The Enterprise plan includes unlimited websites and **unlimited team seats** (there is no seat-invite cap). It also includes a signed **Service Level Agreement (SLA)**, a **Data Processing Agreement (DPA)**, **custom billing options**, and **Enterprise-level support**.
 
 
 ### Enterprise plan pricing

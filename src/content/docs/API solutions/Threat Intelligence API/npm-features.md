@@ -6,7 +6,7 @@ metadata:
   image: []
   robots: "index"
 createdAt: "Tue Apr 21 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Wed Apr 22 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Mon Aug 24 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 1
   label: "Overview"
@@ -77,6 +77,21 @@ In addition to the [stable error codes](/api-solutions/threat-intelligence-api/e
 - `direct_url` was renamed to `url` (the npm-flavoured shape exposes a single URL only).
 - The `description` field was dropped for npm (the title already includes it).
 - The response body always contains a `vulnerabilities` array, plus either `pagination` (offset mode) or `cursor` (cursor mode).
+
+## Multi-span advisories and the fix to show
+
+Many npm advisories affect several majors at once. Product lookups (`GET /product/...` and `/batch`) now match the installed version against **every** affected span, not only the lowest one.
+
+When a version matches, the advisory includes a `matched_range` object beside the existing top-level `fixed_in`:
+
+| Field | Meaning |
+|---|---|
+| `matched_range.from_version` | Lower bound of the span that matched the installed version (nullable). |
+| `matched_range.to_version` | Upper bound of that span (nullable). |
+| `matched_range.to_bound` | How to read `to_version`: `exclusive`, `inclusive`, `last-affected`, or `null` when unrecorded. |
+| `matched_range.fixed_in` | The fix for **this** span. Use this when telling a user what to upgrade to. `null` means that span was never fixed. |
+
+Top-level `fixed_in` / `version_info.fixed` remain the **highest** fix across every span, for backwards compatibility. Prefer `matched_range.fixed_in` for user-facing upgrade advice so a site on `next@13` is not told to jump to a later major.
 
 ---
 
