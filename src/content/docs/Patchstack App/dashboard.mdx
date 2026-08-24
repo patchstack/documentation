@@ -4,7 +4,7 @@ title: "Dashboard"
 excerpt: ""
 hidden: false
 createdAt: "Wed Oct 18 2023 12:41:44 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Tue Dec 12 2023 12:31:21 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Mon Aug 24 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 1
 ---
@@ -38,13 +38,15 @@ You can use the search bar on the dashboard page, to find current vulnerabilitie
 
 ![](@images/patchstack-filters.png)
 
-There are three main filters for vulnerability searching on the dashboard:
+There are four main filters for vulnerability searching on the dashboard:
 <Steps>
 1. **Priority filter** - find vulnerabilities by patch priority. You can filter by high, medium and low patch priority vulnerabilities.
 
 2. **Severity filter** - find vulnerabilities by <a href="/faq-troubleshooting/other/what-is-the-cvss-score/" target="_blank">CVSS severity score</a>. You can filter by critical, high, medium, low severity.
 
-3. **Exploited** - filter out the vulnerabilities that are know to be exploited.
+3. **Exploited** - filter out the vulnerabilities that are known to be exploited.
+
+4. **Outdated** - show vulnerabilities where a patched release exists, so the installed version is behind the fix. (This filter was previously labelled "Fix available".)
 </Steps>
 
 
@@ -79,8 +81,8 @@ There are several icons shown on each vulnerability row. Below is a list of what
   </div>
   <div>
 
-  **Update available**  
-  This plugin has an update available. It is recommended to do this immediately as new software versions usually come with patched code (in case it is found vulnerable).
+  **Outdated (update available)**  
+  This software has a patched release available — the installed version is behind the fix. It is recommended to update immediately. In vulnerability lists and filters this state is labelled **Outdated**.
 
   </div>
 </div>

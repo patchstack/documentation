@@ -7,7 +7,7 @@ metadata:
   image: []
   robots: "index"
 createdAt: "Mon Jul 25 2022 09:05:51 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Mon Nov 13 2023 15:28:43 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Mon Aug 24 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 4
 ---
@@ -17,8 +17,8 @@ Navigate to the software overview page by clicking **Software** from the navigat
 [https://app.patchstack.com/software/overview](https://app.patchstack.com/software/overview)
 
 On the **Software** overview page, you can see the general overview, that shows all the components (plugins, themes, CMS core version, PHP and MySQL versions) that each of your sites use.  
-The table on this page shows, which of the components are vulnerable and which ones have updates available.
-Plugins and themes that are grayed out, are currently deactivated on the website, or cannot be updated via third party apps like Patchstack (like premium licensed software, which use non-standard updating mechanisms).
+The table on this page shows which components are vulnerable and which are **outdated** (a newer release exists).  
+Plugins and themes that are grayed out are currently deactivated on the website, or cannot be updated via third party apps like Patchstack (like premium licensed software, which use non-standard updating mechanisms).
 
 ![](@images/patchstack-software.png)
 

@@ -7,7 +7,7 @@ metadata:
   image: []
   robots: "index"
 createdAt: "Tue Mar 07 2023 11:15:15 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Thu May 25 2023 11:50:46 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Mon Aug 24 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 6.2
 ---
@@ -29,6 +29,8 @@ Reports will be available for downloading on the Reports page.
     * Weekly, on Mondays
 5. If you are on an **Enterprise plan**, you can also customize some report settings and upload your customer's logo, which will be shown on the reports.
 6. Having finished with customizing, click **Create**.
+
+New schedules are **active by default** (they start generating on the next weekly or monthly run). You can pause or edit a schedule later from the **Scheduled reports** tab.
 
 Note that reports are generated at specific times:
 - Weekly reports are generated every Monday, 02:00 UTC time

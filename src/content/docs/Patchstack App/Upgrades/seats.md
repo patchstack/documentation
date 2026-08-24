@@ -7,7 +7,7 @@ metadata:
   image: []
   robots: "index"
 createdAt: "Mon Jul 25 2022 09:07:03 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Thu May 25 2023 13:56:53 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Mon Aug 24 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 8.2
 ---
@@ -22,22 +22,13 @@ To view available plan upgrades, navigate to **Upgrades** in Patchstack App, or 
 
 Enable this upgrade by clicking on the **Manage** button at the top right corner of this module on the <a href="https://app.patchstack.com/billing/subscription" target="_blank">Upgrades page</a>.
 
-- Developer plan comes with 3 free seats included by default.
-- Enterprise plan comes with 5 free seats included by default.
-
-The cost for an extra seat is $24 / month.
+- **Developer** plan comes with 3 free seats included by default. Extra seats can be purchased for **$24 / month** each.
+- **Enterprise** plan includes **unlimited team seats** — there is no seat-invite cap and no per-seat purchase path.
 
 ![](@images/patchstack-upgrades-seats.png)
-
-
-
-
-
-
-
 
 ### Managing the seat accounts
 
 You can manage the seat accounts by navigating to your account settings (click on your name at the bottom left corner) and click on <a href="https://app.patchstack.com/team/" target="_blank"><b>Seats</b></a> from the top menu.  
 
-The help article about how to manage the seat accounts can be [found here.](/patchstack-app/account-settings/team/)
+The help article about how to manage the seat accounts can be [found here.](/patchstack-app/account-settings/seats/)
