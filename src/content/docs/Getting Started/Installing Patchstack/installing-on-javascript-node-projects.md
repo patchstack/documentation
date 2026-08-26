@@ -19,7 +19,7 @@ Patchstack monitors JavaScript and Node.js applications — not only WordPress s
 
 The connector reads the project's dependency lockfile (`package-lock.json`, `pnpm-lock.yaml`, or `yarn.lock`; bun projects are detected via `node_modules/`) and reports package names and versions to Patchstack, which matches them against its vulnerability database and notifies you when a dependency needs patching. It works with any framework — Next.js, Vite, Nuxt, Remix, SvelteKit, TanStack Start, plain Node — and with npm, pnpm, yarn, and bun.
 
-It sends dependency names and versions only: no source code, no environment variable values, no file paths, no git history.
+It sends dependency names and versions, plus your site's own public address so the dashboard can show where the site lives and check that the published page still carries what was scanned. No source code, no file paths, no git history.
 
 ## Install
 
@@ -32,7 +32,7 @@ npx --no-install patchstack-connect setup
 
 `setup` applies a bounded, idempotent set of changes and nothing else:
 
-1. **Scans the lockfile and sends the dependency manifest** (package names and versions) to Patchstack.
+1. **Scans the lockfile and sends the dependency manifest** (package names and versions, plus the site's public address when the build environment publishes one) to Patchstack.
 2. **Provisions a Patchstack site** on the first run and writes its UUID to `.patchstackrc.json` (commit this file); later runs reuse the existing site instead of creating a duplicate.
 3. **Manages the disclosure-widget tag** in the project's root HTML shell (the first of `index.html`, `public/index.html`, or `src/app.html` that exists) — see the widget section below.
 4. **Adds production build integration to `package.json`:** `scan` runs before the build and `mark-build` after it, via `prebuild`/`postbuild` lifecycle hooks (or a direct build chain on bun, which skips npm-style hooks). Existing build commands are preserved, dev scripts are untouched, and `setup` never runs the build itself.
@@ -71,7 +71,8 @@ The package also ships an **opt-in** `protect` command: a runtime exploit guard,
 
 ## Security and data handling
 
-- **Data sent to Patchstack:** dependency package names and versions from the lockfile, plus a build fingerprint from `mark-build`. No source code, environment variable values, file paths, or git history is transmitted.
+- **Data sent to Patchstack:** dependency package names and versions from the lockfile, the site's own public address (see below), plus a build fingerprint from `mark-build`. No source code, file paths, or git history is transmitted.
+- **Your site's address, and the only environment variables read for their value:** a site provisioned by a scan from a developer machine has no address, so the dashboard shows a placeholder and Patchstack cannot check that the published page still carries what was scanned. The connector therefore reports the site's address when it can know it — `url` in `.patchstackrc.json` (or the `PATCHSTACK_SITE_URL` variable) if you set one, otherwise the single variable a host publishes to name its own **production** URL: `VERCEL_PROJECT_PRODUCTION_URL` on a Vercel production deployment, Netlify's `URL` in the production context, `RENDER_EXTERNAL_URL`, or `RAILWAY_PUBLIC_DOMAIN` in a production environment. Preview and branch deployments are excluded, and an address that could not be a published site (`localhost`, a private network) is dropped. When nothing qualifies, no address is sent. Patchstack applies it only to a site that still has no address — it never re-points a site whose address is already set.
 - **Files written locally:** `.patchstackrc.json` (site UUID and settings), the widget script tag in the root HTML shell, and the `scan`/`mark-build` entries in `package.json` scripts. `mark-build` additionally stamps build output, never source.
 - **External resources:** the widget script is loaded in the browser from `https://cdn.patchstack.com/patchstack-widget.js`. The CLI itself downloads and executes nothing from a URL.
 - **Dashboard link:** printed to the terminal only; the CLI never opens it and never asks for credentials.
@@ -82,7 +83,7 @@ The package also ships an **opt-in** `protect` command: a runtime exploit guard,
 2. Remove the widget tag (and any `PatchstackWidget.init(...)` call) from the layout or HTML shell.
 3. Remove the `patchstack-connect scan` / `patchstack-connect mark-build` parts from `package.json` scripts, keeping any chained commands.
 4. Uninstall with the manager matching the lockfile: `npm uninstall` / `pnpm remove` / `yarn remove` / `bun remove` `@patchstack/connect`.
-5. Delete `.patchstackrc.json` and any `PATCHSTACK_SITE_UUID` environment variables.
+5. Delete `.patchstackrc.json` and any `PATCHSTACK_SITE_UUID` or `PATCHSTACK_SITE_URL` environment variables.
 
 Reporting stops immediately. Local removal does not delete the site record on Patchstack's side: an unclaimed site is an anonymous record that stops receiving reports; a claimed site can be removed in the dashboard at https://app.patchstack.com.
 
