@@ -12,9 +12,9 @@ sidebar:
 
 Patchstack modules are modules managed by us and regularly updated to contain the latest vPatch definitions. Below contain the modules which you can enable on your sites with a description about its functionality.
 
-### vPatches
+### RapidMitigate (vPatches)
 
-This module contains all the vPatches that protect you against plugin, theme and WordPress vulnerabilities for which we generated a vPatch. These vPatches match against specific conditions in the request to ensure a as low as possible false positive rate.
+In the app this module is called **RapidMitigate**. It contains all the vPatches that protect you against plugin, theme and WordPress vulnerabilities for which we generated a vPatch. These vPatches match against specific conditions in the request to ensure a as low as possible false positive rate.
 
 For example, a vPatch for a plugin vulnerability which allows someone to export all orders due to the plugin not implementing proper authorization checks may contain the following conditions:
 
@@ -26,9 +26,9 @@ For example, a vPatch for a plugin vulnerability which allows someone to export 
 
 This allows us to block specific attacks without it affecting users who still may need to access the ability to export orders.
 
-### Advanced Hardening
+### WordPress Hardening
 
-This module contains protection rules that protect you against commonly seen attacks that target WordPress sites. Some examples of the protection rules that are part of this module are listed below. All of them are not executed against users who are logged in as administrator.
+This module (previously called Advanced Hardening) contains protection rules that protect you against commonly seen attacks that target WordPress sites. Some examples of the protection rules that are part of this module are listed below. All of them are not executed against users who are logged in as administrator.
 
 These protection rules could cause false positives with remote WordPress management tools, in particular the protection rules that block settings from being changed by unauthenticated users.
 

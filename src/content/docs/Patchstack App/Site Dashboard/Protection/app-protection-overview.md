@@ -23,18 +23,18 @@ On the **Protection overview** subpage you can:
 
 ## Protection modules
 
-Patchstack firewall consists of three types of protection modules, which can be toggled on and off for any protected site. These protection modules also show the number of your sites are attached to each module.
-Below are the decriptions for all three protection modules:
+Patchstack firewall consists of three types of protection modules, which can be toggled on and off for any protected site. Only the modules that apply to the site's platform are shown; a WordPress site sees all three, other platforms see RapidMitigate and the Community IP blocklist. Each card shows the module's key number: rules deployed on this site for RapidMitigate, blocklisted IPs over the last 30 days for the Community IP blocklist, and rules included for WordPress Hardening. The module icon is green while the module is on and grey while it is off.
+Below are the descriptions for all three protection modules:
 
-### vPatching module
+### RapidMitigate module
 
 Receive Patchstack's **vPatches** (<a href="https://patchstack.com/articles/virtual-patching/" target="_blank">virtual patches</a>) to protect you sites against attacks targeted for known dangerous vulnerabilities in your sites. **vPatches** are highly specific and strict firewall rules that prevent vulnerabilities from being exploited without changing any of your code.  
-<a href="/patchstack-app/protection/patchstack-modules/#vpatches" target="_blank">📖 Read more </a>
+<a href="/patchstack-app/protection/patchstack-modules/#rapidmitigate-vpatches" target="_blank">📖 Read more </a>
 
-### Advanced hardening
+### WordPress Hardening
 
-The **Advanced hardening** module applies additional security mechanics to the WordPress application to block common malicious requests against WordPress sites.  
-<a href="/patchstack-app/protection/patchstack-modules/#advanced-hardening" target="_blank">📖 Read more </a>
+The **WordPress Hardening** module applies additional security mechanics to the WordPress application to block common malicious requests against WordPress sites.  
+<a href="/patchstack-app/protection/patchstack-modules/#wordpress-hardening" target="_blank">📖 Read more </a>
 
 ### Community IP blocklist
 
