@@ -55,6 +55,19 @@ Note that you can **only add email addresses** that have **not yet registered** 
 After adding the user, you can see the added user in the table below.  
 An invitation will be sent to that email asking to register an account on Patchstack App.
 
+### When your seats are full
+
+If every seat on your plan is already taken, the invite is refused and the panel tells you why.
+
+- On the **Developer** plan you can buy the seat as part of the invite. The panel states the charge
+  before you commit — for example _"Your next monthly additional seat (2→3) charge will be $72."_ —
+  and the button reads **Invite additional user for $24/mo**. Confirming adds the seat to your
+  subscription and sends the invite together.
+- On plans that do not include seat users, no purchase can lift the refusal. The panel shows
+  **Manage your subscription** instead, which takes you to the Upgrades page to change plan.
+
+Enterprise plans do not hit this — seats are unlimited.
+
 ### Attaching an Operator seat user to sites
 
 If you assigned a user the **Operator** role, you can choose which sites you want to attach this user.
