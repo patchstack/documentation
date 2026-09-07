@@ -1,0 +1,212 @@
+---
+title: "Troubleshooting JavaScript / Node.js projects"
+excerpt: "Fix a disclosure widget that never appears, a published build that serves an old integration, a broken config file, or an outdated @patchstack/connect — including prompts to paste into an AI site builder."
+hidden: false
+createdAt: "Mon Sep 07 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Mon Sep 07 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 7.4
+  label: "Troubleshooting JS / Node.js"
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+This page covers the problems that come up after connecting a JavaScript or Node.js project with [`@patchstack/connect`](/getting-started/installing-patchstack/installing-on-javascript-node-projects/): a disclosure widget that never appears, a published site still serving an old integration, a build that broke after a config change, and a connector stuck on an old version.
+
+Every section ends with a **prompt you can paste into your site builder's AI chat**. The prompts are deliberately explicit about proving the result, because builder assistants otherwise tend to report the version they remember, or stop after editing one file.
+
+<Aside type="tip" title="Start with the builder context">
+Paste the matching [builder context](#tell-your-builder-what-project-this-is) snippet above any prompt on this page. It is one short paragraph, and it is what stops the assistant from installing with the wrong package manager or declaring a slow build a failed one.
+</Aside>
+
+## Tell your builder what project this is
+
+AI builders differ in which package manager they use and which controls they expose. Prepend the snippet for your platform to any prompt below.
+
+**Lovable**
+
+```text
+This is a Lovable project. Inspect the existing lockfile before installing
+anything. Lovable projects often use Bun; if bun.lock or bun.lockb exists, use
+Bun and do not create a package-lock.json beside it.
+```
+
+**GoDaddy Airo**
+
+```text
+This is a GoDaddy Airo project. Make the changes in the project workspace and
+use its existing package manager. If Airo does not expose the required install
+or build control, tell me exactly which step is unavailable instead of
+reporting that the task is complete.
+```
+
+**Hostinger Horizons**
+
+```text
+This is a Hostinger Horizons project. Use its existing package manager and allow
+the dependency install and full production build to finish before checking the
+result; do not treat a slow build as a failed one.
+```
+
+**Anything else, or not sure**
+
+```text
+First identify this project's package manager from its lockfile and use that
+same package manager for every command. Do not create a second lockfile.
+```
+
+## The widget is not visible on my site
+
+The floating **Report a vulnerability** button is hidden by default. If you installed the connector and never saw it, that is usually the reason rather than a broken install — work through these in order.
+
+<Steps>
+
+1. **Turn the public form on.** The visitor-facing button only appears when the widget is told to show it, either through the script tag:
+
+   ```html
+   <script
+     src="https://cdn.patchstack.com/patchstack-widget.js"
+     data-site-uuid="YOUR-SITE-UUID"
+     data-report-form="true"
+     defer
+   ></script>
+   ```
+
+   or from **Settings → Reporting → Display vulnerability reporting form** inside the widget itself.
+
+2. **Open the widget as the site owner.** You do not need the public button to reach your own dashboard. Load any page of your site with `#patchstack` appended to the URL:
+
+   ```text
+   https://your-site.com/#patchstack
+   ```
+
+   That reveals the owner log-in even on a live production build, and it works from any device or network. `?patchstack` in the query string does the same thing.
+
+3. **Check the script tag actually shipped.** View source on the published page (not the builder preview) and confirm there is exactly one script loading `https://cdn.patchstack.com/patchstack-widget.js`, with `data-site-uuid` set to the UUID from your committed `.patchstackrc.json`.
+
+4. **Check the site UUID is a literal value.** The UUID must be written into the HTML. Reading it from `VITE_*`, `NEXT_PUBLIC_*`, or another environment-only variable that is not defined at build time leaves the attribute empty and the widget silent. The site UUID is public by design — it ships in client-side HTML and is not a secret.
+
+5. **Check the widget was not disabled.** `"widget": false` in `.patchstackrc.json` turns off all widget management, and the next `scan` will not re-add the tag.
+
+6. **Check the browser console.** A Content Security Policy that omits `cdn.patchstack.com` from `script-src`, or a content blocker, will stop the script from loading. Both show up as an error on the live page.
+
+</Steps>
+
+<Aside type="caution" title="Frameworks without an HTML shell">
+`setup` manages the tag in the first of `index.html`, `public/index.html`, or `src/app.html` that exists. Next.js, Nuxt, SvelteKit, Remix and TanStack Start have no such file — they need a one-line placement in the root layout. Run `npx @patchstack/connect guide` for the exact snippet for your framework.
+</Aside>
+
+### Prompt: widget missing after publish
+
+Use this when the widget works in the builder preview but is absent from the published site.
+
+```text
+Please diagnose why the Patchstack widget works in preview but is missing from
+the published site.
+
+1. Use the latest @patchstack/connect release from npm.
+2. Confirm the root page contains exactly one connector-managed script from
+   https://cdn.patchstack.com/patchstack-widget.js with data-site-uuid set from
+   the public .patchstackrc.json value.
+3. Do not read the site UUID from VITE_*, NEXT_PUBLIC_*, or another
+   environment-only variable.
+4. Run the connector setup/scan flow and the complete production build,
+   including mark-build where the project scripts require it.
+5. Inspect the generated production output — not only source files — and verify
+   that the widget script and window.__PATCHSTACK_PROD__ marker are present.
+6. Publish that verified output, then check the live page and browser console
+   for the first concrete error.
+
+Please make the fix and show the production evidence. Thank you.
+```
+
+## The published widget still looks outdated
+
+Your source can be correct while the builder or CDN is still serving an older artifact. Confirm the live URL — not the preview — is loading the current script, and compare the version the widget reports in each.
+
+The widget shows its version in the owner dashboard. If preview and live disagree, the deployment is stale, not the code.
+
+```text
+Please verify that the published site is actually serving the newest Patchstack
+integration rather than an older build artifact.
+
+1. Confirm @patchstack/connect matches the current npm registry version,
+   including releases from the last 24 hours.
+2. Confirm the site loads the Patchstack CDN script rather than a copied local
+   patchstack-widget.js file.
+3. Run a clean production build through the project's normal build command and
+   wait for it to finish.
+4. Republish the new output and invalidate only the relevant builder/deployment
+   cache if the platform exposes that control.
+5. On the live URL, inspect the Network response for patchstack-widget.js and
+   the version shown by the widget. Compare that with preview and report both
+   values.
+
+Please do not stop at a source-code check; verify the live deployment.
+Thank you.
+```
+
+## Is this the latest connector version?
+
+Site builders often resolve `@patchstack/connect` from cached package metadata and land on an older release. Check what npm actually has:
+
+```bash
+npm view @patchstack/connect version
+```
+
+Then compare it against what is installed. If they differ, install `@patchstack/connect@latest` with the package manager that matches your lockfile.
+
+```text
+Please update @patchstack/connect from the official npm registry. Use the
+latest version available right now, including a release published within the
+last 24 hours. Please do not rely on a remembered or cached version.
+
+1. Query npm for the current dist-tag with: npm view @patchstack/connect version.
+2. Install @patchstack/connect@latest as a regular dependency with the package
+   manager already used by this project.
+3. Confirm the exact installed version using the package manager and
+   @patchstack/connect --version.
+4. Run the project's complete production build.
+5. Tell me the registry version, installed version, files changed, and final
+   build result. Do not say it is current unless the two versions match.
+
+Please make the changes and verify them. Thank you.
+```
+
+## The build broke after a config update
+
+The connector uses two config files with different jobs, and mixing them up breaks the build:
+
+| File | Commit it? | Holds |
+|------|-----------|-------|
+| `.patchstackrc.json` | Yes | The public `siteUuid` and non-secret settings such as `widget` |
+| `.patchstackrc.local.json` | No — gitignore it | `apiKey` only |
+
+The API key can also come from the `PATCHSTACK_API_KEY` environment variable. Never import it into browser code and never move it into the public config.
+
+```text
+Please diagnose and fix the Patchstack build after the config-file update.
+
+1. Update @patchstack/connect to the latest npm version first, even if it was
+   released within the last 24 hours.
+2. Search the entire project for .patchstackrc.json and
+   .patchstackrc.local.json, including build scripts and generated integration
+   code.
+3. Keep the public siteUuid and non-secret settings in committed
+   .patchstackrc.json.
+4. Keep apiKey only in gitignored .patchstackrc.local.json or
+   PATCHSTACK_API_KEY. Never import that secret into browser code or move it
+   into the public config.
+5. Fix any stale code path that still expects the credential only in
+   .patchstackrc.json, while preserving the site UUID.
+6. Run Patchstack status, scan, and the complete production build. Report the
+   root cause, exact files changed, and build output.
+
+Please complete and verify the fix. Thank you.
+```
+
+## Still stuck?
+
+- `npx @patchstack/connect guide` prints a project-aware checklist of what is present and what is missing.
+- `npx @patchstack/connect status` re-prints the site UUID and dashboard link.
+- [Pulse sites overview](/patchstack-app/pulse/pulse-overview/) explains what a connected site looks like in the Patchstack App, including how to tell whether it is reporting.

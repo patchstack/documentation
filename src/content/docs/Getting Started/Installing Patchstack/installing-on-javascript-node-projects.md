@@ -65,6 +65,8 @@ Frameworks without a static HTML shell need a one-line placement in the root lay
 
 To run without the widget, set `"widget": false` in `.patchstackrc.json` — this disables all widget management; otherwise the next scan re-adds the tag.
 
+The floating button is **hidden by default**: it appears only when the widget is told to show it, via `data-report-form="true"` on the script tag or the widget's own Settings. To reach your dashboard while the button is hidden, open any page of your site with `#patchstack` appended to the URL. See [Troubleshooting JS / Node.js](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/) if the widget still does not appear.
+
 ## The `protect` command
 
 The package also ships an **opt-in** `protect` command: a runtime exploit guard, currently for TanStack Start + Supabase applications, which patches the app's Supabase client to route traffic through a same-origin guard. It modifies application code and runs **only** when explicitly invoked — `setup`, `scan`, `guide`, `status`, and `mark-build` never invoke it. If you don't run `protect`, no application code is changed beyond the widget tag and `package.json` scripts described above.
@@ -85,6 +87,10 @@ The package also ships an **opt-in** `protect` command: a runtime exploit guard,
 5. Delete `.patchstackrc.json` and any `PATCHSTACK_SITE_UUID` environment variables.
 
 Reporting stops immediately. Local removal does not delete the site record on Patchstack's side: an unclaimed site is an anonymous record that stops receiving reports; a claimed site can be removed in the dashboard at https://app.patchstack.com.
+
+## Troubleshooting
+
+A widget that never appears, a published site serving an old build, a broken config file, or a connector stuck on an old version are all covered — with copy-paste prompts for AI site builders — in [Troubleshooting JavaScript / Node.js projects](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/).
 
 ## How this relates to host-level npm protection
 
