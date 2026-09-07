@@ -27,7 +27,7 @@ A Pulse site gets a smaller set of tabs than a WordPress site, because several o
 
 | Tab | What it tells you |
 |-----|-------------------|
-| **Overview** | The vulnerabilities found in this app's dependencies, and whether the app is connected and reporting. |
+| **Overview** | Whether protection is active, the vulnerabilities found in this app's dependencies, and how many packages are installed. |
 | **[Packages](/patchstack-app/pulse/packages/)** | Every npm package the app has installed, which are vulnerable, and how close each vulnerability is to code the app actually runs. |
 | **[Deploy history](/patchstack-app/pulse/deploy-history/)** | What each build changed about the installed packages, and whether it brought in anything already known to be vulnerable. |
 | **[Attack surface](/patchstack-app/pulse/attack-surface/)** | The app's entry points, the inputs they read, and where those inputs can reach. Populated only if you run `map --upload`. |
@@ -38,14 +38,11 @@ Hardening, Activity, and Users are WordPress-only and do not appear. Reports cur
 
 ## Connected, scanned, and synced
 
-The site header shows two different timestamps, and they answer different questions:
+The site header shows **Last scan** — when the connector last sent a dependency manifest. This moves when you build or install dependencies, and it is how old the package data on the page is.
 
-- **Last scan** — when the connector last sent a dependency manifest. This moves when you build or install dependencies.
-- **Last synced** — when Patchstack last had any contact with the site at all.
+Hover it and Patchstack also tells you when it last had any contact with the site, whenever that is much more recent than the scan. The two differ because Patchstack learns about a Pulse site from more than one signal. The connector reports at build time. The disclosure widget in your served pages checks in when a visitor loads the site, which is how Patchstack knows the app is actually live and running the build you last reported. Patchstack also re-fetches the published page on a schedule to confirm the widget is still there.
 
-They differ because Patchstack learns about a Pulse site from more than one signal. The connector reports at build time. The disclosure widget in your served pages checks in when a visitor loads the site, which is how Patchstack knows the app is actually live and running the build you last reported. Patchstack also re-fetches the published page on a schedule to confirm the widget is still there.
-
-An app that builds rarely but gets traffic will show an old scan time and a recent sync. That is normal, not a fault.
+An app that builds rarely but gets traffic will show an old scan time and recent contact. That is normal, not a fault.
 
 Because the widget check-in runs in a public page, Patchstack treats it as corroboration rather than proof — a site's connection status is derived from what can be verified, not from the check-in alone.
 
