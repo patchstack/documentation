@@ -26,6 +26,6 @@ Patchstack has 2 different types of reports available:
   This is a periodic security report about the situation on the website, with security suggestions and improvements. Developer report generation is available for the Developer and Enterprise plan users only. Developer reports can be scheduled to be auto-generated monthly, or weekly.
 
 On the **Reports** page you can view and download all the previously generated PDF reports.  
-To download a report, click on the download icon that is located at the left side of the table.
+To download a report, click **Download** at the right end of its row.
 
 To view and manage your scheduled reports, click on **Scheduled reports** tab. Note that report scheduling is for the Developer and Enterprise plan users.

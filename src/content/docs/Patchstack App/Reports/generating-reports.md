@@ -20,7 +20,7 @@ To view and generate the Patchstack security reports, navigate to **Reports** li
 1. Go to the **Reports** page in the Patchstack App
 2. Click on the **Site** dropdown and choose your site
 3. Click the green **Generate** button
-4. The report is generated and you can download it, by clicking the download icon in the table below
+4. The report is generated and you can download it by clicking **Download** at the right end of its row in the table below
 
 Read more about the **[Snapshot reports](/patchstack-app/reports/snapshot-report/)** here.
 
@@ -33,6 +33,6 @@ _This feature is only for the Developer and Enterprise plan users_
 3. From the second dropdown choose **Developer report**
 4. From the third dropdown, select the timeframe for which you want your report
 5. Click the green **Generate** button
-6. The report will be generated in a few minutes. Once ready, you can download it by clicking the download icon in the table below.
+6. The report will be generated in a few minutes. Once ready, you can download it by clicking **Download** at the right end of its row in the table below.
 
 Read more about the **[Developer reports](/patchstack-app/reports/developer-report/)** here.
