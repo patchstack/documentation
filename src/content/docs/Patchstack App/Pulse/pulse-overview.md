@@ -46,6 +46,32 @@ An app that builds rarely but gets traffic will show an old scan time and recent
 
 Because the widget check-in runs in a public page, Patchstack treats it as corroboration rather than proof — a site's connection status is derived from what can be verified, not from the check-in alone.
 
+## When the site was last deployed
+
+Beside those timestamps, a Pulse site's header carries a **deploy status**. Building and deploying are separate events, and Patchstack tracks them separately.
+
+The connector's `mark-build` step stamps each build's fingerprint into the HTML it publishes. Patchstack reads that fingerprint back off the live site — from the widget when a visitor loads a page, and from its own scheduled fetch of the published page — and compares it against the builds you have reported. That comparison is what the status says out loud:
+
+| Status | What it means |
+|--------|---------------|
+| **Deployed \<when\>** | The build serving traffic is the one Patchstack scanned. |
+| **Last build \<when\>** | The same, except nobody has seen this app change build since Patchstack started watching. The time shown is when the build ran, not when it went live. |
+| **Needs deploying** | A newer build was scanned, but the live site is still serving an older one. Deploy to put it live. |
+| **Deployed without Patchstack** | The live site is running a build Patchstack never scanned — the build ran without the connector. Run the build again with `@patchstack/connect` so its packages get checked. |
+| **Sandbox only** | Builds have been reported, but only from a sandbox. Nothing has gone to production yet. |
+| **Build environment** | This site is a build environment rather than a live one. Deploys are tracked on the production site it belongs to. |
+| **Deploy state unknown** | Nothing current names the live build — usually a site with no traffic that Patchstack also cannot fetch. |
+
+**Needs deploying** is the one worth acting on. The vulnerabilities Patchstack lists are the ones in the build it scanned; if that build never shipped, neither did the fixes in it.
+
+The status also appears in the disclosure widget's owner panel, under the sync line — useful, because you are standing on the live site when you read it there.
+
+### How quickly it updates
+
+A deploy shows up as soon as something sees it. A site with traffic reports within the hour, from the first visitor to load a page on the new build. A site without traffic waits for the scheduled fetch of the published page, which runs daily for production sites.
+
+Patchstack only dates a deploy it actually witnessed — one known build handing over to another. The first build it ever sees is left undated, because an app that has been live for months would otherwise read as deployed today.
+
 ## Protection
 
 Reporting your dependencies tells you what is vulnerable. The **runtime guard** installed by `setup` is what stops those vulnerabilities being exploited while you upgrade — the JavaScript equivalent of the virtual patching Patchstack applies to WordPress sites.

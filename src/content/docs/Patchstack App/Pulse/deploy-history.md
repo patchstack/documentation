@@ -34,6 +34,14 @@ Packages that were already installed are the Packages tab's job. Re-flagging the
 
 So a build annotated with a vulnerability is telling you something specific: this deploy is what brought the problem in.
 
+## Which build is live
+
+The page header carries the same deploy status as the site header: which of the builds below is the one serving traffic right now. The list is a record of builds, and the newest entry in it is not automatically the live one.
+
+Where a newer build was scanned but never shipped, the page says so directly — the timeline alone cannot, because a build that never went out looks exactly like one that did. See [when the site was last deployed](/patchstack-app/pulse/pulse-overview/#when-the-site-was-last-deployed).
+
+The status describes production only, so it is hidden while you are looking at the sandbox lineage.
+
 ## Environments
 
 Builds are grouped by environment, and a build is only ever compared against the build before it **in the same environment**.
