@@ -18,7 +18,7 @@ To manage your seats and team settings, click on your name on Patchstack App (at
 On the **Seats** page you can manage the seats. The seat management feature allows you to add sub-users to your account to which you can assign specific permissions and/or sites.  
 When you add a new user, they will receive an email with a link to activate their account.
 
-Enterprise plans include **unlimited team seats** (there is no invite cap).
+On the **Enterprise** plan the number of seats is **custom** — it is whatever your agreement with our sales team covers, not a fixed number set by the plan.
 
 ## Available roles
 
@@ -66,7 +66,7 @@ If every seat on your plan is already taken, the invite is refused and the panel
 - On plans that do not include seat users, no purchase can lift the refusal. The panel shows
   **Manage your subscription** instead, which takes you to the Upgrades page to change plan.
 
-Enterprise plans do not hit this — seats are unlimited.
+Enterprise plans do not hit this refusal, because their seat count comes from the agreement rather than a plan limit. If you need more seats than you agreed, speak to your account contact.
 
 ### Attaching an Operator seat user to sites
 
