@@ -44,3 +44,17 @@ Where an upgrade is not immediately possible, the [runtime guard](/getting-start
 ## Why a package can appear twice
 
 npm allows the same package to be installed at more than one version at once, when two dependencies need incompatible versions. When that happens the package appears once per installed version, because the vulnerability status of each version is genuinely different.
+
+## Exporting the list (SBOM)
+
+The **SBOM** button at the top of the app's page hands you the same inventory as a file. Press it and Patchstack first explains what the file is; the download sits inside that explanation.
+
+A software bill of materials is a list of every package an application is built from, with the exact version of each one. People ask for it in three situations:
+
+- **Security questionnaires.** Enterprise customers and compliance frameworks increasingly ask suppliers for this file by name.
+- **Reacting to news.** When a package is reported vulnerable, searching the file for its name tells you whether it affects you.
+- **Keeping a record.** The file names the build it was taken from, so you can tell what a given release shipped with.
+
+The export is a JSON file holding the app's identity, the build it came from, and every package name and version in that build — the complete manifest, not the page of it you happen to be looking at. It contains nothing about your source code or your visitors.
+
+An app that has never reported a build has nothing to export yet. Deploy once with [`@patchstack/connect`](/getting-started/installing-patchstack/installing-on-javascript-node-projects/) installed and the list appears.
