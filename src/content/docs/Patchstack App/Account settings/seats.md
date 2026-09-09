@@ -31,9 +31,9 @@ Roles are **two groups, not one ladder**. Owner / Admin / Manager / Operator are
 3. **Manager** — Full control of all sites. Cannot modify users.
 4. **Operator** — Editing access only to sites assigned to them. Cannot modify users, cannot delete sites, and cannot add new sites.
 
-**Separate accounts**
+**Separate accounts** — these sit outside your account and are created by your invitation. They are not existing Patchstack users that you link to your account.
 
-5. **Customer** — An isolated account that inherits your subscription type. The Customer owns and manages their own site(s). Sites you **assign** to a Customer are view-only for them. Customers cannot add sites on your plan.
+5. **Customer** — A new, separate Patchstack account that your invitation creates, so the person you invite must **not already have a Patchstack account**. It inherits your subscription type. The Customer owns and manages their own site(s). Sites you **assign** to a Customer are view-only for them. Customers cannot add sites on your plan.
 
 :::note[API / stored values]
 Integrations that call the team API still send the historical stored values: `member` for Operator and `independent` for Customer. The Patchstack App UI shows the labels above.
@@ -48,7 +48,7 @@ In order to attach a site to a user, go to **Site** > **Action button** > **Atta
 To add a seat user, click on **Add seat user**.  
 Add a name, email address and role of the seat user.
 
-Note that you can **only add email addresses** that have **not yet registered** in Patchstack.
+Note that you can **only add email addresses** that have **not yet registered** in Patchstack. This applies to every role, including Customer — the invitation always creates a brand new Patchstack account.
 
 ![](@images/7bc1fea-small-Patchstack_adding_seat_user.png)
 
