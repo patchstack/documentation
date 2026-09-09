@@ -16,6 +16,12 @@ lifecycle automatically.
 - Scales from 10 to 10,000 customers across any number of cPanel servers. Customers self-serve from their client area (status, SSO to the Patchstack dashboard, manual-install fallback for external hosting).
 :::
 
+Prefer to watch first? The 12-minute screencast below walks through the hosting-provider steps on this page. You can also <a href="https://drive.google.com/file/d/1e2fyIxZLf471Cjq4fGwC9DWVe4Vke4fz/view" target="_blank" rel="noopener">open it in Google Drive</a>.
+
+<div class="container">
+  <iframe class="responsive-iframe" src="https://drive.google.com/file/d/1e2fyIxZLf471Cjq4fGwC9DWVe4Vke4fz/preview" title="WHMCS setup screencast for hosting providers" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
+
 :::tip[Standing up a local environment first?]
 If you want to test the module locally before configuring a production WHMCS,
 follow your local WHMCS development setup guide to get a working install, then
