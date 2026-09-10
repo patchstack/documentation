@@ -80,7 +80,7 @@ The floating button is **hidden by default**: it appears only when the widget is
 
 ### Signing in to the widget on your site
 
-The widget's owner panel leads with **Continue with Patchstack**: one click signs you in with the account you are already signed in to at app.patchstack.com — no password, no provider round trip, and it works for SSO and two-factor accounts too. If you are not signed in there, the click takes you to the Patchstack login and brings you back to your site afterwards. In browsers that allow it, the button already names your account ("Continue as …"); elsewhere it is unnamed but works the same way. The e-mail, Google, GitHub and LinkedIn options are still there underneath.
+If you are already signed in to app.patchstack.com in the same browser, the widget's sign-in form leads with **Continue as <your name>**: one click signs you in with that account — no password, no provider round trip, and it works for SSO and two-factor accounts too. The option appears only when the widget can see that session, which Chrome and Edge allow and Safari and Firefox do not by default; otherwise the form offers e-mail, Google, GitHub and LinkedIn as before.
 
 ## The `protect` command
 
