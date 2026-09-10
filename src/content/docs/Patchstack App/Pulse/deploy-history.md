@@ -50,7 +50,7 @@ This matters if you scan from more than one place. Production and sandbox builds
 
 With no environment selected, the view follows the site's most recent build, so an app that only ever scans from a sandbox still gets a real timeline.
 
-You can set the environment a scan reports as with `PATCHSTACK_ENVIRONMENT`, or `environment` in `.patchstackrc.json`. It defaults to `production`.
+You can set the environment a scan reports as with `PATCHSTACK_ENVIRONMENT`, or `environment` in `.patchstackrc.json`. When nothing sets it, the scan reports where it ran: a build on your hosting platform or in CI reports `production`, and a scan on a developer's machine reports `local`. Local builds are kept as their own lineage too, so the packages you tried on a laptop never show up as production churn.
 
 ## When it is empty
 
