@@ -40,6 +40,17 @@ npx --no-install patchstack-connect setup
 
 `setup` ends by printing a **dashboard link**. The CLI never opens the link and never asks for Patchstack credentials — open it in your browser and sign in to see the vulnerability reports. The site is monitored either way; connecting it to an account is what makes the reports visible to you.
 
+### Connecting straight to your account
+
+If you start from the app — **Sites → Add new → AI-assisted** — and tick **Connect this website to my account automatically**, the message it gives you to paste into your assistant carries a **claim token** for your account, and the assistant runs `setup` with it:
+
+```bash
+npx @patchstack/connect setup --claim-token <token>
+# or: PATCHSTACK_CLAIM_TOKEN=<token> npx @patchstack/connect setup
+```
+
+The site is then created already attached to your account, `setup` prints your dashboard link for it, and the app's **Connect website** panel picks the site up on its own. The token names your account, not the project: it is never written to `.patchstackrc.json` or the credential file, and it stops working after a day. An expired or unrecognised token does not break the install — the site is created unattached, exactly as it would be without one, and `setup` prints the dashboard link to connect it by hand.
+
 `setup` never runs the `protect` command (see below).
 
 ### Manual alternative
@@ -66,6 +77,10 @@ Frameworks without a static HTML shell need a one-line placement in the root lay
 To run without the widget, set `"widget": false` in `.patchstackrc.json` — this disables all widget management; otherwise the next scan re-adds the tag.
 
 The floating button is **hidden by default**: it appears only when the widget is told to show it, via `data-report-form="true"` on the script tag or the widget's own Settings. To reach your dashboard while the button is hidden, open any page of your site with `#patchstack` appended to the URL. See [Troubleshooting JS / Node.js](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/) if the widget still does not appear.
+
+### Signing in to the widget on your site
+
+The widget's owner panel leads with **Continue with Patchstack**: one click signs you in with the account you are already signed in to at app.patchstack.com — no password, no provider round trip, and it works for SSO and two-factor accounts too. If you are not signed in there, the click takes you to the Patchstack login and brings you back to your site afterwards. In browsers that allow it, the button already names your account ("Continue as …"); elsewhere it is unnamed but works the same way. The e-mail, Google, GitHub and LinkedIn options are still there underneath.
 
 ## The `protect` command
 
