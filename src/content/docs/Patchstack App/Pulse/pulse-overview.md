@@ -40,7 +40,7 @@ Hardening, Activity, and Users are WordPress-only and do not appear. Reports cur
 
 ## Application status
 
-The overview opens with the application's status: where it is in its life, from set up to protected, and what that verdict rests on.
+The **Status** tab shows where the app is in its life, from set up to protected, and what that verdict rests on. The chip beside the site name is its short form and links to it, so the Overview stays a dashboard.
 
 The headline is one of:
 
@@ -104,7 +104,7 @@ Runtime protection on a production Pulse app is a paid feature. See [The runtime
 
 ### When protection is not offered
 
-The guard screens requests, so it needs a request path to sit on. Some apps have none, and the dashboard says so instead of offering protection:
+The guard screens requests, so it needs a request path to sit on. Some apps have none, and the Status tab and the Protection card say so instead of offering protection:
 
 - **Not available for this app** — the app builds a static site (Eleventy, Gatsby, Docusaurus, VitePress, a SvelteKit site with the static adapter, and similar) and nothing in it receives a request. Dependency monitoring and the disclosure widget still apply; runtime protection does not. `setup` installs nothing for it on such a project, and `protect --check` reports the capability as not applicable rather than as failing. Protection becomes available if the app later gains a server or edge request path.
 - **Deploy first** — the app has not been deployed with Patchstack yet. Protection is verified against a live site, so deploy, then enable it.
