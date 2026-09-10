@@ -52,9 +52,11 @@ The headline is one of:
 - **Deployed without Patchstack** — the live site is running a build that was never scanned. Run the build again with `@patchstack/connect` installed.
 - **Deploy state unknown** — production builds exist, but nothing current says which one is live.
 
-Next to the headline, **Reporting from** names the environment Patchstack last heard from — *local machine*, *sandbox*, or *production* — and the four stages below it (**Configured**, **Deployed**, **Monitoring**, **Protection**) are each graded from what was actually observed, with its timestamp. A stage is not ticked because a later one is: an app can be live without a production scan, and the card says so.
+Next to the headline, **Reporting from** names the environment Patchstack last heard from — *local machine*, *sandbox*, or *production*. **Built with** names the builder when one was recognised, and **Hosted on** names the platform serving the site (Netlify, Vercel, Cloudflare, DigitalOcean, AWS, GitHub Pages and others), as read from the build's own environment and confirmed from the live page's response headers. The four stages below them (**Configured**, **Deployed**, **Monitoring**, **Protection**) are each graded from what was actually observed, with its timestamp. A stage is not ticked because a later one is: an app can be live without a production scan, and the card says so.
 
 Every status that is not the finished one names the next step. For a locally configured app that is: add `PATCHSTACK_API_KEY` to the hosting platform's environment, commit the generated changes, and deploy. Expand **What this is based on** to see every signal behind the verdict — a scan on a developer machine, a production build, the widget checking in from the live site, Patchstack's own fetch of the page — with where each came from and when.
+
+When a site moves — hosting from Netlify to Vercel, or builder from Lovable to GoDaddy — the move is recorded with both ends, the date and which witness saw it, and listed on the tab. The current platform alone would never say the site had changed.
 
 A deploy that was scanned before it went out, but not by the build that shipped it, still reads as **Deployed**: the build's fingerprint in the served page proves it. The next step then asks you to add `PATCHSTACK_API_KEY` to the hosting environment, so every future deploy reports its own build rather than relying on a scan made elsewhere.
 
