@@ -19,6 +19,8 @@ Install the connector in your project and run `setup`. The first scan creates th
 
 The site starts out **unclaimed**: it is being monitored, but it is not attached to anyone's account, so nobody can see its reports. `setup` prints a dashboard link. Open it, sign in, and the site attaches to your account. If you lose the link, `npx @patchstack/connect status` prints it again.
 
+Starting from the app can skip that step: tick **Connect this website to my account automatically** under **Sites → Add new → AI-assisted** and the message it gives you carries a token for your account, so a site created with it is attached from its first scan and shows up in the app on its own. See [Connecting straight to your account](/getting-started/installing-patchstack/installing-on-javascript-node-projects/#connecting-straight-to-your-account).
+
 An unclaimed site that nobody ever claims is cleaned up after a reminder period, so claim it while you are thinking about it.
 
 ## What the tabs show
