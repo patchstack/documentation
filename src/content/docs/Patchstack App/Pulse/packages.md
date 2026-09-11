@@ -35,7 +35,25 @@ Read these as a prioritisation order, not a verdict on exploitability.
 
 One limitation worth knowing: the dependency manifest and the attack-surface map are uploaded separately, and nothing currently ties them to the same build. A verdict is computed against the most recent map Patchstack holds, which may describe an older build than the manifest that produced the finding. Each verdict records which map revision answered it.
 
+## Whether you are protected
+
+A list of vulnerabilities reads as a list of things to do, which is wrong when Patchstack is already blocking attacks on them. A summary above the table says which of three states the app is in:
+
+| State | What it means |
+|-------|---------------|
+| **No known vulnerabilities** | Nothing installed matches a vulnerability Patchstack knows about. |
+| **Mitigated** | Every vulnerable package is covered by a virtual patch the runtime guard is serving. Attacks are blocked; there is nothing you need to do right now. |
+| **Not mitigated** | At least one vulnerable package has no virtual patch behind it, or protection is switched off for the app. |
+
+Individual rows say the same thing: a package covered by a virtual patch shows **Mitigated** in place of its patch priority, and its version is no longer shown in red. The priority and severity move into the tooltip, along with a reminder of what mitigation does and does not do.
+
+"Mitigated" is a claim about what the guard is actually serving, not about what rules exist. A rule for an advisory only counts once a blocking bundle containing it has been delivered to your app — so an app running in detect-only mode, or one that has not yet fetched its rules, is not reported as mitigated.
+
+When Patchstack cannot reach its vulnerability database it says nothing rather than reassuring you. An empty result from a check that failed looks the same as an empty result from a check that passed, so the summary withholds "no known vulnerabilities" and "mitigated" until the check has actually answered for every package.
+
 ## Acting on a vulnerable package
+
+**Mitigated is not fixed.** A virtual patch blocks attempts to exploit the vulnerability. The vulnerable version is still installed, and the advisory still applies to it.
 
 Upgrading the package is the fix. Patchstack shows the versions that resolve the advisory so you can pick a target.
 
