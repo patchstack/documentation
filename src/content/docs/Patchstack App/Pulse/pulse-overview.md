@@ -38,6 +38,28 @@ A Pulse site gets a smaller set of tabs than a WordPress site, because several o
 
 Hardening, Activity, and Users are WordPress-only and do not appear. Reports currently cover WordPress sites; a Pulse site's security-report page hides the sections that do not apply.
 
+## Application status
+
+The **Status** tab shows where the app is in its life, from set up to protected, and what that verdict rests on. The chip beside the site name is its short form and links to it, so the Overview stays a dashboard.
+
+The headline is one of:
+
+- **Configured locally** — Patchstack is set up in the app's working tree and its packages were scanned on a developer's machine. Nothing has been deployed with it yet. This is what a fresh `setup` produces, and it is not a connected site: nothing is live.
+- **Sandbox only** — builds have been reported from a hosted builder's sandbox, and nothing has gone to production.
+- **Not deployed yet** — the app was added but no build has reported at all.
+- **Needs deploying** — a newer build has been scanned than the one the live site is serving.
+- **Deployed** — the live site is running a build Patchstack scanned. The date is when the build was seen to change on the live site; where nothing has changed under observation, it is the build time, labelled as such.
+- **Deployed without Patchstack** — the live site is running a build that was never scanned. Run the build again with `@patchstack/connect` installed.
+- **Deploy state unknown** — production builds exist, but nothing current says which one is live.
+
+Next to the headline, **Reporting from** names the environment Patchstack last heard from — *local machine*, *sandbox*, or *production*. **Built with** names the builder when one was recognised, and **Hosted on** names the platform serving the site (Netlify, Vercel, Cloudflare, DigitalOcean, AWS, GitHub Pages and others), as read from the build's own environment and confirmed from the live page's response headers. The four stages below them (**Configured**, **Deployed**, **Monitoring**, **Protection**) are each graded from what was actually observed, with its timestamp. A stage is not ticked because a later one is: an app can be live without a production scan, and the card says so.
+
+Every status that is not the finished one names the next step. For a locally configured app that is: add `PATCHSTACK_API_KEY` to the hosting platform's environment, commit the generated changes, and deploy. Expand **What this is based on** to see every signal behind the verdict — a scan on a developer machine, a production build, the widget checking in from the live site, Patchstack's own fetch of the page — with where each came from and when.
+
+When a site moves — hosting from Netlify to Vercel, or builder from Lovable to GoDaddy — the move is recorded with both ends, the date and which witness saw it, and listed on the tab. The current platform alone would never say the site had changed.
+
+A deploy that was scanned before it went out, but not by the build that shipped it, still reads as **Deployed**: the build's fingerprint in the served page proves it. The next step then asks you to add `PATCHSTACK_API_KEY` to the hosting environment, so every future deploy reports its own build rather than relying on a scan made elsewhere.
+
 ## Connected, scanned, and synced
 
 The site header shows **Last scan** — when the connector last sent a dependency manifest. This moves when you build or install dependencies, and it is how old the package data on the page is.
@@ -81,6 +103,15 @@ Reporting your dependencies tells you what is vulnerable. The **runtime guard** 
 The guard fetches the rules Patchstack generated for the vulnerable packages this site actually has, and reports every rule that matched, including matches it allowed through. A new rule starts in detect-only mode and begins blocking once the evidence justifies it, so protection does not arrive as a wall of false positives.
 
 Runtime protection on a production Pulse app is a paid feature. See [The runtime guard](/getting-started/installing-patchstack/installing-on-javascript-node-projects/) for what `setup` installs and which frameworks are wired automatically.
+
+### When protection is not offered
+
+The guard screens requests, so it needs a request path to sit on. Some apps have none, and the Status tab and the Protection card say so instead of offering protection:
+
+- **Not available for this app** — the app builds a static site (Eleventy, Gatsby, Docusaurus, VitePress, a SvelteKit site with the static adapter, and similar) and nothing in it receives a request. Dependency monitoring and the disclosure widget still apply; runtime protection does not. `setup` installs nothing for it on such a project, and `protect --check` reports the capability as not applicable rather than as failing. Protection becomes available if the app later gains a server or edge request path.
+- **Deploy first** — the app has not been deployed with Patchstack yet. Protection is verified against a live site, so deploy, then enable it.
+
+The card names what the verdict is based on: the attack-surface map's analysis of the source where the app has reported one, otherwise the packages in its newest build.
 
 ## Removing a site
 
