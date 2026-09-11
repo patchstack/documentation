@@ -1,9 +1,9 @@
 ---
 title: "Troubleshooting JavaScript / Node.js projects"
-excerpt: "Fix a disclosure widget that never appears, a published build that serves an old integration, a broken config file, or an outdated @patchstack/connect — including prompts to paste into an AI site builder."
+excerpt: "Fix a disclosure widget that never appears or appears twice, a published build that serves an old integration, a broken config file, or an outdated @patchstack/connect — including prompts to paste into an AI site builder."
 hidden: false
 createdAt: "Mon Sep 07 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Mon Sep 07 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Wed Sep 09 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 7.4
   label: "Troubleshooting JS / Node.js"
@@ -11,7 +11,7 @@ sidebar:
 
 import { Steps, Aside } from '@astrojs/starlight/components';
 
-This page covers the problems that come up after connecting a JavaScript or Node.js project with [`@patchstack/connect`](/getting-started/installing-patchstack/installing-on-javascript-node-projects/): a disclosure widget that never appears, a published site still serving an old integration, a build that broke after a config change, and a connector stuck on an old version.
+This page covers the problems that come up after connecting a JavaScript or Node.js project with [`@patchstack/connect`](/getting-started/installing-patchstack/installing-on-javascript-node-projects/): a disclosure widget that never appears, a widget that appears twice, a published site still serving an old integration, a build that broke after a config change, and a connector stuck on an old version.
 
 Every section ends with a **prompt you can paste into your site builder's AI chat**. The prompts are deliberately explicit about proving the result, because builder assistants otherwise tend to report the version they remember, or stop after editing one file.
 
@@ -203,6 +203,55 @@ Please diagnose and fix the Patchstack build after the config-file update.
    root cause, exact files changed, and build output.
 
 Please complete and verify the fix. Thank you.
+```
+
+## I see two Patchstack widgets
+
+Two shield buttons stacked in the corner, sometimes one opening the owner log-in and the other the report form, mean the widget script ran twice on that page. They often sit on exactly the same pixel, so the second one only shows when a panel opens or the layout shifts.
+
+The widget keeps **one floating launcher per page** on its own:
+
+- A second copy loaded by the **same document** is ignored, with a `[PatchstackWidget]` warning in the browser console.
+- A copy inside a page of **your own site that the shell shows in an `<iframe>`** stands down as well, with a console message. The connector's `mark-build` step stamps every built HTML file, so an embedded static page carries the tag too; that copy is harmless and you can leave it.
+
+What still needs your attention is a second tag that you, or the builder's AI, added by hand. It usually lives in a component, a layout, or a runtime `useEffect` that appends the script. Keep exactly one tag, in the root shell.
+
+<Aside type="note" title="React StrictMode">
+In development React runs effects twice. A snippet that appends the widget `<script>` in `useEffect` must call `destroy()` on the widget in its cleanup, or the first copy survives. The React snippet in the [widget integration guide](https://cdn.patchstack.com/llm.html) does this.
+</Aside>
+
+Count the copies on the published page from the browser console:
+
+```js
+document.querySelectorAll('script[src*="patchstack-widget"]').length   // want 1
+document.querySelectorAll('#patchstack-widget-host').length            // want 1
+```
+
+If the page embeds another page of your site in an `<iframe>`, run the same two lines inside that frame (pick it in the console's context dropdown). One host in the shell and none in the frame is the expected result.
+
+### Prompt: two widgets on the page
+
+```text
+Please make sure the Patchstack widget is loaded exactly once on this site.
+
+1. Search the entire project - source files, layouts, components, and static
+   HTML under public/ - for "patchstack-widget.js" and list every place that
+   loads it.
+2. Keep exactly one <script> tag: the connector-managed one in the root shell
+   (index.html, or the root layout for Next.js / TanStack Start / Remix). It
+   must carry data-site-uuid with the value from the committed
+   .patchstackrc.json.
+3. Remove every other copy that was added by hand: in components, in layouts,
+   and in code that appends the script at runtime. If a component must load it
+   at runtime, call destroy() on the returned widget in the effect cleanup.
+4. Leave the tag that @patchstack/connect writes into static HTML pages during
+   mark-build; the widget ignores it when that page is shown inside the shell.
+5. Run the complete production build, publish it, open the live site, and
+   confirm a single launcher is visible and the browser console shows no
+   "[PatchstackWidget] A floating widget is already on this page" warning.
+
+Please make the changes and show me the list from step 1 and the console
+check from step 5. Thank you.
 ```
 
 ## Still stuck?
