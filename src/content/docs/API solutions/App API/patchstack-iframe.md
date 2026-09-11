@@ -73,7 +73,9 @@ We recommend selecting one of the two themes provided (either dark or light). Ho
 If this is needed, reach out to us and provide us with the CSS snippet to inject. Note that HTML/CSS structure and styling of the iframe widget may change over time which may affect the way your custom CSS renders the elements in the iframe widget.
 
 #### Can we choose what information users see? 
-No, currently the information is fixed to the views below. 
+No, currently the information is fixed to the views below: vulnerabilities, packages, protection and settings.
+
+Your customers can read these views but cannot change how Patchstack is configured on the site. Protection modules are shown as on or off with no way to switch them, and the site's URL and name are read-only in the frame — they follow whatever you set through the API.
 
 #### Are the widget height and width static? 
 No. You can define the dimensions through the iframe attributes. The width is responsive, but the height would add a scrollbar if it doesn’t fit into view.
@@ -84,7 +86,7 @@ No. You can define the dimensions through the iframe attributes. The width is re
 #### Vulnerabilities overview
 ![](@images/patchstack_iframe_overview_protected.png)
 
-#### Software overview
+#### Packages overview
 ![](@images/patchstack_iframe_software_protected.png)
 
 #### Protection overview
