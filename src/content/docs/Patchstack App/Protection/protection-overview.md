@@ -23,7 +23,22 @@ On this page, you can:
 
 ### Protection modules
 
-A module is a collection of firewall rules managed by Patchstack. Assign modules to your app to protect them. You can manage the protection modules, by clicking on the green **Manage** button.  
+A module is a collection of firewall rules managed by Patchstack. Assign modules to your sites to protect them. Three managed modules are shown as cards:
+
+* **RapidMitigate** — one card for every platform Patchstack protects (WordPress, Drupal, npm-based apps). It shows how many mitigation rules are currently deployed on your sites out of the total available, and how many sites are attached.
+* **Community IP blocklist** — shows the number of blocklisted IPs and attached sites.
+* **WordPress Hardening** — shows the number of rules included and attached sites. WordPress sites only.
+
+A module's icon is green when it is attached to at least one site and grey when it is not.
+
+Click the green **Manage** button on a card to open the **Attach sites to module** panel. In the panel you can:
+
+* Search for a site by its URL, or by the name of a package (plugin, theme or npm dependency) installed on it.
+* Filter the site list by platform, and sort it by newest, oldest or alphabetically.
+* Toggle the module on or off per site. Sites the module cannot apply to (for example a Drupal site under WordPress Hardening) are greyed out.
+* Toggle the module on or off per group. A module attached to a group is also applied to any site that joins the group later.
+
+Click **Done** to save your changes.  
 [📖 Read more about the protection modules here.](/patchstack-app/protection/patchstack-modules/)
 
 ### Activity

@@ -9,14 +9,14 @@ sidebar:
 
 Patchstack uses the word "hardening" in more than one place, and security headers can be delivered in more than one way. This page explains how these settings relate to each other, so you know what a given toggle does and does not change.
 
-## "Advanced Hardening" vs the per-site Hardening tab
+## "WordPress Hardening" vs the per-site Hardening tab
 
 These are two different things that share a name:
 
-- **Advanced Hardening** is a managed firewall module under **Protection**. It contains protection rules that Patchstack maintains and updates for you (for example, blocking risky file uploads or suspicious `wp-config.php` requests). It is enabled or disabled as part of the firewall. See [Patchstack modules](/patchstack-app/protection/patchstack-modules/).
+- **WordPress Hardening** (previously called Advanced Hardening) is a managed firewall module under **Protection**. It contains protection rules that Patchstack maintains and updates for you (for example, blocking risky file uploads or suspicious `wp-config.php` requests). It is enabled or disabled as part of the firewall. See [Patchstack modules](/patchstack-app/protection/patchstack-modules/).
 - The per-site **Hardening** tab (**Sites** > **yourdomain.com** > **Hardening**) holds settings you configure yourself for a single site: the [General hardening](/patchstack-app/site-dashboard/hardening/app-hardening-general/) options and the [.htaccess features](/patchstack-app/site-dashboard/hardening/app-hardening-htaccess/), including **Add security headers**.
 
-Turning the firewall (and Advanced Hardening) off does not clear your per-site Hardening settings. As noted in the [firewall settings](/patchstack-app/site-dashboard/protection/app-protection-additional-settings/), when the firewall is disabled other security measures such as IP bans and `.htaccess` rules remain active.
+Turning the firewall (and WordPress Hardening) off does not clear your per-site Hardening settings. As noted in the [firewall settings](/patchstack-app/site-dashboard/protection/app-protection-additional-settings/), when the firewall is disabled other security measures such as IP bans and `.htaccess` rules remain active.
 
 ## Per-site settings apply independently
 

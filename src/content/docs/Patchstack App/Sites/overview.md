@@ -24,7 +24,7 @@ Let's go through some more important table columns to explain the data shown.
 2. **Group** column shows what groups that site has been attached to. Attaching your sites to custom groups makes it easier to manage them. For example you could group them by care plan names that you offer.
 3. **Protection** column shows you, which protection modules are activated on the site. If you are on a free plan, you can see a toggle which lets you activate the protection on that site. If you have protection enabled, you'll see such modules:
     - VP - <a href="/patchstack-app/protection/patchstack-modules/#vpatches" target="_blank">vPatching module</a>
-    - AH - <a href="/patchstack-app/protection/patchstack-modules/#advanced-hardening" target="_blank">Advanced hardening module</a>
+    - AH - <a href="/patchstack-app/protection/patchstack-modules/#wordpress-hardening" target="_blank">WordPress hardening module</a>
     - IP - <a href="/patchstack-app/protection/patchstack-modules/#community-ip-blocklist" target="_blank">Community IP blocklist module</a>
 4. **Threats blocked** - this graph is a visual representation of the firewall activity in the last 7 days
 5. **Software** column shows how many third party software is installed on this particular site (like plugins, themes or WordPress core)
