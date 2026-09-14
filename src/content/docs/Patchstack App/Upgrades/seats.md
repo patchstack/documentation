@@ -29,6 +29,6 @@ Enable this upgrade by clicking on the **Manage** button at the top right corner
 
 ### Managing the seat accounts
 
-You can manage the seat accounts by navigating to your account settings (click on your name at the bottom left corner) and click on <a href="https://app.patchstack.com/team/" target="_blank"><b>Seats</b></a> from the top menu.  
+You can manage the seat accounts by navigating to your account settings (click on your name at the bottom left corner) and click on <a href="https://app.patchstack.com/team/" target="_blank"><b>Team</b></a> from the top menu.  
 
 The help article about how to manage the seat accounts can be [found here.](/patchstack-app/account-settings/seats/)
