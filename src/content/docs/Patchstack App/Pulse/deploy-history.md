@@ -50,7 +50,7 @@ This matters if you scan from more than one place. Production and sandbox builds
 
 With no environment selected, the view follows the site's most recent build, so an app that only ever scans from a sandbox still gets a real timeline.
 
-You can set the environment a scan reports as with `PATCHSTACK_ENVIRONMENT`, or `environment` in `.patchstackrc.json`. When nothing sets it, the scan reports where it ran: a build on your hosting platform or in CI reports `production`, and a scan on a developer's machine reports `local`. Local builds are kept as their own lineage too, so the packages you tried on a laptop never show up as production churn.
+You can set the environment a scan reports as with `PATCHSTACK_ENVIRONMENT`, or `environment` in `.patchstackrc.json`. When nothing sets it, the scan reports where it ran. A build your hosting platform makes for its production deployment reports `production`, and so does a CI build of your production branch (`main`, `master`, `production`, `prod`, `release` or `live` on GitHub Actions, GitLab CI, Cloudflare Pages, AWS Amplify and similar). A preview, a pull-request build or a build of any other branch reports `sandbox`. A scan on a developer's machine, or in a CI runner Patchstack cannot place, reports `local`. Local builds are kept as their own lineage too, so the packages you tried on a laptop never show up as production churn.
 
 ## When it is empty
 
