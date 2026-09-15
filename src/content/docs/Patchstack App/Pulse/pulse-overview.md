@@ -62,6 +62,8 @@ Under the status card, **Live site activity** shows how often the site has been 
 
 The headline above the grid says when the site was last heard from and by which witness, and reads **Checking in** while the last check-in is under an hour old. The grid is the difference between a site with visitors and one somebody opened once: the status card can say the site was seen five minutes ago, but only the grid can say whether that was the first time this week or the four-hundredth. Check-ins are kept for 30 days.
 
+Under the grid, **Recent builds** lists each build that reported its packages this week, newest first: the environment the connector said it ran in, what decided a production label (the platform's own variables, an assumption from the project's builder, or `PATCHSTACK_ENVIRONMENT`), the build id, and whether a visitor's widget or Patchstack's own page read has since seen that build on the live site. That last column is the difference between a build and a deploy. Nothing in the list names a machine, a person, a path or a branch: the connector reports only the label and how it decided it.
+
 Every status that is not the finished one names the next step. For a locally configured app that is: add `PATCHSTACK_API_KEY` to the hosting platform's environment, commit the generated changes, and deploy. Expand **What this is based on** to see every signal behind the verdict — a scan on a developer machine, a production build, the widget checking in from the live site, Patchstack's own fetch of the page — with where each came from and when.
 
 When a site moves — hosting from Netlify to Vercel, or builder from Lovable to GoDaddy — the move is recorded with both ends, the date and which witness saw it, and listed on the tab. The current platform alone would never say the site had changed.
@@ -99,6 +101,8 @@ The connector's `mark-build` step stamps each build's fingerprint into the HTML 
 **Needs deploying** is the one worth acting on. The vulnerabilities Patchstack lists are the ones in the build it scanned; if that build never shipped, neither did the fixes in it.
 
 The status also appears in the disclosure widget's owner panel, under the sync line — useful, because you are standing on the live site when you read it there.
+
+While the newest build has not been seen on the live site — the app is configured locally, only sandbox builds exist, a production build reported itself without confirmation, or a newer build is waiting to go out — the owner panel carries a short reminder that Patchstack is not on the live site yet and the project needs republishing. It is a statement, not a publish button: nothing is published for you. It goes away on its own once a check-in or page read finds the new build live, and returns if a later build is scanned and not shipped.
 
 ### How quickly it updates
 
