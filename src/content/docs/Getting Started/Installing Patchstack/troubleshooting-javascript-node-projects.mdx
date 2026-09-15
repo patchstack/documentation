@@ -11,7 +11,7 @@ sidebar:
 
 import { Steps, Aside } from '@astrojs/starlight/components';
 
-This page covers the problems that come up after connecting a JavaScript or Node.js project with [`@patchstack/connect`](/getting-started/installing-patchstack/installing-on-javascript-node-projects/): a disclosure widget that never appears, a widget that appears twice, a published site still serving an old integration, a build that broke after a config change, and a connector stuck on an old version.
+This page covers the problems that come up after connecting a JavaScript or Node.js project with [`@patchstack/connect`](/getting-started/installing-patchstack/installing-on-javascript-node-projects/): a disclosure widget that never appears, a widget that appears twice, a published site still serving an old integration, a build that broke after a config change, a connector stuck on an old version, and an update that will not take because the package manager is holding the release back.
 
 Every section ends with a **prompt you can paste into your site builder's AI chat**. The prompts are deliberately explicit about proving the result, because builder assistants otherwise tend to report the version they remember, or stop after editing one file.
 
@@ -130,8 +130,9 @@ The widget shows its version in the owner dashboard. If preview and live disagre
 Please verify that the published site is actually serving the newest Patchstack
 integration rather than an older build artifact.
 
-1. Confirm @patchstack/connect matches the current npm registry version,
-   including releases from the last 24 hours.
+1. Confirm @patchstack/connect matches the newest release the project's
+   package manager will install. A release published in the last 24 hours may
+   be held back — see the section below.
 2. Confirm the site loads the Patchstack CDN script rather than a copied local
    patchstack-widget.js file.
 3. Run a clean production build through the project's normal build command and
@@ -154,24 +155,43 @@ Site builders often resolve `@patchstack/connect` from cached package metadata a
 npm view @patchstack/connect version
 ```
 
-Then compare it against what is installed. If they differ, install `@patchstack/connect@latest` with the package manager that matches your lockfile.
+Then compare it against **the lockfile**, not `package.json`. The lockfile records what is installed; `package.json` records what was asked for, and the two can disagree — see the next section. If they differ, install `@patchstack/connect@latest` with the package manager that matches your lockfile.
 
 ```text
-Please update @patchstack/connect from the official npm registry. Use the
-latest version available right now, including a release published within the
-last 24 hours. Please do not rely on a remembered or cached version.
+Please update @patchstack/connect from the official npm registry. Please do not
+rely on a remembered or cached version.
 
 1. Query npm for the current dist-tag with: npm view @patchstack/connect version.
 2. Install @patchstack/connect@latest as a regular dependency with the package
    manager already used by this project.
-3. Confirm the exact installed version using the package manager and
-   @patchstack/connect --version.
-4. Run the project's complete production build.
-5. Tell me the registry version, installed version, files changed, and final
-   build result. Do not say it is current unless the two versions match.
+3. Confirm the exact installed version in the LOCKFILE, not package.json, and
+   with @patchstack/connect --version.
+4. If the lockfile did not move to the version you asked for, check whether this
+   project holds back newly published packages (for example minimumReleaseAge in
+   bunfig.toml) and tell me the version it settled on and why.
+5. Run the project's complete production build.
+6. Tell me the registry version, the installed version from the lockfile, files
+   changed, and the final build result.
 
 Please make the changes and verify them. Thank you.
 ```
+
+## The update keeps coming back after I update
+
+Some platforms hold a newly published package for a day before they will install it. Lovable is one: every project it generates carries a `bunfig.toml` with
+
+```toml
+[install]
+minimumReleaseAge = 86400
+```
+
+which tells Bun to skip any version published in the last 24 hours. Ask for one of those and the install reports success, `package.json` shows the new number, and the lockfile stays exactly where it was.
+
+This is a supply-chain guard, and a reasonable one — a package published minutes ago has had no time to be noticed if it was published by someone who should not have been able to. **We do not suggest turning it off.**
+
+To see what actually happened, open your lockfile (`bun.lock`, `package-lock.json`, `pnpm-lock.yaml`) and find `@patchstack/connect`. That number is the one that counts. If it is behind `package.json`, the release you asked for is still inside the hold window, and the install will pick it up on its own the next time the project is built after the window passes.
+
+Patchstack allows for this. The update notice in your dashboard and in the widget compares what you have installed against the newest release your package manager will actually accept, so it does not ask you to install something that is being held back — and when a newer release exists but is still held, the update screen says so rather than treating it as something you have failed to do.
 
 ## The build broke after a config update
 
