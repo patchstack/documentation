@@ -48,7 +48,8 @@ The headline is one of:
 - **Sandbox only** — builds have been reported from a hosted builder's sandbox, and nothing has gone to production.
 - **Not deployed yet** — the app was added but no build has reported at all.
 - **Needs deploying** — a newer build has been scanned than the one the live site is serving.
-- **Deployed** — the live site is running a build Patchstack scanned. The date is when the build was seen to change on the live site; where nothing has changed under observation, it is the build time, labelled as such.
+- **Deployed** — the live site is running a build Patchstack scanned. The date is when the build was seen to change on the live site; where nothing has changed under observation, it is the build time, labelled as such. A production build that reports itself from a hosting platform's own production build (Netlify, Vercel, Cloudflare and the others the connector recognises) also reads as **Deployed**, dated by the build, until the live page confirms it.
+- **Deploy reported** — a production build reported itself, but the live page has not been seen running it. This happens in two cases. Patchstack has read the page since the report and it is not running that build: either nothing has been published yet, or the build went out without its marker. Or the label was assumed from the project's builder rather than read from a platform: Lovable and Replit build the app for the preview and for publishing alike, so a build on its own is not proof of a publish. The first visit or scheduled check that finds the build live turns this into **Deployed**.
 - **Deployed without Patchstack** — the live site is running a build that was never scanned. Run the build again with `@patchstack/connect` installed.
 - **Live, build unverified** — the widget is checking in from the site's address, but the page carries no build marker, so nothing says which build is running. This is what a build made on your own machine looks like once it is uploaded by hand: the connector only stamps the marker on a build it can tell is a deployment. Build for publishing with `PATCHSTACK_ENVIRONMENT=production`, or run `npx @patchstack/connect mark-build --production` before uploading, and the next deploy reads as **Deployed**.
 - **Deploy state unknown** — production builds exist, but nothing current says which one is live.
@@ -60,6 +61,8 @@ Next to the headline, **Reporting from** names the environment Patchstack last h
 Under the status card, **Live site activity** shows how often the site has been heard from over the last seven days, hour by hour, in your local time. Each cell is one hour; the deeper the green, the more check-ins in that hour. A check-in is a visitor's browser running the widget on the live site, or Patchstack's own scheduled read of the page. An outlined cell marks an hour in which a build reported its packages. Hover a cell for the exact counts.
 
 The headline above the grid says when the site was last heard from and by which witness, and reads **Checking in** while the last check-in is under an hour old. The grid is the difference between a site with visitors and one somebody opened once: the status card can say the site was seen five minutes ago, but only the grid can say whether that was the first time this week or the four-hundredth. Check-ins are kept for 30 days.
+
+Under the grid, **Recent builds** lists each build that reported its packages this week, newest first: the environment the connector said it ran in, what decided a production label (the platform's own variables, an assumption from the project's builder, or `PATCHSTACK_ENVIRONMENT`), the build id, and whether a visitor's widget or Patchstack's own page read has since seen that build on the live site. That last column is the difference between a build and a deploy. Nothing in the list names a machine, a person, a path or a branch: the connector reports only the label and how it decided it.
 
 Every status that is not the finished one names the next step. For a locally configured app that is: add `PATCHSTACK_API_KEY` to the hosting platform's environment, commit the generated changes, and deploy. Expand **What this is based on** to see every signal behind the verdict — a scan on a developer machine, a production build, the widget checking in from the live site, Patchstack's own fetch of the page — with where each came from and when.
 
@@ -89,6 +92,7 @@ The connector's `mark-build` step stamps each build's fingerprint into the HTML 
 |--------|---------------|
 | **Deployed \<when\>** | The build serving traffic is the one Patchstack scanned. |
 | **Last build \<when\>** | The same, except nobody has seen this app change build since Patchstack started watching. The time shown is when the build ran, not when it went live. |
+| **Deploy reported** | A production build reported itself, but the live page has not been seen running it — either the page was read since and is not running it, or the label was assumed from the project's builder. Publish if you have not, or open the published site once so the widget can confirm the build. |
 | **Needs deploying** | A newer build was scanned, but the live site is still serving an older one. Deploy to put it live. |
 | **Deployed without Patchstack** | The live site is running a build Patchstack never scanned — the build ran without the connector. Run the build again with `@patchstack/connect` so its packages get checked. |
 | **Live, build unverified** | The widget is checking in from the site's address, but the page carries no build marker, so nothing can say which build is live. Typically a build made on a developer's machine and uploaded by hand. Build with `PATCHSTACK_ENVIRONMENT=production`, or run `mark-build --production` before uploading. |
@@ -99,6 +103,8 @@ The connector's `mark-build` step stamps each build's fingerprint into the HTML 
 **Needs deploying** is the one worth acting on. The vulnerabilities Patchstack lists are the ones in the build it scanned; if that build never shipped, neither did the fixes in it.
 
 The status also appears in the disclosure widget's owner panel, under the sync line — useful, because you are standing on the live site when you read it there.
+
+While the newest build has not been seen on the live site — the app is configured locally, only sandbox builds exist, a production build reported itself without confirmation, or a newer build is waiting to go out — the owner panel carries a short reminder that Patchstack is not on the live site yet and the project needs republishing. It is a statement, not a publish button: nothing is published for you. It goes away on its own once a check-in or page read finds the new build live, and returns if a later build is scanned and not shipped.
 
 ### How quickly it updates
 
