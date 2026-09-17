@@ -53,11 +53,13 @@ When Patchstack cannot reach its vulnerability database it says nothing rather t
 
 ## Acting on a vulnerable package
 
-**Mitigated is not fixed.** A virtual patch blocks attempts to exploit the vulnerability. The vulnerable version is still installed, and the advisory still applies to it.
+You are not exposed while you decide. The [runtime guard](/getting-started/installing-patchstack/installing-on-javascript-node-projects/) blocks attempts to exploit a known vulnerability in a package you have installed, so a finding here is something to schedule rather than something to drop everything for.
 
-Upgrading the package is the fix. Patchstack shows the versions that resolve the advisory so you can pick a target.
+**Mitigated is not fixed.** A virtual patch blocks attempts to exploit the vulnerability. The vulnerable version is still installed, and the advisory still applies to it. It is a stopgap that buys you time, not a substitute for the upgrade.
 
-Where an upgrade is not immediately possible, the [runtime guard](/getting-started/installing-patchstack/installing-on-javascript-node-projects/) can block attempts to exploit the vulnerability in the meantime. That is a stopgap that buys you time, not a substitute for the upgrade.
+Upgrading the package is the fix. Patchstack shows the version that resolves the advisory for the version you have installed, so you can pick a target.
+
+**The upgrade is made in your own project, not from Patchstack.** Patchstack reads your dependency manifest; it does not write to your repository or trigger builds on the platform your app was built with. Change the version where your project lives — your repository, or your AI builder's own package view — and redeploy. The next build's manifest is what clears the finding here.
 
 ## Why a package can appear twice
 
