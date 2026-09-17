@@ -50,3 +50,17 @@ If the checkbox is missing for that row, it means this software cannot be update
 You can update components altogether by clicking the **Update All** button.  
 Just keep in mind to **back up your files and database** before doing that.
 
+## Whether you are protected
+
+A list of vulnerabilities reads as a list of things to do, which is wrong when Patchstack is already blocking attacks on them. A summary above the table says which of three states the site is in:
+
+| State | What it means |
+|-------|---------------|
+| **No known vulnerabilities** | Nothing installed matches a vulnerability Patchstack knows about. |
+| **Mitigated** | Every vulnerable component is covered by a [vPatch](/patchstack-app/site-dashboard/protection/app-protection-overview/), and protection is on for this site. Attacks are blocked; there is nothing you need to do right now. |
+| **Not mitigated** | At least one vulnerable component has no virtual patch behind it, or protection is switched off for the site. |
+
+Individual rows say the same thing: a component covered by a virtual patch shows **Mitigated** in place of its patch priority, and its version is no longer shown in red. The priority moves into the tooltip, along with a reminder of what mitigation does and does not do.
+
+**Mitigated is not fixed.** A virtual patch blocks attempts to exploit the vulnerability. The vulnerable version is still installed, and updating it is still the permanent fix.
+
