@@ -4,7 +4,7 @@ title: "Dashboard"
 excerpt: ""
 hidden: false
 createdAt: "Wed Oct 18 2023 12:41:44 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Mon Aug 24 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Tue Sep 08 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 1
 ---
@@ -21,7 +21,7 @@ To access the main dashboard in Patchstack App, click on **Dashboard** from the 
 
 ![](@images/patchstack-dashboard-vulnerabilities-section.png)
 
-Vulnerabilities section shows you a general overview about all the vulnerabilities currently present on each of your WordPress sites. The vulnerabilities are divided into three different groups, which indicate the patching priority:
+Vulnerabilities section shows you a general overview about all the vulnerabilities currently present on each of your WordPress sites. Each vulnerability is counted once, however many of your sites it affects, so the numbers here match the **Detected Vulnerabilities** list further down the page, which shows one row per vulnerability with the number of affected sites on it. The vulnerabilities are divided into three different groups, which indicate the patching priority:
 
 <Steps>
 1. **High patch priority** software versions are expected to be mass-exploited or have already known to be exploited vulnerabilities. It's important to patch those by updating the software to patched versions and/or enabling Patchstack firewall, which applies vPatches automatically.
@@ -171,11 +171,18 @@ On the left side, you see the number of attacks.
 
 By moving the cursor on the graph, you can see the number of attacks by day.
 
-## Sites
+## Websites
 
-In the **Sites** section, you see a quick overview of how many sites you have added to the Patchstack App. 
-It also shows how many of your sites have any outdated or vulnerable components.  
-To add new websites to Patchstack App, click the **"+ Add new"** button. It will trigger a popup with steps to take to add more websites.
+The **Websites** card counts every site on your account once and puts each one in a single status, so the bar and the rows under it always add up to your total number of sites.
+
+- **Protected** — protection is on for the site, and every exploitable vulnerability on it has either been updated away or is covered by a vPatch.
+- **Exposed** — the site has an exploitable vulnerability (medium or high patch priority) that no vPatch is holding off yet. Update the affected software to close the gap. Protection can still be active on such a site: the card is telling you there is something protection cannot cover on its own.
+- **Unresponsive** — Patchstack has not heard from the site recently, so its vulnerability data cannot be trusted. Check that the Patchstack plugin is installed and connected.
+- **Clean** — nothing exploitable is standing against the site, but protection is not on for it either.
+
+Low patch priority findings do not make a site Exposed. They are not expected to be exploited and never receive a vPatch, so they only appear in the Vulnerabilities section.
+
+Because each site lands in exactly one status, these numbers are not the same as the tabs on the **Sites** page. Those tabs can list one site under several of them at once, so a site that is both unresponsive and vulnerable is counted once here and twice there.
 
 ## Software
 

@@ -3,7 +3,7 @@ title: "Sites"
 excerpt: "Sites overview page for managing your applications"
 hidden: false
 createdAt: "Mon Jul 25 2022 09:03:10 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Wed Dec 20 2023 13:36:16 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Tue Sep 08 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 2
 ---
@@ -30,6 +30,17 @@ Let's go through some more important table columns to explain the data shown.
 5. **Software** column shows how many third party software is installed on this particular site (like plugins, themes or WordPress core)
     - **Vulnerabilities** - how many vulnerabilities are currently present on your website
     - **Outdated** - how many of the third party software are outdated and need updating
+
+## Status tabs
+
+The tabs above the table filter the list. A site can appear under more than one tab at the same time, so the tab numbers do not add up to your total number of sites.
+
+- **All** — every site you can see.
+- **Unresponsive** — sites Patchstack has not heard from recently.
+- **Vulnerable** — sites with at least one known vulnerability, of any patch priority.
+- **Mitigated** — sites where a vPatch is currently holding off at least one active vulnerability. A protected site with nothing to hold off is not listed here; the **Protection** column is where you see whether protection is on.
+- **Threats blocked** — sites whose firewall has blocked attacks.
+- **Update now** — sites with outdated software.
 
 ## Manage groups
 
