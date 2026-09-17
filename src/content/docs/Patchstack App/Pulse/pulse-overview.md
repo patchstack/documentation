@@ -75,7 +75,9 @@ Hover it and Patchstack also tells you when it last had any contact with the sit
 
 An app that builds rarely but gets traffic will show an old scan time and recent contact. That is normal, not a fault.
 
-Because the widget check-in runs in a public page, Patchstack treats it as corroboration rather than proof — a site's connection status is derived from what can be verified, not from the check-in alone.
+Because the widget check-in runs in a public page, Patchstack treats it as corroboration rather than proof — a site's connection status is derived from what can be verified, not from the check-in alone. What makes a check-in verifiable is the build fingerprint it carries: when that matches the build the connector last reported, it says a real browser loaded a page from that build, and Patchstack counts the app as connected even if its own re-fetch of the page came back with nothing recognisable.
+
+That happens more often than you might expect. Patchstack's re-fetch reads the HTML the server sends, so on an app that renders its markup in the browser — most React and Vue projects, and the default on the sandbox domains builders serve previews from — there is nothing in that HTML for it to find. The check-in from inside the page is the signal that settles it, and it arrives on its own whenever the site is loaded. You should not have to press anything to keep an app that is running and reporting from reading as out of sync.
 
 ## When the site was last deployed
 
