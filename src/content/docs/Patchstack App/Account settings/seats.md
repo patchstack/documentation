@@ -1,5 +1,5 @@
 ---
-title: "Team"
+title: "Seats"
 
 excerpt: ""
 hidden: false
@@ -13,9 +13,9 @@ sidebar:
 ---
 _Seats and team features are available on the Developer and Enterprise plan users only._  
 
-To manage your seats and team settings, click on your name on Patchstack App (at the bottom left corner of the screen), then navigate to the **Team** page, or click here: https://app.patchstack.com/team
+To manage your seats and team settings, click on your name on Patchstack App (at the bottom left corner of the screen), then navigate to the **Seats** page, or click here: https://app.patchstack.com/team
 
-On the **Team** page you can manage the seats. The seat management feature allows you to add sub-users to your account to which you can assign specific permissions and/or sites.  
+On the **Seats** page you can manage the seats. The seat management feature allows you to add sub-users to your account to which you can assign specific permissions and/or sites.  
 When you add a new user, they will receive an email with a link to activate their account.
 
 On the **Enterprise** plan the number of seats is **custom** — it is whatever your agreement with our sales team covers, not a fixed number set by the plan.
@@ -52,16 +52,22 @@ An invitation will be sent to that email asking to register an account on Patchs
 
 ### When your seats are full
 
-If every seat on your plan is already taken, the invite is refused and the panel tells you why.
+Seats follow your team. You do not buy them in advance.
 
-- On the **Developer** plan you can buy the seat as part of the invite. The panel states the charge
-  before you commit — for example _"Your next monthly additional seat (2→3) charge will be $72."_ —
-  and the button reads **Invite additional user for $24/mo**. Confirming adds the seat to your
-  subscription and sends the invite together.
-- On plans that do not include seat users, no purchase can lift the refusal. The panel shows
-  **Manage your subscription** instead, which takes you to the Upgrades page to change plan.
+On the **Developer** plan, inviting somebody once the included seats are taken adds a seat to your
+subscription and sends the invite in one step. The new seat costs **$24 / month**, charged for the
+remainder of the current billing period and then at each renewal. Removing that person gives the
+seat back, so the next renewal no longer bills it — you never pay for a chair nobody sits in.
 
-Enterprise plans do not hit this refusal, because their seat count comes from the agreement rather than a plan limit. If you need more seats than you agreed, speak to your account contact.
+Two things still stop an invite, and neither can be fixed by buying a seat:
+
+- **Your plan includes no seat users at all.** The panel shows **Manage your subscription**, which
+  takes you to the Upgrades page to change plan.
+- **The charge for the new seat did not go through.** The panel says so and asks you to check the
+  payment details on your subscription before trying again.
+
+Enterprise plans do not hit either case for seat count, because their seats come from the agreement
+rather than a plan limit. If you need more seats than you agreed, speak to your account contact.
 
 ### Attaching an Operator seat user to sites
 
