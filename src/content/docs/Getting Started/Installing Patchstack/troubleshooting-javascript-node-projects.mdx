@@ -57,24 +57,24 @@ same package manager for every command. Do not create a second lockfile.
 
 ## The widget is not visible on my site
 
-The floating **Report a vulnerability** button is hidden by default. If you installed the connector and never saw it, that is usually the reason rather than a broken install — work through these in order.
+The visitor-facing **Report a vulnerability** button does not appear until the site is connected to a Patchstack account. If you installed the connector and never saw it, that is usually the reason rather than a broken install — work through these in order.
 
 <Steps>
 
-1. **Turn the public form on.** The visitor-facing button only appears when the widget is told to show it, either through the script tag:
+1. **Connect the site to your account.** While the site is unclaimed the widget shows a one-time **"Connect this website"** panel *instead of* the report button. Sign in through that panel — on your preview it is already on the page — and the button takes its place permanently. The [dashboard link](/getting-started/installing-patchstack/installing-on-javascript-node-projects/#connecting-the-site-to-your-account) and `npx @patchstack/connect claim` do the same thing from a browser or a terminal.
+
+   To skip the onboarding entirely and always show the report form, set `data-build-mode="false"` on the script tag:
 
    ```html
    <script
      src="https://cdn.patchstack.com/patchstack-widget.js"
      data-site-uuid="YOUR-SITE-UUID"
-     data-report-form="true"
+     data-build-mode="false"
      defer
    ></script>
    ```
 
-   or from **Settings → Reporting → Display vulnerability reporting form** inside the widget itself.
-
-2. **Open the widget as the site owner.** You do not need the public button to reach your own dashboard. Load any page of your site with `#patchstack` appended to the URL:
+2. **Open the widget as the site owner.** On a published build the connect panel and the owner "Log in" link are hidden from visitors, so neither is a sign the install failed. Load any page of your site with `#patchstack` appended to the URL:
 
    ```text
    https://your-site.com/#patchstack
