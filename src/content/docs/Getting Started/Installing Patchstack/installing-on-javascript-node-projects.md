@@ -38,7 +38,19 @@ npx --no-install patchstack-connect setup
 4. **Adds production build integration to `package.json`:** `scan` runs before the build and `mark-build` after it, via `prebuild`/`postbuild` lifecycle hooks (or a direct build chain on bun, which skips npm-style hooks). Existing build commands are preserved, dev scripts are untouched, and `setup` never runs the build itself.
 5. **Prints a status checklist** of anything that still needs a manual step, such as framework-specific widget placement.
 
-`setup` ends by printing a **dashboard link**. The CLI never opens the link and never asks for Patchstack credentials — open it in your browser and sign in to see the vulnerability reports. The site is monitored either way; connecting it to an account is what makes the reports visible to you.
+`setup` ends by printing a **dashboard link**. The CLI never opens the link and never asks for Patchstack credentials. The site is monitored either way; connecting it to an account is what makes the reports visible to you — see [Connecting the site to your account](#connecting-the-site-to-your-account) for the three ways to do that.
+
+### Connecting the site to your account
+
+A site that is scanning but not connected is an anonymous record: it is monitored, but its reports have nowhere to go, and because the site UUID is public and claiming is first-come, it stays claimable by anyone who loads the page. Any one of these attaches it, and they all end in the same place:
+
+1. **From the widget on your own site — the shortest route.** While the site is unclaimed, the widget on your preview shows a one-time **"Connect this website"** panel. Sign in there and the site is attached; no terminal, no copied URL, and no link to find. This is where claiming is meant to happen, which is why the panel appears in the builder's edit preview by default.
+2. **From the dashboard link.** Open the link `setup`, `scan`, or `status` printed in your browser and sign in.
+3. **From the terminal.** `npx @patchstack/connect claim` prints a link to sign in with, then attaches the site to that account.
+
+On a **published** build the connect panel is hidden from ordinary visitors (see [the disclosure widget](#the-disclosure-widget) below). As the owner you can still reach the sign-in there by loading any page with `#patchstack` appended to the URL — `?patchstack` works too.
+
+Once the site is connected, the panel never appears again, and the widget shows the public report form instead.
 
 ### Connecting straight to your account
 
@@ -70,13 +82,17 @@ Run `npx @patchstack/connect guide` at any time for a project-aware checklist of
 
 ## The disclosure widget
 
-The connector installs Patchstack's **vulnerability disclosure widget** — a floating "Report a vulnerability" button — so anyone who spots an issue can report it straight to you. The widget is a single script tag loading `https://cdn.patchstack.com/patchstack-widget.js`, configured with the site UUID (which is public by design — it ships in client-side HTML and is not a secret). A pre-existing manually placed widget tag is left untouched, and `mark-build` ensures the tag in build output (`dist/`, `build/`, `out/`, `.output/public`) without ever editing source.
+The connector installs Patchstack's **vulnerability disclosure widget** — a floating control that becomes a "Report a vulnerability" button once the site is connected to an account, so anyone who spots an issue can report it straight to you. The widget is a single script tag loading `https://cdn.patchstack.com/patchstack-widget.js`, configured with the site UUID (which is public by design — it ships in client-side HTML and is not a secret). A pre-existing manually placed widget tag is left untouched, and `mark-build` ensures the tag in build output (`dist/`, `build/`, `out/`, `.output/public`) without ever editing source.
 
 Frameworks without a static HTML shell need a one-line placement in the root layout; `guide` prints the exact snippet for the detected framework, and the [widget reference](https://cdn.patchstack.com/llm.html) covers additional patterns.
 
 To run without the widget, set `"widget": false` in `.patchstackrc.json` — this disables all widget management; otherwise the next scan re-adds the tag.
 
-The floating button is **hidden by default**: it appears only when the widget is told to show it, via `data-report-form="true"` on the script tag or the widget's own Settings. To reach your dashboard while the button is hidden, open any page of your site with `#patchstack` appended to the URL. See [Troubleshooting JS / Node.js](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/) if the widget still does not appear.
+**What the widget shows depends on whether the site is connected to an account.** While it is unclaimed, the widget serves the one-time "Connect this website" panel *instead of* the report button — so on a fresh install the first thing you see is the sign-in, not the floating button. Connect the site and the panel is replaced by the public **Report a vulnerability** button for good. To skip the onboarding entirely and always show the report form, set `data-build-mode="false"` on the script tag.
+
+On a **published** build the connector's `mark-build` hook stamps `window.__PATCHSTACK_PROD__` into the built HTML, which hides the connect panel and the owner "Log in" link from visitors and leaves the report form only. Owners reach the sign-in there with `#patchstack` (or `?patchstack`) appended to any page URL.
+
+See [Troubleshooting JS / Node.js](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/) if the widget does not appear at all.
 
 ### Signing in to the widget on your site
 
