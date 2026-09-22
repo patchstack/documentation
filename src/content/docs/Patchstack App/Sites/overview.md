@@ -3,7 +3,7 @@ title: "Sites"
 excerpt: "Sites overview page for managing your applications"
 hidden: false
 createdAt: "Mon Jul 25 2022 09:03:10 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Mon Sep 22 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Mon Sep 22 2026 12:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 2
 ---
@@ -38,10 +38,10 @@ The tabs above the table filter the list. A site can appear under more than one 
 
 - **All** — every site you can see.
 - **Unresponsive** — sites Patchstack has not heard from in the last 24 hours. This covers both sites that are merely delayed and sites that have stopped answering altogether, because in each case the most recent attempt to reach them got nowhere.
-- **Vulnerable** — sites with at least one known vulnerability, of any patch priority.
+- **Exposed** — sites carrying a medium or high vulnerability that no vPatch is currently holding off. Out-of-sync sites are left out, because their vulnerability data is stale; they are in **Unresponsive**.
+- **Outdated** — sites with outdated software. The same set the dashboard counts under Outdated.
 - **Mitigated** — sites where a vPatch is currently holding off at least one active vulnerability. A protected site with nothing to hold off is not listed here; the **Protection** column is where you see whether protection is on.
 - **Threats blocked** — sites whose firewall has blocked attacks.
-- **Update now** — sites with outdated software.
 
 ## Retrying a sync
 
@@ -62,9 +62,26 @@ Sites built with Pulse do not have a **Retry sync** option. They report their pa
 You can define groups, to which your sites can be attached to.
 Check [this article](/patchstack-app/sites/site-groups/) for details.
 
+## Labels on a site
+
+Most sites carry no label at all. A label appears when there is something about the site worth knowing before you read the rest of its row.
+
+- **Not deployed** — Patchstack has never heard from this app: no build has reported its packages and no visitor's browser has checked in. If you know the app is live, the most likely reason is that the connector was not running in the build that went out — rebuild with `@patchstack/connect` installed and it will report on the next deploy. Only appears on sites built with Pulse.
+- **Connector deleted** — `@patchstack/connect` reported that it had been removed from the project. Nothing is watching the app's packages any more, and the site keeps using one of your site slots until you delete it here.
+- **Connector not detected** — nothing signalled a removal, but the live page no longer carries Patchstack. This is what a removal done through a prompt looks like: we can see the result without being told. Reinstall the connector, or delete the site to free its slot.
+- **Build** — this site is a build or staging environment of another site, shown indented beneath it.
+- **Shared** — you reach this site through an organisation you are attached to, rather than owning it yourself.
+
 ## Search and display
 
 You can use the search-bar, to look up for the sites you have added. After typing, hit the Enter key. Left from the search-bar, you can choose how many sites to display per page.
+
+Two switches beside the platform filter narrow the list to the sites carrying the labels above:
+
+- **Not deployed** — apps that have never reported in.
+- **Connector deleted** — sites whose connector told us it had been removed. Sites labelled *Connector not detected* are not included: that state is worked out from several signals rather than recorded, so there is no exact set to filter on.
+
+Both can be on at once, in which case you get the sites that are both. The switches only appear on accounts with Pulse, since only apps deploy.
 
 ## Adding a new site
 
