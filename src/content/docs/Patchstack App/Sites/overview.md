@@ -3,7 +3,7 @@ title: "Sites"
 excerpt: "Sites overview page for managing your applications"
 hidden: false
 createdAt: "Mon Jul 25 2022 09:03:10 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Tue Sep 08 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Mon Sep 22 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 2
 ---
@@ -30,17 +30,32 @@ Let's go through some more important table columns to explain the data shown.
 5. **Software** column shows how many third party software is installed on this particular site (like plugins, themes or WordPress core)
     - **Vulnerabilities** - how many vulnerabilities are currently present on your website
     - **Outdated** - how many of the third party software are outdated and need updating
+6. **Last sync** column shows how long ago Patchstack last heard from the site (for example *34m*, *5h* or *9d*). The figure turns amber when the site is delayed (it has gone quiet recently and we are still trying) and red when it is unresponsive (attempts have been failing for some time); hover over it to read what that means for the site. Click the column heading to sort by it, which is the quickest way to find the sites that have been silent longest.
 
 ## Status tabs
 
 The tabs above the table filter the list. A site can appear under more than one tab at the same time, so the tab numbers do not add up to your total number of sites.
 
 - **All** — every site you can see.
-- **Unresponsive** — sites Patchstack has not heard from recently.
+- **Unresponsive** — sites Patchstack has not heard from in the last 24 hours. This covers both sites that are merely delayed and sites that have stopped answering altogether, because in each case the most recent attempt to reach them got nowhere.
 - **Vulnerable** — sites with at least one known vulnerability, of any patch priority.
 - **Mitigated** — sites where a vPatch is currently holding off at least one active vulnerability. A protected site with nothing to hold off is not listed here; the **Protection** column is where you see whether protection is on.
 - **Threats blocked** — sites whose firewall has blocked attacks.
 - **Update now** — sites with outdated software.
+
+## Retrying a sync
+
+A site normally reports in on its own every few hours. When one falls behind, you can ask it to sync right away instead of waiting for the next attempt.
+
+- **One site** — open the **Action** menu at the end of its row and choose **Retry sync**.
+- **Some sites** — tick their checkboxes and click **Retry sync** in the bar above the table.
+- **Every site that is behind** — click **Retry sync** next to the status tabs. The number on the button is the number of sites in the **Unresponsive** tab, and the retry covers all of them, not only the ones on the page you are looking at.
+
+Retrying many sites runs in the background, so you can leave the page while it works. While it runs, the button shows how many sites have been reached so far, and a message tells you how many sites were asked to sync once it is done.
+
+A site that stays unresponsive after a retry has usually lost its connection to Patchstack — check that the Patchstack plugin is still installed and activated, and see [this article](/faq-troubleshooting/firewall/app-is-showing-the-firewall-of-my-site-as-delayed/) for the usual causes. Being out of sync does not leave the site unprotected: the rules from its last successful sync stay in place and keep blocking.
+
+Sites built with Pulse do not have a **Retry sync** option. They report their packages when they are next built, and nothing in the app can bring that build forward.
 
 ## Manage groups
 
