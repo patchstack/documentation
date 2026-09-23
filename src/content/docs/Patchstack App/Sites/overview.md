@@ -39,9 +39,9 @@ The tabs above the table filter the list. A site can appear under more than one 
 - **All** — every site you can see.
 - **Unresponsive** — sites Patchstack has not heard from in the last 24 hours. This covers both sites that are merely delayed and sites that have stopped answering altogether, because in each case the most recent attempt to reach them got nowhere.
 - **Vulnerable** — sites with at least one known vulnerability, of any patch priority.
-- **Mitigated** — sites where a vPatch is currently holding off at least one active vulnerability. A protected site with nothing to hold off is not listed here; the **Protection** column is where you see whether protection is on.
+- **Protected** — sites where a vPatch is currently holding off at least one active vulnerability. A protected site with nothing to hold off is not listed here; the **Protection** column is where you see whether protection is on.
 - **Threats blocked** — sites whose firewall has blocked attacks.
-- **Update now** — sites with outdated software.
+- **Outdated** — sites with outdated software.
 
 ## Retrying a sync
 
