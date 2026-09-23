@@ -36,7 +36,9 @@ Click a row to open the package's details: every site it is installed on, 25 at 
 
 ## Narrowing the list
 
-The tabs above the table filter it by status — **Vulnerable**, **Update now**, **Mitigated**, **Threats blocked**, **Deactivated** and **Advised to replace** — each with its count. Search by package name, package slug or site, and use the platform selector to show only WordPress, Drupal or npm packages.
+The tabs above the table filter it by status — **Vulnerable**, **Update now**, **Mitigated**, **Threats blocked**, **Deactivated** and **Advised to replace** — each with its count. **Vulnerable** and **Mitigated** never overlap: Vulnerable lists the packages with an install nothing is protecting, which are the ones to act on, and Mitigated lists those where a virtual patch covers every vulnerable install. The site's own Packages tab splits them the same way.
+
+Search by package name, package slug or site, and use the platform selector to show only WordPress, Drupal or npm packages.
 
 ## Updating the software
 
