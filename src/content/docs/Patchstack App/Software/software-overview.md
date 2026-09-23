@@ -32,7 +32,7 @@ The **Packages** overview lists every component your sites use — plugins, them
 | **Repository** | Where the package's source lives — the wordpress.org page for plugins, themes and core, or the repository the npm registry lists. |
 | **VDP** | **Managed** when the product runs a vulnerability disclosure program with Patchstack, linking to its page in the Patchstack database. |
 
-Click a row to see every site the package is installed on, with the version each site runs.
+Click a row to open the package's details: every site it is installed on, 25 at a time, with the version each site runs and whether that install is vulnerable. The counts at the top cover every site, not just the page you are looking at.
 
 ## Narrowing the list
 
@@ -43,6 +43,6 @@ The tabs above the table filter it by status — **Vulnerable**, **Update now**,
 You can update WordPress plugins, themes and core from this page. Keep in mind to back up your files and databases before doing that.
 
 - To update everything that is outdated in the current view, narrow the list (a tab, a search or a platform), then choose **Actions** > **Update all outdated** at the end of the toolbar.
-- To update a package on particular sites, click its row and update from the list of sites.
+- To update a package on particular sites, click its row and update from the list of sites. **Update all** there updates every outdated install of that package.
 
-npm packages are not updated from Patchstack: change the version in your own project and redeploy.
+Only WordPress plugins, themes and core can be updated from Patchstack. For anything else the update button is off and says **Manual update required** — for an npm package, change the version in your own project and redeploy.
