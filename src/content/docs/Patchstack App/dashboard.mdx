@@ -176,19 +176,34 @@ By moving the cursor on the graph, you can see the number of attacks by day.
 The **Websites** card counts every site on your account once and puts each one in a single status, so the bar and the rows under it always add up to your total number of sites.
 
 - **Protected** — protection is on for the site, and every exploitable vulnerability on it has either been updated away or is covered by a vPatch.
-- **Exposed** — the site has an exploitable vulnerability (medium or high patch priority) that no vPatch is holding off yet. Update the affected software to close the gap. Protection can still be active on such a site: the card is telling you there is something protection cannot cover on its own.
+- **Vulnerable** — the site has an exploitable vulnerability (medium or high patch priority) that no vPatch is holding off yet. Update the affected software to close the gap. Protection can still be active on such a site: the card is telling you there is something protection cannot cover on its own.
 - **Unresponsive** — Patchstack has not heard from the site recently, so its vulnerability data cannot be trusted. Check that the Patchstack plugin is installed and connected.
-- **Clean** — nothing exploitable is standing against the site, but protection is not on for it either.
+- **At risk** — nothing exploitable is standing against the site, but protection is not on for it either.
 
-Low patch priority findings do not make a site Exposed. They are not expected to be exploited and never receive a vPatch, so they only appear in the Vulnerabilities section.
+Low patch priority findings do not make a site Vulnerable. They are not expected to be exploited and never receive a vPatch, so they only appear in the Vulnerabilities section.
 
 Because each site lands in exactly one status, these numbers are not the same as the tabs on the **Sites** page. Those tabs can list one site under several of them at once, so a site that is both unresponsive and vulnerable is counted once here and twice there.
 
-## Software
+## Vulnerabilities
 
-In the **Software** section, you can see how many software components (plugins, themes, WordPress core) your sites have in total.  
-The next number shows how many of these are vulnerable.  
-The third number shows how many of these components are disabled.
+The **Vulnerabilities** card splits every advisory standing against your sites by patch priority — how likely it is to be exploited. The three add up to the total above them.
+
+- **Highly exploitable** — act on these first.
+- **Exploitable** — worth scheduling.
+- **No to low impact** — not expected to be exploited, and never given a vPatch.
+
+Under them, **No official fix** counts the advisories whose author has released no patched version. There is nothing to update to, so an update cannot close them — protection can hold them off in the meantime. They are counted in the three rows above as well, which is why they have no colour of their own on the bar.
+
+## Packages
+
+The **Packages** card counts the packages installed across your sites.
+
+- **With vulnerabilities** — at least one advisory applies to the installed version.
+- **Advised to replace** — the package was closed in its repository. It is likely abandoned, or no longer supported.
+- **No known issues** — nothing is disclosed against the version you have.
+- **Outdated** — a newer version is available. A package can be outdated and also appear in the rows above, so this number overlaps them.
+
+Only *With vulnerabilities* and *No known issues* are drawn on the bar: every package falls on exactly one side of those two, and the other rows cut across them.
 
 ## Reports
 
