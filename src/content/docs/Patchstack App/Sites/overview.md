@@ -68,7 +68,7 @@ Most sites carry no label at all. A label appears when there is something about 
 
 - **Not deployed** — Patchstack has never heard from this app: no build has reported its packages and no visitor's browser has checked in. If you know the app is live, the most likely reason is that the connector was not running in the build that went out — rebuild with `@patchstack/connect` installed and it will report on the next deploy. Only appears on sites built with Pulse.
 - **Connector deleted** — `@patchstack/connect` reported that it had been removed from the project. Nothing is watching the app's packages any more, and the site keeps using one of your site slots until you delete it here.
-- **Connector not detected** — nothing signalled a removal, but the live page no longer carries Patchstack. This is what a removal done through a prompt looks like: we can see the result without being told. Reinstall the connector, or delete the site to free its slot.
+- **Not seen on live site** — nothing signalled a removal, but the live page no longer carries Patchstack. This is what a removal done through a prompt looks like: we can see the result without being told. Reinstall the connector, or delete the site to free its slot.
 - **Build** — this site is a build or staging environment of another site, shown indented beneath it.
 - **Shared** — you reach this site through an organisation you are attached to, rather than owning it yourself.
 
@@ -79,7 +79,7 @@ You can use the search-bar, to look up for the sites you have added. After typin
 Two switches beside the platform filter narrow the list to the sites carrying the labels above:
 
 - **Not deployed** — apps that have never reported in.
-- **Connector deleted** — sites whose connector told us it had been removed. Sites labelled *Connector not detected* are not included: that state is worked out from several signals rather than recorded, so there is no exact set to filter on.
+- **Connector deleted** — sites whose connector told us it had been removed. Sites labelled *Not seen on live site* are not included: that state is worked out from several signals rather than recorded, so there is no exact set to filter on.
 
 Both can be on at once, in which case you get the sites that are both. The switches only appear on accounts with Pulse, since only apps deploy.
 
