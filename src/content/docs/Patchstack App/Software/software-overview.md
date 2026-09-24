@@ -7,23 +7,44 @@ metadata:
   image: []
   robots: "index"
 createdAt: "Mon Jul 25 2022 09:05:51 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Mon Aug 24 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Wed Sep 23 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 4
 ---
-_Software overview is accessible for all Patchstack users._  
+_The Packages overview is accessible for all Patchstack users._  
 
-Navigate to the software overview page by clicking **Software** from the navigation menu, or click here: 
-[https://app.patchstack.com/software/overview](https://app.patchstack.com/software/overview)
+Navigate to it by clicking **Packages** in the navigation menu, or go to
+[https://app.patchstack.com/packages/overview](https://app.patchstack.com/packages/overview).
 
-On the **Software** overview page, you can see the general overview, that shows all the components (plugins, themes, CMS core version, PHP and MySQL versions) that each of your sites use.  
-The table on this page shows which components are vulnerable and which are **outdated** (a newer release exists).  
-Plugins and themes that are grayed out are currently deactivated on the website, or cannot be updated via third party apps like Patchstack (like premium licensed software, which use non-standard updating mechanisms).
+The **Packages** overview lists every component your sites use — plugins, themes, WordPress core, PHP and database versions, and the npm packages of your JavaScript apps — with **one row per package**, however many sites it is installed on. Plugins and themes that are grayed out are deactivated on every site that has them.
 
 ![](@images/patchstack-software.png)
 
+## What the columns mean
+
+| Column | What it shows |
+|--------|---------------|
+| **Type** | Plugin, Theme, WordPress, PHP, npm and so on. |
+| **Package** | The package name. A warning icon next to it carries a note about the package, such as two packages sharing a slug. |
+| **Installs** | How many of your sites have the package. The bar splits those installs three ways: **green** — protected, a virtual patch is blocking the known vulnerability; **grey** — no known issues; **red** — vulnerable and not protected. When some installs are red, the count of them is shown as **N exposed**: those are the ones that need you. |
+| **Latest version** | The newest version Patchstack knows of. The green part of the bar is the share of your installs already on it; the rest are behind. |
+| **License** | The package's licence. Known for npm packages; WordPress plugins and themes show N/A. |
+| **Repository** | Where the package's source lives — the wordpress.org page for plugins, themes and core, or the repository the npm registry lists. |
+| **VDP** | **Managed** when the product runs a vulnerability disclosure program with Patchstack, linking to its page in the Patchstack database. |
+
+Click a row to open the package's details: every site it is installed on, 25 at a time, with the version each site runs and whether that install is vulnerable. The counts at the top cover every site, not just the page you are looking at.
+
+## Narrowing the list
+
+The tabs above the table filter it by status — **Vulnerable**, **Update now**, **Mitigated**, **Threats blocked**, **Deactivated** and **Advised to replace** — each with its count. **Vulnerable** and **Mitigated** never overlap: Vulnerable lists the packages with an install nothing is protecting, which are the ones to act on, and Mitigated lists those where a virtual patch covers every vulnerable install. The site's own Packages tab splits them the same way.
+
+Search by package name, package slug or site, and use the platform selector to show only WordPress, Drupal or npm packages.
+
 ## Updating the software
 
-You can update your software on that page. Keep in mind to backup your files and databases before doing that.  
-If you wish to update components individually, you can select those one by one by clicking on the checkbox on the left column. After that, click on **Action** > **Update**.  
-Your software versions should start updating on your WordPress sites immediately.
+You can update WordPress plugins, themes and core from this page. Keep in mind to back up your files and databases before doing that.
+
+- To update every outdated WordPress plugin, theme and core install across your sites, choose **WordPress** in the platform selector, then **Actions** > **Update all outdated** at the end of the toolbar. A package name or slug search narrows it to the matching packages; the tab you are on does not.
+- To update a package on particular sites, click its row and update from the list of sites. **Update all** there updates every outdated install of that package.
+
+Only WordPress plugins, themes and core can be updated from Patchstack. For anything else the update button is off and says **Manual update required** — for an npm package, change the version in your own project and redeploy.

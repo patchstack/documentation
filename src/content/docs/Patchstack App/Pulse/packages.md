@@ -13,6 +13,8 @@ The **Packages** tab lists every npm package the app has installed, with its ver
 
 The list comes from the dependency manifest the connector sends during your build, so it includes transitive dependencies, not only the ones named in your `package.json`.
 
+Click the **Package**, **Vulnerabilities** or **Version** header to sort the list, and again to reverse it. The sort covers the whole list, not only the page you are on, so on an app with hundreds of packages the first page really is the first of them all.
+
 ## Reachability
 
 A modern app installs hundreds of packages it never calls. A vulnerability in one of those is not the same problem as a vulnerability in a package your request handlers use directly, and treating them alike buries the second under the first.
