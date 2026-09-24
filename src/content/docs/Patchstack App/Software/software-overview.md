@@ -44,7 +44,7 @@ Search by package name, package slug or site, and use the platform selector to s
 
 You can update WordPress plugins, themes and core from this page. Keep in mind to back up your files and databases before doing that.
 
-- To update everything that is outdated in the current view, narrow the list (a tab, a search or a platform), then choose **Actions** > **Update all outdated** at the end of the toolbar.
+- To update every outdated WordPress plugin, theme and core install across your sites, choose **WordPress** in the platform selector, then **Actions** > **Update all outdated** at the end of the toolbar. A package name or slug search narrows it to the matching packages; the tab you are on does not.
 - To update a package on particular sites, click its row and update from the list of sites. **Update all** there updates every outdated install of that package.
 
 Only WordPress plugins, themes and core can be updated from Patchstack. For anything else the update button is off and says **Manual update required** — for an npm package, change the version in your own project and redeploy.
