@@ -9,7 +9,7 @@ sidebar:
   label: "JavaScript / Node.js projects"
 ---
 
-Patchstack monitors JavaScript and Node.js applications — not only WordPress sites — through [`@patchstack/connect`](https://www.npmjs.com/package/@patchstack/connect), the official Patchstack connector package, maintained and published by Patchstack on npm under the `@patchstack` organization.
+Patchstack monitors JavaScript and Node.js applications — not only WordPress sites — through [`@patchstack/connect`](https://www.npmjs.com/package/@patchstack/connect), the official Patchstack Connect package, maintained and published by Patchstack on npm under the `@patchstack` organization.
 
 - **npm:** https://www.npmjs.com/package/@patchstack/connect
 - **Source (MIT-licensed):** https://github.com/patchstack/connect
@@ -17,7 +17,7 @@ Patchstack monitors JavaScript and Node.js applications — not only WordPress s
 
 ## What it does
 
-The connector reads the project's dependency lockfile (`package-lock.json`, `pnpm-lock.yaml`, or `yarn.lock`; bun projects are detected via `node_modules/`) and reports package names and versions to Patchstack, which matches them against its vulnerability database and notifies you when a dependency needs patching. It works with any framework — Next.js, Vite, Nuxt, Remix, SvelteKit, TanStack Start, plain Node — and with npm, pnpm, yarn, and bun.
+Connect reads the project's dependency lockfile (`package-lock.json`, `pnpm-lock.yaml`, or `yarn.lock`; bun projects are detected via `node_modules/`) and reports package names and versions to Patchstack, which matches them against its vulnerability database and notifies you when a dependency needs patching. It works with any framework — Next.js, Vite, Nuxt, Remix, SvelteKit, TanStack Start, plain Node — and with npm, pnpm, yarn, and bun.
 
 It sends dependency names and versions only: no source code, no environment variable values, no file paths, no git history.
 
@@ -34,7 +34,7 @@ npx --no-install patchstack-connect setup
 
 1. **Scans the lockfile and sends the dependency manifest** (package names and versions) to Patchstack.
 2. **Provisions a Patchstack site** on the first run and writes its UUID to `.patchstackrc.json` (commit this file); later runs reuse the existing site instead of creating a duplicate.
-3. **Manages the disclosure-widget tag** in the project's root HTML shell (the first of `index.html`, `public/index.html`, or `src/app.html` that exists) — see the widget section below.
+3. **Manages the Patchstack Connector tag** in the project's root HTML shell (the first of `index.html`, `public/index.html`, or `src/app.html` that exists) — see the widget section below.
 4. **Adds production build integration to `package.json`:** `scan` runs before the build and `mark-build` after it, via `prebuild`/`postbuild` lifecycle hooks (or a direct build chain on bun, which skips npm-style hooks). Existing build commands are preserved, dev scripts are untouched, and `setup` never runs the build itself.
 5. **Prints a status checklist** of anything that still needs a manual step, such as framework-specific widget placement.
 
@@ -48,7 +48,7 @@ A site that is scanning but not connected is an anonymous record: it is monitore
 2. **From the dashboard link.** Open the link `setup`, `scan`, or `status` printed in your browser and sign in.
 3. **From the terminal.** `npx @patchstack/connect claim` prints a link to sign in with, then attaches the site to that account.
 
-On a **published** build the connect panel is hidden from ordinary visitors (see [the disclosure widget](#the-disclosure-widget) below). As the owner you can still reach the sign-in there by loading any page with `#patchstack` appended to the URL — `?patchstack` works too.
+On a **published** build the connect panel is hidden from ordinary visitors (see [the Patchstack Connector](#the-patchstack-connector) below). As the owner you can still reach the sign-in there by loading any page with `#patchstack` appended to the URL — `?patchstack` works too.
 
 Once the site is connected, the panel never appears again, and the widget shows the public report form instead.
 
@@ -80,9 +80,9 @@ The same pieces can be applied individually: `npx @patchstack/connect scan` perf
 
 Run `npx @patchstack/connect guide` at any time for a project-aware checklist of what is present and what is missing, with commands tailored to the project. `npx @patchstack/connect status` re-prints the site UUID and dashboard link.
 
-## The disclosure widget
+## The Patchstack Connector
 
-The connector installs Patchstack's **vulnerability disclosure widget** — a floating control that becomes a "Report a vulnerability" button once the site is connected to an account, so anyone who spots an issue can report it straight to you. The widget is a single script tag loading `https://cdn.patchstack.com/patchstack-widget.js`, configured with the site UUID (which is public by design — it ships in client-side HTML and is not a secret). A pre-existing manually placed widget tag is left untouched, and `mark-build` ensures the tag in build output (`dist/`, `build/`, `out/`, `.output/public`) without ever editing source.
+Connect installs the **Patchstack Connector**, Patchstack's vulnerability disclosure widget — a floating control that becomes a "Report a vulnerability" button once the site is connected to an account, so anyone who spots an issue can report it straight to you. The widget is a single script tag loading `https://cdn.patchstack.com/patchstack-widget.js`, configured with the site UUID (which is public by design — it ships in client-side HTML and is not a secret). A pre-existing manually placed widget tag is left untouched, and `mark-build` ensures the tag in build output (`dist/`, `build/`, `out/`, `.output/public`) without ever editing source.
 
 Frameworks without a static HTML shell need a one-line placement in the root layout; `guide` prints the exact snippet for the detected framework, and the [widget reference](https://cdn.patchstack.com/llm.html) covers additional patterns.
 
@@ -90,7 +90,7 @@ To run without the widget, set `"widget": false` in `.patchstackrc.json` — thi
 
 **What the widget shows depends on whether the site is connected to an account.** While it is unclaimed, the widget serves the one-time "Connect this website" panel *instead of* the report button — so on a fresh install the first thing you see is the sign-in, not the floating button. Connect the site and the panel is replaced by the public **Report a vulnerability** button for good. To skip the onboarding entirely and always show the report form, set `data-build-mode="false"` on the script tag.
 
-On a **published** build the connector's `mark-build` hook stamps `window.__PATCHSTACK_PROD__` into the built HTML, which hides the connect panel and the owner "Log in" link from visitors and leaves the report form only. Owners reach the sign-in there with `#patchstack` (or `?patchstack`) appended to any page URL.
+On a **published** build Connect's `mark-build` hook stamps `window.__PATCHSTACK_PROD__` into the built HTML, which hides the connect panel and the owner "Log in" link from visitors and leaves the report form only. Owners reach the sign-in there with `#patchstack` (or `?patchstack`) appended to any page URL.
 
 See [Troubleshooting JS / Node.js](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/) if the widget does not appear at all.
 
@@ -121,7 +121,7 @@ Reporting stops immediately. Local removal does not delete the site record on Pa
 
 ## Troubleshooting
 
-A widget that never appears, a published site serving an old build, a broken config file, or a connector stuck on an old version are all covered — with copy-paste prompts for AI site builders — in [Troubleshooting JavaScript / Node.js projects](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/).
+A widget that never appears, a published site serving an old build, a broken config file, or a Connect install stuck on an old version are all covered — with copy-paste prompts for AI site builders — in [Troubleshooting JavaScript / Node.js projects](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/).
 
 ## How this relates to host-level npm protection
 
