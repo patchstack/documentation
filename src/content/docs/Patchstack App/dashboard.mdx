@@ -38,15 +38,13 @@ You can use the search bar on the dashboard page, to find current vulnerabilitie
 
 ![](@images/patchstack-filters.png)
 
-There are four main filters for vulnerability searching on the dashboard:
+There are three main filters for vulnerability searching on the dashboard:
 <Steps>
-1. **Priority filter** - find vulnerabilities by patch priority. You can filter by high, medium and low patch priority vulnerabilities.
+1. **Priority filter** - find vulnerabilities by patch priority. You can pick one or more of **Highly exploitable**, **Exploitable** and **No impact**.
 
-2. **Severity filter** - find vulnerabilities by <a href="/faq-troubleshooting/other/what-is-the-cvss-score/" target="_blank">CVSS severity score</a>. You can filter by critical, high, medium, low severity.
+2. **Exploited** - filter out the vulnerabilities that are known to be exploited.
 
-3. **Exploited** - filter out the vulnerabilities that are known to be exploited.
-
-4. **Outdated** - show vulnerabilities where a patched release exists, so the installed version is behind the fix. (This filter was previously labelled "Fix available".)
+3. **Outdated** - show vulnerabilities where a patched release exists, so the installed version is behind the fix. (This filter was previously labelled "Fix available".)
 </Steps>
 
 
@@ -190,7 +188,7 @@ The **Vulnerabilities** card splits every advisory standing against your sites b
 
 - **Highly exploitable** — act on these first.
 - **Exploitable** — worth scheduling.
-- **No to low impact** — not expected to be exploited, and never given a vPatch.
+- **No impact** — not expected to be exploited, and never given a vPatch.
 
 Under them, **No official fix** counts the advisories whose author has released no patched version. There is nothing to update to, so an update cannot close them — protection can hold them off in the meantime. They are counted in the three rows above as well, which is why they have no colour of their own on the bar.
 
