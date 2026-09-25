@@ -20,15 +20,17 @@ To view available plan upgrades, navigate to **Upgrades** in Patchstack App, or 
 
 **Seats** upgrade allows you to grant access to your Patchstack account for other email addresses. You can choose which permissions to give to each email account.
 
-Enable this upgrade by clicking on the **Manage** button at the top right corner of this module on the <a href="https://app.patchstack.com/billing/subscription" target="_blank">Upgrades page</a>.
+Seats are added by inviting somebody, not bought here. The **Manage** button at the top right corner
+of this module opens the <a href="https://app.patchstack.com/team/" target="_blank">Seats page</a>,
+where you invite and remove people; this module reports how many seats are in use and what they cost.
 
-- **Developer** plan comes with 3 free seats included by default. Extra seats can be purchased for **$24 / month** each.
-- **Enterprise** plan includes **unlimited team seats** — there is no seat-invite cap and no per-seat purchase path.
+- **Developer** plan comes with 3 free seats included by default. An invite past them adds a seat at **$24 / month**, and removing that person takes the seat — and the charge — off again at the next renewal.
+- **Enterprise** plan includes **unlimited team seats** — there is no seat-invite cap and nothing to buy.
 
 ![](@images/patchstack-upgrades-seats.png)
 
 ### Managing the seat accounts
 
-You can manage the seat accounts by navigating to your account settings (click on your name at the bottom left corner) and click on <a href="https://app.patchstack.com/team/" target="_blank"><b>Team</b></a> from the top menu.  
+You can manage the seat accounts by navigating to your account settings (click on your name at the bottom left corner) and click on <a href="https://app.patchstack.com/team/" target="_blank"><b>Seats</b></a> from the top menu.  
 
 The help article about how to manage the seat accounts can be [found here.](/patchstack-app/account-settings/seats/)
