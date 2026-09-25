@@ -15,7 +15,7 @@ That difference in mechanism is why a Pulse site's dashboard does not look like 
 
 ## Getting a site into the dashboard
 
-Install the connector in your project and run `setup`. The first scan creates the site for you — there is no "add site" step to do first, and no API key to paste.
+Install Connect in your project and run `setup`. The first scan creates the site for you — there is no "add site" step to do first, and no API key to paste.
 
 The site starts out **unclaimed**: it is being monitored, but it is not attached to anyone's account, so nobody can see its reports. `setup` prints a dashboard link. Open it, sign in, and the site attaches to your account. If you lose the link, `npx @patchstack/connect status` prints it again.
 
@@ -48,10 +48,10 @@ The headline is one of:
 - **Sandbox only** — builds have been reported from a hosted builder's sandbox, and nothing has gone to production.
 - **Not deployed yet** — the app was added but no build has reported at all.
 - **Needs deploying** — a newer build has been scanned than the one the live site is serving.
-- **Deployed** — the live site is running a build Patchstack scanned. The date is when the build was seen to change on the live site; where nothing has changed under observation, it is the build time, labelled as such. A production build that reports itself from a hosting platform's own production build (Netlify, Vercel, Cloudflare and the others the connector recognises) also reads as **Deployed**, dated by the build, until the live page confirms it.
+- **Deployed** — the live site is running a build Patchstack scanned. The date is when the build was seen to change on the live site; where nothing has changed under observation, it is the build time, labelled as such. A production build that reports itself from a hosting platform's own production build (Netlify, Vercel, Cloudflare and the others Connect recognises) also reads as **Deployed**, dated by the build, until the live page confirms it.
 - **Deploy reported** — a production build reported itself, but the live page has not been seen running it. This happens in two cases. Patchstack has read the page since the report and it is not running that build: either nothing has been published yet, or the build went out without its marker. Or the label was assumed from the project's builder rather than read from a platform: Lovable and Replit build the app for the preview and for publishing alike, so a build on its own is not proof of a publish. The first visit or scheduled check that finds the build live turns this into **Deployed**.
 - **Deployed without Patchstack** — the live site is running a build that was never scanned. Run the build again with `@patchstack/connect` installed.
-- **Live, build unverified** — the widget is checking in from the site's address, but the page carries no build marker, so nothing says which build is running. This is what a build made on your own machine looks like once it is uploaded by hand: the connector only stamps the marker on a build it can tell is a deployment. Build for publishing with `PATCHSTACK_ENVIRONMENT=production`, or run `npx @patchstack/connect mark-build --production` before uploading, and the next deploy reads as **Deployed**.
+- **Live, build unverified** — the widget is checking in from the site's address, but the page carries no build marker, so nothing says which build is running. This is what a build made on your own machine looks like once it is uploaded by hand: Connect only stamps the marker on a build it can tell is a deployment. Build for publishing with `PATCHSTACK_ENVIRONMENT=production`, or run `npx @patchstack/connect mark-build --production` before uploading, and the next deploy reads as **Deployed**.
 - **Deploy state unknown** — production builds exist, but nothing current says which one is live.
 
 Next to the headline, **Reporting from** names the environment Patchstack last heard from — *local machine*, *sandbox*, or *production*. **Built with** names the builder when one was recognised, and **Hosted on** names the platform serving the site (Netlify, Vercel, Cloudflare, DigitalOcean, AWS, GitHub Pages and others), as read from the build's own environment and confirmed from the live page's response headers. The four stages below them (**Configured**, **Deployed**, **Monitoring**, **Protection**) are each graded from what was actually observed, with its timestamp. A stage is not ticked because a later one is: an app can be live without a production scan, and the card says so. The **Protection** stage is ticked when protection is on for the site, whether through the per-site add-on or a plan that protects every site — the same rule the site header and the widget use.
@@ -62,7 +62,7 @@ Under the status card, **Live site activity** shows how often the site has been 
 
 The headline above the grid says when the site was last heard from and by which witness, and reads **Checking in** while the last check-in is under an hour old. The grid is the difference between a site with visitors and one somebody opened once: the status card can say the site was seen five minutes ago, but only the grid can say whether that was the first time this week or the four-hundredth. Check-ins are kept for 30 days.
 
-Under the grid, **Recent builds** lists each build that reported its packages this week, newest first: the environment the connector said it ran in, what decided a production label (the platform's own variables, an assumption from the project's builder, or `PATCHSTACK_ENVIRONMENT`), the build id, and whether a visitor's widget or Patchstack's own page read has since seen that build on the live site. That last column is the difference between a build and a deploy. Nothing in the list names a machine, a person, a path or a branch: the connector reports only the label and how it decided it.
+Under the grid, **Recent builds** lists each build that reported its packages this week, newest first: the environment Connect said it ran in, what decided a production label (the platform's own variables, an assumption from the project's builder, or `PATCHSTACK_ENVIRONMENT`), the build id, and whether a visitor's widget or Patchstack's own page read has since seen that build on the live site. That last column is the difference between a build and a deploy. Nothing in the list names a machine, a person, a path or a branch: Connect reports only the label and how it decided it.
 
 Every status that is not the finished one names the next step. For a locally configured app that is: add `PATCHSTACK_API_KEY` to the hosting platform's environment, commit the generated changes, and deploy. Expand **What this is based on** to see every signal behind the verdict — a scan on a developer machine, a production build, the widget checking in from the live site, Patchstack's own fetch of the page — with where each came from and when.
 
@@ -72,13 +72,13 @@ A deploy that was scanned before it went out, but not by the build that shipped 
 
 ## Connected, scanned, and synced
 
-The site header shows **Last scan** — when the connector last sent a dependency manifest. This moves when you build or install dependencies, and it is how old the package data on the page is.
+The site header shows **Last scan** — when Connect last sent a dependency manifest. This moves when you build or install dependencies, and it is how old the package data on the page is.
 
-Hover it and Patchstack also tells you when it last had any contact with the site, whenever that is much more recent than the scan. The two differ because Patchstack learns about a Pulse site from more than one signal. The connector reports at build time. The disclosure widget in your served pages checks in when a visitor loads the site, which is how Patchstack knows the app is actually live and running the build you last reported. Patchstack also re-fetches the published page on a schedule to confirm the widget is still there.
+Hover it and Patchstack also tells you when it last had any contact with the site, whenever that is much more recent than the scan. The two differ because Patchstack learns about a Pulse site from more than one signal. Connect reports at build time. The Patchstack Connector in your served pages checks in when a visitor loads the site, which is how Patchstack knows the app is actually live and running the build you last reported. Patchstack also re-fetches the published page on a schedule to confirm the widget is still there.
 
 An app that builds rarely but gets traffic will show an old scan time and recent contact. That is normal, not a fault.
 
-Because the widget check-in runs in a public page, Patchstack treats it as corroboration rather than proof — a site's connection status is derived from what can be verified, not from the check-in alone. What makes a check-in verifiable is the build fingerprint it carries: when that matches the build the connector last reported, it says a real browser loaded a page from that build, and Patchstack counts the app as connected even if its own re-fetch of the page came back with nothing recognisable.
+Because the widget check-in runs in a public page, Patchstack treats it as corroboration rather than proof — a site's connection status is derived from what can be verified, not from the check-in alone. What makes a check-in verifiable is the build fingerprint it carries: when that matches the build Connect last reported, it says a real browser loaded a page from that build, and Patchstack counts the app as connected even if its own re-fetch of the page came back with nothing recognisable.
 
 That happens more often than you might expect. Patchstack's re-fetch reads the HTML the server sends, so on an app that renders its markup in the browser — most React and Vue projects, and the default on the sandbox domains builders serve previews from — there is nothing in that HTML for it to find. The check-in from inside the page is the signal that settles it, and it arrives on its own whenever the site is loaded. You should not have to press anything to keep an app that is running and reporting from reading as out of sync.
 
@@ -86,7 +86,7 @@ That happens more often than you might expect. Patchstack's re-fetch reads the H
 
 Beside those timestamps, a Pulse site's header carries a **deploy status**. Building and deploying are separate events, and Patchstack tracks them separately.
 
-The connector's `mark-build` step stamps each build's fingerprint into the HTML it publishes. Patchstack reads that fingerprint back off the live site — from the widget when a visitor loads a page, and from its own scheduled fetch of the published page — and compares it against the builds you have reported. That comparison is what the status says out loud:
+Connect's `mark-build` step stamps each build's fingerprint into the HTML it publishes. Patchstack reads that fingerprint back off the live site — from the widget when a visitor loads a page, and from its own scheduled fetch of the published page — and compares it against the builds you have reported. That comparison is what the status says out loud:
 
 | Status | What it means |
 |--------|---------------|
@@ -94,7 +94,7 @@ The connector's `mark-build` step stamps each build's fingerprint into the HTML 
 | **Last build \<when\>** | The same, except nobody has seen this app change build since Patchstack started watching. The time shown is when the build ran, not when it went live. |
 | **Deploy reported** | A production build reported itself, but the live page has not been seen running it — either the page was read since and is not running it, or the label was assumed from the project's builder. Publish if you have not, or open the published site once so the widget can confirm the build. |
 | **Needs deploying** | A newer build was scanned, but the live site is still serving an older one. Deploy to put it live. |
-| **Deployed without Patchstack** | The live site is running a build Patchstack never scanned — the build ran without the connector. Run the build again with `@patchstack/connect` so its packages get checked. |
+| **Deployed without Patchstack** | The live site is running a build Patchstack never scanned — the build ran without Connect. Run the build again with `@patchstack/connect` so its packages get checked. |
 | **Live, build unverified** | The widget is checking in from the site's address, but the page carries no build marker, so nothing can say which build is live. Typically a build made on a developer's machine and uploaded by hand. Build with `PATCHSTACK_ENVIRONMENT=production`, or run `mark-build --production` before uploading. |
 | **Sandbox only** | Builds have been reported, but only from a sandbox. Nothing has gone to production yet. |
 | **Build environment** | This site is a build environment rather than a live one. Deploys are tracked on the production site it belongs to. |
@@ -102,7 +102,7 @@ The connector's `mark-build` step stamps each build's fingerprint into the HTML 
 
 **Needs deploying** is the one worth acting on. The vulnerabilities Patchstack lists are the ones in the build it scanned; if that build never shipped, neither did the fixes in it.
 
-The status also appears in the disclosure widget's owner panel, under the sync line — useful, because you are standing on the live site when you read it there.
+The status also appears in the Patchstack Connector's owner panel, under the sync line — useful, because you are standing on the live site when you read it there.
 
 While the newest build has not been seen on the live site — the app is configured locally, only sandbox builds exist, a production build reported itself without confirmation, or a newer build is waiting to go out — the owner panel carries a short reminder that Patchstack is not on the live site yet and the project needs republishing. It is a statement, not a publish button: nothing is published for you. It goes away on its own once a check-in or page read finds the new build live, and returns if a later build is scanned and not shipped.
 
@@ -124,7 +124,7 @@ Runtime protection on a production Pulse app is a paid feature. See [The runtime
 
 The guard screens requests, so it needs a request path to sit on. Some apps have none, and the Status tab and the Protection card say so instead of offering protection:
 
-- **Not available for this app** — the app builds a static site (Eleventy, Gatsby, Docusaurus, VitePress, a SvelteKit site with the static adapter, and similar) and nothing in it receives a request. Dependency monitoring and the disclosure widget still apply; runtime protection does not. `setup` installs nothing for it on such a project, and `protect --check` reports the capability as not applicable rather than as failing. Protection becomes available if the app later gains a server or edge request path.
+- **Not available for this app** — the app builds a static site (Eleventy, Gatsby, Docusaurus, VitePress, a SvelteKit site with the static adapter, and similar) and nothing in it receives a request. Dependency monitoring and the Patchstack Connector still apply; runtime protection does not. `setup` installs nothing for it on such a project, and `protect --check` reports the capability as not applicable rather than as failing. Protection becomes available if the app later gains a server or edge request path.
 - **Deploy first** — the app has not been deployed with Patchstack yet. Protection is verified against a live site, so deploy, then enable it.
 
 The card names what the verdict is based on: the attack-surface map's analysis of the source where the app has reported one, otherwise the packages in its newest build.

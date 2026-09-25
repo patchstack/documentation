@@ -1,6 +1,6 @@
 ---
 title: "Troubleshooting JavaScript / Node.js projects"
-excerpt: "Fix a disclosure widget that never appears or appears twice, a published build that serves an old integration, a broken config file, or an outdated @patchstack/connect — including prompts to paste into an AI site builder."
+excerpt: "Fix a Patchstack Connector that never appears or appears twice, a published build that serves an old integration, a broken config file, or an outdated @patchstack/connect — including prompts to paste into an AI site builder."
 hidden: false
 createdAt: "Mon Sep 07 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Sep 09 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
@@ -11,7 +11,7 @@ sidebar:
 
 import { Steps, Aside } from '@astrojs/starlight/components';
 
-This page covers the problems that come up after connecting a JavaScript or Node.js project with [`@patchstack/connect`](/getting-started/installing-patchstack/installing-on-javascript-node-projects/): a disclosure widget that never appears, a widget that appears twice, a published site still serving an old integration, a build that broke after a config change, a connector stuck on an old version, and an update that will not take because the package manager is holding the release back.
+This page covers the problems that come up after connecting a JavaScript or Node.js project with [`@patchstack/connect`](/getting-started/installing-patchstack/installing-on-javascript-node-projects/): a Patchstack Connector that never appears, a widget that appears twice, a published site still serving an old integration, a build that broke after a config change, a Connect install stuck on an old version, and an update that will not take because the package manager is holding the release back.
 
 Every section ends with a **prompt you can paste into your site builder's AI chat**. The prompts are deliberately explicit about proving the result, because builder assistants otherwise tend to report the version they remember, or stop after editing one file.
 
@@ -57,7 +57,7 @@ same package manager for every command. Do not create a second lockfile.
 
 ## The widget is not visible on my site
 
-The visitor-facing **Report a vulnerability** button does not appear until the site is connected to a Patchstack account. If you installed the connector and never saw it, that is usually the reason rather than a broken install — work through these in order.
+The visitor-facing **Report a vulnerability** button does not appear until the site is connected to a Patchstack account. If you installed Connect and never saw it, that is usually the reason rather than a broken install — work through these in order.
 
 <Steps>
 
@@ -101,16 +101,16 @@ The visitor-facing **Report a vulnerability** button does not appear until the s
 Use this when the widget works in the builder preview but is absent from the published site.
 
 ```text
-Please diagnose why the Patchstack widget works in preview but is missing from
+Please diagnose why the Patchstack Connector works in preview but is missing from
 the published site.
 
 1. Use the latest @patchstack/connect release from npm.
-2. Confirm the root page contains exactly one connector-managed script from
+2. Confirm the root page contains exactly one Connect-managed script from
    https://cdn.patchstack.com/patchstack-widget.js with data-site-uuid set from
    the public .patchstackrc.json value.
 3. Do not read the site UUID from VITE_*, NEXT_PUBLIC_*, or another
    environment-only variable.
-4. Run the connector setup/scan flow and the complete production build,
+4. Run the Connect setup/scan flow and the complete production build,
    including mark-build where the project scripts require it.
 5. Inspect the generated production output — not only source files — and verify
    that the widget script and window.__PATCHSTACK_PROD__ marker are present.
@@ -147,7 +147,7 @@ Please do not stop at a source-code check; verify the live deployment.
 Thank you.
 ```
 
-## Is this the latest connector version?
+## Is this the latest Connect version?
 
 Site builders often resolve `@patchstack/connect` from cached package metadata and land on an older release. Check what npm actually has:
 
@@ -195,7 +195,7 @@ Patchstack allows for this. The update notice in your dashboard and in the widge
 
 ## The build broke after a config update
 
-The connector uses two config files with different jobs, and mixing them up breaks the build:
+Connect uses two config files with different jobs, and mixing them up breaks the build:
 
 | File | Commit it? | Holds |
 |------|-----------|-------|
@@ -225,14 +225,14 @@ Please diagnose and fix the Patchstack build after the config-file update.
 Please complete and verify the fix. Thank you.
 ```
 
-## I see two Patchstack widgets
+## I see two Patchstack Connectors
 
 Two shield buttons stacked in the corner, sometimes one opening the owner log-in and the other the report form, mean the widget script ran twice on that page. They often sit on exactly the same pixel, so the second one only shows when a panel opens or the layout shifts.
 
 The widget keeps **one floating launcher per page** on its own:
 
 - A second copy loaded by the **same document** is ignored, with a `[PatchstackWidget]` warning in the browser console.
-- A copy inside a page of **your own site that the shell shows in an `<iframe>`** stands down as well, with a console message. The connector's `mark-build` step stamps every built HTML file, so an embedded static page carries the tag too; that copy is harmless and you can leave it.
+- A copy inside a page of **your own site that the shell shows in an `<iframe>`** stands down as well, with a console message. Connect's `mark-build` step stamps every built HTML file, so an embedded static page carries the tag too; that copy is harmless and you can leave it.
 
 What still needs your attention is a second tag that you, or the builder's AI, added by hand. It usually lives in a component, a layout, or a runtime `useEffect` that appends the script. Keep exactly one tag, in the root shell.
 
@@ -252,12 +252,12 @@ If the page embeds another page of your site in an `<iframe>`, run the same two 
 ### Prompt: two widgets on the page
 
 ```text
-Please make sure the Patchstack widget is loaded exactly once on this site.
+Please make sure the Patchstack Connector is loaded exactly once on this site.
 
 1. Search the entire project - source files, layouts, components, and static
    HTML under public/ - for "patchstack-widget.js" and list every place that
    loads it.
-2. Keep exactly one <script> tag: the connector-managed one in the root shell
+2. Keep exactly one <script> tag: the Connect-managed one in the root shell
    (index.html, or the root layout for Next.js / TanStack Start / Remix). It
    must carry data-site-uuid with the value from the committed
    .patchstackrc.json.
