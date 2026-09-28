@@ -54,7 +54,7 @@ The headline is one of:
 - **Live, build unverified** — the widget is checking in from the site's address, but the page carries no build marker, so nothing says which build is running. This is what a build made on your own machine looks like once it is uploaded by hand: Connect only stamps the marker on a build it can tell is a deployment. Build for publishing with `PATCHSTACK_ENVIRONMENT=production`, or run `npx @patchstack/connect mark-build --production` before uploading, and the next deploy reads as **Deployed**.
 - **Deploy state unknown** — production builds exist, but nothing current says which one is live.
 
-Next to the headline, **Reporting from** names the environment Patchstack last heard from — *local machine*, *sandbox*, or *production*. **Built with** names the builder when one was recognised, and **Hosted on** names the platform serving the site (Netlify, Vercel, Cloudflare, DigitalOcean, AWS, GitHub Pages and others), as read from the build's own environment and confirmed from the live page's response headers. The four stages below them (**Configured**, **Deployed**, **Monitoring**, **Protection**) are each graded from what was actually observed, with its timestamp. A stage is not ticked because a later one is: an app can be live without a production scan, and the card says so. The **Protection** stage is ticked when protection is on for the site, whether through the per-site add-on or a plan that protects every site — the same rule the site header and the widget use.
+Next to the headline, **Reporting from** names the environment Patchstack last heard from — *local machine*, *sandbox*, or *production*. **Built with** names the builder when one was recognised, and **Hosted on** names the platform serving the site (Netlify, Vercel, Cloudflare, DigitalOcean, AWS, GitHub Pages and others), as read from the build's own environment and confirmed from the live page's response headers. The four stages below them (**Configured**, **Deployed**, **Monitoring**, **Protection**) are each graded from what was actually observed, with its timestamp. A stage is not ticked because a later one is: an app can be live without a production scan, and the card says so. The **Protection** stage is ticked when protection is on for the site, whether through the per-site add-on or a plan that protects every site, and the app is deployed. A plan that includes protection does not tick it while the app has only been scanned on your machine or built in a sandbox — the same rule the Protection card and the widget use.
 
 ### Live site activity
 
@@ -120,12 +120,18 @@ The guard fetches the rules Patchstack generated for the vulnerable packages thi
 
 Runtime protection on a production Pulse app is a paid feature. See [The runtime guard](/getting-started/installing-patchstack/installing-on-javascript-node-projects/) for what `setup` installs and which frameworks are wired automatically.
 
+### When protection shows as Active
+
+The Protection card and the widget show **Active** only when protection is on for the site *and* the app is deployed. Deployed means Patchstack has either seen the live site or had the production build reported by your hosting platform. A build scanned on your own machine (the *local machine* environment, shown as **Configured locally**) or only built as a preview (*sandbox*) is not live, so there is nothing yet for the guard to protect. Visits from `localhost` and other addresses only your machine can reach never count as the live site.
+
+If your plan includes protection but the app is not deployed yet, the card and the widget show **Not live yet**. Protection starts on its own once the app is deployed to production; there is nothing to switch on.
+
 ### When protection is not offered
 
 The guard screens requests, so it needs a request path to sit on. Some apps have none, and the Status tab and the Protection card say so instead of offering protection:
 
 - **Not available for this app** — the app builds a static site (Eleventy, Gatsby, Docusaurus, VitePress, a SvelteKit site with the static adapter, and similar) and nothing in it receives a request. Dependency monitoring and the Patchstack Connector still apply; runtime protection does not. `setup` installs nothing for it on such a project, and `protect --check` reports the capability as not applicable rather than as failing. Protection becomes available if the app later gains a server or edge request path.
-- **Deploy first** — the app has not been deployed with Patchstack yet. Protection is verified against a live site, so deploy, then enable it.
+- **Deploy first** — the app has not been deployed with Patchstack yet and protection is not on your plan. Protection is verified against a live site, so deploy, then enable it.
 
 The card names what the verdict is based on: the attack-surface map's analysis of the source where the app has reported one, otherwise the packages in its newest build.
 
