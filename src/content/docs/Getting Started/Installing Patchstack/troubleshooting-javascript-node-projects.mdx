@@ -13,6 +13,8 @@ import { Steps, Aside } from '@astrojs/starlight/components';
 
 This page covers the problems that come up after connecting a JavaScript or Node.js project with [`@patchstack/connect`](/getting-started/installing-patchstack/installing-on-javascript-node-projects/): a Patchstack Connector that never appears, a widget that appears twice, a published site still serving an old integration, a build that broke after a config change, a Connect install stuck on an old version, and an update that will not take because the package manager is holding the release back.
 
+If the install never finished because your AI assistant refused to run `npm install` or `npx @patchstack/connect setup`, start with [My AI assistant blocked a Connect command](/getting-started/installing-patchstack/ai-assistant-blocked-a-command/) instead.
+
 Every section ends with a **prompt you can paste into your site builder's AI chat**. The prompts are deliberately explicit about proving the result, because builder assistants otherwise tend to report the version they remember, or stop after editing one file.
 
 <Aside type="tip" title="Start with the builder context">
@@ -276,6 +278,7 @@ check from step 5. Thank you.
 
 ## Still stuck?
 
+- [My AI assistant blocked a Connect command](/getting-started/installing-patchstack/ai-assistant-blocked-a-command/) covers an assistant such as Claude Code refusing to run the install or `setup`.
 - `npx @patchstack/connect guide` prints a project-aware checklist of what is present and what is missing.
 - `npx @patchstack/connect status` re-prints the site UUID and dashboard link.
 - [Pulse sites overview](/patchstack-app/pulse/pulse-overview/) explains what a connected site looks like in the Patchstack App, including how to tell whether it is reporting.
