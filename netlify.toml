@@ -1062,8 +1062,9 @@
 	from = "/patchstack-plugin/patchstack-connector/how-to-install-on-joomla/"
 	to = "/patchstack-plugin/patchstack-connector/joomla-support-deprecated/"
 	status = 301
-# Pulse was renamed to Patchstack for JavaScript and moved out of "Patchstack app"
-# into its own top-level section.
+
+# The JavaScript/Node.js section moved out of "Patchstack app" to its own
+# top-level section, Patchstack for JavaScript, at /patchstack-for-js/.
 [[redirects]]
 	from = "/patchstack-app/pulse/pulse-overview/"
 	to = "/patchstack-for-js/overview/"
