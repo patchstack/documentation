@@ -30,6 +30,8 @@ npm install --save-dev @patchstack/connect   # or: pnpm add -D / yarn add -D / b
 npx --no-install patchstack-connect setup
 ```
 
+If your coding assistant refuses to run either command — Claude Code's permission check sometimes stops installs from npm — run it yourself; see [My AI assistant blocked a Connect command](/getting-started/installing-patchstack/ai-assistant-blocked-a-command/).
+
 `setup` applies a bounded, idempotent set of changes and nothing else:
 
 1. **Scans the lockfile and sends the dependency manifest** (package names and versions) to Patchstack.
@@ -121,7 +123,7 @@ Reporting stops immediately. Local removal does not delete the site record on Pa
 
 ## Troubleshooting
 
-A widget that never appears, a published site serving an old build, a broken config file, or a Connect install stuck on an old version are all covered — with copy-paste prompts for AI site builders — in [Troubleshooting JavaScript / Node.js projects](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/).
+A widget that never appears, a published site serving an old build, a broken config file, or a Connect install stuck on an old version are all covered — with copy-paste prompts for AI site builders — in [Troubleshooting JavaScript / Node.js projects](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/). If the assistant never got that far because it would not run `npm install` or `setup`, see [My AI assistant blocked a Connect command](/getting-started/installing-patchstack/ai-assistant-blocked-a-command/).
 
 ## How this relates to host-level npm protection
 

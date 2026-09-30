@@ -15,7 +15,7 @@ That difference in mechanism is why a Pulse site's dashboard does not look like 
 
 ## Getting a site into the dashboard
 
-Install Connect in your project and run `setup`. The first scan creates the site for you — there is no "add site" step to do first, and no API key to paste.
+Install Connect in your project and run `setup`. The first scan creates the site for you — there is no "add site" step to do first, and no API key to paste. If your coding assistant refuses to run the install or `setup`, run the command yourself — see [My AI assistant blocked a Connect command](/getting-started/installing-patchstack/ai-assistant-blocked-a-command/).
 
 The site starts out **unclaimed**: it is being monitored, but it is not attached to anyone's account, so nobody can see its reports. `setup` prints a dashboard link. Open it, sign in, and the site attaches to your account. If you lose the link, `npx @patchstack/connect status` prints it again.
 

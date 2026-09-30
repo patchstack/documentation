@@ -1,0 +1,110 @@
+---
+title: "My AI assistant blocked a Connect command"
+excerpt: "Claude Code or another coding assistant refused to run npm install or npx @patchstack/connect setup. Run the command yourself — in Claude Code, with the ! prefix — and let the assistant carry on."
+hidden: false
+createdAt: "Wed Sep 30 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Wed Sep 30 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
+sidebar:
+  order: 7.5
+  label: "AI assistant blocked a command"
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Coding assistants such as Claude Code check each shell command before running it, and some of those checks stop a command that downloads or runs a package from npm. Installing [`@patchstack/connect`](/getting-started/installing-patchstack/installing-on-javascript-node-projects/) involves both, so the install can stop part-way with a message like one of these:
+
+```text
+Auto mode's safety check blocked the install and flagged it as bringing
+untrusted code into the project. Nothing has changed.
+```
+
+```text
+I installed @patchstack/connect as a dependency, but I haven't set it up.
+My permission check blocked running the package's own setup command, because
+that means running code downloaded from npm on your machine.
+```
+
+The commands that usually get stopped are the install itself (`npm install --save-dev @patchstack/connect`, or the `pnpm`, `yarn` or `bun` equivalent) and `npx @patchstack/connect setup`.
+
+**Running the command yourself is fine.** It is the same command the assistant was about to run, it changes only what [`setup` is documented to change](/getting-started/installing-patchstack/installing-on-javascript-node-projects/#install), and it sends Patchstack dependency names and versions only — see [Security and data handling](/getting-started/installing-patchstack/installing-on-javascript-node-projects/#security-and-data-handling).
+
+<Aside type="caution" title="Telling the assistant it has permission may not be enough">
+Replying "you have permission to run the command" sometimes gets the assistant to try again, but the check that stopped it usually runs outside the conversation, so the second attempt is often blocked too. If it is, use one of the options below instead of repeating yourself.
+</Aside>
+
+## In Claude Code: run it with `!`
+
+Type the command in the Claude Code prompt with `!` in front of it. Claude Code runs it in your session straight away, without the permission check, and the output lands in the conversation — so Claude sees the result and can finish the rest of the install.
+
+<Steps>
+
+1. **Run whichever command was blocked.** If the install was blocked, install the package with the project's package manager:
+
+   ```text
+   ! npm install --save-dev @patchstack/connect
+   ```
+
+   If the install went through and `setup` was blocked, run `setup`:
+
+   ```text
+   ! npx @patchstack/connect setup
+   ```
+
+   If the message you pasted from the app carried a claim token (you ticked **Connect this website to my account automatically**), keep it on the command so the site is created attached to your account:
+
+   ```text
+   ! npx @patchstack/connect setup --claim-token <token>
+   ```
+
+2. **Let Claude continue.** Once the command finishes, tell Claude to carry on — for example with the prompt below. It picks up from the output it can now see: finishing anything `setup` lists as missing, running the build, and handing you the dashboard link.
+
+3. **Check server-side protection, if your app has a server.** For an Express, Fastify, or other server app, confirm the protection is wired up:
+
+   ```text
+   ! npx @patchstack/connect protect --check
+   ```
+
+</Steps>
+
+```text
+I ran the blocked Patchstack command myself; the output is above. Please
+continue the @patchstack/connect install from there: finish anything setup
+lists as missing, run the complete production build, and give me the
+Patchstack dashboard link. Tell me if any other command is blocked instead of
+reporting the install as complete.
+```
+
+### Allow the Connect commands for this project
+
+If you would rather Claude Code ran the Connect commands itself — for example because you reinstall or rescan often — add an allow rule to `.claude/settings.json` in the project, then ask Claude to retry:
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx @patchstack/connect:*)"
+    ]
+  }
+}
+```
+
+Add the rule yourself. Claude Code will usually decline to edit its own permissions to get past a check that has just stopped it.
+
+## In other assistants and site builders
+
+Codex, OpenCode, Gemini CLI, Cursor and the rest each have their own approval settings, but the fix is the same: run the blocked command yourself from the project folder, then tell the assistant it has been run.
+
+<Steps>
+
+1. Open a terminal in the project folder — the one containing `package.json`.
+2. Run the command the assistant was blocked on, using the project's package manager (check the lockfile: `package-lock.json` is npm, `pnpm-lock.yaml` is pnpm, `yarn.lock` is yarn, `bun.lock` or `bun.lockb` is bun).
+3. Paste the command's output into the chat along with the prompt above, so the assistant continues from where the command left off instead of starting again.
+
+</Steps>
+
+Site builders such as Lovable, GoDaddy Airo and Hostinger Horizons do not always give you a terminal. If yours has none and the assistant cannot run the install, ask it to name the exact step it cannot perform — the [builder context](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/#tell-your-builder-what-project-this-is) snippets help with that.
+
+## Still stuck?
+
+- `npx @patchstack/connect guide` prints a project-aware checklist of what is present and what is missing, so you can see how far the install got.
+- [Troubleshooting JS / Node.js](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/) covers what can go wrong after the install: a widget that never appears, a stale published build, or an outdated Connect version.
