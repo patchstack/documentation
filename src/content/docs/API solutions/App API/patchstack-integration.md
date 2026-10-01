@@ -153,7 +153,7 @@ The response will look something like below.
 The top-level `lastid` and `oauth` fields refer to the **last** site in the batch and are kept for backwards compatibility. New integrations should read from the per-URL `sites` map.
 
 ###### Bulk provisioning
-The `urls` parameter is an **array**, so you can provision up to **100 sites in a single `/site/add` call** rather than looping one request per site. Pass every URL in the array and the response returns one entry per URL under the `sites` map, keyed by the exact URL you sent:
+The `urls` parameter is an **array**, so you can provision up to **100 sites in a single `/site/add` call** rather than looping one request per site. Pass every URL in the array and the response returns one entry per added URL under the `sites` map, keyed by the exact URL you sent (URLs already on the account are skipped, see below):
 
 ```bash
 curl -X 'POST' \
@@ -189,6 +189,40 @@ curl -X 'POST' \
 ```
 
 Reconcile the results **by URL**: iterate the `sites` map and match each key back to the record on your side, rather than relying on array order or the top-level `lastid`. The `/site/exists` endpoint accepts the same `urls` array (up to 100) so you can pre-check a whole batch in one call before adding it. If you need to re-fetch the `{siteid, url}` mapping for every site on the account later, call [`POST /monitor/sites/list/basic`](https://api.patchstack.com/app-api/documentation) and match by URL.
+
+###### Sites that are already on the account
+`/site/add` never adds a site twice. A URL that is already on your account (or your team's) is skipped: it is not created again and it is not charged for again. The same goes for a URL that appears twice in one request. This makes it safe to resend a batch, for example after a timeout.
+
+When matching, `http` and `https`, a `www.` prefix, upper and lower case, and a trailing slash are ignored. A different port or path counts as a different site, so `https://mywebsite.com/shop` can still be added next to `https://mywebsite.com`.
+
+Skipped URLs are listed in `skipped` and do not appear in `sites`:
+
+```json
+{
+  "success": "Successfully added the site(s).",
+  "count": 1,
+  "sites": {
+    "https://site2.com": {
+      "siteid": 12346,
+      "oauth": { "id": 12334, "secret": "…", "apikey": "…-12334" }
+    }
+  },
+  "skipped": ["https://site1.com"],
+  "lastid": 12346,
+  "oauth": { "id": 12334, "secret": "…", "apikey": "…-12334" }
+}
+```
+
+If every URL in the request is already on the account, nothing is added and the call returns HTTP `422`:
+
+```json
+{
+  "error": "The site(s) you entered are already on your account.",
+  "skipped": ["https://site1.com", "https://site2.com"]
+}
+```
+
+To get the `siteid` of a skipped site, call [`POST /monitor/sites/list/basic`](https://api.patchstack.com/app-api/documentation) and match by URL.
 
 ###### 3. Store in local datastore
 Store the `siteid` and `apikey` for each URL in a datastore on your infrastructure. This avoids having to query the Patchstack App API each time you need to identify a customer's site.
