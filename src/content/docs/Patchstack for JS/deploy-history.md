@@ -1,6 +1,6 @@
 ---
 title: "Deploy history"
-excerpt: "A per-build changelog of what each deploy added, removed or moved in a Pulse app's dependencies."
+excerpt: "A per-build changelog of what each deploy added, removed or moved in the dependencies of an app monitored by Patchstack for JavaScript."
 hidden: false
 createdAt: "Thu Aug 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu Aug 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
@@ -11,7 +11,7 @@ sidebar:
 
 **Deploy history** turns the manifests your builds report into a changelog: for each build, what it added, what it removed, what changed version, and whether anything it brought in was already known to be vulnerable.
 
-The [Packages](/patchstack-app/pulse/packages/) tab answers "what is installed now". It cannot answer "when did this arrive" — which is the question that matters when an app's dependencies were chosen by an AI coding tool rather than picked deliberately.
+The [Packages](/patchstack-for-js/packages/) tab answers "what is installed now". It cannot answer "when did this arrive" — which is the question that matters when an app's dependencies were chosen by an AI coding tool rather than picked deliberately.
 
 ## Reading a build
 
@@ -38,7 +38,7 @@ So a build annotated with a vulnerability is telling you something specific: thi
 
 The page header carries the same deploy status as the site header: which of the builds below is the one serving traffic right now. The list is a record of builds, and the newest entry in it is not automatically the live one.
 
-Where a newer build was scanned but never shipped, the page says so directly — the timeline alone cannot, because a build that never went out looks exactly like one that did. See [when the site was last deployed](/patchstack-app/pulse/pulse-overview/#when-the-site-was-last-deployed).
+Where a newer build was scanned but never shipped, the page says so directly — the timeline alone cannot, because a build that never went out looks exactly like one that did. See [when the site was last deployed](/patchstack-for-js/overview/#when-the-site-was-last-deployed).
 
 The status describes production only, so it is hidden while you are looking at the sandbox lineage.
 

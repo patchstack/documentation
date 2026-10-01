@@ -1,6 +1,6 @@
 ---
 title: "Attack surface"
-excerpt: "A map of a Pulse app's entry points, the inputs they read and where those inputs can reach — and what Patchstack does with it."
+excerpt: "A map of the entry points of an app monitored by Patchstack for JavaScript, the inputs they read and where those inputs can reach — and what Patchstack does with it."
 hidden: false
 createdAt: "Thu Aug 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu Aug 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
@@ -11,7 +11,7 @@ sidebar:
 
 The **Attack surface** tab describes the shape of your application: its entry points, the inputs each one reads, the sensitive operations those inputs can reach, and which of those links Patchstack could actually prove.
 
-It is the input to two things you see elsewhere — the reachability verdicts on [Packages](/patchstack-app/pulse/packages/), and the protection rules Patchstack can pin to a specific place in your app rather than applying broadly.
+It is the input to two things you see elsewhere — the reachability verdicts on [Packages](/patchstack-for-js/packages/), and the protection rules Patchstack can pin to a specific place in your app rather than applying broadly.
 
 ## Uploading a map
 
@@ -37,7 +37,7 @@ This is best-effort static analysis. It reports the surface it **detected**, and
 - **Analysis coverage** and **analyser notes** record what could not be modelled — dynamic property access, computed `require`, reflection, and similar patterns that no amount of parsing resolves.
 - A dependency inventory that could not be completed says **"This inventory is incomplete"** rather than quietly reporting fewer dependencies.
 
-That last point is what keeps the [reachability verdicts](/patchstack-app/pulse/packages/#reachability) honest. "Not imported" is only claimed against an inventory known to be complete; otherwise the verdict is "unknown".
+That last point is what keeps the [reachability verdicts](/patchstack-for-js/packages/#reachability) honest. "Not imported" is only claimed against an inventory known to be complete; otherwise the verdict is "unknown".
 
 ## Rule readiness and addressability
 
