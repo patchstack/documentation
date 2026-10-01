@@ -191,6 +191,7 @@ export default defineConfig({
 					collapsed: true,
 					autogenerate: { directory: 'FAQ Troubleshooting', collapsed: true },
 				},
+				{ label: 'Changelog', slug: 'changelog' },
 			/*	{
 					label: 'Partners',
 					collapsed: true,

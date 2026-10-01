@@ -1,0 +1,130 @@
+name: Daily breaking-change changelog
+
+# Fast-path for PRs labeled `changelog:breaking`. Runs daily, scans the last
+# 24h of merged PRs across patchstack/saas + patchstack/hub for the label,
+# and (if any are found) appends them to the current month's Breaking
+# sub-section via the skill's fast-path mode. Does not regenerate other entries
+# — the weekly workflow handles those.
+#
+# Goal: integrators see breaking changes within ~24h of release instead of
+# waiting up to a week for the batched run.
+
+on:
+  schedule:
+    # Every day at 09:00 UTC.
+    - cron: '0 9 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  check-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Find `changelog:breaking` PRs merged in the last 24h
+        id: find_prs
+        env:
+          GH_TOKEN: ${{ secrets.CHANGELOG_PAT }}
+        # PR titles from `gh pr list` are untrusted input. We pass them through
+        # `jq -r` (no shell interpretation) into the multiline GITHUB_OUTPUT
+        # format. Downstream steps consume these outputs only as env vars,
+        # never interpolated into `run:` scripts directly.
+        run: |
+          YESTERDAY=$(date -u -d '24 hours ago' +%Y-%m-%dT%H:%M:%SZ)
+
+          SAAS=$(gh pr list --repo patchstack/saas --state merged \
+            --search "label:changelog:breaking merged:>=$YESTERDAY" \
+            --json number,url,title,mergedAt)
+          HUB=$(gh pr list --repo patchstack/hub --state merged \
+            --search "label:changelog:breaking merged:>=$YESTERDAY" \
+            --json number,url,title,mergedAt)
+
+          COMBINED=$(echo "$SAAS $HUB" | jq -s 'add')
+          COUNT=$(echo "$COMBINED" | jq 'length')
+
+          # Use a random heredoc marker so PR titles can't accidentally
+          # close the GITHUB_OUTPUT multiline value.
+          MARKER="EOF_${RANDOM}_${RANDOM}_${RANDOM}"
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          {
+            echo "pr_urls<<$MARKER"
+            echo "$COMBINED" | jq -r '.[] | .url'
+            echo "$MARKER"
+          } >> "$GITHUB_OUTPUT"
+          {
+            echo "pr_list<<$MARKER"
+            echo "$COMBINED" | jq -r '.[] | "- \(.url)"'
+            echo "$MARKER"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Nothing to publish
+        if: steps.find_prs.outputs.count == '0'
+        run: echo "No PRs labeled 'changelog:breaking' merged in last 24h — nothing to do."
+
+      - name: Set up Node
+        if: steps.find_prs.outputs.count != '0'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code
+        if: steps.find_prs.outputs.count != '0'
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Add breaking-change entries via skill fast-path
+        if: steps.find_prs.outputs.count != '0'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ secrets.CHANGELOG_PAT }}
+          # PR_URLS is plumbed through env (not interpolated into the run
+          # script), so even if a PR title contained shell metacharacters
+          # they would never be evaluated. The prompt is assembled via printf
+          # with double-quoted variable expansion — no command substitution.
+          PR_URLS: ${{ steps.find_prs.outputs.pr_urls }}
+        run: |
+          {
+            printf '%s\n\n' "Run the changelog skill at .claude/skills/changelog/SKILL.md in breaking-change fast-path mode. Add these PRs to the current month's API & integrator changes Breaking sub-section in src/content/docs/changelog.md:"
+            printf '%s\n\n' "$PR_URLS"
+            printf '%s\n' "Do not regenerate any other entries. If any of the listed PRs are not actually breaking, surface them at the top of your output and skip them - do not silently demote into Behaviour changes; the label was likely misapplied and the caller needs to fix it."
+          } | claude --print --dangerously-skip-permissions
+
+      - name: Open PR with breaking-change addition
+        if: steps.find_prs.outputs.count != '0'
+        env:
+          PR_LIST: ${{ steps.find_prs.outputs.pr_list }}
+        # Body is composed from $PR_LIST via env, then passed to
+        # create-pull-request which treats it as a plain string for the
+        # GitHub API PR body (no shell or template re-evaluation).
+        run: |
+          BODY=$(printf '%s\n\n%s\n\n%s\n\n%s\n' \
+            "Breaking-change PRs merged in the last 24h have been added to the changelog." \
+            "**Merge promptly** — the goal is for integrators to see these within ~24h of release." \
+            "PRs included:" \
+            "$PR_LIST")
+          # Stash for the next step
+          {
+            MARKER="EOF_${RANDOM}_${RANDOM}_${RANDOM}"
+            echo "pr_body<<$MARKER"
+            echo "$BODY"
+            echo ""
+            echo "This is the daily breaking-change fast-path. The weekly batched run handles all other changes."
+            echo "$MARKER"
+          } >> "$GITHUB_OUTPUT"
+        id: build_body
+
+      - name: Create PR
+        if: steps.find_prs.outputs.count != '0'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.CHANGELOG_PAT }}
+          branch: changelog/auto-breaking
+          delete-branch: true
+          title: "Changelog: breaking change(s) merged in last 24h"
+          body: ${{ steps.build_body.outputs.pr_body }}
+          commit-message: "Add breaking change entries to changelog"
+          add-paths: src/content/docs/changelog.md

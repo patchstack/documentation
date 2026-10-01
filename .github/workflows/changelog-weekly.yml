@@ -1,0 +1,70 @@
+name: Weekly changelog update
+
+# Batched weekly regeneration. Captures the previous week's merges across
+# patchstack/saas and patchstack/hub and opens a PR for human review.
+# Most entries flow through here. The daily breaking-change workflow
+# handles only `changelog:breaking`-labeled PRs as a separate fast-path.
+
+on:
+  schedule:
+    # Monday 08:00 UTC (~10:00 Tallinn) — team reviews during Monday morning.
+    - cron: '0 8 * * 1'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Regenerate changelog (incremental mode)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # PAT with read access to patchstack/saas + patchstack/hub
+          # (the skill's `gh pr list` calls span both repos) and
+          # write access to patchstack/documentation (for the PR step below).
+          GH_TOKEN: ${{ secrets.CHANGELOG_PAT }}
+        # No untrusted input is interpolated into this script — the prompt is
+        # a single-quoted heredoc (no expansion), and the only env vars are
+        # secrets which never reach the prompt body.
+        run: |
+          claude --print --dangerously-skip-permissions <<'PROMPT'
+          Run the changelog skill at .claude/skills/changelog/SKILL.md in
+          incremental mode. Update src/content/docs/changelog.md with PRs
+          merged since the <!-- last-updated: --> marker. This is an automated
+          CI run — write the file directly, skip the per-entry user-review step.
+          The PR opened after this step will be reviewed by the team.
+          PROMPT
+
+      - name: Open PR with regenerated changelog
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.CHANGELOG_PAT }}
+          branch: changelog/auto-weekly
+          delete-branch: false
+          title: "Changelog: weekly update"
+          body: |
+            Automated weekly changelog regeneration via `.github/workflows/changelog-weekly.yml`.
+
+            **Please review entries for accuracy before merging.** Check:
+            - Customer-voice rewrites read naturally
+            - API & integrator changes are categorized correctly (Breaking / Behaviour changes / Additive / Deprecations)
+            - Nothing internal slipped through the noise filter
+            - Highlights are capped at 4-6 and don't duplicate the API section
+
+            Manual escape hatch: run `/changelog` locally if you need an ad-hoc update before the next weekly run.
+          commit-message: "Update changelog with PRs merged this week"
+          add-paths: src/content/docs/changelog.md
