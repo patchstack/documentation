@@ -29,6 +29,8 @@ Open **Sites → your app → Protection** in the full Patchstack dashboard. The
 
 The log filters are **All rules**, **NPM vulnerability rules**, and **Custom rules**. Use **All rules** to include logs from runtime hardening rules as well. WordPress hardening and Community IP blocklist filters are not shown for these apps.
 
+If the runtime cannot provide a client IP, the origin reads **IP unavailable** without a country flag. A flag is shown only when both an IP and country information are available.
+
 Module membership does not prove that a running app has fetched or enforced its rules. An empty log table only means that no matching block logs were received for the selected filters; it does not prove that the app is safe or reporting successfully. A failed log request is shown separately, with a retry option.
 
 For monitoring-only matches and per-rule activity, follow **rule detections** to **Attack surface**. Detection counts and firewall logs measure different things and need not match. The embedded view remains a simplified summary; use the full dashboard for the log table.
