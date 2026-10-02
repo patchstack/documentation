@@ -10,7 +10,7 @@ sidebar:
 ---
 
 _Site protection overview and security solutions are available for all Patchstack paid plan users._  
-**_Protection settings and modules are available for WordPress sites only._**
+Protection is also available in the site view for JavaScript / Node.js apps connected with `@patchstack/connect`. Available modules and controls depend on the site's platform, plan, and your permissions.
 
 The **Protection overview** subpage is found at **Sites** > **yoursite.com** > **Protection** in Patchstack App.
 
@@ -19,7 +19,21 @@ On the **Protection overview** subpage you can:
 * See where your site got attacks from
 * See how have the hackers tried to attack your site
 
+The screenshot below shows the WordPress view; JavaScript / Node.js apps have different module and log filters.
+
 ![](@images/patchstack-site-protection-overview.png)
+
+## JavaScript / Node.js apps
+
+Open **Sites → your app → Protection** in the full Patchstack dashboard. The **Firewall logs** section shows blocked requests reported by your runtime guard. Use the date range and URL search to narrow the results, then click a row for request details.
+
+The log filters are **All rules**, **NPM vulnerability rules**, and **Custom rules**. Use **All rules** to include logs from runtime hardening rules as well. WordPress hardening and Community IP blocklist filters are not shown for these apps.
+
+Module membership does not prove that a running app has fetched or enforced its rules. An empty log table only means that no matching block logs were received for the selected filters; it does not prove that the app is safe or reporting successfully. A failed log request is shown separately, with a retry option.
+
+For monitoring-only matches and per-rule activity, follow **rule detections** to **Attack surface**. Detection counts and firewall logs measure different things and need not match. The embedded view remains a simplified summary; use the full dashboard for the log table.
+
+The remaining module descriptions and screenshots below describe the WordPress view.
 
 ## Protection modules
 
