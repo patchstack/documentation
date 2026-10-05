@@ -3,7 +3,7 @@ title: "Deploy history"
 excerpt: "A per-build changelog of what each deploy added, removed or moved in a Pulse app's dependencies."
 hidden: false
 createdAt: "Thu Aug 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Thu Aug 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Mon Oct 05 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3
   label: "Deploy history"
@@ -11,20 +11,27 @@ sidebar:
 
 **Deploy history** turns the manifests your builds report into a changelog: for each build, what it added, what it removed, what changed version, and whether anything it brought in was already known to be vulnerable.
 
+You find it on the app's **Activity** tab.
+
 The [Packages](/patchstack-app/pulse/packages/) tab answers "what is installed now". It cannot answer "when did this arrive" — which is the question that matters when an app's dependencies were chosen by an AI coding tool rather than picked deliberately.
 
 ## Reading a build
 
-Each entry shows the packages that build changed, grouped three ways:
+Deploy history is a table. Each build starts with a header row: when it ran, its checksum, and a summary such as *2 changes · 481 packages*. Under it, one row per package the build changed:
 
-- **Added** — packages that were not installed before this build.
-- **Changed** — packages whose version moved. Marked *upgraded*, *downgraded*, or *mixed*. Mixed means the set of installed versions moved without going one direction: a version was added alongside an existing one, or two versions swapped for two others.
-- **Removed** — packages that were installed before this build and are not now.
+| Event | Meaning |
+|-------|---------|
+| **Installed** | The package was not installed before this build. |
+| **Updated** | The package moved to a higher version. |
+| **Downgraded** | The package moved to a lower version. |
+| **Changed** | The set of installed versions moved without going one direction: a version was added alongside an existing one, or two versions swapped for two others. |
+| **Removed** | The package was installed before this build and is not now. |
+| **Detected** | A version this build brought in was already known to be vulnerable. The row sits under the package it belongs to. |
 
-Two entries look different on purpose:
+Two builds look different on purpose:
 
-- **The first recorded build** is shown as a baseline, not as several hundred additions. An initial scan would otherwise bury every real change beneath it.
-- **A build that changed nothing** says so. Patchstack records a build whenever the reported package set differs from the one before it, so a build with no dependency change is a meaningful, quiet entry rather than a missing one.
+- **The first recorded build** is shown as a **Baseline** row, not as several hundred installs. An initial scan would otherwise bury every real change beneath it.
+- **A build that changed nothing** says *No package changes*. Patchstack records a build whenever the reported package set differs from the one before it, so a build with no dependency change is a meaningful, quiet entry rather than a missing one.
 
 ## Vulnerability notes
 
@@ -36,11 +43,13 @@ So a build annotated with a vulnerability is telling you something specific: thi
 
 ## Which build is live
 
-The page header carries the same deploy status as the site header: which of the builds below is the one serving traffic right now. The list is a record of builds, and the newest entry in it is not automatically the live one.
+In production, the build serving traffic right now carries a **Live** badge. The newest build in the table is not automatically the live one, and the site header shows the same deploy status.
 
-Where a newer build was scanned but never shipped, the page says so directly — the timeline alone cannot, because a build that never went out looks exactly like one that did. See [when the site was last deployed](/patchstack-app/pulse/pulse-overview/#when-the-site-was-last-deployed).
+Where a newer build was scanned but never shipped, the tab says so directly — the table alone cannot, because a build that never went out looks exactly like one that did. See [when the site was last deployed](/patchstack-app/pulse/pulse-overview/#when-the-site-was-last-deployed).
 
-The status describes production only, so it is hidden while you are looking at the sandbox lineage.
+## Exporting
+
+**Export CSV** downloads the builds on screen for the selected environment, one line per table row. Each line carries the build's time, checksum and environment, then the event, object, package and details. A baseline or unchanged build gets a line of its own, so every build is in the file.
 
 ## Environments
 
