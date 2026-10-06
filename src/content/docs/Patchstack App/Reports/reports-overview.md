@@ -29,3 +29,9 @@ On the **Reports** page you can view and download all the previously generated P
 To download a report, click **Download** at the right end of its row.
 
 To view and manage your scheduled reports, click on **Scheduled reports** tab. Note that report scheduling is for the Developer and Enterprise plan users.
+
+## Mitigation status for JavaScript applications
+
+A mitigation being available for a vulnerability does not mean it has been delivered to every affected application. JavaScript application reports mark a vulnerability as mitigated when a blocking rule bundle covering it has been delivered to that application. A rule that is only available, or is used in detect-only mode, does not establish that status.
+
+This status records delivery of protection, not evidence that an attack occurred or was blocked. Updating the affected package to a fixed version is still recommended.
