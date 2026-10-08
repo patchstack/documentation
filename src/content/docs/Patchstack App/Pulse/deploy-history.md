@@ -49,7 +49,7 @@ Where a newer build was scanned but never shipped, the tab says so directly — 
 
 ## Exporting
 
-**Export CSV** downloads the builds on screen for the selected environment, one line per table row. Each line carries the build's time, checksum and environment, then the event, object, package and details. A baseline or unchanged build gets a line of its own, so every build is in the file.
+**Export CSV** downloads the builds on screen for the selected environment, one line per table row. The file is named after your site and the export date, for example `my-app.lovable.app-2026-10-08.csv`. Each line carries the build's time (in UTC) and environment, then the event, object, package and details. A baseline or unchanged build gets a line of its own, so every build is in the file.
 
 ## Environments
 
