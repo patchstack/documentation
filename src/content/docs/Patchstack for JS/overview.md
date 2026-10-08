@@ -31,12 +31,12 @@ A Patchstack for JS site gets a smaller set of tabs than a WordPress site, becau
 |-----|-------------------|
 | **Overview** | Whether protection is active, the vulnerabilities found in this app's dependencies, and how many packages are installed. |
 | **[Packages](/patchstack-for-js/packages/)** | Every npm package the app has installed, which are vulnerable, and how close each vulnerability is to code the app actually runs. |
-| **[Deploy history](/patchstack-for-js/deploy-history/)** | What each build changed about the installed packages, and whether it brought in anything already known to be vulnerable. |
+| **Activity** | The app's [deploy history](/patchstack-for-js/deploy-history/): what each build changed about the installed packages, and whether it brought in anything already known to be vulnerable. |
 | **[Attack surface](/patchstack-for-js/attack-surface/)** | The app's entry points, the inputs they read, and where those inputs can reach. Populated only if you run `map --upload`. |
 | **Protection** | Rules protecting the app's vulnerable packages at runtime, and what they have matched. |
 | **Settings** | Site name, group, and removal. |
 
-Hardening, Activity, and Users are WordPress-only and do not appear. Reports currently cover WordPress sites; the security-report page of a Patchstack for JS site hides the sections that do not apply.
+Hardening and Users are WordPress-only and do not appear. The Activity tab exists for both, but shows different things: a WordPress site's activity log, or the deploy history of a Patchstack for JS app. Reports currently cover WordPress sites; the security-report page of a Patchstack for JS site hides the sections that do not apply.
 
 ## Application status
 
