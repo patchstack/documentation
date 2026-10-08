@@ -1062,3 +1062,35 @@
 	from = "/patchstack-plugin/patchstack-connector/how-to-install-on-joomla/"
 	to = "/patchstack-plugin/patchstack-connector/joomla-support-deprecated/"
 	status = 301
+
+# The JavaScript/Node.js section moved out of "Patchstack app" to its own
+# top-level section, Patchstack for JavaScript, at /patchstack-for-js/.
+[[redirects]]
+	from = "/patchstack-app/pulse/pulse-overview/"
+	to = "/patchstack-for-js/overview/"
+	status = 301
+
+[[redirects]]
+	from = "/patchstack-app/pulse/packages/"
+	to = "/patchstack-for-js/packages/"
+	status = 301
+
+[[redirects]]
+	from = "/patchstack-app/pulse/deploy-history/"
+	to = "/patchstack-for-js/deploy-history/"
+	status = 301
+
+[[redirects]]
+	from = "/patchstack-app/pulse/attack-surface/"
+	to = "/patchstack-for-js/attack-surface/"
+	status = 301
+
+[[redirects]]
+	from = "/patchstack-app/pulse/"
+	to = "/patchstack-for-js/overview/"
+	status = 301
+
+[[redirects]]
+	from = "/patchstack-app/pulse/*"
+	to = "/patchstack-for-js/:splat"
+	status = 301
