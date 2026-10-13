@@ -60,6 +60,12 @@ The dropdown includes the following conditions:
 </ul>
 </li>
 
+<li><strong>Site Event</strong>
+<ul>
+<li><span class="color1">Site Disconnected</span> - sends an alert, when a site has not connected to Patchstack for 3 days. It fires at the same time as the "site isn't connected" email to the account owner, so you can route it to another address (for example a ticketing or task inbox) or to Slack.</li>
+</ul>
+</li>
+
 
 </ul>
 </li>
