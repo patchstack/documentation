@@ -1,9 +1,9 @@
 ---
-title: "Software"
+title: "Packages"
 excerpt: "Manage all the plugins and themes of your site from one page"
 hidden: false
 createdAt: "Wed Aug 03 2022 12:13:03 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Wed Jan 24 2024 14:39:28 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Tue Oct 13 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.1
 ---
@@ -12,7 +12,9 @@ import { Aside } from '@astrojs/starlight/components';
 _Site software page shows an overview of all the software components your site has been built with._
 
 
-To see an overview of all your site's software, navigate to **Sites** > **yourdomain.com** > **Software** in Patchstack App.
+To see an overview of all your site's software, navigate to **Sites** > **yourdomain.com** > **Packages** in Patchstack App. This tab used to be called **Software**.
+
+Updating from here is included in every plan, including Personal (Free).
 
 ![](@images/patchstack-site-software.png)
 
@@ -21,7 +23,7 @@ On the this software subpage, you can also manage the software components of you
 </Aside>
 
 <Aside type="note" title="JavaScript and Node.js projects">
-This page describes the plugins and themes of a WordPress site. A JavaScript or Node.js app monitored with `@patchstack/connect` has a **Packages** tab instead, listing its npm dependencies — see [Pulse packages](/patchstack-app/pulse/packages/).
+This page describes the plugins and themes of a WordPress site. For a JavaScript or Node.js app monitored with `@patchstack/connect`, the **Packages** tab lists its npm dependencies instead — see [Pulse packages](/patchstack-app/pulse/packages/).
 </Aside>
 
 
@@ -50,8 +52,18 @@ Software that is grayed out, is currently either deactivated on the website.
 If the checkbox is missing for that row, it means this software cannot be updated via third party apps like Patchstack. This goes for some of the premium licensed software, which use non-standard updating mechanisms.
 
 ### Update all your software with one click 
-You can update components altogether by clicking the **Update All** button.  
+You can update components altogether by clicking the **Update all** button.  
 Just keep in mind to **back up your files and database** before doing that.
+
+To update across all your sites at once, use the [Packages overview](/patchstack-app/software/software-overview/#updating-the-software).
+
+## Automatic updates
+
+Patchstack no longer updates plugins, themes or core automatically, and there is no setting to switch it on. Instead, [Patchstack protection](/patchstack-app/site-dashboard/protection/app-protection-overview/) blocks attacks on known vulnerabilities with virtual patches, without changing your site, so you decide when to update. Protection is included in paid plans and costs $5 / site per month on the Personal plan.
+
+If you want automatic updates, use the ones built into WordPress: on your site's **Plugins** screen, click **Enable auto-updates** next to a plugin.
+
+If you switched on Patchstack's automatic updates before they were retired, they keep running until you turn them off. The **Packages** tab of that site shows a note saying auto-updates are enabled, with a **Turn off auto-updates** link. Click it to switch them off.
 
 ## Whether you are protected
 

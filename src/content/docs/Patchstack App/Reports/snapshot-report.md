@@ -7,16 +7,24 @@ metadata:
   image: []
   robots: "index"
 createdAt: "Fri Mar 03 2023 14:29:14 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Thu May 25 2023 11:52:58 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Tue Oct 13 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 6.4
 ---
-_Snapshot reports feature is available for all Patchstack users._  
-
-To generate a Snapshot report, navigate to **Reports** page in Patchstack App, or click here:
-[https://app.patchstack.com/reports/](https://app.patchstack.com/reports/)
+_Snapshot reports feature is available for all Patchstack users, including the Personal (Free) plan._  
 
 Snapshot report is a PDF security report, which shows the current situational report of the website.
+
+### Generating a Snapshot report
+
+1. Open the **Reports** page in Patchstack App: [https://app.patchstack.com/reports/](https://app.patchstack.com/reports/). On the Personal (Free) plan there is no Reports item in the side menu; click the **Reports** heading on your **Dashboard** instead.
+2. Under **Quick-generate a report**, choose your site in **Search site**.
+3. Open the **Type** menu and choose **Snapshot**. Choosing a site clears the type, so pick the site first.
+4. Click **Generate**.
+5. The report appears under **Available for download** when it is ready. Click **Download** to get the PDF.
+
+Generated reports are kept for 90 days.
+
 Snapshot report shows:
 - Actions that are suggested for you to take with the site (which plugin or theme to update or delete)
 - Which vulnerabilities does the site currently have

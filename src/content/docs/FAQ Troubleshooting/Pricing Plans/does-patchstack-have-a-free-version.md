@@ -7,7 +7,7 @@ metadata:
   image: []
   robots: "index"
 createdAt: "Wed Jul 27 2022 12:18:00 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Wed Jun 28 2023 12:35:06 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Tue Oct 13 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.1
 ---
@@ -27,10 +27,14 @@ Patchstack has a free version available. Free version of Patchstack detects vuln
 
 <ul><li>Detect the latest security vulnerabilities in your WordPress or Drupal sites.</li>
 <li>Receive real-time alerts to email if any security vulnerabilities are found.</li>
-<li>Have a central security dashboard for up to 3 websites (via the Patchstack App).</li></ul> 
+<li>Have a central security dashboard for up to 3 websites (via the Patchstack App).</li>
+<li>Update WordPress plugins, themes and core remotely from your site's <a href="/patchstack-app/site-dashboard/site-software/">Packages</a> tab.</li>
+<li>Generate <a href="/patchstack-app/reports/snapshot-report/">Snapshot reports</a>: a PDF of a site's current security status.</li></ul> 
+
+Patchstack no longer updates software automatically. You choose when to update, and protection (below) blocks attacks on known vulnerabilities in the meantime — see [Automatic updates](/patchstack-app/site-dashboard/site-software/#automatic-updates).
 
 **What's the difference between a free version and paid version?**
-The free version of Patchstack only detects and notifies you about the vulnerabilities in the software versions your sites use. The paid version of Patchstack will also protect against malicious traffic and attacks exploiting known serious vulnerabilities on your site. The pricing for Patchstack protection starts from $5 / month per site.
+The free version of Patchstack detects and notifies you about the vulnerabilities in the software versions your sites use, and lets you update that software yourself. The paid version of Patchstack will also protect against malicious traffic and attacks exploiting known serious vulnerabilities on your site. The pricing for Patchstack protection starts from $5 / month per site.
 
 ### For WordPress
 To use a free version of Patchstack with WordPress, install the <a href="https://wordpress.org/plugins/patchstack/" target="_blank">Patchstack plugin</a> on your site first, and start the user registration flow from the plugin itself, after activating it on your WordPress.
