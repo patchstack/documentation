@@ -24,6 +24,8 @@ On the main screen, you can:
 <li>Set up 2 factor authentication for your user</li>
 <li>Subscribe to upgrades for your account</li>
 <li>Request to delete your account</li>
+<li>Set a <a href="/patchstack-app/sites/policy/">default site policy</a> for new WordPress sites</li>
+<li>Set a <a href="/patchstack-app/account-settings/managed-mode/">managed by disclaimer</a> (Enterprise plan)</li>
 </ol>
 
 ![](@images/patchstack-account.png)
