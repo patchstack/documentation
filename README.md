@@ -51,3 +51,11 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## Deploying
+There is no manual deploy step. Netlify watches this repository:
+
+- Every push to `main` (including merged pull requests) is built and published to [docs.patchstack.com](https://docs.patchstack.com) automatically.
+- Every pull request gets a Netlify Deploy Preview; the link is posted as a comment and status check on the PR.
+
+This repository has no GitHub Actions workflows, so there is nothing to run or check on the Actions tab. Build settings live in the Netlify project; `netlify.toml` only holds redirect rules.
