@@ -1,6 +1,6 @@
 ---
 title: "Deploy history"
-excerpt: "A per-build changelog of what each deploy added, removed or moved in a Pulse app's dependencies."
+excerpt: "A per-build changelog of what each deploy added, removed or moved in the dependencies of an app monitored by Patchstack for JavaScript."
 hidden: false
 createdAt: "Thu Aug 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Mon Oct 05 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
@@ -13,7 +13,7 @@ sidebar:
 
 You find it on the app's **Activity** tab.
 
-The [Packages](/patchstack-app/pulse/packages/) tab answers "what is installed now". It cannot answer "when did this arrive" — which is the question that matters when an app's dependencies were chosen by an AI coding tool rather than picked deliberately.
+The [Packages](/patchstack-for-js/packages/) tab answers "what is installed now". It cannot answer "when did this arrive" — which is the question that matters when an app's dependencies were chosen by an AI coding tool rather than picked deliberately.
 
 ## Reading a build
 
@@ -45,7 +45,7 @@ So a build annotated with a vulnerability is telling you something specific: thi
 
 In production, the build serving traffic right now carries a **Live** badge. The newest build in the table is not automatically the live one, and the site header shows the same deploy status.
 
-Where a newer build was scanned but never shipped, the tab says so directly — the table alone cannot, because a build that never went out looks exactly like one that did. See [when the site was last deployed](/patchstack-app/pulse/pulse-overview/#when-the-site-was-last-deployed).
+Where a newer build was scanned but never shipped, the tab says so directly — the table alone cannot, because a build that never went out looks exactly like one that did. See [when the site was last deployed](/patchstack-for-js/overview/#when-the-site-was-last-deployed).
 
 ## Exporting
 

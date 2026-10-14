@@ -55,7 +55,7 @@ Retrying many sites runs in the background, so you can leave the page while it w
 
 A site that stays unresponsive after a retry has usually lost its connection to Patchstack — check that the Patchstack plugin is still installed and activated, and see [this article](/faq-troubleshooting/firewall/app-is-showing-the-firewall-of-my-site-as-delayed/) for the usual causes. Being out of sync does not leave the site unprotected: the rules from its last successful sync stay in place and keep blocking.
 
-Sites built with Pulse do not have a **Retry sync** option. They report their packages when they are next built, and nothing in the app can bring that build forward.
+Sites monitored by Patchstack for JavaScript do not have a **Retry sync** option. They report their packages when they are next built, and nothing in the app can bring that build forward.
 
 ## Manage groups
 
@@ -66,7 +66,7 @@ Check [this article](/patchstack-app/sites/site-groups/) for details.
 
 Most sites carry no label at all. A label appears when there is something about the site worth knowing before you read the rest of its row.
 
-- **Not deployed** — Patchstack has never heard from this app: no build has reported its packages and no visitor's browser has checked in. If you know the app is live, the most likely reason is that the connector was not running in the build that went out — rebuild with `@patchstack/connect` installed and it will report on the next deploy. Only appears on sites built with Pulse.
+- **Not deployed** — Patchstack has never heard from this app: no build has reported its packages and no visitor's browser has checked in. If you know the app is live, the most likely reason is that the connector was not running in the build that went out — rebuild with `@patchstack/connect` installed and it will report on the next deploy. Only appears on sites monitored by Patchstack for JS.
 - **Connector deleted** — `@patchstack/connect` reported that it had been removed from the project. Nothing is watching the app's packages any more, and the site keeps using one of your site slots until you delete it here.
 - **Not seen on live site** — nothing signalled a removal, but the live page no longer carries Patchstack. This is what a removal done through a prompt looks like: we can see the result without being told. Reinstall the connector, or delete the site to free its slot.
 - **Build** — this site is a build or staging environment of another site, shown indented beneath it.
@@ -81,7 +81,7 @@ Two switches beside the platform filter narrow the list to the sites carrying th
 - **Not deployed** — apps that have never reported in.
 - **Connector deleted** — sites whose connector told us it had been removed. Sites labelled *Not seen on live site* are not included: that state is worked out from several signals rather than recorded, so there is no exact set to filter on.
 
-Both can be on at once, in which case you get the sites that are both. The switches only appear on accounts with Pulse, since only apps deploy.
+Both can be on at once, in which case you get the sites that are both. The switches only appear on accounts with Patchstack for JS, since only apps deploy.
 
 ## Adding a new site
 

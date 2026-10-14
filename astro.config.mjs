@@ -146,6 +146,11 @@ export default defineConfig({
 					autogenerate: { directory: 'Patchstack App', collapsed: true },
 				},
 				{
+					label: 'Patchstack for JavaScript',
+					collapsed: true,
+					autogenerate: { directory: 'Patchstack for JS', collapsed: true },
+				},
+				{
 					label: 'Patchstack plugin',
 					collapsed: true,
 					autogenerate: { directory: 'Patchstack Plugin', collapsed: true },

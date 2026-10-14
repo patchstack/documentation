@@ -1,6 +1,6 @@
 ---
 title: "Packages"
-excerpt: "The npm packages a Pulse app has installed, which are vulnerable, and how close each vulnerability is to code the app runs."
+excerpt: "The npm packages an app monitored by Patchstack for JavaScript has installed, which are vulnerable, and how close each vulnerability is to code the app runs."
 hidden: false
 createdAt: "Thu Aug 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu Aug 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
@@ -9,7 +9,7 @@ sidebar:
   label: "Packages"
 ---
 
-The **Packages** tab lists every npm package the app has installed, with its version and whether Patchstack knows of a vulnerability in it. It answers "what is installed right now" — for "when did this arrive", see [Deploy history](/patchstack-app/pulse/deploy-history/).
+The **Packages** tab lists every npm package the app has installed, with its version and whether Patchstack knows of a vulnerability in it. It answers "what is installed right now" — for "when did this arrive", see [Deploy history](/patchstack-for-js/deploy-history/).
 
 The list comes from the dependency manifest the connector sends during your build, so it includes transitive dependencies, not only the ones named in your `package.json`.
 
@@ -19,7 +19,7 @@ Click the **Package**, **Vulnerabilities** or **Version** header to sort the lis
 
 A modern app installs hundreds of packages it never calls. A vulnerability in one of those is not the same problem as a vulnerability in a package your request handlers use directly, and treating them alike buries the second under the first.
 
-If you have uploaded an [attack-surface map](/patchstack-app/pulse/attack-surface/), Patchstack labels each finding with how close it is to code your app actually runs:
+If you have uploaded an [attack-surface map](/patchstack-for-js/attack-surface/), Patchstack labels each finding with how close it is to code your app actually runs:
 
 | Verdict | What it means |
 |---------|---------------|

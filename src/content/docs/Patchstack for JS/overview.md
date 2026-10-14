@@ -1,17 +1,17 @@
 ---
-title: "Pulse sites overview"
+title: "Patchstack for JavaScript overview"
 excerpt: "How JavaScript and Node.js apps appear in the Patchstack App, and how they differ from WordPress sites."
 hidden: false
 createdAt: "Thu Aug 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu Aug 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 1
-  label: "Pulse overview"
+  label: "Overview"
 ---
 
-**Pulse** is how Patchstack monitors JavaScript and Node.js applications. Where a WordPress site is monitored by the Patchstack plugin running inside WordPress, a Pulse site is monitored by [`@patchstack/connect`](/getting-started/installing-patchstack/installing-on-javascript-node-projects/), an npm package that runs during your build.
+**Patchstack for JavaScript** is how Patchstack monitors JavaScript and Node.js applications. Where a WordPress site is monitored by the Patchstack plugin running inside WordPress, a Patchstack for JS site is monitored by [`@patchstack/connect`](/getting-started/installing-patchstack/installing-on-javascript-node-projects/), an npm package that runs during your build.
 
-That difference in mechanism is why a Pulse site's dashboard does not look like a WordPress site's. This page explains what you get instead.
+That difference in mechanism is why the dashboard of a Patchstack for JS site does not look like a WordPress site's. This page explains what you get instead.
 
 ## Getting a site into the dashboard
 
@@ -25,18 +25,18 @@ An unclaimed site that nobody ever claims is cleaned up after a reminder period,
 
 ## What the tabs show
 
-A Pulse site gets a smaller set of tabs than a WordPress site, because several of them describe things only WordPress has.
+A Patchstack for JS site gets a smaller set of tabs than a WordPress site, because several of them describe things only WordPress has.
 
 | Tab | What it tells you |
 |-----|-------------------|
 | **Overview** | Whether protection is active, the vulnerabilities found in this app's dependencies, and how many packages are installed. |
-| **[Packages](/patchstack-app/pulse/packages/)** | Every npm package the app has installed, which are vulnerable, and how close each vulnerability is to code the app actually runs. |
-| **Activity** | The app's [deploy history](/patchstack-app/pulse/deploy-history/): what each build changed about the installed packages, and whether it brought in anything already known to be vulnerable. |
-| **[Attack surface](/patchstack-app/pulse/attack-surface/)** | The app's entry points, the inputs they read, and where those inputs can reach. Populated only if you run `map --upload`. |
+| **[Packages](/patchstack-for-js/packages/)** | Every npm package the app has installed, which are vulnerable, and how close each vulnerability is to code the app actually runs. |
+| **Activity** | The app's [deploy history](/patchstack-for-js/deploy-history/): what each build changed about the installed packages, and whether it brought in anything already known to be vulnerable. |
+| **[Attack surface](/patchstack-for-js/attack-surface/)** | The app's entry points, the inputs they read, and where those inputs can reach. Populated only if you run `map --upload`. |
 | **Protection** | Rules protecting the app's vulnerable packages at runtime, and what they have matched. |
 | **Settings** | Site name, group, and removal. |
 
-Hardening and Users are WordPress-only and do not appear. The Activity tab exists for both, but shows different things: a WordPress site's activity log, or a Pulse app's deploy history. Reports currently cover WordPress sites; a Pulse site's security-report page hides the sections that do not apply.
+Hardening and Users are WordPress-only and do not appear. The Activity tab exists for both, but shows different things: a WordPress site's activity log, or the deploy history of a Patchstack for JS app. Reports currently cover WordPress sites; the security-report page of a Patchstack for JS site hides the sections that do not apply.
 
 ## Application status
 
@@ -74,7 +74,7 @@ A deploy that was scanned before it went out, but not by the build that shipped 
 
 The site header shows **Last scan** — when Connect last sent a dependency manifest. This moves when you build or install dependencies, and it is how old the package data on the page is.
 
-Hover it and Patchstack also tells you when it last had any contact with the site, whenever that is much more recent than the scan. The two differ because Patchstack learns about a Pulse site from more than one signal. Connect reports at build time. The Patchstack Connector in your served pages checks in when a visitor loads the site, which is how Patchstack knows the app is actually live and running the build you last reported. Patchstack also re-fetches the published page on a schedule to confirm the widget is still there.
+Hover it and Patchstack also tells you when it last had any contact with the site, whenever that is much more recent than the scan. The two differ because Patchstack learns about a Patchstack for JS site from more than one signal. Connect reports at build time. The Patchstack Connector in your served pages checks in when a visitor loads the site, which is how Patchstack knows the app is actually live and running the build you last reported. Patchstack also re-fetches the published page on a schedule to confirm the widget is still there.
 
 An app that builds rarely but gets traffic will show an old scan time and recent contact. That is normal, not a fault.
 
@@ -84,7 +84,7 @@ That happens more often than you might expect. Patchstack's re-fetch reads the H
 
 ## When the site was last deployed
 
-Beside those timestamps, a Pulse site's header carries a **deploy status**. Building and deploying are separate events, and Patchstack tracks them separately.
+Beside those timestamps, the header of a Patchstack for JS site carries a **deploy status**. Building and deploying are separate events, and Patchstack tracks them separately.
 
 Connect's `mark-build` step stamps each build's fingerprint into the HTML it publishes. Patchstack reads that fingerprint back off the live site — from the widget when a visitor loads a page, and from its own scheduled fetch of the published page — and compares it against the builds you have reported. A preview of the app runs the same build, so a check-in from one is not counted as the live site: a builder's editor preview (Lovable, Bolt, Replit) or a host's deploy preview (Netlify). When the address Patchstack has on file is a preview, it moves to the published address the first time the widget sees a scanned build there, or when a build reports the published address (set `url` in `.patchstackrc.json`). Patchstack's scheduled check reads only the address on file, so on a site with few visitors, setting `url` is what lets the deploy be confirmed. That comparison is what the status says out loud:
 
@@ -118,7 +118,7 @@ Reporting your dependencies tells you what is vulnerable. The **runtime guard** 
 
 The guard fetches the rules Patchstack generated for the vulnerable packages this site actually has, and reports every rule that matched, including matches it allowed through. A new rule starts in detect-only mode and begins blocking once the evidence justifies it, so protection does not arrive as a wall of false positives.
 
-Runtime protection on a production Pulse app is a paid feature. See [The runtime guard](/getting-started/installing-patchstack/installing-on-javascript-node-projects/) for what `setup` installs and which frameworks are wired automatically.
+Runtime protection for a production app on Patchstack for JS is a paid feature. See [The runtime guard](/getting-started/installing-patchstack/installing-on-javascript-node-projects/) for what `setup` installs and which frameworks are wired automatically.
 
 ### When protection shows as Active
 
