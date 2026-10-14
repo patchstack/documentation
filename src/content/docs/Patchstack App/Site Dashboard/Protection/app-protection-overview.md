@@ -44,7 +44,7 @@ Community IP blocklist blocks access to IP addresses which are known to exploit 
 ## Activity section
 
 From the **Activity** section of the **Protection overview** page, you see how many times did Patchstack firewall block the traffic for potential threats.  
-You can set a filter to show the data from up to 1 year ago.
+You can set a filter to show the data from up to 1 year ago (6 months on the Personal plan, 2 years on Enterprise).
 On the right side of this protection activity section, Patchstack App shows the top 5 IP's blocked, and top 5 threats blocked in the given period of time.
 
 ## Log history section

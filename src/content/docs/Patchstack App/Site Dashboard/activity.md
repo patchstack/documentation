@@ -16,7 +16,9 @@ To view your site's activity log, navigate to **Sites** > **yourdomain.com** > *
 
 ![](@images/patchstack-site-activity.png)
 
-Patchstack activity log displays a large number of events that occur on your WordPress site. The logs are stored for 12 months after which they are archived.
+Patchstack activity log displays a large number of events that occur on your WordPress site. The **Activity** page shows events from the last 12 months (6 months on the Personal plan, 24 months on Enterprise).
+
+We keep your site's activity log data while the site is in your Patchstack account. When you remove the site or delete your Patchstack account, its activity log data is deleted too.
 
 On the **Activity** page, you can:
 
