@@ -93,7 +93,7 @@ Connect's `mark-build` step stamps each build's fingerprint into the HTML it pub
 | **Deployed \<when\>** | The build serving traffic is the one Patchstack scanned. |
 | **Last build \<when\>** | The same, except nobody has seen this app change build since Patchstack started watching. The time shown is when the build ran, not when it went live. |
 | **Deploy reported** | A production build reported itself, but the live page has not been seen running it — either the page was read since and is not running it, or the label was assumed from the project's builder. Publish if you have not, or open the published site once so the widget can confirm the build. Opening the app's preview does not count. |
-| **Needs deploying** | A newer build was scanned, but the live site is still serving an older one. Deploy to put it live. |
+| **Needs deploying** | A newer build was scanned, but the live site is still serving an older one. Deploy to put it live. In a hosted builder (Lovable, Bolt, Replit) this is what every edit looks like once the app has been published: the edit runs a new build, and visitors get it only when you republish. |
 | **Deployed without Patchstack** | The live site is running a build Patchstack never scanned — the build ran without Connect. Run the build again with `@patchstack/connect` so its packages get checked. |
 | **Live, build unverified** | The widget is checking in from the site's address, but the page carries no build marker, so nothing can say which build is live. Typically a build made on a developer's machine and uploaded by hand. Build with `PATCHSTACK_ENVIRONMENT=production`, or run `mark-build --production` before uploading. |
 | **Sandbox only** | Builds have been reported, but only from a sandbox. Nothing has gone to production yet. |
@@ -104,7 +104,7 @@ Connect's `mark-build` step stamps each build's fingerprint into the HTML it pub
 
 The status also appears in the Patchstack Connector's owner panel, under the sync line — useful, because you are standing on the live site when you read it there.
 
-While the newest build has not been seen on the live site — the app is configured locally, only sandbox builds exist, a production build reported itself without confirmation, or a newer build is waiting to go out — the owner panel carries a short reminder that Patchstack is not on the live site yet and the project needs republishing. It is a statement, not a publish button: nothing is published for you. It goes away on its own once a check-in or page read finds the new build live, and returns if a later build is scanned and not shipped.
+While the status is **Needs deploying**, the owner panel shows a bar above it: *Republish your project for changes to take effect!* It is a reminder, not a publish button: nothing is published for you. Tick it off to hide it for that build; the next build that has not shipped brings it back. It goes away on its own once a check-in or page read finds the new build live. An app that has never been published does not get the bar, and neither does saving the widget's own settings, which apply without a republish.
 
 ### How quickly it updates
 
