@@ -20,7 +20,7 @@ On the main screen, you can:
 <li>Change the name of your profile</li>
 <li>Change the account email address</li>
 <li>Change your password</li>
-<li>Enable / disable the Patchstack newsletter</li>
+<li>Turn marketing emails on or off</li>
 <li>Set up 2 factor authentication for your user</li>
 <li>Subscribe to upgrades for your account</li>
 <li>Request to delete your account</li>
