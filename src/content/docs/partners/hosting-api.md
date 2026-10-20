@@ -43,8 +43,13 @@ company → optional|string
 email → required|email  
 password → required|string|min:6  
 password_confirmation → required|string → must match password input field  
-newsletter → required|boolean → 0 or 1  
-phone → optional|string
+phone → optional|string  
+marketing_consent → optional|boolean → true if the user agreed to receive Patchstack marketing emails  
+marketing_consent_at → required if marketing_consent is true|date → when the user agreed, for example `2026-10-20T09:00:00Z`; not in the future and not before 2018-05-25  
+marketing_consent_source → required if marketing_consent is true|string → where you asked, for example `signup form`; keep it under 200 characters  
+newsletter → deprecated → ignored, use marketing_consent instead
+
+Only send `marketing_consent: true` when the user agreed to marketing emails from Patchstack specifically. Consent to your own marketing doesn't count. If you leave it out or send `false`, the user gets no marketing emails from Patchstack.
 
 **Response Data**  
 **HTTP 401, 403, 404, 422**  
@@ -89,7 +94,10 @@ name → optional|string
 company → optional|string  
 email → optional|email  
 phone → optional|string  
-newsletter → optional|boolean → 0 or 1
+marketing_consent → optional|boolean → only `false` is accepted; it records that the user withdrew consent and stops Patchstack marketing emails  
+newsletter → deprecated|boolean → `false` withdraws consent like marketing_consent; `true` is ignored
+
+Consent can only be given when the user is added. Sending `marketing_consent: true` here returns HTTP 422.
 
 **Response Data**  
 **HTTP 401, 403, 404, 422**  
