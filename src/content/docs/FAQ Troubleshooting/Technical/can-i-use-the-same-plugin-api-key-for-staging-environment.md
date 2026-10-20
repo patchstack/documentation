@@ -35,9 +35,15 @@ Patchstack allows you to use the same plugin API key for the staging environment
 'wp-dv',
 'optiserver.co.uk',
 'azurewebsites.net',
+'artdev.space',
+'artevio.dev',
+'artevio.art',
+'copilhost.cloud',
 '.myftpupload.com',
 '.mwp.accessdomain.com',
-'store.godaddy.com'
+'store.godaddy.com',
+'stuurlui.dev',
+'flyinghost.app'
 ```
 
 ### How the staging and production site work with Patchstack?
