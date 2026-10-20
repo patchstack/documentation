@@ -118,6 +118,15 @@ Reporting your dependencies tells you what is vulnerable. The **runtime guard** 
 
 The guard fetches the rules Patchstack generated for the vulnerable packages this site actually has, and reports every rule that matched, including matches it allowed through. A new rule starts in detect-only mode and begins blocking once the evidence justifies it, so protection does not arrive as a wall of false positives.
 
+### Is the guard getting its rules?
+
+Under the status cards, the **Status** tab says when the app's guard last fetched its rules and how many it was given, for example "fetched protection rules 3 minutes ago · 12 rules". There is one line for each credential the guard can use:
+
+- **With the site key** — a guard that holds the site's API key: your workspace, or a server where you set `PATCHSTACK_API_KEY`.
+- **App without the site key (read-only credential)** — an app deployed without the key, such as a hosted builder's published app. Connect ships it a read-only credential that can fetch this site's rules and nothing else, so new rules reach it within minutes without a rebuild. A guard on this credential cannot report detections.
+
+A guard checks for new rules every few minutes, and the time is recorded at most every 15 minutes, or sooner when the number of rules changes. A line turns amber after 45 minutes without a fetch: the app may be stopped, asleep, or missing its credential. **Your app has not fetched protection rules from Patchstack yet** means no guard has asked so far.
+
 Runtime protection for a production app on Patchstack for JS is a paid feature. See [The runtime guard](/getting-started/installing-patchstack/installing-on-javascript-node-projects/) for what `setup` installs and which frameworks are wired automatically.
 
 ### When protection shows as Active
