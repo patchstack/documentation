@@ -1062,3 +1062,12 @@
 	from = "/patchstack-plugin/patchstack-connector/how-to-install-on-joomla/"
 	to = "/patchstack-plugin/patchstack-connector/joomla-support-deprecated/"
 	status = 301
+[[redirects]]
+	from = "/patchstack-app/pulse/pulse-overview/"
+	to = "/patchstack-app/patchstack-for-javascript/overview/"
+	status = 301
+
+[[redirects]]
+	from = "/patchstack-app/pulse/*"
+	to = "/patchstack-app/patchstack-for-javascript/:splat"
+	status = 301
