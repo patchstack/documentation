@@ -36,3 +36,7 @@ _This feature is only for the Developer and Enterprise plan users_
 6. The report will be generated in a few minutes. Once ready, you can download it by clicking **Download** at the right end of its row in the table below.
 
 Read more about the **[Developer reports](/patchstack-app/reports/developer-report/)** here.
+
+### Generating reports through the API
+
+You can also generate reports and download their PDFs over the Patchstack App API. See **[Generating and downloading reports](/api-solutions/app-api/patchstack-reports-api/)**.

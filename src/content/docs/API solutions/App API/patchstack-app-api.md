@@ -21,7 +21,7 @@ Find all the Patchstack App API endpoints with examples from the documentation h
 
 ### Example use cases
 Some example use cases for Patchstack App API are listed below:
-- Integrate Patchstack to your email marketing software to send out monthly security reports to your customers.
+- Integrate Patchstack to your email marketing software to send out monthly security reports to your customers. See [Generating and downloading reports](/api-solutions/app-api/patchstack-reports-api/).
 - Integrate Patchstack inside your own product and let your customers enable (and control) Patchstack directly from your platform without them leaving your service.
 - Pull IP addresses of attackers that try to exploit vulnerabilities into your DNS firewall to block them on the network layer.
 - Integrate with Enterprise SIEM/SOC tools and pull vulnerability data and logs directly into it.
