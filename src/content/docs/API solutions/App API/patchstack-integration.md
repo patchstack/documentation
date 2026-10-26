@@ -46,7 +46,8 @@ All Patchstack API endpoints return standard HTTP status codes. Your integration
 
 #### Rate limits & quotas
 - **Sites per request** — `POST /site/add` and `POST /site/exists` accept between 1 and **100 URLs** per call in the `urls` array. Split larger batches across multiple requests.
-- **Listing sites** — `POST /sites/list` is paginated (`page`, `per_page`, default 20 per page); page through it when rendering large accounts. `POST /sites/list/basic` returns the full `[{id, url}, …]` array for the account in one response unless you ask for pages. Send `after_id` and `per_page` (default 100, max 1000) to page through it instead; do this once an account holds more than a few thousand sites.
+- **Listing sites** — `POST /sites/list` is paginated (`page`, `per_page`, default 20 per page); page through it when rendering large accounts.
+- **Basic site list** — `POST /sites/list/basic` returns the full `[{id, url}, …]` array for the account in one response by default. On large accounts, page through it with `after_id` and `per_page` (default 100, max 1000) instead.
 
 :::note[Rate limits]
 Some App API endpoints are rate limited. If you receive `429 Too Many Requests`, wait a minute and retry. When provisioning at large scale, batch your requests considerately — for example, pass multiple URLs in the `urls` array on `/site/add` (and `/site/exists`) instead of looping a separate request per site.
@@ -439,16 +440,20 @@ curl -X 'POST' \
   -H 'UserToken: <token>' \
 ```
 
-On a large account, fetch the list one page at a time. Pass `after_id` (start at `0`) and `per_page` (default 100, max 1000). Sites come back in `sites`, ordered by `id`, with the `total` count for the account and the `next_after_id` to send for the next page:
+On large accounts, page through the list with `after_id` and `per_page` (default 100, max 1000):
 
 ```bash
 curl -X 'POST' \
   'https://api.patchstack.com/monitor/sites/list/basic' \
   -H 'UserToken: <token>' \
   -H 'Content-Type: application/json' \
-  -d '{"after_id": 0, "per_page": 1000}'
+  -d '{
+  "after_id": 0,
+  "per_page": 1000
+}'
 ```
 
+Which outputs the following:
 ```json
 {
   "sites": [{ "id": 12345, "url": "https://site1.com" }, …],
@@ -457,4 +462,4 @@ curl -X 'POST' \
 }
 ```
 
-Send `next_after_id` as the next `after_id` until it comes back `null`. Sites added or removed while you page do not make you skip or repeat a site.
+Pass `next_after_id` as `after_id` in the next request until it is `null`.
