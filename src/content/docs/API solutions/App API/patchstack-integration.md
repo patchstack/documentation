@@ -47,9 +47,9 @@ All Patchstack API endpoints return standard HTTP status codes. Your integration
 #### Rate limits & quotas
 | Endpoint | Limit | For larger volumes |
 | --- | --- | --- |
-| <code style="white-space: nowrap">POST /site/add</code><br><code style="white-space: nowrap">POST /site/exists</code> | 1–100 URLs per call in `urls` | Split into multiple requests |
-| <code style="white-space: nowrap">POST /sites/list</code> | `per_page` defaults to 20 | Page through with `page` and `per_page` |
-| <code style="white-space: nowrap">POST /sites/list/basic</code> | Whole account in one response by default | Page through with `after_id` and `per_page` (default 100, max 1000) |
+| <code style="white-space: nowrap">POST /site/add</code><br><code style="white-space: nowrap">POST /site/exists</code> | Between 1 and **100 URLs** per call in the `urls` array | Split larger batches across multiple requests |
+| <code style="white-space: nowrap">POST /sites/list</code> | Paginated (`page`, `per_page`, default 20 per page) | Page through it when rendering large accounts |
+| <code style="white-space: nowrap">POST /sites/list/basic</code> | Returns the full `[{id, url}, …]` array for the account in one response by default | On large accounts, page through it with `after_id` and `per_page` (default 100, max 1000) instead |
 | <code style="white-space: nowrap">POST /site/plugin/resync/{siteid}</code> | 30 calls a minute per account | Use `POST /site/plugin/bulk-resync` |
 
 :::note[Rate limits]
