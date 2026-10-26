@@ -45,12 +45,12 @@ To minimize API calls and reduce latency when displaying site information to you
 All Patchstack API endpoints return standard HTTP status codes. Your integration should handle these appropriately to ensure reliability and provide meaningful feedback to users. E.g. handle status codes 200, 401, 422, 500.
 
 #### Rate limits & quotas
-| Endpoint | Limit | For larger volumes |
-| --- | --- | --- |
-| <code style="white-space: nowrap">POST /site/add</code><br><code style="white-space: nowrap">POST /site/exists</code> | 100 URLs per call in `urls` | Split them across several calls |
-| <code style="white-space: nowrap">POST /sites/list</code> | 20 sites per page by default | Page through with `page` and `per_page` |
-| <code style="white-space: nowrap">POST /sites/list/basic</code> | All sites in one response by default | Page through with `after_id` and `per_page` (default 100, max 1000) |
-| <code style="white-space: nowrap">POST /site/plugin/resync/{siteid}</code> | 30 calls a minute per account | Use <code style="white-space: nowrap">POST /site/plugin/bulk-resync</code> |
+| Endpoint | Limit |
+| --- | --- |
+| <code style="white-space: nowrap">POST /site/add</code><br><code style="white-space: nowrap">POST /site/exists</code> | 100 URLs per call in `urls`. Split larger batches across several calls. |
+| <code style="white-space: nowrap">POST /sites/list</code> | 20 sites per page by default. Page through with `page` and `per_page`. |
+| <code style="white-space: nowrap">POST /sites/list/basic</code> | All sites in one response by default. Page through with `after_id` and `per_page` (default 100, max 1000). |
+| <code style="white-space: nowrap">POST /site/plugin/resync/{siteid}</code> | 30 calls a minute per account. For many sites, use <code style="white-space: nowrap">POST /site/plugin/bulk-resync</code>. |
 
 :::note[Rate limits]
 Some App API endpoints are rate limited. If you receive `429 Too Many Requests`, wait a minute and retry. At scale, use the batch and paging options in the table above instead of looping one request per site.
