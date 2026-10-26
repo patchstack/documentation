@@ -47,10 +47,10 @@ All Patchstack API endpoints return standard HTTP status codes. Your integration
 #### Rate limits & quotas
 | Endpoint | Limit | For larger volumes |
 | --- | --- | --- |
-| `POST /site/add`, `POST /site/exists` | 1–100 URLs per call in `urls` | Split into multiple requests |
-| `POST /sites/list` | `per_page` defaults to 20 | Page through with `page` and `per_page` |
-| `POST /sites/list/basic` | Whole account in one response by default | Page through with `after_id` and `per_page` (default 100, max 1000) |
-| `POST /site/plugin/resync/{siteid}` | 30 calls a minute per account | Use `POST /site/plugin/bulk-resync` |
+| <code style="white-space: nowrap">POST /site/add</code><br><code style="white-space: nowrap">POST /site/exists</code> | 1–100 URLs per call in `urls` | Split into multiple requests |
+| <code style="white-space: nowrap">POST /sites/list</code> | `per_page` defaults to 20 | Page through with `page` and `per_page` |
+| <code style="white-space: nowrap">POST /sites/list/basic</code> | Whole account in one response by default | Page through with `after_id` and `per_page` (default 100, max 1000) |
+| <code style="white-space: nowrap">POST /site/plugin/resync/{siteid}</code> | 30 calls a minute per account | Use `POST /site/plugin/bulk-resync` |
 
 :::note[Rate limits]
 Some App API endpoints are rate limited. If you receive `429 Too Many Requests`, wait a minute and retry. When provisioning at large scale, batch your requests considerately — for example, pass multiple URLs in the `urls` array on `/site/add` (and `/site/exists`) instead of looping a separate request per site.
