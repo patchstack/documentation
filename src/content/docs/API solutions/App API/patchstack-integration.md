@@ -45,10 +45,12 @@ To minimize API calls and reduce latency when displaying site information to you
 All Patchstack API endpoints return standard HTTP status codes. Your integration should handle these appropriately to ensure reliability and provide meaningful feedback to users. E.g. handle status codes 200, 401, 422, 500.
 
 #### Rate limits & quotas
-- **Sites per request** — `POST /site/add` and `POST /site/exists` accept between 1 and **100 URLs** per call in the `urls` array. Split larger batches across multiple requests.
-- **Listing sites** — `POST /sites/list` is paginated (`page`, `per_page`, default 20 per page); page through it when rendering large accounts.
-- **Basic site list** — `POST /sites/list/basic` returns the full `[{id, url}, …]` array for the account in one response by default. On large accounts, page through it with `after_id` and `per_page` (default 100, max 1000) instead.
-- **Resyncing sites** — `POST /site/plugin/resync/{siteid}` allows 30 calls a minute per account; resync many sites at once with `POST /site/plugin/bulk-resync` instead.
+| Endpoint | Limit | For larger volumes |
+| --- | --- | --- |
+| `POST /site/add`, `POST /site/exists` | 1–100 URLs per call in `urls` | Split into multiple requests |
+| `POST /sites/list` | `per_page` defaults to 20 | Page through with `page` and `per_page` |
+| `POST /sites/list/basic` | Whole account in one response by default | Page through with `after_id` and `per_page` (default 100, max 1000) |
+| `POST /site/plugin/resync/{siteid}` | 30 calls a minute per account | Use `POST /site/plugin/bulk-resync` |
 
 :::note[Rate limits]
 Some App API endpoints are rate limited. If you receive `429 Too Many Requests`, wait a minute and retry. When provisioning at large scale, batch your requests considerately — for example, pass multiple URLs in the `urls` array on `/site/add` (and `/site/exists`) instead of looping a separate request per site.
