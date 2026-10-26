@@ -53,7 +53,7 @@ All Patchstack API endpoints return standard HTTP status codes. Your integration
 | <code style="white-space: nowrap">POST /site/plugin/resync/{siteid}</code> | 30 calls a minute per account | Use <code style="white-space: nowrap">POST /site/plugin/bulk-resync</code> |
 
 :::note[Rate limits]
-Some App API endpoints are rate limited. If you receive `429 Too Many Requests`, wait a minute and retry.
+Some App API endpoints are rate limited. If you receive `429 Too Many Requests`, wait a minute and retry. At scale, use the batch and paging options in the table above instead of looping one request per site.
 :::
 
 ## Flow of integration & plugin
