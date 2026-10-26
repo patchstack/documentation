@@ -46,7 +46,7 @@ All Patchstack API endpoints return standard HTTP status codes. Your integration
 
 #### Rate limits & quotas
 - **Sites per request** — `POST /site/add` and `POST /site/exists` accept between 1 and **100 URLs** per call in the `urls` array. Split larger batches across multiple requests.
-- **Listing sites** — `POST /sites/list` is paginated (`page`, `per_page`, default 20 per page); page through it when rendering large accounts. `POST /sites/list/basic` is *not* paginated — it returns the full `[{id, url}, …]` array for the account in one response, which is what makes it convenient for reconciliation.
+- **Listing sites** — `POST /sites/list` is paginated (`page`, `per_page`, default 20 per page); page through it when rendering large accounts. `POST /sites/list/basic` returns the full `[{id, url}, …]` array for the account in one response unless you ask for pages. Send `page` and `per_page` (default 100, max 1000) to page through it instead; do this once an account holds more than a few thousand sites.
 
 :::note[Rate limits]
 Some App API endpoints are rate limited. If you receive `429 Too Many Requests`, wait a minute and retry. When provisioning at large scale, batch your requests considerately — for example, pass multiple URLs in the `urls` array on `/site/add` (and `/site/exists`) instead of looping a separate request per site.
@@ -438,3 +438,22 @@ curl -X 'POST' \
   'https://api.patchstack.com/monitor/sites/list/basic' \
   -H 'UserToken: <token>' \
 ```
+
+On a large account, fetch the list one page at a time. Pass `page` (starting at 1) and `per_page` (default 100, max 1000). Sites come back in `sites`, ordered by `id`, with the `total` count for the account alongside (the same shape as `/sites/list`):
+
+```bash
+curl -X 'POST' \
+  'https://api.patchstack.com/monitor/sites/list/basic' \
+  -H 'UserToken: <token>' \
+  -H 'Content-Type: application/json' \
+  -d '{"page": 1, "per_page": 1000}'
+```
+
+```json
+{
+  "sites": [{ "id": 12345, "url": "https://site1.com" }, …],
+  "total": 2400
+}
+```
+
+Keep requesting the next `page` until `sites` comes back empty.
