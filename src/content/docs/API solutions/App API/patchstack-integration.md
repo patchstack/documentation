@@ -47,13 +47,13 @@ All Patchstack API endpoints return standard HTTP status codes. Your integration
 #### Rate limits & quotas
 | Endpoint | Limit | For larger volumes |
 | --- | --- | --- |
-| <code style="white-space: nowrap">POST /site/add</code><br><code style="white-space: nowrap">POST /site/exists</code> | Between 1 and **100 URLs** per call in the `urls` array | Split larger batches across multiple requests |
-| <code style="white-space: nowrap">POST /sites/list</code> | Paginated (`page`, `per_page`, default 20 per page) | Page through it when rendering large accounts |
-| <code style="white-space: nowrap">POST /sites/list/basic</code> | Returns the full `[{id, url}, …]` array for the account in one response by default | On large accounts, page through it with `after_id` and `per_page` (default 100, max 1000) instead |
-| <code style="white-space: nowrap">POST /site/plugin/resync/{siteid}</code> | 30 calls a minute per account | Use `POST /site/plugin/bulk-resync` |
+| <code style="white-space: nowrap">POST /site/add</code><br><code style="white-space: nowrap">POST /site/exists</code> | 100 URLs per call in `urls` | Split them across several calls |
+| <code style="white-space: nowrap">POST /sites/list</code> | 20 sites per page by default | Page through with `page` and `per_page` |
+| <code style="white-space: nowrap">POST /sites/list/basic</code> | All sites in one response by default | Page through with `after_id` and `per_page` (default 100, max 1000) |
+| <code style="white-space: nowrap">POST /site/plugin/resync/{siteid}</code> | 30 calls a minute per account | Use <code style="white-space: nowrap">POST /site/plugin/bulk-resync</code> |
 
 :::note[Rate limits]
-Some App API endpoints are rate limited. If you receive `429 Too Many Requests`, wait a minute and retry. When provisioning at large scale, batch your requests considerately — for example, pass multiple URLs in the `urls` array on `/site/add` (and `/site/exists`) instead of looping a separate request per site.
+Some App API endpoints are rate limited. If you receive `429 Too Many Requests`, wait a minute and retry.
 :::
 
 ## Flow of integration & plugin
