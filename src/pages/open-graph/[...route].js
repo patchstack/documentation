@@ -2,11 +2,11 @@ import { OGImageRoute } from 'astro-og-canvas';
 import { getCollection } from 'astro:content';
 
 const collectionEntries = await getCollection('docs');
-collectionEntries.push({ slug: 'index', data: { title: 'Patchstack Documentation' } });
+collectionEntries.push({ id: 'index', data: { title: 'Patchstack Documentation' } });
 
-const pages = Object.fromEntries(collectionEntries.map(({ slug, data }) => [slug, data]));
+const pages = Object.fromEntries(collectionEntries.map(({ id, data }) => [id, data]));
 
-export const { getStaticPaths, GET } = OGImageRoute({
+export const { getStaticPaths, GET } = await OGImageRoute({
     param: 'route',
     pages: pages,
     getImageOptions: (path, page) => ({
