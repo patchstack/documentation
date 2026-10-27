@@ -5,7 +5,7 @@
       "request": {
         "name": "List all vulnerabilities",
         "description": {
-          "content": "Paginated listing of every published vulnerability for the given\nplatform, ordered by descending `id`.\n\nSupports **two independent pagination strategies**:\n\n- **Offset** (`?page=&per_page=`) — returns a `pagination` block with\n  totals. Easy to jump to a specific page; slower at depth and\n  susceptible to row-shift when new vulnerabilities land while paging.\n- **Cursor** (`?cursor=`) — returns a `cursor` block with `next_cursor`,\n  `has_more`, `per_page`. Stable under concurrent inserts and faster at\n  any depth. No `total` count.\n\n`cursor` and `page` are mutually exclusive; passing both returns\n`422 Unprocessable Entity`.\n",
+          "content": "Paginated listing of every published vulnerability for the given\nplatform, ordered by descending `id`.\n\nSupports **two independent pagination strategies**:\n\n- **Offset** (`?page=&per_page=`) — returns a `pagination` block with\n  totals. Easy to jump to a specific page; slower at depth and\n  susceptible to row-shift when new vulnerabilities land while paging.\n- **Cursor** (`?cursor=`) — returns a `cursor` block with `next_cursor`,\n  `has_more`, `per_page`. Stable under concurrent inserts and faster at\n  any depth. No `total` count.\n\n`cursor` and `page` are mutually exclusive; passing both returns\n`422 Unprocessable Entity`.\n\n**Incremental sync.** Every `/all` response carries `watermark`, the\nunix time its rows were read. Send it back as `updated_since` (cursor\nmode only) to get just the entries changed since then, plus\n`removed_ids` on the first page for entries withdrawn since then.\nEntries deleted outright are not reported, so run a full listing now\nand then (daily is plenty).\n",
           "type": "text/plain"
         },
         "url": {
@@ -39,6 +39,12 @@
               "key": "cursor",
               "value": "string",
               "description": "Opaque cursor. Presence of the param switches to cursor mode (send an\nempty value to bootstrap). Mutually exclusive with `page`.\n"
+            },
+            {
+              "disabled": false,
+              "key": "updated_since",
+              "value": "1793018157",
+              "description": "`/all` only, with `cursor`. Unix time in seconds, usually the\n`watermark` of your previous sync. Returns only entries changed at or\nafter it, and adds `removed_ids`. Without `cursor` it returns\n`422 Unprocessable Entity`.\n"
             },
             {
               "disabled": false,
@@ -85,6 +91,10 @@
                 {
                   "key": "cursor",
                   "value": "string"
+                },
+                {
+                  "key": "updated_since",
+                  "value": "1793018157"
                 },
                 {
                   "key": "include",
@@ -150,6 +160,10 @@
                   "value": "string"
                 },
                 {
+                  "key": "updated_since",
+                  "value": "1793018157"
+                },
+                {
                   "key": "include",
                   "value": "details"
                 }
@@ -207,6 +221,10 @@
                 {
                   "key": "cursor",
                   "value": "string"
+                },
+                {
+                  "key": "updated_since",
+                  "value": "1793018157"
                 },
                 {
                   "key": "include",
@@ -268,6 +286,10 @@
                   "value": "string"
                 },
                 {
+                  "key": "updated_since",
+                  "value": "1793018157"
+                },
+                {
                   "key": "include",
                   "value": "details"
                 }
@@ -325,6 +347,10 @@
                 {
                   "key": "cursor",
                   "value": "string"
+                },
+                {
+                  "key": "updated_since",
+                  "value": "1793018157"
                 },
                 {
                   "key": "include",
@@ -482,7 +508,7 @@
               "value": "application/json"
             }
           ],
-          "body": "{\n  \"vulnerabilities\": [\n    {\n      \"id\": 46500,\n      \"title\": \"NPM: OpenClaw: ...\",\n      \"disclosed_at\": \"2026-04-03T03:15:56+00:00\",\n      \"created_at\": \"2026-04-21T08:38:34+00:00\",\n      \"url\": \"https://patchstack.com/database/npm/npm/openclaw/vulnerability/...\",\n      \"vuln_type\": \"Other Vulnerability Type\",\n      \"cve\": \"2026-41331\",\n      \"is_exploited\": false,\n      \"patch_priority\": 2,\n      \"advisory_details\": \"## Summary\\n...\",\n      \"product\": {\n        \"id\": 23595,\n        \"name\": \"openclaw\",\n        \"slug\": \"openclaw\"\n      },\n      \"cvss\": {\n        \"score\": 6.9,\n        \"vector\": \"CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N\"\n      },\n      \"cwe\": {\n        \"id\": 770,\n        \"name\": \"Allocation of Resources Without Limits or Throttling\"\n      },\n      \"capec\": {\n        \"id\": null,\n        \"name\": null\n      },\n      \"references\": [\n        \"https://github.com/openclaw/openclaw/security/advisories/GHSA-m6fx-m8hc-572m\",\n        \"https://github.com/openclaw/openclaw/releases/tag/v2026.3.31\"\n      ],\n      \"ghsa\": \"GHSA-m6fx-m8hc-572m\",\n      \"version_info\": {\n        \"affected\": \"<= 2026.3.28\",\n        \"fixed\": \"2026.3.31\"\n      }\n    },\n    {\n      \"id\": 46500,\n      \"title\": \"NPM: OpenClaw: ...\",\n      \"disclosed_at\": \"2026-04-03T03:15:56+00:00\",\n      \"created_at\": \"2026-04-21T08:38:34+00:00\",\n      \"url\": \"https://patchstack.com/database/npm/npm/openclaw/vulnerability/...\",\n      \"vuln_type\": \"Other Vulnerability Type\",\n      \"cve\": \"2026-41331\",\n      \"is_exploited\": false,\n      \"patch_priority\": 2,\n      \"advisory_details\": \"## Summary\\n...\",\n      \"product\": {\n        \"id\": 23595,\n        \"name\": \"openclaw\",\n        \"slug\": \"openclaw\"\n      },\n      \"cvss\": {\n        \"score\": 6.9,\n        \"vector\": \"CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N\"\n      },\n      \"cwe\": {\n        \"id\": 770,\n        \"name\": \"Allocation of Resources Without Limits or Throttling\"\n      },\n      \"capec\": {\n        \"id\": null,\n        \"name\": null\n      },\n      \"references\": [\n        \"https://github.com/openclaw/openclaw/security/advisories/GHSA-m6fx-m8hc-572m\",\n        \"https://github.com/openclaw/openclaw/releases/tag/v2026.3.31\"\n      ],\n      \"ghsa\": \"GHSA-m6fx-m8hc-572m\",\n      \"version_info\": {\n        \"affected\": \"<= 2026.3.28\",\n        \"fixed\": \"2026.3.31\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"current_page\": 1,\n    \"per_page\": 25,\n    \"total\": 6115,\n    \"total_pages\": 245,\n    \"has_next_page\": true,\n    \"has_previous_page\": false,\n    \"from\": 1,\n    \"to\": 25,\n    \"next_page\": 2,\n    \"previous_page\": null\n  }\n}",
+          "body": "{\n  \"vulnerabilities\": [\n    {\n      \"id\": 46500,\n      \"title\": \"NPM: OpenClaw: ...\",\n      \"disclosed_at\": \"2026-04-03T03:15:56+00:00\",\n      \"created_at\": \"2026-04-21T08:38:34+00:00\",\n      \"url\": \"https://patchstack.com/database/npm/npm/openclaw/vulnerability/...\",\n      \"vuln_type\": \"Other Vulnerability Type\",\n      \"cve\": \"2026-41331\",\n      \"is_exploited\": false,\n      \"patch_priority\": 2,\n      \"advisory_details\": \"## Summary\\n...\",\n      \"product\": {\n        \"id\": 23595,\n        \"name\": \"openclaw\",\n        \"slug\": \"openclaw\",\n        \"type\": \"npm\"\n      },\n      \"cvss\": {\n        \"score\": 6.9,\n        \"vector\": \"CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N\"\n      },\n      \"cwe\": {\n        \"id\": 770,\n        \"name\": \"Allocation of Resources Without Limits or Throttling\"\n      },\n      \"capec\": {\n        \"id\": null,\n        \"name\": null\n      },\n      \"references\": [\n        \"https://github.com/openclaw/openclaw/security/advisories/GHSA-m6fx-m8hc-572m\",\n        \"https://github.com/openclaw/openclaw/releases/tag/v2026.3.31\"\n      ],\n      \"ghsa\": \"GHSA-m6fx-m8hc-572m\",\n      \"version_info\": {\n        \"affected\": \"<= 2026.3.28\",\n        \"fixed\": \"2026.3.31\"\n      }\n    },\n    {\n      \"id\": 46500,\n      \"title\": \"NPM: OpenClaw: ...\",\n      \"disclosed_at\": \"2026-04-03T03:15:56+00:00\",\n      \"created_at\": \"2026-04-21T08:38:34+00:00\",\n      \"url\": \"https://patchstack.com/database/npm/npm/openclaw/vulnerability/...\",\n      \"vuln_type\": \"Other Vulnerability Type\",\n      \"cve\": \"2026-41331\",\n      \"is_exploited\": false,\n      \"patch_priority\": 2,\n      \"advisory_details\": \"## Summary\\n...\",\n      \"product\": {\n        \"id\": 23595,\n        \"name\": \"openclaw\",\n        \"slug\": \"openclaw\",\n        \"type\": \"npm\"\n      },\n      \"cvss\": {\n        \"score\": 6.9,\n        \"vector\": \"CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N\"\n      },\n      \"cwe\": {\n        \"id\": 770,\n        \"name\": \"Allocation of Resources Without Limits or Throttling\"\n      },\n      \"capec\": {\n        \"id\": null,\n        \"name\": null\n      },\n      \"references\": [\n        \"https://github.com/openclaw/openclaw/security/advisories/GHSA-m6fx-m8hc-572m\",\n        \"https://github.com/openclaw/openclaw/releases/tag/v2026.3.31\"\n      ],\n      \"ghsa\": \"GHSA-m6fx-m8hc-572m\",\n      \"version_info\": {\n        \"affected\": \"<= 2026.3.28\",\n        \"fixed\": \"2026.3.31\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"current_page\": 1,\n    \"per_page\": 25,\n    \"total\": 6115,\n    \"total_pages\": 245,\n    \"has_next_page\": true,\n    \"has_previous_page\": false,\n    \"from\": 1,\n    \"to\": 25,\n    \"next_page\": 2,\n    \"previous_page\": null\n  },\n  \"watermark\": 3103,\n  \"removed_ids\": [\n    6659,\n    6314\n  ]\n}",
           "cookie": [],
           "_postman_previewlanguage": "json"
         },
@@ -736,7 +762,7 @@
           "request": {
             "name": "Find vulnerabilities for a product",
             "description": {
-              "content": "Match a specific product + version against the vulnerability database\nand return every applicable advisory.\n\nnpm package slugs that include a `/` (e.g. `@scope/pkg`) conflict with\nthe route separator. URL-encode the `/` as `%2F`.\n",
+              "content": "Match a specific product + version against the vulnerability database\nand return every applicable advisory. For npm advisories with multiple\naffected spans, every span is considered (not only the lowest). Each\nmatched advisory includes `matched_range` with the span that matched\nthe installed version and that span's own `fixed_in` — prefer this over\nthe collapsed top-level `fixed_in` when advising an upgrade.\n\nnpm package slugs that include a `/` (e.g. `@scope/pkg`) conflict with\nthe route separator. URL-encode the `/` as `%2F`.\n",
               "type": "text/plain"
             },
             "url": {
@@ -859,7 +885,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"vulnerabilities\": [\n    {\n      \"id\": 46500,\n      \"title\": \"NPM: OpenClaw: ...\",\n      \"disclosed_at\": \"2026-04-03T03:15:56+00:00\",\n      \"created_at\": \"2026-04-21T08:38:34+00:00\",\n      \"url\": \"https://patchstack.com/database/npm/npm/openclaw/vulnerability/...\",\n      \"vuln_type\": \"Other Vulnerability Type\",\n      \"cve\": \"2026-41331\",\n      \"is_exploited\": false,\n      \"patch_priority\": 2,\n      \"advisory_details\": \"## Summary\\n...\",\n      \"product\": {\n        \"id\": 23595,\n        \"name\": \"openclaw\",\n        \"slug\": \"openclaw\"\n      },\n      \"cvss\": {\n        \"score\": 6.9,\n        \"vector\": \"CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N\"\n      },\n      \"cwe\": {\n        \"id\": 770,\n        \"name\": \"Allocation of Resources Without Limits or Throttling\"\n      },\n      \"capec\": {\n        \"id\": null,\n        \"name\": null\n      },\n      \"references\": [\n        \"https://github.com/openclaw/openclaw/security/advisories/GHSA-m6fx-m8hc-572m\",\n        \"https://github.com/openclaw/openclaw/releases/tag/v2026.3.31\"\n      ],\n      \"ghsa\": \"GHSA-m6fx-m8hc-572m\",\n      \"version_info\": {\n        \"affected\": \"<= 2026.3.28\",\n        \"fixed\": \"2026.3.31\"\n      }\n    },\n    {\n      \"id\": 46500,\n      \"title\": \"NPM: OpenClaw: ...\",\n      \"disclosed_at\": \"2026-04-03T03:15:56+00:00\",\n      \"created_at\": \"2026-04-21T08:38:34+00:00\",\n      \"url\": \"https://patchstack.com/database/npm/npm/openclaw/vulnerability/...\",\n      \"vuln_type\": \"Other Vulnerability Type\",\n      \"cve\": \"2026-41331\",\n      \"is_exploited\": false,\n      \"patch_priority\": 2,\n      \"advisory_details\": \"## Summary\\n...\",\n      \"product\": {\n        \"id\": 23595,\n        \"name\": \"openclaw\",\n        \"slug\": \"openclaw\"\n      },\n      \"cvss\": {\n        \"score\": 6.9,\n        \"vector\": \"CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N\"\n      },\n      \"cwe\": {\n        \"id\": 770,\n        \"name\": \"Allocation of Resources Without Limits or Throttling\"\n      },\n      \"capec\": {\n        \"id\": null,\n        \"name\": null\n      },\n      \"references\": [\n        \"https://github.com/openclaw/openclaw/security/advisories/GHSA-m6fx-m8hc-572m\",\n        \"https://github.com/openclaw/openclaw/releases/tag/v2026.3.31\"\n      ],\n      \"ghsa\": \"GHSA-m6fx-m8hc-572m\",\n      \"version_info\": {\n        \"affected\": \"<= 2026.3.28\",\n        \"fixed\": \"2026.3.31\"\n      }\n    }\n  ]\n}",
+              "body": "{\n  \"vulnerabilities\": [\n    {\n      \"id\": 46500,\n      \"title\": \"NPM: OpenClaw: ...\",\n      \"disclosed_at\": \"2026-04-03T03:15:56+00:00\",\n      \"created_at\": \"2026-04-21T08:38:34+00:00\",\n      \"url\": \"https://patchstack.com/database/npm/npm/openclaw/vulnerability/...\",\n      \"vuln_type\": \"Other Vulnerability Type\",\n      \"cve\": \"2026-41331\",\n      \"is_exploited\": false,\n      \"patch_priority\": 2,\n      \"advisory_details\": \"## Summary\\n...\",\n      \"product\": {\n        \"id\": 23595,\n        \"name\": \"openclaw\",\n        \"slug\": \"openclaw\",\n        \"type\": \"npm\"\n      },\n      \"cvss\": {\n        \"score\": 6.9,\n        \"vector\": \"CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N\"\n      },\n      \"cwe\": {\n        \"id\": 770,\n        \"name\": \"Allocation of Resources Without Limits or Throttling\"\n      },\n      \"capec\": {\n        \"id\": null,\n        \"name\": null\n      },\n      \"references\": [\n        \"https://github.com/openclaw/openclaw/security/advisories/GHSA-m6fx-m8hc-572m\",\n        \"https://github.com/openclaw/openclaw/releases/tag/v2026.3.31\"\n      ],\n      \"ghsa\": \"GHSA-m6fx-m8hc-572m\",\n      \"version_info\": {\n        \"affected\": \"<= 2026.3.28\",\n        \"fixed\": \"2026.3.31\"\n      }\n    },\n    {\n      \"id\": 46500,\n      \"title\": \"NPM: OpenClaw: ...\",\n      \"disclosed_at\": \"2026-04-03T03:15:56+00:00\",\n      \"created_at\": \"2026-04-21T08:38:34+00:00\",\n      \"url\": \"https://patchstack.com/database/npm/npm/openclaw/vulnerability/...\",\n      \"vuln_type\": \"Other Vulnerability Type\",\n      \"cve\": \"2026-41331\",\n      \"is_exploited\": false,\n      \"patch_priority\": 2,\n      \"advisory_details\": \"## Summary\\n...\",\n      \"product\": {\n        \"id\": 23595,\n        \"name\": \"openclaw\",\n        \"slug\": \"openclaw\",\n        \"type\": \"npm\"\n      },\n      \"cvss\": {\n        \"score\": 6.9,\n        \"vector\": \"CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N\"\n      },\n      \"cwe\": {\n        \"id\": 770,\n        \"name\": \"Allocation of Resources Without Limits or Throttling\"\n      },\n      \"capec\": {\n        \"id\": null,\n        \"name\": null\n      },\n      \"references\": [\n        \"https://github.com/openclaw/openclaw/security/advisories/GHSA-m6fx-m8hc-572m\",\n        \"https://github.com/openclaw/openclaw/releases/tag/v2026.3.31\"\n      ],\n      \"ghsa\": \"GHSA-m6fx-m8hc-572m\",\n      \"version_info\": {\n        \"affected\": \"<= 2026.3.28\",\n        \"fixed\": \"2026.3.31\"\n      }\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },

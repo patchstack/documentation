@@ -35,6 +35,8 @@ The previous base URL `https://vdp-api.patchstack.com/database/api/beta/` remain
 | [`GET /all`](/api-reference/threat-intelligence-npm/operations/listallvulnerabilities/) | New endpoint — cursor-paginated full listing of every advisory, scoped by `?platform=`. |
 | `?platform=npm` | List endpoints (`/all`, `/latest`, `/product/...`). Default is `wordpress`; case-insensitive. |
 | `?cursor=` | `/all` and `/latest` — cursor pagination alongside the existing `?page=&per_page=`. |
+| `?updated_since=` | `/all` in cursor mode — only entries changed since a unix time. See [Incremental sync](#incremental-sync). |
+| `product.type` | Every record. The product kind in lower case: `plugin`, `theme`, `wordpress` (core) or `npm`. |
 | `?include=details` | List endpoints — adds an `advisory_details` markdown field to each item (npm). |
 | Nested response shape | All list endpoints — `product`, `cvss`, `cwe`, `version_info` objects in place of the v2 flat shape. |
 
@@ -58,6 +60,30 @@ When a cursor is malformed (invalid base64 or missing the `v1:` prefix), the end
 }
 ```
 
+## Incremental sync
+
+Mirroring the whole feed on every run is slow. After the first full listing, ask only for what changed:
+
+1. Every `/all` response has a `watermark`: the unix time its rows were read. Keep the oldest one from your last sync.
+2. Next time, walk `/all?cursor=&updated_since=<watermark>`. You get the entries changed since then (new ones, and edits such as a new fixed version), and on the first page `removed_ids`: entries withdrawn since then. Replace changed entries by `id` and drop the removed ones.
+3. Store the new `watermark` for the run after that.
+
+Starting a minute before the watermark is safe: entries are re-sent, never lost. An entry deleted outright doesn't show up in `removed_ids`, so run a full listing now and then (daily is plenty). `updated_since` needs cursor mode; with `page` it returns `422 Unprocessable Entity`.
+
+```bash
+curl 'https://vdp-api.patchstack.com/database/api/npm/all?platform=wordpress&per_page=500&cursor=&updated_since=1793018157' \
+  -H 'PSKey: YOUR_KEY'
+```
+
+```json
+{
+  "vulnerabilities": [ { "id": 46510, "product": { "id": 37, "name": "…", "slug": "…", "type": "plugin" }, "…": "…" } ],
+  "cursor": { "next_cursor": null, "has_more": false, "per_page": 500 },
+  "watermark": 1793018399,
+  "removed_ids": [46412]
+}
+```
+
 ## Scoped npm packages
 
 npm package slugs that include a `/` (e.g. `@scope/pkg`) conflict with the route separator. URL-encode the `/` as `%2F` or contact us for guidance on the encoding helper.
@@ -68,7 +94,7 @@ In addition to the [stable error codes](/api-solutions/threat-intelligence-api/e
 
 | Status | Meaning |
 |---|---|
-| `422 Unprocessable Entity` | Invalid parameter combination (e.g. `cursor` + `page`), invalid `platform`, or `per_page > 500`. |
+| `422 Unprocessable Entity` | Invalid parameter combination (e.g. `cursor` + `page`, or `updated_since` without `cursor`), invalid `platform`, or `per_page > 500`. |
 
 ## Migration notes (stable v2 → npm endpoints)
 

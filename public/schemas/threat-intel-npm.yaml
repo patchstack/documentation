@@ -139,12 +139,20 @@ paths:
 
         `cursor` and `page` are mutually exclusive; passing both returns
         `422 Unprocessable Entity`.
+
+        **Incremental sync.** Every `/all` response carries `watermark`, the
+        unix time its rows were read. Send it back as `updated_since` (cursor
+        mode only) to get just the entries changed since then, plus
+        `removed_ids` on the first page for entries withdrawn since then.
+        Entries deleted outright are not reported, so run a full listing now
+        and then (daily is plenty).
       operationId: listAllVulnerabilities
       parameters:
         - $ref: '#/components/parameters/Platform'
         - $ref: '#/components/parameters/Page'
         - $ref: '#/components/parameters/PerPage'
         - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/UpdatedSince'
         - $ref: '#/components/parameters/Include'
       responses:
         '200':
@@ -179,6 +187,17 @@ paths:
                       next_cursor: djE6NDYzMzk
                       has_more: true
                       per_page: 25
+                    watermark: 1793018217
+                delta:
+                  summary: Incremental sync (`?cursor=&updated_since=1793018157`)
+                  value:
+                    vulnerabilities: []
+                    cursor:
+                      next_cursor: null
+                      has_more: false
+                      per_page: 100
+                    watermark: 1793018399
+                    removed_ids: [46412]
         '401': { $ref: '#/components/responses/Unauthorized' }
         '403': { $ref: '#/components/responses/Forbidden' }
         '422': { $ref: '#/components/responses/UnprocessableEntity' }
@@ -369,6 +388,19 @@ components:
       required: false
       schema:
         type: string
+    UpdatedSince:
+      name: updated_since
+      in: query
+      description: |
+        `/all` only, with `cursor`. Unix time in seconds, usually the
+        `watermark` of your previous sync. Returns only entries changed at or
+        after it, and adds `removed_ids`. Without `cursor` it returns
+        `422 Unprocessable Entity`.
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        example: 1793018157
     Include:
       name: include
       in: query
@@ -481,6 +513,10 @@ components:
             id:   { type: integer }
             name: { type: string }
             slug: { type: string }
+            type:
+              type: string
+              nullable: true
+              description: Kind of product, lower case, e.g. `plugin`, `theme`, `wordpress` (core) or `npm`.
         cvss:
           type: object
           nullable: true
@@ -578,6 +614,7 @@ components:
           id: 23595
           name: openclaw
           slug: openclaw
+          type: npm
         cvss:
           score: 6.9
           vector: "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N"
@@ -651,6 +688,13 @@ components:
             $ref: '#/components/schemas/Vulnerability'
         pagination:
           $ref: '#/components/schemas/OffsetPagination'
+        watermark:
+          type: integer
+          description: "`/all` only. Unix time the rows were read; pass it as `updated_since` next time."
+        removed_ids:
+          type: array
+          items: { type: integer }
+          description: "`/all` with `updated_since` only. Entries withdrawn since then; listed on the first page."
 
     CursorVulnerabilityList:
       type: object
@@ -662,6 +706,13 @@ components:
             $ref: '#/components/schemas/Vulnerability'
         cursor:
           $ref: '#/components/schemas/CursorPagination'
+        watermark:
+          type: integer
+          description: "`/all` only. Unix time the rows were read; pass it as `updated_since` next time."
+        removed_ids:
+          type: array
+          items: { type: integer }
+          description: "`/all` with `updated_since` only. Entries withdrawn since then; listed on the first page."
 
     BatchItem:
       type: object
