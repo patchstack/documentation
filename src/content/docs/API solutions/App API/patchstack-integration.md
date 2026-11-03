@@ -438,7 +438,7 @@ On failure, [`POST /site/plugin/recheck/{siteid}`](https://api.patchstack.com/ap
 }
 ```
 
-| `reason` | Causes and fixes |
+| Reason | Causes and fixes |
 | --- | --- |
 | <code style="white-space: nowrap">plugin_rejected_request</code> | Plugin inactive (`wp plugin list`). Another site's API key, e.g. after cloning, or changed `AUTH_KEY` salts: `wp patchstack activate <apikey>`. Stale object cache: `wp cache flush`. Server clock off by over 10 minutes. |
 | <code style="white-space: nowrap">blocked_by_firewall</code> | A WAF, bot protection, CDN challenge, HTTP auth or maintenance page. Allow `POST /wp-admin/admin-ajax.php` from our [IPv4](https://patchstack.com/ips-v4/) and [IPv6](https://patchstack.com/ips-v6/) ranges, or for the `User-Agent` ending in `Patchstack/1.0 (+https://patchstack.com)`. |
