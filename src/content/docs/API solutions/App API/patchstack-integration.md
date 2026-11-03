@@ -438,8 +438,6 @@ On failure, [`POST /site/plugin/recheck/{siteid}`](https://api.patchstack.com/ap
 }
 ```
 
-The reason reflects our `POST` to `https://<site>/wp-admin/admin-ajax.php`.
-
 | `reason` | Causes and fixes |
 | --- | --- |
 | <code style="white-space: nowrap">plugin_rejected_request</code> | Plugin inactive (`wp plugin list`). Another site's API key, e.g. after cloning, or changed `AUTH_KEY` salts: `wp patchstack activate <apikey>`. Stale object cache: `wp cache flush`. Server clock off by over 10 minutes. |
