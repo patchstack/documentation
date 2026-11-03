@@ -1,3 +1,9 @@
+# Astro 6 requires Node >= 22.12. Pin the build image so Netlify does not
+# fall back to an older default. This affects the build step only — the site
+# is a static export served from Netlify's CDN with no Node runtime.
+[build.environment]
+	NODE_VERSION = "22"
+
 [[redirects]]
 	from = "/en"
 	to = "/"
