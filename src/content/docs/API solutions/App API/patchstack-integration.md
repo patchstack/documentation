@@ -442,13 +442,13 @@ The reason reflects our `POST` to `https://<site>/wp-admin/admin-ajax.php`.
 
 | `reason` | Causes and fixes |
 | --- | --- |
-| `plugin_rejected_request` | Plugin inactive (`wp plugin list`). Another site's API key, e.g. after cloning, or changed `AUTH_KEY` salts: `wp patchstack activate <apikey>`. Stale object cache: `wp cache flush`. Server clock off by over 10 minutes. |
-| `blocked_by_firewall` | A WAF, bot protection, CDN challenge, HTTP auth or maintenance page. Allow `POST /wp-admin/admin-ajax.php` from our [IPv4](https://patchstack.com/ips-v4/) and [IPv6](https://patchstack.com/ips-v6/) ranges, or for the `User-Agent` ending in `Patchstack/1.0 (+https://patchstack.com)`. |
-| `plugin_endpoint_not_found` | Site URL doesn't match the WordPress address (domain change, subdirectory install), or `admin-ajax.php` is hidden. |
-| `site_error` | `5xx` from the site. Check its error log. |
-| `site_unreachable` | Timeout, DNS failure or invalid TLS certificate. |
-| `unexpected_response` | Extra output on `admin-ajax.php`, or an outdated plugin. Contact support if it persists. |
-| `site_not_connected` | No API key on our side. [Remove and re-add the site](#site-lifecycle-removing--re-adding-sites), then activate with the new `apikey`. |
+| <code style="white-space: nowrap">plugin_rejected_request</code> | Plugin inactive (`wp plugin list`). Another site's API key, e.g. after cloning, or changed `AUTH_KEY` salts: `wp patchstack activate <apikey>`. Stale object cache: `wp cache flush`. Server clock off by over 10 minutes. |
+| <code style="white-space: nowrap">blocked_by_firewall</code> | A WAF, bot protection, CDN challenge, HTTP auth or maintenance page. Allow `POST /wp-admin/admin-ajax.php` from our [IPv4](https://patchstack.com/ips-v4/) and [IPv6](https://patchstack.com/ips-v6/) ranges, or for the `User-Agent` ending in `Patchstack/1.0 (+https://patchstack.com)`. |
+| <code style="white-space: nowrap">plugin_endpoint_not_found</code> | Site URL doesn't match the WordPress address (domain change, subdirectory install), or `admin-ajax.php` is hidden. |
+| <code style="white-space: nowrap">site_error</code> | `5xx` from the site. Check its error log. |
+| <code style="white-space: nowrap">site_unreachable</code> | Timeout, DNS failure or invalid TLS certificate. |
+| <code style="white-space: nowrap">unexpected_response</code> | Extra output on `admin-ajax.php`, or an outdated plugin. Contact support if it persists. |
+| <code style="white-space: nowrap">site_not_connected</code> | No API key on our side. [Remove and re-add the site](#site-lifecycle-removing--re-adding-sites), then activate with the new `apikey`. |
 
 ### What's the difference between `siteid` and `oauth.id`? Can I assume they're equal?
 They are two independent fields with different purposes — do not assume they are equal.
