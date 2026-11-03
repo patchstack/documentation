@@ -434,8 +434,7 @@ On failure, [`POST /site/plugin/recheck/{siteid}`](https://api.patchstack.com/ap
 ```json
 {
   "error": "We could not force a resync of the site (ERR 1).",
-  "reason": "plugin_rejected_request",
-  "reason_message": "The site answered, but the plugin rejected the signed request."
+  "reason": "plugin_rejected_request"
 }
 ```
 
