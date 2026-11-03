@@ -429,7 +429,7 @@ Which outputs the following:
 ```
 
 ### Why did a recheck or resync fail?
-On failure, [`POST /site/plugin/recheck/{siteid}`](https://api.patchstack.com/app-api/documentation) and [`POST /site/plugin/resync/{siteid}`](https://api.patchstack.com/app-api/documentation) return `422` with a `reason` code next to `error`. Match on `reason`. The `error` text is unchanged.
+On failure, [`POST /site/plugin/recheck/{siteid}`](https://api.patchstack.com/app-api/documentation) and [`POST /site/plugin/resync/{siteid}`](https://api.patchstack.com/app-api/documentation) return `422` with a `reason` code next to `error`.
 
 ```json
 {
