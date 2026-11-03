@@ -44,6 +44,8 @@ To minimize API calls and reduce latency when displaying site information to you
 
 All Patchstack API endpoints return standard HTTP status codes. Your integration should handle these appropriately to ensure reliability and provide meaningful feedback to users. E.g. handle status codes 200, 401, 422, 500.
 
+Failed rechecks and resyncs include a `reason`. See [Why did a recheck or resync fail?](#why-did-a-recheck-or-resync-fail)
+
 #### Rate limits & quotas
 | Endpoint | Limit |
 | --- | --- |
@@ -425,6 +427,46 @@ Which outputs the following:
   "activated": true
 }
 ```
+
+### Why did a recheck or resync fail?
+On failure, [`POST /site/plugin/recheck/{siteid}`](https://api.patchstack.com/app-api/documentation) and [`POST /site/plugin/resync/{siteid}`](https://api.patchstack.com/app-api/documentation) return `422` with a `reason` code next to `error`.
+
+```json
+{
+  "error": "We could not force a resync of the site (ERR 1).",
+  "reason": "plugin_rejected_request"
+}
+```
+
+###### plugin_rejected_request
+- Plugin not active. Check with `wp plugin list`.
+- Plugin holds another site's API key, e.g. after cloning. Run `wp patchstack activate <apikey>`.
+- `AUTH_KEY` salts changed, so the stored key can't be read. Run `wp patchstack activate <apikey>`.
+- Stale object cache. Run `wp cache flush`.
+- Server clock more than 10 minutes off. Sync it.
+
+###### blocked_by_firewall
+- A WAF, bot protection, CDN challenge, HTTP auth or maintenance page answered instead of WordPress. Allow `POST /wp-admin/admin-ajax.php` from our [IPv4](https://patchstack.com/ips-v4/) and [IPv6](https://patchstack.com/ips-v6/) ranges, or for the `User-Agent` ending in `Patchstack/1.0 (+https://patchstack.com)`.
+
+###### plugin_endpoint_not_found
+- Site URL doesn't match the WordPress address, e.g. after a domain change or for a subdirectory install.
+- A security plugin hides `admin-ajax.php`.
+
+###### site_error
+- `5xx` from the site. Check its error log.
+
+###### site_unreachable
+- Site down or timing out.
+- Domain doesn't resolve.
+- Invalid TLS certificate.
+
+###### unexpected_response
+- Extra output on `admin-ajax.php`, e.g. from another plugin.
+- Outdated plugin. Update it.
+- Contact support if it persists.
+
+###### site_not_connected
+- No API key on our side. [Remove and re-add the site](#site-lifecycle-removing--re-adding-sites), then activate with the new `apikey`.
 
 ### What's the difference between `siteid` and `oauth.id`? Can I assume they're equal?
 They are two independent fields with different purposes — do not assume they are equal.
