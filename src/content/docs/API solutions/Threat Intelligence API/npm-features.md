@@ -88,6 +88,12 @@ curl 'https://vdp-api.patchstack.com/database/api/npm/all?platform=wordpress&per
 
 npm package slugs that include a `/` (e.g. `@scope/pkg`) conflict with the route separator. URL-encode the `/` as `%2F` or contact us for guidance on the encoding helper.
 
+## Rate limiting
+
+Requests are limited per API key, per minute. Single lookups (`/product/...`, `/latest`), `/batch` and `/all` each have their own allowance, so a busy batch job doesn't use up your feed sync. `/npm` and the `/beta` alias count against the same allowance.
+
+Every response carries `X-RateLimit-Limit` and `X-RateLimit-Remaining`. Past the limit you get `429 Too Many Requests` with a `Retry-After` header: wait that many seconds, then retry. The `error` field of the response names the limit you hit.
+
 ## Errors
 
 In addition to the [stable error codes](/api-solutions/threat-intelligence-api/extended/#errors), the npm endpoints return:
