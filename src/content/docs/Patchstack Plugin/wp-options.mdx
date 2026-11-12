@@ -26,6 +26,33 @@ Most hardening features require a connected paid site. An option being stored do
 The option names in the reference tables omit the `patchstack_` prefix. Use the full name, such as `patchstack_login_2fa`, in WordPress or WP-CLI. Boolean settings use `1` for on and `0` for off; WordPress may return stored scalar values as strings.
 </Aside>
 
+## Setting options
+
+Use the App controls or WP-CLI to persist a setting. Register [WP filters](/patchstack-plugin/wp-filters/) in a must-use plugin when you need a runtime callback instead. Constants belong in [`wp-config.php`](/patchstack-plugin/wp-constants/).
+
+For example, configure the login-ban threshold and duration before enabling it:
+
+```bash
+wp --url=https://site.example option update patchstack_anti_bruteforce_attempts 10
+wp --url=https://site.example option update patchstack_anti_bruteforce_minutes 5
+wp --url=https://site.example option update patchstack_anti_bruteforce_blocktime 60
+wp --url=https://site.example option update patchstack_block_bruteforce_ips 1
+```
+
+For an array option, use JSON input so WordPress stores an array:
+
+```bash
+wp --url=https://site.example option update patchstack_basic_firewall_roles '["administrator"]' --format=json
+```
+
+The login IP whitelist is a newline-separated **string**, rather than an array. This example sets one entry; replace it with the intended address. Updating the option replaces the existing list:
+
+```bash
+wp --url=https://site.example option update patchstack_login_whitelist '192.0.2.10'
+```
+
+The whitelist exempts matching IPs from login bans; it does not bypass 2FA. Network-scoped settings use different commands, described below.
+
 ## Storage and multisite
 
 Most settings, credentials and log tables belong to an individual site. Use `wp --url=https://site.example option update ...` to select a subsite.
@@ -56,7 +83,7 @@ On multisite, `.htaccess` rule selection and the legacy `auto_update` selection 
 | `xmlrpc_is_disabled` | boolean | `1` | Disable WordPress XML-RPC methods, including authenticated methods and pingbacks. Third-party methods may remain. |
 | `json_is_disabled` | boolean | `0` | Restrict anonymous REST requests, with an exception for Contact Form 7 routes. Existing REST permission checks still apply. |
 | `add_security_headers` | boolean | `1` | Add security headers to WordPress HTTP responses independently of `.htaccess` writing. |
-| `disable_curl_decoding` | boolean | `0` | Opt in to disabling libcurl response decompression on affected Brotli builds. Buffered gzip responses can still be decoded by WordPress. |
+| `disable_curl_decoding` | boolean | `0` | Opt in to disabling libcurl response decompression on affected Brotli builds. Buffered gzip responses can still be decoded by WordPress. See [the filter example](/patchstack-plugin/wp-filters/#libcurl-response-decoding). |
 | `mv_wp_login` | boolean | `0` | Enable the custom login URL and temporary IP access to the normal login routes. |
 | `rename_wp_login` | string | `"swlogin"` | Custom login URL slug. |
 | `login_2fa` | boolean | `0` | Offer user enrollment and require codes for enrolled accounts when this site enforces 2FA. See [login protection](/patchstack-app/site-dashboard/hardening/app-hardening-login-protection/). |
@@ -169,7 +196,7 @@ Other internal keys include retry queues, signature-replay records and transient
 
 In the current plugin, failed-login audit events follow the main activity logger. `activity_log_failed_logins` remains registered for settings compatibility; it is not a separate enforcement switch. `activity_log_failed_logins_db` controls whether failed-login audit events are included in uploads to Patchstack App.
 
-The 2FA account limit is separate again: five invalid codes trigger a five-minute cooldown. The login-ban attempt and duration settings do not change that limit. See [login protection](/patchstack-app/site-dashboard/hardening/app-hardening-login-protection/).
+The 2FA account limit is separate again: five invalid codes trigger a five-minute cooldown. The login-ban attempt and duration settings do not change that limit. See [login protection](/patchstack-app/site-dashboard/hardening/app-hardening-login-protection/). These settings do not add global CAPTCHA or throttling to every authentication endpoint; see [supported authentication paths](/patchstack-app/site-dashboard/hardening/app-hardening-login-protection/#supported-authentication-paths).
 
 ## Existing installations and `.htaccess`
 

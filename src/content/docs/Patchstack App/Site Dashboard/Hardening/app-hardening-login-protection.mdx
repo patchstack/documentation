@@ -60,3 +60,26 @@ Five invalid 2FA codes cause a **five-minute account cooldown**. Changing IP add
 On multisite, the WordPress user account and its 2FA state are shared. When a login requires 2FA, its attempt count and consumed codes apply across subsites and networks. Existing authenticator enrollment from older plugin versions is migrated automatically; users do not need to scan a new QR code solely because of the upgrade.
 
 See [WP options](/patchstack-plugin/wp-options/) for the option names, defaults and storage scopes.
+
+## Supported authentication paths
+
+CAPTCHA, the 2FA code throttle and the login IP ban are separate controls. They apply when the relevant feature is available and enabled, with valid CAPTCHA keys or an enrolled authenticator where required.
+
+| Control | Covered area | Outside this control's coverage |
+| --- | --- | --- |
+| Login CAPTCHA | WordPress `wp-login.php` login and WooCommerce forms processed through `woocommerce_process_login_errors` | XML-RPC, REST/API authentication and other plugins' custom login forms |
+| Registration CAPTCHA | WordPress registration, public multisite `wp-signup.php` signup and WooCommerce forms processed through `woocommerce_process_registration_errors` | Programmatic user/site creation, admin-created accounts and other plugins' registration forms |
+| Lost-password CAPTCHA | Anonymous WordPress and WooCommerce lost-password form submissions | Password-reset requests made through other integrations and administrator-initiated resets |
+| Comment CAPTCHA | Anonymous WordPress comment submissions with comment CAPTCHA enabled | Logged-in comments and other plugins' independent submission systems |
+| 2FA account throttle | Patchstack's own authenticator-code checks for enrolled accounts when its 2FA policy applies, including login and enrollment changes requiring the current code | Another provider's OTP/MFA codes, or authentication that never invokes Patchstack's 2FA verifier |
+| Optional login IP ban | Failed logins received through WordPress's `wp_login_failed` hook, with enforcement on the login page and the `authenticate` filter | Provider-native authentication that bypasses those hooks, general API rate limiting and signup/reset-request quotas |
+
+A custom frontend login or an XML-RPC password login can still invoke WordPress authentication, so Patchstack 2FA or the enabled IP ban can apply even though that path has no Patchstack CAPTCHA. Application passwords, API keys and third-party identity providers have their own authentication flows; the CAPTCHA setting is not a switch that adds an interactive challenge to every credential check.
+
+The fixed five-attempt 2FA cooldown limits Patchstack code verification. It is not a site-wide throttle for requests, CAPTCHA tokens, password-reset emails or another plugin's challenges. Login IP bans are opt-in and have their own threshold, window and whitelist.
+
+### When reporting a security issue
+
+These coverage boundaries are intentional so unsupported integrations keep working. A missing CAPTCHA on an unsupported form, or the absence of a general API throttle, does not by itself demonstrate a bypass of a configured Patchstack control.
+
+Include the enabled settings, account enrollment where relevant, and the exact form, hook or authentication flow in a report. Show how a covered protection is defeated or how unauthorized access is gained; the coverage table does not exclude reports that demonstrate such an impact through another entry point.

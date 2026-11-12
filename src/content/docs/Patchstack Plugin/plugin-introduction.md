@@ -21,6 +21,6 @@ In the next articles, we'll take a look at how the plugin works and which option
 
 ## Configuration and compatibility
 
-The plugin requires WordPress 5.2 or later and PHP 5.6 or later. Available controls depend on the site's plan. See [WP options](/patchstack-plugin/wp-options/) for registered defaults and [WP constants](/patchstack-plugin/wp-constants/) for host-level controls.
+The plugin requires WordPress 5.2 or later and PHP 5.6 or later. Available controls depend on the site's plan. See [WP options](/patchstack-plugin/wp-options/) for registered defaults and [WP constants](/patchstack-plugin/wp-constants/) for host-level controls. [WP filters](/patchstack-plugin/wp-filters/) includes PHP examples for the CAPTCHA score threshold, custom hardening paths and integration policies.
 
 Upgrades preserve existing option values; a new default does not overwrite a saved preference. For WordPress multisite, see the [installation guide](/patchstack-plugin/installing-patchstack-on-a-multisite/) for per-site connections, network permissions and database updates.

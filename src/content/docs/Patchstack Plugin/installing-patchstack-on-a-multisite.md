@@ -59,7 +59,7 @@ This is the network option `patchstack_network_plugin_updates`, which is off by 
 
 Only enable this if you trust every administrator of the primary site. An administrator there can connect it to another Patchstack account and use that connection to run these commands without being a network administrator.
 
-For plugin updates already permitted by WordPress's network automatic-update policy, the primary site's connection can continue to update those plugins without enabling the broader grant. If automatic updates are off and you want manual dashboard updates, enable the checkbox above. An explicit network policy supplied through `patchstack_allow_network_remote_management` can veto either path.
+For plugin updates already permitted by WordPress's network automatic-update policy, the primary site's connection can continue to update those plugins without enabling the broader grant. If automatic updates are off and you want manual dashboard updates, enable the checkbox above. An explicit network policy supplied through `patchstack_allow_network_remote_management` can veto either path; see the [filter example](/patchstack-plugin/wp-filters/#network-remote-management).
 
 ## Settings and shared files
 

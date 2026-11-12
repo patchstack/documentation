@@ -27,3 +27,15 @@ Patchstack can install an early firewall loader in the must-use plugin directory
 ```php
 define('PS_DISABLE_MU', true);
 ```
+
+### Hide Patchstack admin menus
+
+To stop Patchstack registering its WordPress admin menus and related menu assets, define:
+
+```php
+define('PS_DISABLE_MENU', true);
+```
+
+This includes the Network Admin menus. It does not deactivate the plugin, stop the firewall, disconnect the site or revoke remote permissions. Keep a separate way to manage the connection and network settings if you hide these menus.
+
+Use [WP filters](/patchstack-plugin/wp-filters/) for PHP callbacks that customize behavior. Unlike the constants above, filters belong in a plugin loaded by WordPress.

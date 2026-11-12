@@ -33,7 +33,7 @@ Settings you can manage on this page:
 
 ## WordPress in a subdirectory and Bedrock
 
-Hardening rules use the WordPress front-controller directory. In a Bedrock layout such as `web/index.php` with core in `web/wp`, this is `web/.htaccess`. Core and content paths in the API rules are adapted to the detected layout. These are Apache-compatible rules; nginx needs server configuration supplied by your host.
+Hardening rules use the WordPress front-controller directory. In a Bedrock layout such as `web/index.php` with core in `web/wp`, this is `web/.htaccess`. Core and content paths in the API rules are adapted to the detected layout. These are Apache-compatible rules; nginx needs server configuration supplied by your host. For another layout, see the [`patchstack_htaccess_dir` example](/patchstack-plugin/wp-filters/#hardening-directory).
 
 Upgrading an existing installation does not move or rewrite its hardening block solely to adopt the new layout. An unchanged rule refresh leaves it in place. A relevant settings or API-rule change can trigger the update. On the first write to the detected location, Patchstack also cleans up its old managed hardening block in the core directory.
 
