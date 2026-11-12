@@ -4,7 +4,7 @@ title: "Captcha"
 excerpt: ""
 hidden: false
 createdAt: "Thu Jan 18 2024 12:20:27 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Thu Jan 18 2024 13:24:28 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Thu Nov 12 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.33
 ---
@@ -30,7 +30,11 @@ Our captcha can be used on the WordPress built-in forms as well as WooCommerce f
 * Registration form
 * Password reset form
 
-In addition, captcha is supported on WooCommerce forms.
+In addition, CAPTCHA is supported on WooCommerce login, registration and lost-password forms. On multisite, the registration setting also covers the public `wp-signup.php` signup flow.
+
+These settings apply to the supported forms when they are submitted. They do not add CAPTCHA to XML-RPC, REST authentication or another plugin's custom form. Use the separate XML-RPC, login-ban and 2FA controls for those paths as appropriate.
+
+For reCAPTCHA v3, the response must be successful, have the expected `submit` action and meet the default score threshold of **0.5**. A site integration can adjust the score threshold through the `patchstack_recaptcha_v3_threshold` WordPress filter.
 
 **NB!** Patchstack does not offer captcha integrations for other third-party plugins or themes (eg. Contact Form 7).
 

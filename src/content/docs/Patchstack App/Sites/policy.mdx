@@ -3,7 +3,7 @@ title: "Policy"
 excerpt: "Default site policy"
 hidden: false
 createdAt: "Mon Jul 25 2022 09:03:10 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Mon Aug 24 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Thu Nov 12 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 4
 ---
@@ -15,7 +15,7 @@ import { Aside } from '@astrojs/starlight/components';
 	It is available in Patchstack plugin versions starting from and including 2.3.5.
 </Aside>
 <br />
-It is possible to set a default site policy for all your WordPress sites. The default site policy consists of a JSON array of settings that will be applied to the WordPress site upon the initial activation of the Patchstack plugin.
+It is possible to set a default site policy for all your WordPress sites. The default site policy consists of a JSON object of settings that will be applied to the WordPress site upon the initial activation of the Patchstack plugin.
 
 ## Setting up a default policy
 1. Head to [https://app.patchstack.com/settings/integrations](https://app.patchstack.com/settings/integrations)
@@ -23,28 +23,42 @@ It is possible to set a default site policy for all your WordPress sites. The de
 3. Modify the JSON list and add or adjust the list per your needs.
 4. Click the "Save Policy" button.
 
-All of the options that can be set can be found [here](/patchstack-plugin/wp-options/) under "Patchstack WordPress Options".  
+All of the options that can be set can be found [here](/patchstack-plugin/wp-options/) under "Registered configuration options".
+
 Note that some options cannot be set, in particular dynamic options which change often.
 
 ## Example policy
-An example policy, to strictly run the Patchstack firewall engine, can be seen below.
-By default, a lot of the Patchstack hardening features are opt-in which means we only have to adjust few settings.
+The following per-site policy keeps the PHP firewall enabled and disables optional hardening, CAPTCHA, login bans, 2FA enforcement and activity logging. For existing `.htaccess` rules, legacy automatic updates and network-wide settings, follow the additional steps in [minimal mode](/patchstack-plugin/wp-options/#minimal-mode). A new default policy does not retrofit these settings onto already connected sites.
 
 ```json
 {
-	"patchstack_disable_htaccess": 1,
-	"patchstack_basicscanblock": 0,
-	"patchstack_prevent_default_file_access": 0,
-	"patchstack_index_views": 0,
-	"patchstack_block_debug_log_access": 0,
-	"patchstack_pluginedit": 0,
-	"patchstack_userenum": 0,
-	"patchstack_hidewpversion": 0,
-	"patchstack_application_passwords_disabled": 0,
-	"patchstack_xmlrpc_is_disabled": 0,
-	"patchstack_add_security_headers": 0,
-	"patchstack_activity_log_is_enabled": 0,
-	"patchstack_activity_log_failed_logins": 0
+  "patchstack_basic_firewall": 1,
+  "patchstack_disable_htaccess": 1,
+  "patchstack_basicscanblock": 0,
+  "patchstack_prevent_default_file_access": 0,
+  "patchstack_index_views": 0,
+  "patchstack_block_debug_log_access": 0,
+  "patchstack_block_fake_bots": 0,
+  "patchstack_proxy_comment_posting": 0,
+  "patchstack_image_hotlinking": 0,
+  "patchstack_pluginedit": 0,
+  "patchstack_userenum": 0,
+  "patchstack_hidewpversion": 0,
+  "patchstack_application_passwords_disabled": 0,
+  "patchstack_xmlrpc_is_disabled": 0,
+  "patchstack_json_is_disabled": 0,
+  "patchstack_add_security_headers": 0,
+  "patchstack_disable_curl_decoding": 0,
+  "patchstack_mv_wp_login": 0,
+  "patchstack_login_2fa": 0,
+  "patchstack_block_bruteforce_ips": 0,
+  "patchstack_captcha_on_comments": 0,
+  "patchstack_captcha_login_form": 0,
+  "patchstack_captcha_registration_form": 0,
+  "patchstack_captcha_reset_pwd_form": 0,
+  "patchstack_activity_log_is_enabled": 0,
+  "patchstack_activity_log_failed_logins": 0,
+  "patchstack_activity_log_failed_logins_db": 0
 }
 ```
 

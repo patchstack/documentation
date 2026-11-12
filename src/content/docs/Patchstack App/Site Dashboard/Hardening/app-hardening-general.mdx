@@ -3,7 +3,7 @@ title: "General"
 excerpt: ""
 hidden: false
 createdAt: "Wed Jan 17 2024 15:01:59 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Thu Jan 18 2024 12:02:47 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Thu Nov 12 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.3
 ---
@@ -13,7 +13,7 @@ _General hardening settings are available for all Patchstack paid plan users._
 **_Protection is available for WordPress sites only._**
 
 
-The general hardening settings are extra firewall rules to protect your website. These rules can be tweaked according to your needs.
+General hardening settings include WordPress behavior changes and server-file rules. They can be enabled independently of the PHP firewall. See [how hardening and security headers work](/patchstack-app/site-dashboard/hardening/hardening-and-security-headers-explained/).
 
 To manage your site's hardening settings, navigate to **Sites** > **yourdomain.com** > **Hardening** in Patchstack App.
 
@@ -22,12 +22,12 @@ To manage your site's hardening settings, navigate to **Sites** > **yourdomain.c
 On this page you can manage the following hardening settings:
 
 <Steps>
-1. **Disable the theme editor** - this feature could protect you from potential automated attacks that involve the theme editor
+1. **Disable the theme editor** - disables both the plugin and theme file editors in WordPress
 2. **Remove readme.html from the WordPress root folder** - this will attempt to stop basic readme.html scans by bots or visitors
 3. **Block readme.txt access**
-4. **Disable user enumeration** - this feature blocks hackers from getting your WordPress usernames
+4. **Disable user enumeration** - restricts anonymous author-ID requests, the REST users routes and the users sitemap; authenticated requests still follow WordPress permissions
 5. **Hide WordPress version** - this feature removes the WordPress version in the &lt;meta> tag in the HTML output
 6. **Block WordPress application password feature** - this feature disables the application passwords feature introduced in WordPress 5.6
-7. **Restrict XML-RPC Access** - this feature restricts access to xmlrpc.php by only allowing authenticated users to access it
-8. **Restrict WP REST API Access** - this feature restricts access to the WP Rest API by only allowing authenticated users to access it
+7. **Restrict XML-RPC Access** - disables WordPress XML-RPC methods, including password-authenticated methods and anonymous pingbacks. Methods registered by another plugin may remain available
+8. **Restrict WP REST API Access** - restricts anonymous REST requests, with an exception for Contact Form 7 routes. It does not grant additional permissions to authenticated users
 </Steps>

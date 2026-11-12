@@ -4,7 +4,7 @@ title: "Login protection"
 excerpt: ""
 hidden: false
 createdAt: "Thu Jan 18 2024 12:03:24 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Thu Jan 18 2024 12:20:08 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Thu Nov 12 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.32
 ---
@@ -29,7 +29,7 @@ On the **Login protection** subpage you can:
 
 ## How our custom login URL feature works
 
-If you define a new URL for login, it works like a security token for your wp-admin. Entering your custom URL once, will whitelist your IP to access regular wp-admin URL again.
+Visiting your custom login URL temporarily allows your IP to access the normal WordPress login routes. It does not replace your password or 2FA. This temporary access list is separate from the IP whitelist used by login bans.
 
 ### Example usage:
 
@@ -40,5 +40,23 @@ To log in to your WordPress admin panel, you need to:
 1. First visit your secret URL (for example **yourdomain.com/myadmin**)
 2. Your IP gets whitelisted
 3. You can now log in from the regular **yourdomain.com/wp-admin** again
-3. Other visitors are blocked from wp-admin page, unless they know your security token (in this case /myadmin)
+4. Other visitors must first visit the custom URL before using the normal login route
 </Steps>
+
+## Failed-login IP bans
+
+The **Ban IPs that fail on multiple login attempts** setting is off by default. When enabled, its defaults are **10 failed attempts over 5 minutes**, followed by a **60-minute ban**. These correspond to `patchstack_block_bruteforce_ips` and the `patchstack_anti_bruteforce_*` options.
+
+The ban is checked on the login page and when a login reaches WordPress authentication, including frontend forms. IPv4 is counted per address; IPv6 is counted per /64 so changing addresses within the same subscriber network does not reset the limit. Logging activity or uploading failed-login audit events is not required for enforcement.
+
+The login IP whitelist exempts matching addresses from this ban. It accepts one address, IPv4 wildcard/range, or CIDR per line. It does not exempt an account from 2FA. The separate IP block list can still block a whitelisted address.
+
+## Two-factor authentication
+
+Enabling `patchstack_login_2fa` makes enrollment available in the WordPress user profile; it does not automatically enroll every user. An enrolled user must provide a valid authenticator code when 2FA is required. Disabling or replacing enrollment requires proof from the current authenticator. An administrator can also reset enrollment from the site's **Users** page in Patchstack App, subject to the [multisite permissions](/patchstack-plugin/installing-patchstack-on-a-multisite/#remote-management-and-plugin-updates).
+
+Five invalid 2FA codes cause a **five-minute account cooldown**. Changing IP addresses does not reset it, and a code already used for a successful login cannot be reused. The IP-ban attempt/window/duration settings do not change this account limit.
+
+On multisite, the WordPress user account and its 2FA state are shared. When a login requires 2FA, its attempt count and consumed codes apply across subsites and networks. Existing authenticator enrollment from older plugin versions is migrated automatically; users do not need to scan a new QR code solely because of the upgrade.
+
+See [WP options](/patchstack-plugin/wp-options/) for the option names, defaults and storage scopes.

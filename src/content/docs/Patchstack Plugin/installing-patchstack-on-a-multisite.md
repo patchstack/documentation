@@ -6,7 +6,7 @@ hidden: false
 metadata: 
   robots: "index"
 createdAt: "Tue Mar 07 2023 12:59:59 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Wed May 10 2023 12:23:51 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Thu Nov 12 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 7
 ---
@@ -29,7 +29,7 @@ To install Patchstack on the multisite network, the easiest way is to do it via 
 1. Go to your WordPress Network Admin and navigate to **Plugins** > **Add New Plugin**
 2. Search for "Patchstack"
 3. Install the "Patchstack – WordPress & Plugins Security" plugin
-4. Once the plugin is installed, click **Activate**
+4. Once the plugin is installed, click **Network Activate**
 5. You will then see screen as such:
 ![](@images/patchstack-multisite-installation-screen.png)
 6. Click on the last link in this box, then paste the API key to that field, and click "Sync"
@@ -45,10 +45,35 @@ To connect the subsites, repeat the process in **step 1** - add your site to Pat
 3. To add an API key to the corresponding site, click "Settings page" and add the API key the same way as you did for the main site
 
 
-## Rerunning the database migration
-In some certain scenarios, you may encounter database errors on your error logs about Patchstack database tables, when running the multisite environment. For that, you will need to rerun the database migrations. 
+## Remote management and plugin updates
 
-This can be done when you navigate to: **Network Admin** > **Patchstack** > **Sites** and click on **Rerun Database Migration** from there for your sites.
+WordPress plugins, themes and core files are shared across the network. A subsite's Patchstack API key does not, by default, authorize commands that change shared software, reset shared 2FA enrollment or flush the shared cache.
+
+On the primary network, a network administrator can allow these commands from the primary site's Patchstack App connection:
+
+1. Open **Network Admin** > **Patchstack** > **Sites**.
+2. Below the sites table, enable **Allow remote management from the primary site’s Patchstack dashboard**.
+3. Click **Save changes**.
+
+This is the network option `patchstack_network_plugin_updates`, which is off by default. Despite its name, the grant covers WordPress/theme/plugin updates, plugin activation/deactivation/deletion, and 2FA/cache resets. Use the primary site's connection in Patchstack App; subsite keys do not inherit the grant. WordPress file-change restrictions still apply.
+
+Only enable this if you trust every administrator of the primary site. An administrator there can connect it to another Patchstack account and use that connection to run these commands without being a network administrator.
+
+For plugin updates already permitted by WordPress's network automatic-update policy, the primary site's connection can continue to update those plugins without enabling the broader grant. If automatic updates are off and you want manual dashboard updates, enable the checkbox above. An explicit network policy supplied through `patchstack_allow_network_remote_management` can veto either path.
+
+## Settings and shared files
+
+Most runtime settings and credentials are per-site. `.htaccess` rule selection and legacy automatic-update selections are network options. By default, the shared auto-prepend installer is controlled from the primary site of the primary network. Changing the option on a subsite does not allow it to install or remove that shared configuration. See [WP options](/patchstack-plugin/wp-options/#storage-and-multisite).
+
+2FA enrollment belongs to the shared WordPress account. A code consumed or an account cooldown started on one site remains part of that account's state on other sites.
+
+## Database updates and repair
+
+Each site has its own Patchstack log tables and schema version. Network activation does not synchronously rebuild every subsite. When the plugin initializes on a site with pending or missing tables, it schedules that site's database work through WordPress cron. Older installations retain existing settings and log rows during the upgrade.
+
+Administrators see a notice while a database update is pending or has failed. Its **Run database update** link can run the work manually, including when WordPress cron is disabled. Automatic retries stop after three failed attempts; check database permissions, free disk space and any reported index conflict before retrying.
+
+A network administrator can also open **Network Admin** > **Patchstack** > **Sites** and use **Rerun Database Migration** for the affected site. This repairs that site's tables and resets its retry state; it does not reset the other sites' settings or upload state.
 
 
 ## Conclusion
