@@ -6,7 +6,7 @@ hidden: false
 metadata: 
   robots: "index"
 createdAt: "Tue Mar 07 2023 12:59:59 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Wed May 10 2023 12:23:51 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Thu Nov 12 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3
 ---
@@ -30,7 +30,16 @@ You can update the Patchstack plugin in two ways:
 1. Log in to <a href="https://app.patchstack.com" target="_blank">the Patchstack App</a>
 2. Navigate to **Sites** from the left menu
 3. Find your site and click on it
-4. From the submenu, click **Software**
+4. From the submenu, click **Packages**
 5. Find the **Patchstack Security** plugin and tick the checkbox from the left column of the table row
 
 ![](@images/patchstack-update-patchstack.png)
+6. Choose **Actions** > **Update**.
+
+On multisite, perform shared-software updates from the primary site's connection with the [required network authorization](/patchstack-plugin/installing-patchstack-on-a-multisite/#remote-management-and-plugin-updates).
+
+## After an upgrade
+
+Existing option values and enrolled authenticators are preserved. Pending log-schema updates run in the background through WordPress cron; an administrator can use **Run database update** in the notice to run them manually. See [multisite database repair](/patchstack-plugin/installing-patchstack-on-a-multisite/#database-updates-and-repair) for per-site repair controls.
+
+An upgrade alone does not rewrite existing `.htaccess` hardening blocks when their settings and API rules are unchanged. See [.htaccess hardening](/patchstack-app/site-dashboard/hardening/app-hardening-htaccess/).

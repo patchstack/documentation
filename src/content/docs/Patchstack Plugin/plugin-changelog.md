@@ -4,10 +4,55 @@ slug: "patchstack-plugin/changelog"
 excerpt: "These are all the changes made to the plugin in the past."
 hidden: false
 createdAt: "Mon Jul 25 2022 09:32:00 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Wed Jan 17 2024 10:39:45 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Fri Nov 13 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 8
 ---
+<b>November 16th, 2026</b>
+
+<ul>
+<li>Version 2.3.8</li>
+<li>Added: opt-in redaction of blocked request logs</li>
+<li>Added: hardening rules support for Bedrock and subdirectory installations</li>
+<li>Added: patchstack_htaccess_dir filter to set the directory of the hardening rules</li>
+<li>Added: CAPTCHA support on the multisite signup form</li>
+<li>Added: CAPTCHA checks on the WooCommerce registration and lost password forms</li>
+<li>Added: network setting to allow remote management from the primary site's dashboard on multisite</li>
+<li>Added: optional setting to let WordPress handle decompression of outbound requests</li>
+<li>Added: patchstack_recaptcha_v3_threshold filter to set the reCAPTCHA v3 score that is accepted (default 0.5)</li>
+<li>Added: patchstack_xmlrpc_allowed_methods filter to choose which third-party XML-RPC methods stay available</li>
+<li>Added: user enumeration protection for author IDs in POST requests and the users sitemap</li>
+<li>Added: SFTP support for updating the auto-prepend firewall configuration</li>
+<li>Changed: the XML-RPC setting now also turns off pingbacks</li>
+<li>Changed: 2FA changes on the profile page now ask for a code from the authenticator app</li>
+<li>Changed: the 2FA secret key and QR code are only shown while setting up 2FA</li>
+<li>Changed: login attempt limits count an IPv6 /64 network as one visitor</li>
+<li>Changed: the firewall now also inspects requests to wp-cron.php</li>
+<li>Changed: firewall rules now also match request values that are not valid UTF-8</li>
+<li>Changed: debug.log access is blocked in every directory, not only the site root</li>
+<li>Changed: hardening rules are removed from .htaccess when every hardening option is turned off</li>
+<li>Changed: proxy comment posting hardening is turned off by default</li>
+<li>Changed: remote and automatic updates respect the DISALLOW_FILE_MODS constant</li>
+<li>Changed: automatic updates of vulnerable plugins respect WordPress's setting to turn automatic updates off</li>
+<li>Changed: 2FA is asked for network administrators on every site of a multisite network</li>
+<li>Changed: the dashboard is told when a remote plugin activation or deletion did not succeed</li>
+<li>Changed: mail server password changes are no longer included in the activity log details</li>
+<li>Changed: logs that could not be delivered are removed after 7 days</li>
+<li>Changed: database updates now run in the background</li>
+<li>Changed: larger log IDs and faster login ban lookups</li>
+<li>Changed: the settings page no longer loads scripts and styles from external hosts</li>
+<li>Fixed: translation notice on WordPress 6.7 and later</li>
+<li>Fixed: custom login URL returning a 404 instead of redirecting logged-in users to the dashboard</li>
+<li>Fixed: duplicate software syncs and empty log uploads</li>
+<li>Fixed: missing log tables on multisite subsites created after activation</li>
+<li>Fixed: hardening option changes on multisite not being applied right away</li>
+<li>Fixed: automatic plugin updates that failed are tried again</li>
+<li>Fixed: network sites table listing only the first 100 sites</li>
+<li>Fixed: copying settings from the WebARX plugin replacing existing settings</li>
+<li>Fixed: several multisite and auto-prepend firewall edge cases</li>
+<li>Fixed: PHP warning in scheduled tasks on WordPress 5.2 multisite</li>
+</ul>
+
 <b>July 28th, 2026</b>
 
 <ul>
