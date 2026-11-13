@@ -109,7 +109,7 @@ On multisite, `.htaccess` rule selection and the legacy `auto_update` selection 
 | `basic_firewall` | boolean | `1` | Enable the PHP firewall. Other hardening and IP-block settings are separate. |
 | `basic_firewall_roles` | array | `["administrator", "editor", "author", "contributor"]` | Roles exempt from legacy firewall rules. Individual newer rules can define their own role restrictions. |
 | `firewall_ap_enabled` | boolean | `0` | Enable auto-prepend firewall installation. Shared installer changes on multisite are controlled from the primary site of the primary network. |
-| `log_redaction` | boolean | `0` | Redact firewall payloads and URL query strings when recording logs and before uploading older entries. |
+| `log_redaction` | boolean | `0` | Redact firewall payloads and URL query strings when recording logs and before uploading older entries. Recommended for sites handling sensitive personal data; see [firewall log redaction](/patchstack-app/site-dashboard/protection/app-protection-additional-settings/#firewall-log-redaction). |
 | `block_bruteforce_ips` | boolean | `0` | Enable IP-based login bans independently of activity-log settings. |
 | `anti_bruteforce_blocktime` | integer | `60` | Minutes to block an IP after it reaches the failed-login threshold. |
 | `anti_bruteforce_attempts` | integer | `10` | Failed-login attempts needed to trigger a ban. |
