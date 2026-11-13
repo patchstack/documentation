@@ -26,4 +26,6 @@ On the main screen, you can:
 <li>Request to delete your account</li>
 </ol>
 
+When you change your email address, we send a confirmation link to the new address. Your account keeps using your current email until you click that link. The link is valid for 24 hours. We also let your current address know that a change was requested.
+
 ![](@images/patchstack-account.png)
