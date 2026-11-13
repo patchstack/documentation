@@ -43,7 +43,8 @@ Patchstack allows you to use the same plugin API key for the staging environment
 '.mwp.accessdomain.com',
 'store.godaddy.com',
 'stuurlui.dev',
-'flyinghost.app'
+'flyinghost.app',
+'.wpenginepowered.com'
 ```
 
 ### How the staging and production site work with Patchstack?
