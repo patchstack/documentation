@@ -44,7 +44,11 @@ IP addresses, URL paths, user-agent strings, request methods, timestamps and rul
 
 Enabling redaction does not bulk-rewrite historical local rows or previously uploaded logs. Older queued entries are redacted before upload, but their original local records can remain until normal processing or cleanup removes them. See [local log retention](/patchstack-app/site-dashboard/activity/#local-logging-and-login-bans).
 
-Redacted entries no longer show the payload that triggered the block, and App alert rules that match on that payload will not fire for those entries. See [WP options](/patchstack-plugin/wp-options/) for configuration and defaults.
+Redacted entries no longer show the payload that triggered the block, and App alert rules that match on that payload will not fire for those entries.
+
+**Redaction is irreversible for the affected fields.** If a legitimate request is blocked while redaction is enabled, its original form data, raw body and query string cannot be recovered from the redacted Patchstack log entry. Turning redaction off later does not restore that data. Investigating the false positive may therefore require reproducing the request.
+
+See [WP options](/patchstack-plugin/wp-options/) for configuration and defaults.
 
 ### User role whitelist
 
