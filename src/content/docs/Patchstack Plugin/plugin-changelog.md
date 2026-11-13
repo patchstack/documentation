@@ -42,6 +42,7 @@ sidebar:
 <li>Changed: larger log IDs and faster login ban lookups</li>
 <li>Changed: the settings page no longer loads scripts and styles from external hosts</li>
 <li>Fixed: translation notice on WordPress 6.7 and later</li>
+<li>Fixed: custom login URL returning a 404 instead of redirecting logged-in users to the dashboard</li>
 <li>Fixed: duplicate software syncs and empty log uploads</li>
 <li>Fixed: missing log tables on multisite subsites created after activation</li>
 <li>Fixed: hardening option changes on multisite not being applied right away</li>
