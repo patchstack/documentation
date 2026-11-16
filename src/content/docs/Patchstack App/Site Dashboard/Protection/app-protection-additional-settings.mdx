@@ -4,7 +4,7 @@ title: "Additional settings"
 excerpt: ""
 hidden: false
 createdAt: "Tue Jan 16 2024 15:02:52 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Wed Jan 17 2024 15:02:17 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Fri Nov 13 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.21
 ---
@@ -25,15 +25,34 @@ The **Additional settings** subpage is found at **Sites** > **yoursite.com** > *
 
 **Enable firewall** - this toggle enables or disables Patchstack's firewall. When turned off, your site won't be protected by virtual patches or firewall rules. However, other security measures (such as IP bans and .htaccess rules) will remain active. We recommend disabling the firewall only for testing purposes.
 
-**Enable auto-prepend firewall** - this feature is new and currently designated a beta feature. It allows Patchstack to inject the <a href="https://www.php.net/manual/en/ini.core.php#ini.auto-prepend-file" target="_blank">auto_prepend_file</a> variable into the .htaccess file which will let the Patchstack firewall run in all PHP scripts across the entire web-server. This makes it possible to block vulnerabilities in PHP files which are loaded outside WordPress core itself. This feature only works on Apache servers.
+**Enable auto-prepend firewall** - this beta feature configures PHP's <a href="https://www.php.net/manual/en/ini.core.php#ini.auto-prepend-file" target="_blank">auto_prepend_file</a> to inspect supported PHP requests before WordPress loads, including scripts outside WordPress core. Automatic installation supports compatible Apache 2.4 and LiteSpeed environments; its reach depends on the PHP and directory configuration. On multisite, the primary site of the primary network controls installation and removal of the shared server configuration. Subsites can refresh their own rules in an existing installation.
 
-**Redact firewall logs** - when turned on, blocked requests are still logged, but without the submitted form data (POST and raw request body) and without the URL query string. A blocked login attempt to `/wp-login.php?log=admin&pwd=secret`, for example, is logged as `/wp-login.php` with the payload shown as redacted. This keeps usernames and passwords out of your site's database and out of the logs sent to Patchstack, even when the firewall blocks a legitimate request by mistake. Entries that were logged before you turned this on are redacted too before they are sent to Patchstack. The trade-off is that redacted entries no longer show which payload triggered the block, and alert rules that match on the payload will not fire for them. This setting is off by default and is available on sites running Patchstack plugin version 2.3.8 or newer.
+### Firewall log redaction
 
+We recommend enabling **Redact firewall logs** on sites that handle sensitive personally identifiable information (PII), passwords, tokens or confidential form submissions. If a legitimate request is blocked by mistake, its submitted values could otherwise be recorded in the firewall logs.
 
+To enable it, open **Sites** > **yoursite.com** > **Protection** > **Additional settings**, turn on **Redact firewall logs** and save the settings. This feature requires plugin **2.3.8 or newer** and is **off by default**. Its plugin option is `patchstack_log_redaction`.
+
+Blocked requests are still recorded, with these changes:
+
+- The submitted form data and raw request body are replaced with `{"redacted":true}`.
+- The query string is removed from the logged URL. For example, `/wp-login.php?log=admin&pwd=secret` is recorded as `/wp-login.php`.
+
+This applies when new firewall entries are recorded locally and when older queued entries are sent to Patchstack. It changes logging only; the firewall still inspects the request normally.
+
+IP addresses, URL paths, user-agent strings, request methods, timestamps and rule identifiers remain in the log. These can still contain personal information. This setting covers blocked-request firewall logs; activity logs and your host's access/error logs are separate.
+
+Enabling redaction does not bulk-rewrite historical local rows or previously uploaded logs. Older queued entries are redacted before upload, but their original local records can remain until normal processing or cleanup removes them. See [local log retention](/patchstack-app/site-dashboard/activity/#local-logging-and-login-bans).
+
+Redacted entries no longer show the payload that triggered the block, and App alert rules that match on that payload will not fire for those entries.
+
+**Redaction is irreversible for the affected fields.** If a legitimate request is blocked while redaction is enabled, its original form data, raw body and query string cannot be recovered from the redacted Patchstack log entry. Turning redaction off later does not restore that data. Investigating the false positive may therefore require reproducing the request.
+
+See [WP options](/patchstack-plugin/wp-options/) for configuration and defaults.
 
 ### User role whitelist
 
-You can whitelist user types from the Patchstack firewall engine. This means that the Patchstack firewall would not run against these user types at all. To whitelist any user type, do the following:
+The user role whitelist exempts selected roles from firewall rules that respect that whitelist. Some rules can still apply to whitelisted roles, and checks that run before WordPress identifies the current user cannot use its role. To configure the whitelist:
 <Steps>
 1. Navigate to your sites' **Protection** > **Additional settings** page in Patchstack App
 2. Look for the **User role whitelist** section
@@ -95,6 +114,8 @@ In this section, you can Block IPs that are a potential threat to your sites.
 > Click **Save Settings**
 > 
 > Now - any IP address which meets all those conditions will be blocked for three days.
+>
+> Genuine WordPress cron execution is exempt from automatic firewall IP bans so scheduled jobs can still run. Its request is still inspected against firewall rules; a request parameter named `doing_wp_cron` does not grant this exemption. The manual IP block list is separate.
 
 > #### 📘 IP Block List
 > 

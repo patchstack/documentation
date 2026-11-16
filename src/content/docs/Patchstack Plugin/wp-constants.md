@@ -7,14 +7,14 @@ metadata:
   image: []
   robots: "index"
 createdAt: "Thu Jun 29 2023 11:28:48 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Thu Jun 29 2023 12:24:18 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Thu Nov 12 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 5
 ---
-Patchstack has introduced WordPress constants which can be used in wp-config.php file.
+Set these constants in `wp-config.php`, before WordPress loads. On multisite they apply to the whole installation; they are separate from per-site App policies.
 
 ### Disable writing to .htaccess
-To prevent Patchstack from writing rules to the .htaccess file, add the following constant to your wp-config.php file. If rules were previously added to your .htaccess file via the Patchstack App, you will need to remove them manually.
+To stop hardening-rule writes, define the constant below. It also prevents auto-prepend installation and refresh. It does not remove existing `.htaccess` rules or disable runtime security headers. See [.htaccess hardening](/patchstack-app/site-dashboard/hardening/app-hardening-htaccess/) before changing an existing installation.
 
 ```php
 define('PS_DISABLE_HTACCESS', true);
@@ -22,8 +22,20 @@ define('PS_DISABLE_HTACCESS', true);
 
 ### Disable mu-plugin creation
 
-Patchstack automatically creates a mu-plugin upon installation. To prevent automatic mu-plugin creation, define the PS_DISABLE_MU constant in your wp-config.php file.
+Patchstack can install an early firewall loader in the must-use plugin directory. Define `PS_DISABLE_MU` to prevent creating that loader. It also prevents auto-prepend installation and refresh; it does not remove an existing loader or disable a loader already installed.
 
 ```php
 define('PS_DISABLE_MU', true);
 ```
+
+### Hide Patchstack admin menus
+
+To stop Patchstack registering its WordPress admin menus and related menu assets, define:
+
+```php
+define('PS_DISABLE_MENU', true);
+```
+
+This includes the Network Admin menus. It does not deactivate the plugin, stop the firewall, disconnect the site or revoke remote permissions. Keep a separate way to manage the connection and network settings if you hide these menus.
+
+Use [WP filters](/patchstack-plugin/wp-filters/) for PHP callbacks that customize behavior. Unlike the constants above, filters belong in a plugin loaded by WordPress.
