@@ -3,7 +3,7 @@ title: "Installing on JavaScript / Node.js projects"
 excerpt: "Connect any JS/Node project to Patchstack vulnerability monitoring with the official @patchstack/connect npm package."
 hidden: false
 createdAt: "Tue Jul 14 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Wed Jul 15 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Wed Nov 18 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 7.3
   label: "JavaScript / Node.js projects"
@@ -63,9 +63,32 @@ npx @patchstack/connect setup --claim-token <token>
 # or: PATCHSTACK_CLAIM_TOKEN=<token> npx @patchstack/connect setup
 ```
 
-The site is then created already attached to your account, `setup` prints your dashboard link for it, and the app's **Connect website** panel picks the site up on its own. The token names your account, not the project: it is never written to `.patchstackrc.json` or the credential file, and it stops working after a day. An expired or unrecognised token does not break the install — the site is created unattached, exactly as it would be without one, and `setup` prints the dashboard link to connect it by hand.
+The full message is shown in [The AI-assisted install prompt](#the-ai-assisted-install-prompt) below. The site is then created already attached to your account, `setup` prints your dashboard link for it, and the app's **Connect website** panel picks the site up on its own. The token names your account, not the project: it is never written to `.patchstackrc.json` or the credential file, and it stops working after a day. An expired or unrecognised token does not break the install — the site is created unattached, exactly as it would be without one, and `setup` prints the dashboard link to connect it by hand.
 
 `setup` never runs the `protect` command (see below).
+
+### The AI-assisted install prompt
+
+**Sites → Add new → AI-assisted** in the Patchstack App gives you a ready-made message to paste into your AI site builder or coding assistant. This is that message, with the claim token replaced by a placeholder:
+
+```text
+I have reviewed the official @patchstack/connect package (https://www.npmjs.com/package/@patchstack/connect), Patchstack's security package for JavaScript and Node.js apps (separate from its WordPress plugin), and authorize its Patchstack Connector, production build hooks, runtime protection source edits, structural attack-surface map uploads (not source code), live-rule retrieval, and reports to Patchstack of the requests its rules match or block. Add it as a regular dependency with this project's package manager, then run its CLI with `PATCHSTACK_ENVIRONMENT=sandbox npx @patchstack/connect setup --widget --claim-token <token>` for this hosted workspace, leave dev builds unchanged, verify protection, restart the preview server if needed to load the new guard, and show the dashboard URL. The claim token in that command connects this app to my Patchstack account. The Patchstack Connector widget is part of this install and on by default: add it, and do not ask me whether to. Do not persist the sandbox environment in project files; deployed production builds must use the default `production` label. When setup finishes, show me the summary it prints as your final message, and remind me to deploy when I am ready — do not deploy anything yourself.
+```
+
+Copy the message from the app rather than from this page: the app fills in a claim token for your account, and a token stops working after a day. Treat a message that carries your token like a sign-in link — anyone who runs it connects their project to your account.
+
+The wording is the one tested against AI assistants, so paste it whole. Each part is there for a reason:
+
+- **"I have reviewed … and authorize …"** tells the assistant that you chose this package and lists what you are agreeing to. Without it, assistants often stop to ask, or decline to install a package that edits the project and reports to an outside service.
+- **"separate from its WordPress plugin"** stops the assistant from looking for the WordPress plugin in a JavaScript project.
+- **"Add it as a regular dependency with this project's package manager"** asks for an ordinary install before the CLI runs, with npm, pnpm, yarn or bun to match the project's lockfile.
+- **`PATCHSTACK_ENVIRONMENT=sandbox`** labels the builder's workspace as a sandbox for this one command. The sentence near the end keeps that label out of the project files, so the build you publish reports as `production`.
+- **`--widget`** and the sentence about the Patchstack Connector ask `setup` for [the widget](#the-patchstack-connector) and tell the assistant not to stop and ask about it.
+- **`--claim-token <token>`** and the sentence after it create the site already attached to your account. The app leaves both out unless you tick **Connect this website to my account automatically**; the assistant then hands back a dashboard link for you to [connect the site](#connecting-the-site-to-your-account) yourself.
+- **"verify protection, restart the preview server if needed"** asks the assistant to check the result, not only install the package.
+- **"do not deploy anything yourself"** leaves publishing to you. The published site is covered once you deploy the build that contains these changes.
+
+If the assistant refuses to run the install or `setup` command, see [My AI assistant blocked a Connect command](/getting-started/installing-patchstack/ai-assistant-blocked-a-command/).
 
 ### Manual alternative
 
