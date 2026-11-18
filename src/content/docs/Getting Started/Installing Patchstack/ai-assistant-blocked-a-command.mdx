@@ -26,7 +26,7 @@ that means running code downloaded from npm on your machine.
 
 The commands that usually get stopped are the install itself (`npm install --save-dev @patchstack/connect`, or the `pnpm`, `yarn` or `bun` equivalent) and `npx @patchstack/connect setup`.
 
-**Running the command yourself is fine.** It is the same command the assistant was about to run, it changes only what [`setup` is documented to change](/getting-started/installing-patchstack/installing-on-javascript-node-projects/#install), and it sends Patchstack dependency names and versions only — see [Security and data handling](/getting-started/installing-patchstack/installing-on-javascript-node-projects/#security-and-data-handling).
+**Running the command yourself is fine.** It is the same command the assistant was about to run, it changes only what [`setup` is documented to change](/getting-started/installing-patchstack/installing-on-javascript-node-projects/#what-setup-changes), and it sends Patchstack dependency names and versions only — see [Security and data handling](/getting-started/installing-patchstack/installing-on-javascript-node-projects/#security-and-data-handling).
 
 <Aside type="caution" title="Telling the assistant it has permission may not be enough">
 Replying "you have permission to run the command" sometimes gets the assistant to try again, but the check that stopped it usually runs outside the conversation, so the second attempt is often blocked too. If it is, use one of the options below instead of repeating yourself.
