@@ -14,46 +14,74 @@ const canonicalImageSrc = new URL(imageSrc, Astro.site);
 
 <Default {...Astro.props}><slot /></Default>
 
-
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag("consent", "default", {
-        ad_storage: "denied",
-        ad_user_data: "denied", 
-        ad_personalization: "denied",
-        analytics_storage: "denied",
-        functionality_storage: "denied",
-        personalization_storage: "denied",
-        security_storage: "granted",
-        wait_for_update: 2000,
-    });
-    gtag("set", "ads_data_redaction", true);
-    gtag("set", "url_passthrough", true);
-</script>
-
-
-
-
-<!-- Google Tag Manager -->
-<script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5ZZBNRV');</script>
-<!-- End Google Tag Manager -->
-
-
-<!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/6b7233e7aabf8c97984014e6/script.js"></script> <!-- End cookieyes banner -->
+<!--
+  Consent: the Google Consent Mode defaults and CookieYes come before every
+  other third-party tag, matching patchstack.com. CookieYes loads synchronously
+  because it blocks scripts by watching for nodes added after it runs. GTM and
+  Intercom then wait for CookieYes' `cookieyes_banner_load` (stored consent,
+  every page load) and `cookieyes_consent_update` (choice made on this page)
+  events, so neither loads before consent even without a CookieYes blocking rule.
+-->
 <script is:inline>
   window.dataLayer = window.dataLayer || [];
   function gtag() {
-    dataLayer.push(arguments);
+    window.dataLayer.push(arguments);
   }
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    functionality_storage: 'denied',
+    personalization_storage: 'denied',
+    security_storage: 'granted',
+    wait_for_update: 2000
+  });
+  gtag('set', 'ads_data_redaction', true);
 </script>
+<script
+  is:inline
+  id="cookieyes"
+  src="https://cdn-cookieyes.com/client_data/6b7233e7aabf8c97984014e6/script.js"
+></script>
 
+<!-- Google Tag Manager: starts once Analytics or Advertisement is accepted; its tags check Consent Mode. -->
+<script is:inline>
+  (function () {
+    var started = false;
+
+    function startGTM(isAccepted) {
+      if (started) return;
+      if (!isAccepted('analytics') && !isAccepted('advertisement')) return;
+      started = true;
+      // CookieYes pushes its Consent Mode update right after its consent
+      // event; queue gtm.js after it so GTM's first tags see the granted state.
+      setTimeout(function () {
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5ZZBNRV');
+      }, 0);
+    }
+
+    document.addEventListener('cookieyes_banner_load', function (event) {
+      startGTM(function (category) {
+        return event.detail.categories[category];
+      });
+    });
+    document.addEventListener('cookieyes_consent_update', function (event) {
+      startGTM(function (category) {
+        return event.detail.accepted.indexOf(category) !== -1;
+      });
+    });
+  })();
+</script>
 
 <meta property="og:image" content={canonicalImageSrc} />
 <meta name="google-site-verification" content="EUHJIOL0FDdVtcpY92rKZaoq8IEPafmsafa5oBnrzHs" />
@@ -77,14 +105,74 @@ window.addEventListener("load", function(){
 });
 </script>
 
+<!-- Intercom: loads once Functional is accepted. Until then, #launch-intercom links open the CookieYes preferences. -->
 <script is:inline>
-  window.intercomSettings = {
-    api_base: "https://api-iam.intercom.io",
-    app_id: "yyljw8tl"
-  };
-</script>
+  (function () {
+    var loaded = false;
+    var chatRequested = false;
 
-<script is:inline>
-// We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/yyljw8tl'
-(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/yyljw8tl';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+    function loadIntercom(isAccepted) {
+      if (loaded || !isAccepted('functional')) return;
+      loaded = true;
+
+      window.intercomSettings = {
+        api_base: 'https://api-iam.intercom.io',
+        app_id: 'yyljw8tl'
+      };
+
+      var w = window;
+      var ic = w.Intercom;
+      if (typeof ic === 'function') {
+        ic('reattach_activator');
+        ic('update', w.intercomSettings);
+      } else {
+        var d = document;
+        var i = function () {
+          i.c(arguments);
+        };
+        i.q = [];
+        i.c = function (args) {
+          i.q.push(args);
+        };
+        w.Intercom = i;
+        var s = d.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://widget.intercom.io/widget/yyljw8tl';
+        var x = d.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      }
+      // The visitor allowed chat from a chat link, so open it.
+      if (chatRequested) w.Intercom('show');
+    }
+
+    // Runs in the capture phase, before the pages' own handlers that call
+    // Intercom('show'), which does not exist until chat is allowed.
+    document.addEventListener(
+      'click',
+      function (event) {
+        if (loaded) return;
+        if (!event.target.closest || !event.target.closest('#launch-intercom')) {
+          return;
+        }
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        if (!window.revisitCkyConsent) return;
+        chatRequested = true;
+        window.revisitCkyConsent();
+      },
+      true
+    );
+
+    document.addEventListener('cookieyes_banner_load', function (event) {
+      loadIntercom(function (category) {
+        return event.detail.categories[category];
+      });
+    });
+    document.addEventListener('cookieyes_consent_update', function (event) {
+      loadIntercom(function (category) {
+        return event.detail.accepted.indexOf(category) !== -1;
+      });
+    });
+  })();
 </script>
