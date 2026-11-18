@@ -1,6 +1,6 @@
 ---
 title: "Installing on JavaScript / Node.js projects"
-excerpt: "Connect any JS/Node project to Patchstack vulnerability monitoring with the official @patchstack/connect npm package."
+excerpt: "Connect a JavaScript or Node.js app to Patchstack with the official @patchstack/connect package — by pasting one prompt into your AI assistant, or with one command."
 hidden: false
 createdAt: "Tue Jul 14 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Nov 18 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
@@ -9,145 +9,171 @@ sidebar:
   label: "JavaScript / Node.js projects"
 ---
 
-Patchstack monitors JavaScript and Node.js applications — not only WordPress sites — through [`@patchstack/connect`](https://www.npmjs.com/package/@patchstack/connect), the official Patchstack Connect package, maintained and published by Patchstack on npm under the `@patchstack` organization.
+Patchstack protects JavaScript and Node.js apps through [`@patchstack/connect`](https://www.npmjs.com/package/@patchstack/connect), the official package published by Patchstack on npm. It is separate from the WordPress plugin.
 
-- **npm:** https://www.npmjs.com/package/@patchstack/connect
-- **Source (MIT-licensed):** https://github.com/patchstack/connect
-- **Setup guide:** https://github.com/patchstack/connect/blob/main/GETTING-STARTED.md
+There are two ways to install it:
 
-## What it does
+- **[With an AI assistant](#install-with-an-ai-assistant)** — paste one prompt into your AI site builder or coding assistant. Use this for apps built in Lovable, Replit, Bolt and similar tools.
+- **[By hand](#install-by-hand)** — run one command in the project folder.
 
-Connect reads the project's dependency lockfile (`package-lock.json`, `pnpm-lock.yaml`, or `yarn.lock`; bun projects are detected via `node_modules/`) and reports package names and versions to Patchstack, which matches them against its vulnerability database and notifies you when a dependency needs patching. It works with any framework — Next.js, Vite, Nuxt, Remix, SvelteKit, TanStack Start, plain Node — and with npm, pnpm, yarn, and bun.
+Both run the same `setup` command and end with a link to your site's dashboard.
 
-It sends dependency names and versions only: no source code, no environment variable values, no file paths, no git history.
+## Install with an AI assistant
 
-## Install
+1. In the Patchstack App, go to **Sites → Add new → AI-assisted**.
+2. Tick **Connect this website to my account automatically** if you want the site to appear in your account without a further step.
+3. Copy the message the app shows and paste it into your assistant's chat.
+4. Wait for the assistant to finish. It shows the summary `setup` printed, including your dashboard link.
+5. Publish or deploy your app when you are ready. The assistant does not deploy for you, and your live site is covered only after you publish the build that contains these changes.
 
-No signup, dashboard step, or UUID is needed up front. Install the package as a development dependency, then run `setup`:
+### The prompt
 
-```bash
-npm install --save-dev @patchstack/connect   # or: pnpm add -D / yarn add -D / bun add -d
-npx --no-install patchstack-connect setup
-```
-
-If your coding assistant refuses to run either command — Claude Code's permission check sometimes stops installs from npm — run it yourself; see [My AI assistant blocked a Connect command](/getting-started/installing-patchstack/ai-assistant-blocked-a-command/).
-
-`setup` applies a bounded, idempotent set of changes and nothing else:
-
-1. **Scans the lockfile and sends the dependency manifest** (package names and versions) to Patchstack.
-2. **Provisions a Patchstack site** on the first run and writes its UUID to `.patchstackrc.json` (commit this file); later runs reuse the existing site instead of creating a duplicate.
-3. **Manages the Patchstack Connector tag** in the project's root HTML shell (the first of `index.html`, `public/index.html`, or `src/app.html` that exists) — see the widget section below.
-4. **Adds production build integration to `package.json`:** `scan` runs before the build and `mark-build` after it, via `prebuild`/`postbuild` lifecycle hooks (or a direct build chain on bun, which skips npm-style hooks). Existing build commands are preserved, dev scripts are untouched, and `setup` never runs the build itself.
-5. **Prints a status checklist** of anything that still needs a manual step, such as framework-specific widget placement.
-
-`setup` ends by printing a **dashboard link**. The CLI never opens the link and never asks for Patchstack credentials. The site is monitored either way; connecting it to an account is what makes the reports visible to you — see [Connecting the site to your account](#connecting-the-site-to-your-account) for the three ways to do that.
-
-### Connecting the site to your account
-
-A site that is scanning but not connected is an anonymous record: it is monitored, but its reports have nowhere to go, and because the site UUID is public and claiming is first-come, it stays claimable by anyone who loads the page. Any one of these attaches it, and they all end in the same place:
-
-1. **From the widget on your own site — the shortest route.** While the site is unclaimed, the widget on your preview shows a one-time **"Connect this website"** panel. Sign in there and the site is attached; no terminal, no copied URL, and no link to find. This is where claiming is meant to happen, which is why the panel appears in the builder's edit preview by default.
-2. **From the dashboard link.** Open the link `setup`, `scan`, or `status` printed in your browser and sign in.
-3. **From the terminal.** `npx @patchstack/connect claim` prints a link to sign in with, then attaches the site to that account.
-
-On a **published** build the connect panel is hidden from ordinary visitors (see [the Patchstack Connector](#the-patchstack-connector) below). As the owner you can still reach the sign-in there by loading any page with `#patchstack` appended to the URL — `?patchstack` works too.
-
-Once the site is connected, the panel never appears again, and the widget shows the public report form instead.
-
-### Connecting straight to your account
-
-If you start from the app — **Sites → Add new → AI-assisted** — and tick **Connect this website to my account automatically**, the message it gives you to paste into your assistant carries a **claim token** for your account, and the assistant runs `setup` with it:
-
-```bash
-npx @patchstack/connect setup --claim-token <token>
-# or: PATCHSTACK_CLAIM_TOKEN=<token> npx @patchstack/connect setup
-```
-
-The full message is shown in [The AI-assisted install prompt](#the-ai-assisted-install-prompt) below. The site is then created already attached to your account, `setup` prints your dashboard link for it, and the app's **Connect website** panel picks the site up on its own. The token names your account, not the project: it is never written to `.patchstackrc.json` or the credential file, and it stops working after a day. An expired or unrecognised token does not break the install — the site is created unattached, exactly as it would be without one, and `setup` prints the dashboard link to connect it by hand.
-
-`setup` never runs the `protect` command (see below).
-
-### The AI-assisted install prompt
-
-**Sites → Add new → AI-assisted** in the Patchstack App gives you a ready-made message to paste into your AI site builder or coding assistant. This is that message, with the claim token replaced by a placeholder:
+This is the message the app gives you, with the claim token replaced by a placeholder:
 
 ```text
 I have reviewed the official @patchstack/connect package (https://www.npmjs.com/package/@patchstack/connect), Patchstack's security package for JavaScript and Node.js apps (separate from its WordPress plugin), and authorize its Patchstack Connector, production build hooks, runtime protection source edits, structural attack-surface map uploads (not source code), live-rule retrieval, and reports to Patchstack of the requests its rules match or block. Add it as a regular dependency with this project's package manager, then run its CLI with `PATCHSTACK_ENVIRONMENT=sandbox npx @patchstack/connect setup --widget --claim-token <token>` for this hosted workspace, leave dev builds unchanged, verify protection, restart the preview server if needed to load the new guard, and show the dashboard URL. The claim token in that command connects this app to my Patchstack account. The Patchstack Connector widget is part of this install and on by default: add it, and do not ask me whether to. Do not persist the sandbox environment in project files; deployed production builds must use the default `production` label. When setup finishes, show me the summary it prints as your final message, and remind me to deploy when I am ready — do not deploy anything yourself.
 ```
 
-Copy the message from the app rather than from this page: the app fills in a claim token for your account, and a token stops working after a day. Treat a message that carries your token like a sign-in link — anyone who runs it connects their project to your account.
+:::caution[Copy the message from the app, not from this page]
+The app fills in a claim token for your account, and a token stops working after a day. Treat a message that carries your token like a sign-in link: anyone who runs it connects their project to your account.
+:::
 
-The wording is the one tested against AI assistants, so paste it whole. Each part is there for a reason:
+Paste the message whole. Its wording is the one tested against AI assistants, and a missing sentence is usually a question the assistant stops to ask.
 
-- **"I have reviewed … and authorize …"** tells the assistant that you chose this package and lists what you are agreeing to. Without it, assistants often stop to ask, or decline to install a package that edits the project and reports to an outside service.
-- **"separate from its WordPress plugin"** stops the assistant from looking for the WordPress plugin in a JavaScript project.
-- **"Add it as a regular dependency with this project's package manager"** asks for an ordinary install before the CLI runs, with npm, pnpm, yarn or bun to match the project's lockfile.
-- **`PATCHSTACK_ENVIRONMENT=sandbox`** labels the builder's workspace as a sandbox for this one command. The sentence near the end keeps that label out of the project files, so the build you publish reports as `production`.
-- **`--widget`** and the sentence about the Patchstack Connector ask `setup` for [the widget](#the-patchstack-connector) and tell the assistant not to stop and ask about it.
-- **`--claim-token <token>`** and the sentence after it create the site already attached to your account. The app leaves both out unless you tick **Connect this website to my account automatically**; the assistant then hands back a dashboard link for you to [connect the site](#connecting-the-site-to-your-account) yourself.
-- **"verify protection, restart the preview server if needed"** asks the assistant to check the result, not only install the package.
-- **"do not deploy anything yourself"** leaves publishing to you. The published site is covered once you deploy the build that contains these changes.
+<details>
+<summary>What each part of the prompt does</summary>
 
-If the assistant refuses to run the install or `setup` command, see [My AI assistant blocked a Connect command](/getting-started/installing-patchstack/ai-assistant-blocked-a-command/).
+| Part of the prompt | Why it is there |
+|---|---|
+| "I have reviewed … and authorize …" | Tells the assistant you chose this package and lists what you agree to. Without it, assistants often decline to install a package that edits the project and reports to an outside service. |
+| "separate from its WordPress plugin" | Stops the assistant from looking for the WordPress plugin in a JavaScript project. |
+| "Add it as a regular dependency with this project's package manager" | Asks for an ordinary install with npm, pnpm, yarn or bun, to match the project's lockfile. |
+| `PATCHSTACK_ENVIRONMENT=sandbox` | Labels the builder's workspace as a sandbox for this one command. A later sentence keeps the label out of the project files, so the build you publish reports as `production`. |
+| `--widget` | Asks `setup` to add [the Patchstack Connector](#the-patchstack-connector). The sentence about the widget tells the assistant not to stop and ask about it. |
+| `--claim-token <token>` | Creates the site already attached to your account. The app adds it only when you tick **Connect this website to my account automatically**. |
+| "verify protection, restart the preview server if needed" | Asks the assistant to check the result, not only install the package. |
+| "do not deploy anything yourself" | Leaves publishing to you. |
 
-### Manual alternative
+</details>
 
-The same pieces can be applied individually: `npx @patchstack/connect scan` performs steps 1–3, and the build hooks can be added by hand:
+If the assistant refuses to run the install or the `setup` command, see [My AI assistant blocked a Connect command](/getting-started/installing-patchstack/ai-assistant-blocked-a-command/).
 
-```jsonc
-{
-  "scripts": {
-    "prebuild": "patchstack-connect scan",
-    "postbuild": "patchstack-connect mark-build"
-  }
-}
+## Install by hand
+
+Run this in the project folder:
+
+```bash
+npx @patchstack/connect setup --widget
 ```
 
-Run `npx @patchstack/connect guide` at any time for a project-aware checklist of what is present and what is missing, with commands tailored to the project. `npx @patchstack/connect status` re-prints the site UUID and dashboard link.
+No signup or site ID is needed first. `setup` adds the package with the project's own package manager, creates the site in Patchstack and prints a dashboard link.
+
+- **To connect the site to your account in the same step,** add `--claim-token <token>` with the token from the app's AI-assisted message.
+- **In a hosted builder's workspace** (Lovable, Replit and similar), put `PATCHSTACK_ENVIRONMENT=sandbox` in front of the command, as the prompt above does. On your own machine, leave it out.
+- **If you install the package yourself first,** use the package manager that owns the lockfile, and add it to `dependencies`, not `devDependencies`. The runtime guard is loaded by your running app, so a deployment that removes development dependencies would lose it.
+
+## What `setup` changes
+
+`setup` makes a fixed set of changes, and running it again is safe:
+
+1. **Adds `@patchstack/connect`** to the project's dependencies if it is missing.
+2. **Reports your dependencies.** It reads the lockfile (`package-lock.json`, `pnpm-lock.yaml`, `yarn.lock` or a bun lockfile) and sends package names and versions to Patchstack.
+3. **Creates the site** on the first run and writes its ID to `.patchstackrc.json`. Commit this file. Later runs reuse the same site.
+4. **Adds the Patchstack Connector** to your root page or layout, when run with `--widget`.
+5. **Installs the runtime guard** in your server code and checks that it is wired in. See [Runtime protection](#runtime-protection).
+6. **Uploads an attack-surface map** and fetches the protection rules for your app.
+7. **Adds scans to `package.json`:** one after each install, and one before and after each production build. Your existing build command is kept and dev scripts are not touched.
+8. **Prints a summary** of what worked, what still needs a manual step, and your dashboard link.
+
+`setup` never starts your app, runs a build, or deploys.
+
+It also saves a credential in `.patchstackrc.local.json` and adds that file to `.gitignore`. Do not commit it. For the published site, add the credential to your host as the `PATCHSTACK_API_KEY` secret; `npx @patchstack/connect go-live` shows the steps for your host.
+
+To see what is set up and what is missing at any time, run `npx @patchstack/connect guide`. To print the dashboard link again, run `npx @patchstack/connect status`.
+
+## Connecting the site to your account
+
+A site that is not connected to an account is still monitored, but its reports have nowhere to go. Because the site ID is public and connecting is first-come, anyone who loads the page could connect it. Connect it soon after installing.
+
+If you used a claim token, the site is already in your account and there is nothing more to do. An expired or unrecognised token does not break the install: the site is created unconnected and `setup` prints the dashboard link.
+
+Otherwise, use any one of these:
+
+1. **The widget on your site (shortest).** While the site is unconnected, the widget on your preview shows a one-time **Connect this website** panel. Sign in there.
+2. **The dashboard link.** Open the link that `setup` or `status` printed, and sign in.
+3. **The terminal.** Run `npx @patchstack/connect claim`, open the link it prints, and sign in.
+
+On a published site the panel is hidden from visitors. As the owner you can still open it by adding `#patchstack` (or `?patchstack`) to any page URL.
 
 ## The Patchstack Connector
 
-Connect installs the **Patchstack Connector**, Patchstack's vulnerability disclosure widget — a floating control that becomes a "Report a vulnerability" button once the site is connected to an account, so anyone who spots an issue can report it straight to you. The widget is a single script tag loading `https://cdn.patchstack.com/patchstack-widget.js`, configured with the site UUID (which is public by design — it ships in client-side HTML and is not a secret). A pre-existing manually placed widget tag is left untouched, and `mark-build` ensures the tag in build output (`dist/`, `build/`, `out/`, `.output/public`) without ever editing source.
+The Patchstack Connector is a small floating widget that Connect adds to your site. It is one script tag that loads `https://cdn.patchstack.com/patchstack-widget.js` with your site ID. The site ID is public by design and is not a secret.
 
-Frameworks without a static HTML shell need a one-line placement in the root layout; `guide` prints the exact snippet for the detected framework, and the [widget reference](https://cdn.patchstack.com/llm.html) covers additional patterns.
+What the widget shows depends on the site:
 
-To run without the widget, set `"widget": false` in `.patchstackrc.json` — this disables all widget management; otherwise the next scan re-adds the tag.
+- **Not connected yet:** a one-time **Connect this website** panel, for you to sign in.
+- **Connected:** a **Report a vulnerability** button, so anyone who spots an issue can report it to you.
+- **Published site:** the connect panel and the owner **Log in** link are hidden from visitors.
 
-**What the widget shows depends on whether the site is connected to an account.** While it is unclaimed, the widget serves the one-time "Connect this website" panel *instead of* the report button — so on a fresh install the first thing you see is the sign-in, not the floating button. Connect the site and the panel is replaced by the public **Report a vulnerability** button for good. To skip the onboarding entirely and always show the report form, set `data-build-mode="false"` on the script tag.
+**Signing in.** The sign-in form leads with **Continue with Patchstack**, which signs you in with the account you are already using at app.patchstack.com. It works for SSO and two-factor accounts. E-mail, Google, GitHub and LinkedIn sign-in are underneath.
 
-On a **published** build Connect's `mark-build` hook stamps `window.__PATCHSTACK_PROD__` into the built HTML, which hides the connect panel and the owner "Log in" link from visitors and leaves the report form only. Owners reach the sign-in there with `#patchstack` (or `?patchstack`) appended to any page URL.
+**Frameworks without an HTML page.** Connect adds the tag to `index.html`, `public/index.html` or `src/app.html`, or to a JSX root or Astro layout. For other frameworks, such as Nuxt, `npx @patchstack/connect guide` prints the exact snippet and the file to put it in. The [widget reference](https://cdn.patchstack.com/llm.html) covers more patterns.
 
-See [Troubleshooting JS / Node.js](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/) if the widget does not appear at all.
+**Turning it off.** Run `npx @patchstack/connect widget --remove`, or set `"widget": false` in `.patchstackrc.json`. Removing the tag by hand is not enough, because the next scan adds it back.
 
-### Signing in to the widget on your site
+If the widget does not appear, see [Troubleshooting JS / Node.js](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/).
 
-The widget's sign-in form leads with **Continue with Patchstack**: one click signs you in with the account you are already signed in to at app.patchstack.com — no password, no provider round trip, and it works for SSO and two-factor accounts too. In Chrome and Edge the button already names your account ("Continue as …"); Safari and Firefox do not let the widget see that, so there it is unnamed but works the same way. If you are not signed in to app.patchstack.com in that browser, the widget says so and the e-mail, Google, GitHub and LinkedIn options are right underneath.
+## Runtime protection
 
-## The `protect` command
+`setup` installs a runtime guard: code that runs inside your server and blocks requests that try to exploit known vulnerabilities in your dependencies, until you can upgrade them. The guard fetches its rules from Patchstack and reports the requests those rules match or block.
 
-The package also ships an **opt-in** `protect` command: a runtime exploit guard, currently for TanStack Start + Supabase applications, which patches the app's Supabase client to route traffic through a same-origin guard. It modifies application code and runs **only** when explicitly invoked — `setup`, `scan`, `guide`, `status`, and `mark-build` never invoke it. If you don't run `protect`, no application code is changed beyond the widget tag and `package.json` scripts described above.
+- **Supported server setups are wired automatically,** including TanStack Start with Supabase, the shape Lovable produces. Other layouts get a starting file and a list of manual checks in the `setup` summary.
+- **A site with no server code has nothing to guard.** A client-only app gets dependency monitoring and the widget, and `setup` says that protection is limited.
+- **Restart a running app** after `setup`, so it loads the guard.
+- **To check the wiring,** run `npx @patchstack/connect protect --check`. It reads your source and does not run the app.
 
 ## Security and data handling
 
-- **Data sent to Patchstack:** dependency package names and versions from the lockfile, plus a build fingerprint from `mark-build`. No source code, environment variable values, file paths, or git history is transmitted.
-- **Files written locally:** `.patchstackrc.json` (site UUID and settings), the widget script tag in the root HTML shell, and the `scan`/`mark-build` entries in `package.json` scripts. `mark-build` additionally stamps build output, never source.
-- **External resources:** the widget script is loaded in the browser from `https://cdn.patchstack.com/patchstack-widget.js`. The CLI itself downloads and executes nothing from a URL.
-- **Dashboard link:** printed to the terminal only; the CLI never opens it and never asks for credentials.
+**Sent to Patchstack**
+
+- Package names and versions from the lockfile.
+- Your site's public address and name, when the project or your host states them.
+- A build fingerprint for each production build.
+- The attack-surface map: routes, input names, the packages behind them, and relative file and line locations.
+- Reports of the requests that protection rules match or block.
+
+**Never sent:** source code, environment variable values, secrets, or git history.
+
+To see the dependency report before it is sent, run `npx @patchstack/connect scan --dry-run`.
+
+**Written to your project**
+
+- `.patchstackrc.json` — site ID and settings. Commit it.
+- `.patchstackrc.local.json` — the credential. Kept out of git.
+- The widget tag in your root page or layout.
+- The dependency and the scan entries in `package.json`.
+- The runtime guard in your server code.
+
+The CLI never opens the dashboard link for you and never asks for your Patchstack password.
 
 ## Uninstalling
 
-1. Note the site UUID from `.patchstackrc.json` before deleting anything — it identifies the site in the dashboard.
-2. Remove the widget tag (and any `PatchstackWidget.init(...)` call) from the layout or HTML shell.
-3. Remove the `patchstack-connect scan` / `patchstack-connect mark-build` parts from `package.json` scripts, keeping any chained commands.
-4. Uninstall with the manager matching the lockfile: `npm uninstall` / `pnpm remove` / `yarn remove` / `bun remove` `@patchstack/connect`.
-5. Delete `.patchstackrc.json` and any `PATCHSTACK_SITE_UUID` environment variables.
+1. Note the site ID in `.patchstackrc.json`. It identifies the site in the dashboard.
+2. Run `npx @patchstack/connect uninstall` to tell Patchstack the package is being removed. This does not change any local files.
+3. Remove the widget tag from your page or layout, and the runtime guard that `setup` added to your server code.
+4. Remove the `patchstack-connect` entries from the `package.json` scripts, keeping any other commands on the same line.
+5. Remove the package with your package manager: `npm uninstall`, `pnpm remove`, `yarn remove` or `bun remove`, followed by `@patchstack/connect`.
+6. Delete `.patchstackrc.json`, `.patchstackrc.local.json`, and any `PATCHSTACK_*` variables on your host.
 
-Reporting stops immediately. Local removal does not delete the site record on Patchstack's side: an unclaimed site is an anonymous record that stops receiving reports; a claimed site can be removed in the dashboard at https://app.patchstack.com.
+Reporting stops at once. An unconnected site's record is deleted. A site connected to your account stays there until you delete it at https://app.patchstack.com.
 
 ## Troubleshooting
 
-A widget that never appears, a published site serving an old build, a broken config file, or a Connect install stuck on an old version are all covered — with copy-paste prompts for AI site builders — in [Troubleshooting JavaScript / Node.js projects](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/). If the assistant never got that far because it would not run `npm install` or `setup`, see [My AI assistant blocked a Connect command](/getting-started/installing-patchstack/ai-assistant-blocked-a-command/).
+- **The widget is missing, the published site serves an old build, or the package is stuck on an old version:** see [Troubleshooting JavaScript / Node.js projects](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/), which has prompts to paste into your AI site builder.
+- **The assistant would not run `npm install` or `setup`:** see [My AI assistant blocked a Connect command](/getting-started/installing-patchstack/ai-assistant-blocked-a-command/).
 
-## How this relates to host-level npm protection
+## More
 
-Hosting partners can enable npm vulnerability intelligence for the sites they host through the partner-level [Threat Intelligence API npm features](/api-solutions/threat-intelligence-api/npm-features/). That integration is applied by the host at the infrastructure level. `@patchstack/connect` is the complementary self-service path: developers install it directly into their own projects, whether or not their host is a Patchstack partner. Both feed the same vulnerability database.
+- **Source (MIT-licensed):** https://github.com/patchstack/connect
+- **Full reference:** the [package README](https://github.com/patchstack/connect#readme)
+- **Hosting partners** can enable npm vulnerability intelligence for the sites they host through the [Threat Intelligence API npm features](/api-solutions/threat-intelligence-api/npm-features/). That is applied by the host. `@patchstack/connect` is the self-service path, and works whether or not your host is a Patchstack partner.
