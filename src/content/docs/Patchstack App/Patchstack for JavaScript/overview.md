@@ -104,7 +104,7 @@ Connect's `mark-build` step stamps each build's fingerprint into the HTML it pub
 
 The status also appears in the Patchstack Connector's owner panel, under the sync line — useful, because you are standing on the live site when you read it there.
 
-While the newest build has not been seen on the live site — the app is configured locally, only sandbox builds exist, a production build reported itself without confirmation, or a newer build is waiting to go out — the owner panel carries a short reminder that Patchstack is not on the live site yet and the project needs republishing. It is a statement, not a publish button: nothing is published for you. It goes away on its own once a check-in or page read finds the new build live, and returns if a later build is scanned and not shipped.
+While the newest build has not been seen on the live site — the app is configured locally, only sandbox builds exist, a production build reported itself without confirmation, or a newer build is waiting to go out — the owner panel carries a short reminder to publish the app so Patchstack runs on the live site. It is a statement, not a publish button: nothing is published for you. It goes away on its own once a check-in or page read finds the new build live, and returns if a later build is scanned and not shipped.
 
 ### How quickly it updates
 
@@ -133,7 +133,9 @@ Runtime protection on a production Patchstack for JavaScript app is a paid featu
 
 The Protection card and the widget show **Active** only when protection is on for the site *and* the app is deployed. Deployed means Patchstack has either seen the live site or had the production build reported by your hosting platform. A build scanned on your own machine (the *local machine* environment, shown as **Configured locally**) or only built as a preview (*sandbox*) is not live, so there is nothing yet for the guard to protect. Visits from `localhost` and other addresses only your machine can reach never count as the live site.
 
-If your plan includes protection but the app is not deployed yet, the card and the widget show **Not live yet**. Protection starts on its own once the app is deployed to production; there is nothing to switch on.
+While the app is not deployed yet, the Protection card shows **Starts on deploy** and the widget shows **Pending**, in grey rather than red: nothing is live, so nothing is exposed. If your plan includes protection, it starts on its own once the app is deployed to production; there is nothing to switch on.
+
+Until the first publish, the widget opens on its **Sandbox** view. Its count reads "Current version has N exploitable vulnerabilities": these are what the build already carries, not something Patchstack or publishing adds.
 
 ### When protection is not offered
 
