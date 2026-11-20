@@ -90,7 +90,15 @@ The visitor-facing **Report a vulnerability** button does not appear until the s
 
 5. **Check the widget was not disabled.** `"widget": false` in `.patchstackrc.json` turns off all widget management, and the next `scan` will not re-add the tag.
 
-6. **Check the browser console.** A Content Security Policy that omits `cdn.patchstack.com` from `script-src`, or a content blocker, will stop the script from loading. Both show up as an error on the live page.
+6. **Check the browser console for a Content Security Policy error.** If your site sends its own `Content-Security-Policy` header, the browser blocks the widget unless the policy allows it, and nothing on the page says so. `setup` still reports the widget as added, because the tag is in the HTML. The widget needs three entries:
+
+   | Directive | Add | Why |
+   |---|---|---|
+   | `script-src` | `https://cdn.patchstack.com` | Loads the widget script. |
+   | `connect-src` | `https://api.patchstack.com` | Lets the widget talk to Patchstack. |
+   | `style-src` | `'unsafe-inline'` | The widget adds its styles as a `<style>` element. |
+
+   A content blocker has the same effect as a missing entry. Both show up as an error in the console on the live page.
 
 </Steps>
 
