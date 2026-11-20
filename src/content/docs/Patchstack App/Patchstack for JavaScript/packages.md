@@ -63,6 +63,8 @@ Upgrading the package is the fix. Patchstack shows the version that resolves the
 
 **The upgrade is made in your own project, not from Patchstack.** Patchstack reads your dependency manifest; it does not write to your repository or trigger builds on the platform your app was built with. Change the version where your project lives — your repository, or your AI builder's own package view — and redeploy. The next build's manifest is what clears the finding here.
 
+**Let your AI assistant make the change.** Open a vulnerability from the app's own page and select **Copy fix prompt for your AI assistant**, then paste the prompt into the assistant that builds your app (Lovable, Bolt, v0, Claude Code and so on). When a fixed version exists, the prompt asks the assistant to update that package in place to it, without swapping it for a different library, and to check that the app still builds; you republish when you are ready. When no fixed version has been released, the prompt asks the assistant where the package is used and whether it could be removed or replaced, and to change nothing until you answer.
+
 ## Why a package can appear twice
 
 npm allows the same package to be installed at more than one version at once, when two dependencies need incompatible versions. When that happens the package appears once per installed version, because the vulnerability status of each version is genuinely different.
