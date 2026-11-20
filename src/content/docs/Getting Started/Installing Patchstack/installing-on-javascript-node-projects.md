@@ -20,7 +20,7 @@ Both run the same `setup` command and end with a link to your site's dashboard.
 
 ## Install with an AI assistant
 
-1. In the Patchstack App, go to **Sites → Add new → AI-assisted**.
+1. In the Patchstack App, go to **Sites**, click **Add site**, and select **AI-built** from the platform list.
 2. Tick **Connect this website to my account automatically** if you want the site to appear in your account without a further step.
 3. Copy the message the app shows and paste it into your assistant's chat.
 4. Wait for the assistant to finish. It shows the summary `setup` printed, including your dashboard link.
@@ -68,7 +68,7 @@ npx @patchstack/connect setup --widget
 
 No signup or site ID is needed first. `setup` adds the package with the project's own package manager, creates the site in Patchstack and prints a dashboard link.
 
-- **To connect the site to your account in the same step,** add `--claim-token <token>` with the token from the app's AI-assisted message.
+- **To connect the site to your account in the same step,** add `--claim-token <token>` with the token from the app's AI-built message.
 - **In a hosted builder's workspace** (Lovable, Replit and similar), put `PATCHSTACK_ENVIRONMENT=sandbox` in front of the command, as the prompt above does. On your own machine, leave it out.
 - **If you install the package yourself first,** use the package manager that owns the lockfile, and add it to `dependencies`, not `devDependencies`. The runtime guard is loaded by your running app, so a deployment that removes development dependencies would lose it.
 
