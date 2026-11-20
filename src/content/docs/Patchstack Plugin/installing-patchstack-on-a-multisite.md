@@ -19,7 +19,7 @@ Here are the steps to take to install Patchstack on your multisite network.
 ## Step #1 — Adding the site to Patchstack App
 
 To install Patchstack on the multisite network, the easiest way is to do it via the Patchstack App.
-1. Navigate to <a href="https://app.patchstack.com/sites" target="_blank">Sites</a> on the Patchstack App and click on **+ Add new** (at the top bar).
+1. Navigate to <a href="https://app.patchstack.com/sites" target="_blank">Sites</a> on the Patchstack App and click on **Add site** (at the top bar).
 2. Type in your domain and click **Continue to plugin sync**
 3. You are then shown a popup like this: ![](@images/patchstack-checking-sync-status.png)
 4. Click on **Or sync manually** link and copy the API key
