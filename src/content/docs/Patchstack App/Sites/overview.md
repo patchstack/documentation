@@ -85,7 +85,7 @@ Both can be on at once, in which case you get the sites that are both. The switc
 
 ## Adding a new site
 
-To add a new site, click on **+ Add new** and follow the instructions. You can also see a tutorial of adding a new site [in this article](/patchstack-app/sites/adding-a-site/).
+To add a new site, click on **Add site** and follow the instructions. You can also see a tutorial of adding a new site [in this article](/patchstack-app/sites/adding-a-site/).
 
 ## Removing a site
 

@@ -20,7 +20,7 @@ Turning the firewall (and Advanced Hardening) off does not clear your per-site H
 
 ## Per-site settings apply independently
 
-Hardening and security-header settings are stored per site. Changing them on one site does not change them on another, and there is no single switch that turns off every site's per-site hardening at once. If you disable a higher-level toggle and still see headers or `.htaccess` rules on a site, open that site's own **Hardening** tab: the per-site setting is still on and applying independently.
+On separate WordPress installations, hardening and security-header settings belong to each site. Disabling the firewall does not clear those settings. On WordPress multisite, runtime headers remain per-site, while `.htaccess` rule selection and shared-file changes use network settings. Review the [multisite guide](/patchstack-plugin/installing-patchstack-on-a-multisite/) before changing shared configuration.
 
 ## Where security headers live: `.htaccess` vs the HTTP response
 

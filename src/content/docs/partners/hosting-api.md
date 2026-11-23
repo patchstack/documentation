@@ -477,3 +477,62 @@ JSON response example can be found below.
     "software_vulnerable": 1
 }
 ```
+
+#### POST /site/search
+
+Find your sites by URL, by user, or both. Only sites that were created with your HostToken are returned.
+
+**Request Data**  
+url → required without userid|string → The site URL or its host name, for example <https://www.domain.com> or domain.com. The match is on the exact host name. The scheme and path are ignored, and www.domain.com and domain.com match each other. Part of a host name (for example "domain") does not match.  
+userid → required without url|integer → Return the sites of this user.  
+after_id → optional|integer → Return sites with an ID above this value. Sending it turns paging on.  
+per_page → optional|integer → Sites per page, 1 to 1000. Default 100. Sending it turns paging on.
+
+When both url and userid are sent, sites that match either one are returned.
+
+**Response Data**  
+**HTTP 401**  
+error → The HostToken header is missing or not valid.  
+**HTTP 422**  
+errors → Neither url nor userid was sent, or a paging value is out of range.  
+**HTTP 200, without after_id and per_page**  
+A list of sites, ordered by site ID. A site that has no API credentials is returned as null.
+
+```json
+[
+    {
+        "siteid": 315,
+        "url": "https://www.domain.com",
+        "userid": 42,
+        "api": {
+            "id": 901,
+            "secret": "c2VjcmV0",
+            "formatted": "c2VjcmV0-901"
+        }
+    }
+]
+```
+
+**HTTP 200, with after_id or per_page**  
+sites → One page of sites, ordered by site ID. Sites without API credentials are left out.  
+next_after_id → Send this value as after_id to get the next page. It is null on the last page.
+
+```json
+{
+    "sites": [
+        {
+            "siteid": 315,
+            "url": "https://www.domain.com",
+            "userid": 42,
+            "api": {
+                "id": 901,
+                "secret": "c2VjcmV0",
+                "formatted": "c2VjcmV0-901"
+            }
+        }
+    ],
+    "next_after_id": 315
+}
+```
+
+To read every site of a user, start with after_id 0 and repeat the call with the returned next_after_id until it is null.

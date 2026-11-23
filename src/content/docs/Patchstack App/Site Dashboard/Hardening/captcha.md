@@ -4,7 +4,7 @@ title: "Captcha"
 excerpt: ""
 hidden: false
 createdAt: "Thu Jan 18 2024 12:20:27 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Thu Jan 18 2024 13:24:28 GMT+0000 (Coordinated Universal Time)"
+updatedAt: "Thu Nov 12 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 sidebar:
   order: 3.33
 ---
@@ -30,12 +30,35 @@ Our captcha can be used on the WordPress built-in forms as well as WooCommerce f
 * Registration form
 * Password reset form
 
-In addition, captcha is supported on WooCommerce forms.
+In addition, CAPTCHA is supported on WooCommerce login, registration and lost-password forms. On multisite, the registration setting also covers the public `wp-signup.php` signup flow.
+
+These settings apply to the supported forms when they are submitted. They do not add CAPTCHA to XML-RPC, REST authentication or another plugin's custom form. Use the separate XML-RPC, login-ban and 2FA controls for those paths as appropriate.
+
+For reCAPTCHA v3, the response must be successful, have the expected `submit` action and meet the default score threshold of **0.5**. A site integration can adjust the score threshold through the `patchstack_recaptcha_v3_threshold` WordPress filter.
+
+### Configure the reCAPTCHA v3 score threshold
+
+To use a minimum score of `0.7`, add this PHP code to a must-use plugin, normally `wp-content/mu-plugins/patchstack-customizations.php`:
+
+```php
+<?php
+add_filter( 'patchstack_recaptcha_v3_threshold', function ( $threshold ) {
+    return 0.7;
+} );
+```
+
+The default is `0.5`. Return a number between `0` and `1`; higher values are stricter and can reject more legitimate submissions. This applies to reCAPTCHA v3 only. See [WP filters](/patchstack-plugin/wp-filters/#recaptcha-v3-threshold) for code placement on custom layouts and the other configuration hooks.
 
 **NB!** Patchstack does not offer captcha integrations for other third-party plugins or themes (eg. Contact Form 7).
 
 To activate captcha on your site, you will have to generate a public key and secret key first.
 The tutorials for creating captcha keys and integrating them with Patchstack can be found below.
+
+## Coverage boundaries
+
+CAPTCHA is a check on the supported forms above, not a general request throttle. XML-RPC, REST/API logins, application-password authentication, custom third-party forms and programmatic account creation do not gain a Patchstack CAPTCHA merely because a CAPTCHA option is on. This is intentional compatibility behavior.
+
+The 2FA code throttle and optional login IP ban have separate coverage. See [supported authentication paths and security reports](/patchstack-app/site-dashboard/hardening/app-hardening-login-protection/#supported-authentication-paths) for the complete distinction.
 
 ## Setting up Google reCAPTCHA
 
