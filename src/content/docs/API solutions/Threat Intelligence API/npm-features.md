@@ -38,6 +38,7 @@ The previous base URL `https://vdp-api.patchstack.com/database/api/beta/` remain
 | `?updated_since=` | `/all` in cursor mode — only entries changed since a unix time. See [Incremental sync](#incremental-sync). |
 | `product.type` | Every record. The product kind in lower case: `plugin`, `theme`, `wordpress` (core) or `npm`. |
 | `?include=details` | List endpoints — adds an `advisory_details` markdown field to each item (npm). |
+| `mitigation_available` | Every record. `true` when Patchstack has a mitigation rule deployed for the vulnerability. |
 | Nested response shape | All list endpoints — `product`, `cvss`, `cwe`, `version_info` objects in place of the v2 flat shape. |
 
 The full npm-features schema (every endpoint, parameter, response example) lives in the [auto-generated reference](/api-reference/threat-intelligence-npm/).

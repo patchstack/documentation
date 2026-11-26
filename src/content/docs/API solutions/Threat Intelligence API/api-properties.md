@@ -42,6 +42,7 @@ This is JSON example for 1 plugin, 1 theme and 1 WordPress core vulnerability.
             "cve": [],
       			"is_exploited": false,
       			"patch_priority": 3,
+            "mitigation_available": true,
             "affected_in": "<= 3.6.10",
             "fixed_in": "3.6.11",
             "patched_in_ranges": [
@@ -303,6 +304,9 @@ This is JSON example for 1 plugin, 1 theme and 1 WordPress core vulnerability.
     - 1 = Low → patch within 30 days
     - 2 = Medium → patch within 7 days
     - 3 or higher = High → patch immediately
+- **mitigation_available → boolean**
+  - Whether Patchstack has a mitigation rule deployed for the vulnerability. `true` means the rule is live and protects sites against this vulnerability; `false` means there is no rule yet, or the rule was withdrawn.
+  - Returned to enterprise tokens only, on both `patchstack.com/database/api/` and `vdp-api.patchstack.com/database/api/`.
 
 ## Implementation
 

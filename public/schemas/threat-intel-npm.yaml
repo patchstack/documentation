@@ -503,6 +503,10 @@ components:
           minimum: 1
           maximum: 3
           description: 1 (low) to 3 (high).
+        mitigation_available:
+          type: boolean
+          description: Whether Patchstack has a mitigation rule deployed for this vulnerability. `false` means there is no rule yet, or the rule was withdrawn. Returned to enterprise tokens only.
+          example: false
         advisory_details:
           type: string
           description: Full advisory body (markdown). Only present when `?include=details` was passed.

@@ -30,7 +30,7 @@ This page covers the concepts you need to use the API effectively — authentica
 | `POST /batch` | Bulk lookup — up to 50 products per request. |
 | `GET /vulnerability/{id}` | Advisory detail (CVSS vector, OWASP, references, credit). |
 
-Each per-item payload includes `description`, `vuln_type`, `cvss_score`, `cve`, `is_exploited`, `patch_priority`, `affected_in`, and `patched_in_ranges`. See [API properties](/api-solutions/threat-intelligence-api/api-properties/) for full field definitions.
+Each per-item payload includes `description`, `vuln_type`, `cvss_score`, `cve`, `is_exploited`, `patch_priority`, `affected_in`, and `patched_in_ranges`. Enterprise tokens also get `mitigation_available`, which says whether a mitigation rule is deployed for the vulnerability; `GET /vulnerability/{id}` returns it on the `vulnerability` object. See [API properties](/api-solutions/threat-intelligence-api/api-properties/) for full field definitions.
 
 ## Base URL
 

@@ -344,8 +344,8 @@ components:
       description: |
         Flat per-item shape returned by the Extended tier. Superset of the
         Standard shape — adds `description`, `vuln_type`, `cvss_score`, `cve`,
-        `is_exploited`, `patch_priority`, `affected_in`, and
-        `patched_in_ranges`.
+        `is_exploited`, `patch_priority`, `affected_in`,
+        `patched_in_ranges`, and `mitigation_available`.
       required:
         - id
         - product_id
@@ -435,6 +435,10 @@ components:
           type: boolean
           description: Whether exploitation has been observed in the wild.
           example: false
+        mitigation_available:
+          type: boolean
+          description: Whether Patchstack has a mitigation rule deployed for this vulnerability. `false` means there is no rule yet, or the rule was withdrawn. Returned to enterprise tokens only.
+          example: true
         patch_priority:
           type: integer
           nullable: true
@@ -535,6 +539,10 @@ components:
               example: "2021-09-28T14:17:02+00:00"
             is_exploited:
               type: boolean
+              example: true
+            mitigation_available:
+              type: boolean
+              description: Whether Patchstack has a mitigation rule deployed for this vulnerability. `false` means there is no rule yet, or the rule was withdrawn. Returned to enterprise tokens only.
               example: true
             url:
               type: string
