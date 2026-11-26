@@ -90,6 +90,8 @@ If you would rather Claude Code ran the Connect commands itself — for example 
 
 Add the rule yourself. Claude Code will usually decline to edit its own permissions to get past a check that has just stopped it.
 
+The rule matches the command text as written, so it only covers a command that starts with `npx @patchstack/connect`. A command with `PATCHSTACK_ENVIRONMENT=sandbox` in front of it is not covered. That label is for online builders; on your own machine choose **On my computer** when you copy the message in the Patchstack App, and the command in it starts with `npx`.
+
 ## In other assistants and site builders
 
 Codex, OpenCode, Gemini CLI, Cursor and the rest each have their own approval settings, but the fix is the same: run the blocked command yourself from the project folder, then tell the assistant it has been run.
@@ -103,6 +105,10 @@ Codex, OpenCode, Gemini CLI, Cursor and the rest each have their own approval se
 </Steps>
 
 Site builders such as Lovable, GoDaddy Airo and Hostinger Horizons do not always give you a terminal. If yours has none and the assistant cannot run the install, ask it to name the exact step it cannot perform — the [builder context](/getting-started/installing-patchstack/troubleshooting-javascript-node-projects/#tell-your-builder-what-project-this-is) snippets help with that.
+
+## The install stops at `ENOTFOUND registry.npmjs.org`
+
+That error comes from npm, before Patchstack is downloaded: the assistant's workspace cannot reach the npm registry. Some coding tools run commands in a sandbox with network access off. Run `npm ping` to check. In Codex CLI, set `network_access = true` under `[sandbox_workspace_write]` in `~/.codex/config.toml`, or approve the install to run outside the sandbox when Codex asks. Behind a company proxy or registry mirror, check `npm config get registry` in the same shell. Then run the install again.
 
 ## Still stuck?
 
